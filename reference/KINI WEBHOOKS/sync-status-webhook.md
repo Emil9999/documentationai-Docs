@@ -17,7 +17,7 @@ next:
 
 The following payload will be sent to your configured webhook URL:
 
-```
+```json
 {
     "company_id": 123,
     "partner_id": 10,
