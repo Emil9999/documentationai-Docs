@@ -26,8 +26,8 @@ To interact with the Kini API, you need to authenticate using **JWT (JSON Web To
 
 The Kini API provides robust tools for managing jobs, candidates, and applications. Explore the following guides to learn more about specific features:
 
-- [Jobs API](./jobs_list): Manage job postings, including creation, updates, and synchronization.
-- [Applications API](./applications_list): Track application statuses and submit new candidates for jobs.
+* [Jobs API](./jobs_list): Manage job postings, including creation, updates, and synchronization.
+* [Applications API](./applications_list): Track application statuses and submit new candidates for jobs.
 
 ***
 
@@ -35,9 +35,9 @@ The Kini API provides robust tools for managing jobs, candidates, and applicatio
 
 Make the most of the Kini API by following these best practices:
 
-- **Secure Tokens**: Keep access and refresh tokens secure. Rotate tokens regularly as described in the [Authentication Guide](./authentication).
-- **Use Pagination**: Optimize data handling by enabling pagination. See the [Pagination Guide](./pagination) for details.
-- **Handle Errors Gracefully**: Refer to the [Error Handling Guide](./errors) for common scenarios and troubleshooting steps.
+* **Secure Tokens**: Keep access and refresh tokens secure. Rotate tokens regularly as described in the [Authentication Guide](./authentication).
+* **Use Pagination**: Optimize data handling by enabling pagination. See the [Pagination Guide](./pagination) for details.
+* **Handle Errors Gracefully**: Refer to the [Error Handling Guide](./errors) for common scenarios and troubleshooting steps.
 
 ***
 
@@ -45,8 +45,8 @@ Make the most of the Kini API by following these best practices:
 
 If you have questions or need assistance:
 
-- Email us at [support@getkini.com](mailto:support@getkini.com).
-- Explore our [Documentation Hub](./) for detailed guides and references.
+* Email us at [support@getkini.com](mailto:support@getkini.com).
+* Explore our [Documentation Hub](./) for detailed guides and references.
 
 ***
 
