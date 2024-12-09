@@ -58,7 +58,7 @@ Authentication is handled via an API key sent in the request header.
 
 **Example Header**
 
-```curl cURL
+```text cURL
 Authorization: Bearer <API_KEY>
 ```
 
@@ -72,7 +72,7 @@ Please provide us with your desired Webhook URL so we can configure it in our sy
 
 **Example URL**
 
-```curl
+```text
 https://your-domain.com/kini-status
 ```
 
