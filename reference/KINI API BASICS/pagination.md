@@ -15,7 +15,7 @@ next:
   description: ''
 ---
 > 🚧 Important: Upcoming Pagination Changes
-> 
+>
 > Starting 01 January, the Kini API will exclusively support paginated responses for the **GET /jobs** and **GET /candidates** endpoints. To prepare for this change, you can enable pagination now by including the parameter `pagination=true` in your requests.
 
 ## How Pagination Works
@@ -78,13 +78,13 @@ Each paginated response includes metadata to help you navigate through the datas
 
 ## Best Practices
 
-1. **Set a Reasonable Limit:**  
+1. **Set a Reasonable Limit:**\
    Use the limit parameter to control the number of records per request and avoid using the maximum limit unless necessary to reduce response size and improve performance.
-2. **Use `next` and `previous` URLs**  
+2. **Use`next` and `previous` URLs**\
    Rely on the next and previous fields from the response for seamless navigation between pages.
-3. **Handle Empty Pages Gracefully**  
+3. **Handle Empty Pages Gracefully**\
    Check if the results array is empty to identify when there are no more records to process.
-4. **Combine Pagination with Filters**  
+4. **Combine Pagination with Filters**\
    Use filters in combination with pagination to narrow down the dataset and reduce the total number of pages.
 
 ***
