@@ -45,10 +45,10 @@ The following payload will be sent to your configured webhook URL:
 
 The `status` field can have the following values:
 
-* SUCCESS: The application was synchronized successfully.
-* FAILURE: An error occurred during synchronization. Failure details are provided in the field `failure_error`.
-* NOTSENT: Synchronization hasn't been set to the ATS or is still in progress.
-* EXPECTED\_FAILURE: Synchronization failed due to an expected error, such as `DuplicateApplicationError`, `JobNotPublishedError`
+* **SUCCESS**: The application was synchronized successfully.
+* **FAILURE**: An error occurred during synchronization. Failure details are provided in the field `failure_error`.
+* **NOTSENT**: Synchronization hasn't been set to the ATS or is still in progress.
+* **EXPECTED\_FAILURE**: Synchronization failed due to an expected error, such as `DuplicateApplicationError`, `JobNotPublishedError`
 
 <br />
 
