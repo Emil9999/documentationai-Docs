@@ -1444,7 +1444,7 @@
                           },
                           "category": {
                             "type": ["string"],
-                            "description": "Category of the job"
+                            "description": "Category of the job, e.g. 'Sales'"
                           },
                           "employment_type": {
                             "type": ["string"],
@@ -1861,7 +1861,7 @@
                   },
                   "category": {
                     "type": ["string"],
-                    "description": "Category of the job"
+                    "description": "Category of the job, e.g. 'Sales'"
                   },
                   "employment_type": {
                     "type": ["string"],
@@ -2055,7 +2055,7 @@
                   },
                   "category": {
                     "type": ["string"],
-                    "description": "Category of the job"
+                    "description": "Category of the job, e.g. 'Sales'"
                   },
                   "employment_type": {
                     "type": ["string"],
@@ -2256,7 +2256,7 @@
                     },
                     "category": {
                       "type": ["string"],
-                      "description": "Category of the job"
+                      "description": "Category of the job, e.g. 'Sales'"
                     },
                     "employment_type": {
                       "type": ["string"],
@@ -2480,7 +2480,7 @@
                     },
                     "category": {
                       "type": ["string"],
-                      "description": "Category of the job"
+                      "description": "Category of the job, e.g. 'Sales'"
                     },
                     "employment_type": {
                       "type": ["string"],
@@ -3573,7 +3573,7 @@
           },
           "category": {
             "type": ["string"],
-            "description": "Category of the job"
+            "description": "Category of the job, e.g. 'Sales'"
           },
           "employment_type": {
             "type": ["string"],
@@ -3764,7 +3764,7 @@
           },
           "category": {
             "type": ["string"],
-            "description": "Category of the job"
+            "description": "Category of the job, e.g. 'Sales'"
           },
           "employment_type": {
             "type": ["string"],
@@ -4219,7 +4219,7 @@
                 },
                 "category": {
                   "type": ["string"],
-                  "description": "Category of the job"
+                  "description": "Category of the job, e.g. 'Sales'"
                 },
                 "employment_type": {
                   "type": ["string"],
