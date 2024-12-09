@@ -71,18 +71,18 @@ Use the `POST /token/refresh/` endpoint to refresh an expired access token and o
 
 ## Token Validity
 
-- **Access Tokens**: Valid for **5 minutes**. These are used to authenticate API requests.
-- **Refresh Tokens**: Valid for **24 hours**. These are used to obtain new access and refresh tokens  without requiring username and password authentication. Each refresh request generates a new refresh token, enhancing security through token rotation.
+* **Access Tokens**: Valid for **5 minutes**. These are used to authenticate API requests.
+* **Refresh Tokens**: Valid for **24 hours**. These are used to obtain new access and refresh tokens  without requiring username and password authentication. Each refresh request generates a new refresh token, enhancing security through token rotation.
 
 ***
 
 ## Best Practices
 
-1. **Store Tokens Securely:**  
+1. **Store Tokens Securely:**\
    Store tokens in encrypted storage and avoid exposing them in client-side code or log
-2. **Use Token Rotation:**  
+2. **Use Token Rotation:**\
    Always replace the old refresh token with the new one returned from `/token/refresh/` to minimize security risks.
-3. **Handle Token Expiration:**  
+3. **Handle Token Expiration:**\
    Monitor API responses for expiration errors (HTTP 401) and use the `/token/refresh/` endpoint to refresh tokens before expiration.
-4. **Reauthenticate When Necessary:**  
+4. **Reauthenticate When Necessary:**\
    If both the access and refresh tokens expire, reauthenticate using the `/token/` endpoint with your username and password.
