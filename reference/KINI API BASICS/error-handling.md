@@ -83,15 +83,15 @@ All error responses from the Kini API follow a standard format for consistency a
 
 ## Best Practices for Error Handling
 
-1. **Log Errors:**  
+1. **Log Errors:**\
    Log error responses in your application for debugging and monitoring.
-2. **Implement Retry Logic:**  
+2. **Implement Retry Logic:**\
    For 429 and 5xx errors, implement retry logic with exponential backoff.
-3. **Validate Requests:**  
+3. **Validate Requests:**\
    Ensure all required fields are included and conform to the API schema before making a request.
-4. **Handle Token Expiry:**  
+4. **Handle Token Expiry:**\
    Monitor for 401 Unauthorized responses and use the **/token/refresh/** endpoint to obtain a new access token.
-5. **Monitor API Limits:**  
+5. **Monitor API Limits:**\
    Keep track of your API usage to avoid rate limiting errors (429 Too Many Requests).
 
 ***
