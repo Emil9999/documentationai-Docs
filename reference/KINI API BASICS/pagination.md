@@ -16,7 +16,7 @@ next:
 ---
 > 🚧 Important: Upcoming Pagination Changes
 >
-> Starting 01 January, the Kini API will exclusively support paginated responses for the **GET /jobs** and **GET /candidates** endpoints. To prepare for this change, you can enable pagination now by including the parameter `pagination=true` in your requests.
+> Starting 15 January, the Kini API will exclusively support paginated responses for the **GET /jobs** and **GET /candidates** endpoints. To prepare for this change, you can enable pagination now by including the parameter `pagination=true` in your requests.
 
 ## How Pagination Works
 
