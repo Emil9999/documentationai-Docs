@@ -60,6 +60,12 @@ The following parameters can be used to filter results across different endpoint
 | `candidate_sync_active` | Filters companies by candidate synchronization status (`true`/`false`) | Exact match                 | `/companies?candidate_sync_active=true` |
 | `job_sync_active`       | Filters companies by job synchronization status (`true`/`false`)       | Exact match                 | `/companies?job_sync_active=false`      |
 
+### Explanation of Filter Types:
+
+* **Exact match**: The filter will return results that match the parameter value exactly.
+* **Contains (case-insensitive)**: The filter matches partial values, regardless of case (e.g., title=developer will match "Software Developer").
+* **Greater than or equal**: Filters results where the value is greater than or equal to the provided value, typically used with date fields.
+
 ## Example Requests
 
 1. **Filter Jobs by Status and Location**\
