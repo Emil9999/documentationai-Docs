@@ -65,7 +65,7 @@ The following parameters can be used to filter results across different endpoint
 1. **Filter Jobs by Status and Location**\
    Retrieve all active jobs located in Berlin:
    ```
-   GET /jobs?status=active\&location=Berlin
+   GET /jobs?status=active&location=Berlin
    ```
 2. **Filter Candidates by Creation Date**\
    Retrieve candidates created after January 1, 2024:
