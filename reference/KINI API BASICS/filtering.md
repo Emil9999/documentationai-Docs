@@ -82,7 +82,7 @@ Filtered requests return the same response format as paginated requests, with me
 ```json
 {
   "count": 125,
-  "next": "https://api.getkini.com/jobs?status=active&page=1limit=20",
+  "next": "https://api.getkini.com/jobs?status=active&page=1&limit=20",
   "previous": null,
   "results": [
     {
