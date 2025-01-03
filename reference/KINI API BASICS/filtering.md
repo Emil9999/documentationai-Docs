@@ -55,7 +55,7 @@ The following parameters can be used to filter results across different endpoint
 
 | Parameter               | Description                                                            | Filter Type                 | Example Usage                           |
 | :---------------------- | :--------------------------------------------------------------------- | :-------------------------- | :-------------------------------------- |
-| `name`                  | Filters companies by their name                                        | Contains (case-insensitive) | `/companies?name=Company1`              |
+| `name`                  | Filters companies by their name                                        | Contains (case-insensitive) | `/companies?name=Acme`                  |
 | `ats`                   | Filters companies by their applicant tracking system (ATS)             | Exact match                 | `/companies?ats=personio`               |
 | `candidate_sync_active` | Filters companies by candidate synchronization status (`true`/`false`) | Exact match                 | `/companies?candidate_sync_active=true` |
 | `job_sync_active`       | Filters companies by job synchronization status (`true`/`false`)       | Exact match                 | `/companies?job_sync_active=false`      |
