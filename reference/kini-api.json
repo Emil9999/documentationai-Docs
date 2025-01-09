@@ -169,8 +169,14 @@
                             "items": {
                               "type": "object",
                               "properties": {
-                                "id": { "type": "string" },
-                                "question": { "type": "string" },
+                                "id": {
+                                  "type": "string",
+                                  "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
+                                },
+                                "question": {
+                                  "type": "string",
+                                  "description": "Question of the screening question"
+                                },
                                 "answer_type": {
                                   "enum": [
                                     "boolean",
@@ -180,10 +186,13 @@
                                     "multiselect"
                                   ],
                                   "type": "string",
-                                  "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                                  "description": "Answer type of the screening question",
                                   "x-spec-enum-id": "82857413e8e5153a"
                                 },
-                                "answer": {}
+                                "answer": {
+                                  "type": "string",
+                                  "description": "Answer of the screening question"
+                                }
                               },
                               "required": [
                                 "answer",
@@ -370,12 +379,7 @@
                         "description": "Applicant's Full Name"
                       },
                       "gender": {
-                        "enum": [
-                          "MALE",
-                          "FEMALE",
-                          "DIVERSE",
-                          "NOT_SPECIFIED"
-                        ],
+                        "enum": ["MALE", "FEMALE", "DIVERSE", "NOT_SPECIFIED"],
                         "type": ["string"],
                         "x-spec-enum-id": "43015059ee486444",
                         "description": "Applicant's Gender\n\n* `MALE` - Male\n* `FEMALE` - Female\n* `DIVERSE` - Diverse\n* `NOT_SPECIFIED` - Not Specified"
@@ -426,8 +430,16 @@
                     "items": {
                       "type": "object",
                       "properties": {
-                        "id": { "type": "string", "minLength": 1 },
-                        "question": { "type": "string", "minLength": 1 },
+                        "id": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
+                        },
+                        "question": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "Question of the screening question"
+                        },
                         "answer_type": {
                           "enum": [
                             "boolean",
@@ -437,10 +449,13 @@
                             "multiselect"
                           ],
                           "type": "string",
-                          "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                          "description": "Answer type of the screening question",
                           "x-spec-enum-id": "82857413e8e5153a"
                         },
-                        "answer": {}
+                        "answer": {
+                          "type": "string",
+                          "description": "Answer of the screening question"
+                        }
                       },
                       "required": ["answer", "answer_type", "id", "question"],
                       "x-readme-ref-name": "ApplicationScreeningQuestionRequest"
@@ -561,12 +576,7 @@
                         "description": "Applicant's Full Name"
                       },
                       "gender": {
-                        "enum": [
-                          "MALE",
-                          "FEMALE",
-                          "DIVERSE",
-                          "NOT_SPECIFIED"
-                        ],
+                        "enum": ["MALE", "FEMALE", "DIVERSE", "NOT_SPECIFIED"],
                         "type": ["string"],
                         "x-spec-enum-id": "43015059ee486444",
                         "description": "Applicant's Gender\n\n* `MALE` - Male\n* `FEMALE` - Female\n* `DIVERSE` - Diverse\n* `NOT_SPECIFIED` - Not Specified"
@@ -617,8 +627,16 @@
                     "items": {
                       "type": "object",
                       "properties": {
-                        "id": { "type": "string", "minLength": 1 },
-                        "question": { "type": "string", "minLength": 1 },
+                        "id": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
+                        },
+                        "question": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "Question of the screening question"
+                        },
                         "answer_type": {
                           "enum": [
                             "boolean",
@@ -628,10 +646,13 @@
                             "multiselect"
                           ],
                           "type": "string",
-                          "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                          "description": "Answer type of the screening question",
                           "x-spec-enum-id": "82857413e8e5153a"
                         },
-                        "answer": {}
+                        "answer": {
+                          "type": "string",
+                          "description": "Answer of the screening question"
+                        }
                       },
                       "required": ["answer", "answer_type", "id", "question"],
                       "x-readme-ref-name": "ApplicationScreeningQuestionRequest"
@@ -752,12 +773,7 @@
                         "description": "Applicant's Full Name"
                       },
                       "gender": {
-                        "enum": [
-                          "MALE",
-                          "FEMALE",
-                          "DIVERSE",
-                          "NOT_SPECIFIED"
-                        ],
+                        "enum": ["MALE", "FEMALE", "DIVERSE", "NOT_SPECIFIED"],
                         "type": ["string"],
                         "x-spec-enum-id": "43015059ee486444",
                         "description": "Applicant's Gender\n\n* `MALE` - Male\n* `FEMALE` - Female\n* `DIVERSE` - Diverse\n* `NOT_SPECIFIED` - Not Specified"
@@ -808,8 +824,16 @@
                     "items": {
                       "type": "object",
                       "properties": {
-                        "id": { "type": "string", "minLength": 1 },
-                        "question": { "type": "string", "minLength": 1 },
+                        "id": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
+                        },
+                        "question": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "Question of the screening question"
+                        },
                         "answer_type": {
                           "enum": [
                             "boolean",
@@ -819,10 +843,13 @@
                             "multiselect"
                           ],
                           "type": "string",
-                          "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                          "description": "Answer type of the screening question",
                           "x-spec-enum-id": "82857413e8e5153a"
                         },
-                        "answer": {}
+                        "answer": {
+                          "type": "string",
+                          "description": "Answer of the screening question"
+                        }
                       },
                       "required": ["answer", "answer_type", "id", "question"],
                       "x-readme-ref-name": "ApplicationScreeningQuestionRequest"
@@ -1004,8 +1031,14 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "id": { "type": "string" },
-                          "question": { "type": "string" },
+                          "id": {
+                            "type": "string",
+                            "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
+                          },
+                          "question": {
+                            "type": "string",
+                            "description": "Question of the screening question"
+                          },
                           "answer_type": {
                             "enum": [
                               "boolean",
@@ -1015,10 +1048,13 @@
                               "multiselect"
                             ],
                             "type": "string",
-                            "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                            "description": "Answer type of the screening question",
                             "x-spec-enum-id": "82857413e8e5153a"
                           },
-                          "answer": {}
+                          "answer": {
+                            "type": "string",
+                            "description": "Answer of the screening question"
+                          }
                         },
                         "required": ["answer", "answer_type", "id", "question"],
                         "x-readme-ref-name": "ApplicationScreeningQuestion"
@@ -1241,8 +1277,14 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "id": { "type": "string" },
-                          "question": { "type": "string" },
+                          "id": {
+                            "type": "string",
+                            "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
+                          },
+                          "question": {
+                            "type": "string",
+                            "description": "Question of the screening question"
+                          },
                           "answer_type": {
                             "enum": [
                               "boolean",
@@ -1252,10 +1294,13 @@
                               "multiselect"
                             ],
                             "type": "string",
-                            "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                            "description": "Answer type of the screening question",
                             "x-spec-enum-id": "82857413e8e5153a"
                           },
-                          "answer": {}
+                          "answer": {
+                            "type": "string",
+                            "description": "Answer of the screening question"
+                          }
                         },
                         "required": ["answer", "answer_type", "id", "question"],
                         "x-readme-ref-name": "ApplicationScreeningQuestion"
@@ -1540,8 +1585,14 @@
                             "items": {
                               "type": "object",
                               "properties": {
-                                "id": { "type": "string" },
-                                "question": { "type": "string" },
+                                "id": {
+                                  "type": "string",
+                                  "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
+                                },
+                                "question": {
+                                  "type": "string",
+                                  "description": "Question of the screening question"
+                                },
                                 "answer_type": {
                                   "enum": [
                                     "boolean",
@@ -1551,17 +1602,26 @@
                                     "multiselect"
                                   ],
                                   "type": "string",
-                                  "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                                  "description": "Answer type of the screening question",
                                   "x-spec-enum-id": "82857413e8e5153a"
                                 },
-                                "required": { "type": "boolean" },
+                                "required": {
+                                  "type": "boolean",
+                                  "description": "Whether the screening question is required"
+                                },
                                 "options": {
                                   "type": "array",
                                   "items": {
                                     "type": "object",
                                     "properties": {
-                                      "label": { "type": "string" },
-                                      "value": { "type": "string" }
+                                      "label": {
+                                        "type": "string",
+                                        "description": "Label of the screening question option"
+                                      },
+                                      "value": {
+                                        "type": "string",
+                                        "description": "Value of the screening question option, must match the value of a screening question option in the company's ATS"
+                                      }
                                     },
                                     "required": ["label", "value"],
                                     "x-readme-ref-name": "ScreeningQuestionOption"
@@ -1763,8 +1823,16 @@
                     "items": {
                       "type": "object",
                       "properties": {
-                        "id": { "type": "string", "minLength": 1 },
-                        "question": { "type": "string", "minLength": 1 },
+                        "id": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
+                        },
+                        "question": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "Question of the screening question"
+                        },
                         "answer_type": {
                           "enum": [
                             "boolean",
@@ -1774,17 +1842,28 @@
                             "multiselect"
                           ],
                           "type": "string",
-                          "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                          "description": "Answer type of the screening question",
                           "x-spec-enum-id": "82857413e8e5153a"
                         },
-                        "required": { "type": "boolean" },
+                        "required": {
+                          "type": "boolean",
+                          "description": "Whether the screening question is required"
+                        },
                         "options": {
                           "type": "array",
                           "items": {
                             "type": "object",
                             "properties": {
-                              "label": { "type": "string", "minLength": 1 },
-                              "value": { "type": "string", "minLength": 1 }
+                              "label": {
+                                "type": "string",
+                                "minLength": 1,
+                                "description": "Label of the screening question option"
+                              },
+                              "value": {
+                                "type": "string",
+                                "minLength": 1,
+                                "description": "Value of the screening question option, must match the value of a screening question option in the company's ATS"
+                              }
                             },
                             "required": ["label", "value"],
                             "x-readme-ref-name": "ScreeningQuestionOptionRequest"
@@ -1957,8 +2036,16 @@
                     "items": {
                       "type": "object",
                       "properties": {
-                        "id": { "type": "string", "minLength": 1 },
-                        "question": { "type": "string", "minLength": 1 },
+                        "id": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
+                        },
+                        "question": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "Question of the screening question"
+                        },
                         "answer_type": {
                           "enum": [
                             "boolean",
@@ -1968,17 +2055,28 @@
                             "multiselect"
                           ],
                           "type": "string",
-                          "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                          "description": "Answer type of the screening question",
                           "x-spec-enum-id": "82857413e8e5153a"
                         },
-                        "required": { "type": "boolean" },
+                        "required": {
+                          "type": "boolean",
+                          "description": "Whether the screening question is required"
+                        },
                         "options": {
                           "type": "array",
                           "items": {
                             "type": "object",
                             "properties": {
-                              "label": { "type": "string", "minLength": 1 },
-                              "value": { "type": "string", "minLength": 1 }
+                              "label": {
+                                "type": "string",
+                                "minLength": 1,
+                                "description": "Label of the screening question option"
+                              },
+                              "value": {
+                                "type": "string",
+                                "minLength": 1,
+                                "description": "Value of the screening question option, must match the value of a screening question option in the company's ATS"
+                              }
                             },
                             "required": ["label", "value"],
                             "x-readme-ref-name": "ScreeningQuestionOptionRequest"
@@ -2151,8 +2249,16 @@
                     "items": {
                       "type": "object",
                       "properties": {
-                        "id": { "type": "string", "minLength": 1 },
-                        "question": { "type": "string", "minLength": 1 },
+                        "id": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
+                        },
+                        "question": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "Question of the screening question"
+                        },
                         "answer_type": {
                           "enum": [
                             "boolean",
@@ -2162,7 +2268,7 @@
                             "multiselect"
                           ],
                           "type": "string",
-                          "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                          "description": "Answer type of the screening question",
                           "x-spec-enum-id": "82857413e8e5153a"
                         },
                         "required": { "type": "boolean" },
@@ -2171,8 +2277,16 @@
                           "items": {
                             "type": "object",
                             "properties": {
-                              "label": { "type": "string", "minLength": 1 },
-                              "value": { "type": "string", "minLength": 1 }
+                              "label": {
+                                "type": "string",
+                                "minLength": 1,
+                                "description": "Label of the screening question option"
+                              },
+                              "value": {
+                                "type": "string",
+                                "minLength": 1,
+                                "description": "Value of the screening question option, must match the value of a screening question option in the company's ATS"
+                              }
                             },
                             "required": ["label", "value"],
                             "x-readme-ref-name": "ScreeningQuestionOptionRequest"
@@ -2352,8 +2466,14 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "id": { "type": "string" },
-                          "question": { "type": "string" },
+                          "id": {
+                            "type": "string",
+                            "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
+                          },
+                          "question": {
+                            "type": "string",
+                            "description": "Question of the screening question"
+                          },
                           "answer_type": {
                             "enum": [
                               "boolean",
@@ -2363,17 +2483,26 @@
                               "multiselect"
                             ],
                             "type": "string",
-                            "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                            "description": "Answer type of the screening question",
                             "x-spec-enum-id": "82857413e8e5153a"
                           },
-                          "required": { "type": "boolean" },
+                          "required": {
+                            "type": "boolean",
+                            "description": "Whether the screening question is required"
+                          },
                           "options": {
                             "type": "array",
                             "items": {
                               "type": "object",
                               "properties": {
-                                "label": { "type": "string" },
-                                "value": { "type": "string" }
+                                "label": {
+                                  "type": "string",
+                                  "description": "Label of the screening question option"
+                                },
+                                "value": {
+                                  "type": "string",
+                                  "description": "Value of the screening question option, must match the value of a screening question option in the company's ATS"
+                                }
                               },
                               "required": ["label", "value"],
                               "x-readme-ref-name": "ScreeningQuestionOption"
@@ -2576,8 +2705,14 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "id": { "type": "string" },
-                          "question": { "type": "string" },
+                          "id": {
+                            "type": "string",
+                            "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
+                          },
+                          "question": {
+                            "type": "string",
+                            "description": "Question of the screening question"
+                          },
                           "answer_type": {
                             "enum": [
                               "boolean",
@@ -2587,17 +2722,26 @@
                               "multiselect"
                             ],
                             "type": "string",
-                            "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                            "description": "Answer type of the screening question",
                             "x-spec-enum-id": "82857413e8e5153a"
                           },
-                          "required": { "type": "boolean" },
+                          "required": {
+                            "type": "boolean",
+                            "description": "Whether the screening question is required"
+                          },
                           "options": {
                             "type": "array",
                             "items": {
                               "type": "object",
                               "properties": {
-                                "label": { "type": "string" },
-                                "value": { "type": "string" }
+                                "label": {
+                                  "type": "string",
+                                  "description": "Label of the screening question option"
+                                },
+                                "value": {
+                                  "type": "string",
+                                  "description": "Value of the screening question option, must match the value of a screening question option in the company's ATS"
+                                }
                               },
                               "required": ["label", "value"],
                               "x-readme-ref-name": "ScreeningQuestionOption"
@@ -2982,12 +3126,7 @@
                 "description": "Applicant's Full Name"
               },
               "gender": {
-                "enum": [
-                  "MALE",
-                  "FEMALE",
-                  "DIVERSE",
-                  "NOT_SPECIFIED"
-                ],
+                "enum": ["MALE", "FEMALE", "DIVERSE", "NOT_SPECIFIED"],
                 "type": ["string"],
                 "x-spec-enum-id": "43015059ee486444",
                 "description": "Applicant's Gender\n\n* `MALE` - Male\n* `FEMALE` - Female\n* `DIVERSE` - Diverse\n* `NOT_SPECIFIED` - Not Specified"
@@ -3035,8 +3174,14 @@
             "items": {
               "type": "object",
               "properties": {
-                "id": { "type": "string" },
-                "question": { "type": "string" },
+                "id": {
+                  "type": "string",
+                  "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
+                },
+                "question": {
+                  "type": "string",
+                  "description": "Question of the screening question"
+                },
                 "answer_type": {
                   "enum": [
                     "boolean",
@@ -3046,10 +3191,13 @@
                     "multiselect"
                   ],
                   "type": "string",
-                  "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                  "description": "Answer type of the screening question",
                   "x-spec-enum-id": "82857413e8e5153a"
                 },
-                "answer": {}
+                "answer": {
+                  "type": "object",
+                  "description": "Answer of the screening question"
+                }
               },
               "required": ["answer", "answer_type", "id", "question"],
               "x-readme-ref-name": "ApplicationScreeningQuestion"
@@ -3186,12 +3334,7 @@
                 "description": "Applicant's Full Name"
               },
               "gender": {
-                "enum": [
-                  "MALE",
-                  "FEMALE",
-                  "DIVERSE",
-                  "NOT_SPECIFIED"
-                ],
+                "enum": ["MALE", "FEMALE", "DIVERSE", "NOT_SPECIFIED"],
                 "type": ["string"],
                 "x-spec-enum-id": "43015059ee486444",
                 "description": "Applicant's Gender\n\n* `MALE` - Male\n* `FEMALE` - Female\n* `DIVERSE` - Diverse\n* `NOT_SPECIFIED` - Not Specified"
@@ -3239,8 +3382,16 @@
             "items": {
               "type": "object",
               "properties": {
-                "id": { "type": "string", "minLength": 1 },
-                "question": { "type": "string", "minLength": 1 },
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
+                },
+                "question": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "Question of the screening question"
+                },
                 "answer_type": {
                   "enum": [
                     "boolean",
@@ -3250,10 +3401,13 @@
                     "multiselect"
                   ],
                   "type": "string",
-                  "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                  "description": "Answer type of the screening question",
                   "x-spec-enum-id": "82857413e8e5153a"
                 },
-                "answer": {}
+                "answer": {
+                  "type": "object",
+                  "description": "Answer of the screening question"
+                }
               },
               "required": ["answer", "answer_type", "id", "question"],
               "x-readme-ref-name": "ApplicationScreeningQuestionRequest"
@@ -3669,8 +3823,14 @@
             "items": {
               "type": "object",
               "properties": {
-                "id": { "type": "string" },
-                "question": { "type": "string" },
+                "id": {
+                  "type": "string",
+                  "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
+                },
+                "question": {
+                  "type": "string",
+                  "description": "Question of the screening question"
+                },
                 "answer_type": {
                   "enum": [
                     "boolean",
@@ -3680,17 +3840,26 @@
                     "multiselect"
                   ],
                   "type": "string",
-                  "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                  "description": "Answer type of the screening question",
                   "x-spec-enum-id": "82857413e8e5153a"
                 },
-                "required": { "type": "boolean" },
+                "required": {
+                  "type": "boolean",
+                  "description": "Whether the screening question is required"
+                },
                 "options": {
                   "type": "array",
                   "items": {
                     "type": "object",
                     "properties": {
-                      "label": { "type": "string" },
-                      "value": { "type": "string" }
+                      "label": {
+                        "type": "string",
+                        "description": "Label of the screening question option"
+                      },
+                      "value": {
+                        "type": "string",
+                        "description": "Value of the screening question option, must match the value of a screening question option in the company's ATS"
+                      }
                     },
                     "required": ["label", "value"],
                     "x-readme-ref-name": "ScreeningQuestionOption"
@@ -3860,8 +4029,16 @@
             "items": {
               "type": "object",
               "properties": {
-                "id": { "type": "string", "minLength": 1 },
-                "question": { "type": "string", "minLength": 1 },
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
+                },
+                "question": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "Question of the screening question"
+                },
                 "answer_type": {
                   "enum": [
                     "boolean",
@@ -3871,17 +4048,28 @@
                     "multiselect"
                   ],
                   "type": "string",
-                  "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                  "description": "Answer type of the screening question",
                   "x-spec-enum-id": "82857413e8e5153a"
                 },
-                "required": { "type": "boolean" },
+                "required": {
+                  "type": "boolean",
+                  "description": "Whether the screening question is required"
+                },
                 "options": {
                   "type": "array",
                   "items": {
                     "type": "object",
                     "properties": {
-                      "label": { "type": "string", "minLength": 1 },
-                      "value": { "type": "string", "minLength": 1 }
+                      "label": {
+                        "type": "string",
+                        "minLength": 1,
+                        "description": "Label of the screening question option"
+                      },
+                      "value": {
+                        "type": "string",
+                        "minLength": 1,
+                        "description": "Value of the screening question option, must match the value of a screening question option in the company's ATS"
+                      }
                     },
                     "required": ["label", "value"],
                     "x-readme-ref-name": "ScreeningQuestionOptionRequest"
@@ -4005,12 +4193,7 @@
                       "description": "Applicant's Full Name"
                     },
                     "gender": {
-                      "enum": [
-                        "MALE",
-                        "FEMALE",
-                        "DIVERSE",
-                        "NOT_SPECIFIED"
-                      ],
+                      "enum": ["MALE", "FEMALE", "DIVERSE", "NOT_SPECIFIED"],
                       "type": ["string"],
                       "x-spec-enum-id": "43015059ee486444",
                       "description": "Applicant's Gender\n\n* `MALE` - Male\n* `FEMALE` - Female\n* `DIVERSE` - Diverse\n* `NOT_SPECIFIED` - Not Specified"
@@ -4058,8 +4241,14 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "id": { "type": "string" },
-                      "question": { "type": "string" },
+                      "id": {
+                        "type": "string",
+                        "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
+                      },
+                      "question": {
+                        "type": "string",
+                        "description": "Question of the screening question"
+                      },
                       "answer_type": {
                         "enum": [
                           "boolean",
@@ -4069,10 +4258,13 @@
                           "multiselect"
                         ],
                         "type": "string",
-                        "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                        "description": "Answer type of the screening question",
                         "x-spec-enum-id": "82857413e8e5153a"
                       },
-                      "answer": {}
+                      "answer": {
+                        "type": "string",
+                        "description": "Answer of the screening question"
+                      }
                     },
                     "required": ["answer", "answer_type", "id", "question"],
                     "x-readme-ref-name": "ApplicationScreeningQuestion"
@@ -4315,8 +4507,14 @@
                   "items": {
                     "type": "object",
                     "properties": {
-                      "id": { "type": "string" },
-                      "question": { "type": "string" },
+                      "id": {
+                        "type": "string",
+                        "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
+                      },
+                      "question": {
+                        "type": "string",
+                        "description": "Question of the screening question"
+                      },
                       "answer_type": {
                         "enum": [
                           "boolean",
@@ -4326,17 +4524,26 @@
                           "multiselect"
                         ],
                         "type": "string",
-                        "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                        "description": "Answer type of the screening question",
                         "x-spec-enum-id": "82857413e8e5153a"
                       },
-                      "required": { "type": "boolean" },
+                      "required": {
+                        "type": "boolean",
+                        "description": "Whether the screening question is required"
+                      },
                       "options": {
                         "type": "array",
                         "items": {
                           "type": "object",
                           "properties": {
-                            "label": { "type": "string" },
-                            "value": { "type": "string" }
+                            "label": {
+                              "type": "string",
+                              "description": "Label of the screening question option"
+                            },
+                            "value": {
+                              "type": "string",
+                              "description": "Value of the screening question option, must match the value of a screening question option in the company's ATS"
+                            }
                           },
                           "required": ["label", "value"],
                           "x-readme-ref-name": "ScreeningQuestionOption"
