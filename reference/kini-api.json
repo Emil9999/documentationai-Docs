@@ -39,21 +39,28 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "count": { "type": "integer", "example": 123 },
+                    "count": {
+                      "type": "integer",
+                      "example": 123,
+                      "description": "Total number of records available across all pages"
+                    },
                     "next": {
                       "type": "string",
                       "nullable": true,
                       "format": "uri",
-                      "example": "http://api.example.org/accounts/?page=4"
+                      "example": "http://api.example.org/accounts/?page=4",
+                      "description": "URL to the next page of results"
                     },
                     "previous": {
                       "type": "string",
                       "nullable": true,
                       "format": "uri",
-                      "example": "http://api.example.org/accounts/?page=2"
+                      "example": "http://api.example.org/accounts/?page=2",
+                      "description": "URL to the previous page of results"
                     },
                     "results": {
                       "type": "array",
+                      "description": "List of applications",
                       "items": {
                         "type": "object",
                         "properties": {
@@ -1425,21 +1432,28 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "count": { "type": "integer", "example": 123 },
+                    "count": {
+                      "type": "integer",
+                      "example": 123,
+                      "description": "Total number of records available across all pages"
+                    },
                     "next": {
                       "type": "string",
                       "nullable": true,
                       "format": "uri",
-                      "example": "http://api.example.org/accounts/?page=4"
+                      "example": "http://api.example.org/accounts/?page=4",
+                      "description": "URL to the next page of results"
                     },
                     "previous": {
                       "type": "string",
                       "nullable": true,
                       "format": "uri",
-                      "example": "http://api.example.org/accounts/?page=2"
+                      "example": "http://api.example.org/accounts/?page=2",
+                      "description": "URL to the previous page of results"
                     },
                     "results": {
                       "type": "array",
+                      "description": "List of jobs",
                       "items": {
                         "type": "object",
                         "properties": {
@@ -4119,21 +4133,28 @@
       "PaginatedApplicationList": {
         "type": "object",
         "properties": {
-          "count": { "type": "integer", "example": 123 },
+          "count": {
+            "type": "integer",
+            "example": 123,
+            "description": "Total number of records available across all pages"
+          },
           "next": {
             "type": "string",
             "nullable": true,
             "format": "uri",
-            "example": "http://api.example.org/accounts/?page=4"
+            "example": "http://api.example.org/accounts/?page=4",
+            "description": "URL to the next page of results"
           },
           "previous": {
             "type": "string",
             "nullable": true,
             "format": "uri",
-            "example": "http://api.example.org/accounts/?page=2"
+            "example": "http://api.example.org/accounts/?page=2",
+            "description": "URL to the previous page of results"
           },
           "results": {
             "type": "array",
+            "description": "List of applications",
             "items": {
               "type": "object",
               "properties": {
@@ -4347,21 +4368,28 @@
       "PaginatedJobList": {
         "type": "object",
         "properties": {
-          "count": { "type": "integer", "example": 123 },
+          "count": {
+            "type": "integer",
+            "example": 123,
+            "description": "Total number of records available across all pages"
+          },
           "next": {
             "type": "string",
             "nullable": true,
             "format": "uri",
-            "example": "http://api.example.org/accounts/?page=4"
+            "example": "http://api.example.org/accounts/?page=4",
+            "description": "URL to the next page of results"
           },
           "previous": {
             "type": "string",
             "nullable": true,
             "format": "uri",
-            "example": "http://api.example.org/accounts/?page=2"
+            "example": "http://api.example.org/accounts/?page=2",
+            "description": "URL to the previous page of results"
           },
           "results": {
             "type": "array",
+            "description": "List of jobs",
             "items": {
               "type": "object",
               "properties": {
