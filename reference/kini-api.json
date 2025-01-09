@@ -242,18 +242,9 @@
                                   "type": "string",
                                   "description": "* `application/msword` - Doc\n* `application/vnd.openxmlformats-officedocument.wordprocessingml.document` - Docx\n* `image/jpeg` - Jpeg\n* `application/vnd.oasis.opendocument.text` - Odt\n* `application/pdf` - Pdf\n* `text/plain` - Plain Text\n* `image/png` - Png\n* `application/rtf` - Rtf\n* `application/octet-stream` - Other",
                                   "x-spec-enum-id": "2456dc91a64f0b5f"
-                                },
-                                "gs_path": {
-                                  "type": "string",
-                                  "readOnly": true
                                 }
                               },
-                              "required": [
-                                "content_type",
-                                "gs_path",
-                                "name",
-                                "type"
-                              ],
+                              "required": ["content_type", "name", "type"],
                               "x-readme-ref-name": "Attachment"
                             },
                             "description": "List of attachments provided by the applicant"
@@ -1094,10 +1085,9 @@
                             "type": "string",
                             "description": "* `application/msword` - Doc\n* `application/vnd.openxmlformats-officedocument.wordprocessingml.document` - Docx\n* `image/jpeg` - Jpeg\n* `application/vnd.oasis.opendocument.text` - Odt\n* `application/pdf` - Pdf\n* `text/plain` - Plain Text\n* `image/png` - Png\n* `application/rtf` - Rtf\n* `application/octet-stream` - Other",
                             "x-spec-enum-id": "2456dc91a64f0b5f"
-                          },
-                          "gs_path": { "type": "string", "readOnly": true }
+                          }
                         },
-                        "required": ["content_type", "gs_path", "name", "type"],
+                        "required": ["content_type", "name", "type"],
                         "x-readme-ref-name": "Attachment"
                       },
                       "description": "List of attachments provided by the applicant"
@@ -1340,10 +1330,9 @@
                             "type": "string",
                             "description": "* `application/msword` - Doc\n* `application/vnd.openxmlformats-officedocument.wordprocessingml.document` - Docx\n* `image/jpeg` - Jpeg\n* `application/vnd.oasis.opendocument.text` - Odt\n* `application/pdf` - Pdf\n* `text/plain` - Plain Text\n* `image/png` - Png\n* `application/rtf` - Rtf\n* `application/octet-stream` - Other",
                             "x-spec-enum-id": "2456dc91a64f0b5f"
-                          },
-                          "gs_path": { "type": "string", "readOnly": true }
+                          }
                         },
-                        "required": ["content_type", "gs_path", "name", "type"],
+                        "required": ["content_type", "name", "type"],
                         "x-readme-ref-name": "Attachment"
                       },
                       "description": "List of attachments provided by the applicant"
@@ -3244,10 +3233,9 @@
                   "type": "string",
                   "description": "* `application/msword` - Doc\n* `application/vnd.openxmlformats-officedocument.wordprocessingml.document` - Docx\n* `image/jpeg` - Jpeg\n* `application/vnd.oasis.opendocument.text` - Odt\n* `application/pdf` - Pdf\n* `text/plain` - Plain Text\n* `image/png` - Png\n* `application/rtf` - Rtf\n* `application/octet-stream` - Other",
                   "x-spec-enum-id": "2456dc91a64f0b5f"
-                },
-                "gs_path": { "type": "string", "readOnly": true }
+                }
               },
-              "required": ["content_type", "gs_path", "name", "type"],
+              "required": ["content_type", "name", "type"],
               "x-readme-ref-name": "Attachment"
             },
             "description": "List of attachments provided by the applicant"
@@ -3536,10 +3524,9 @@
             "type": "string",
             "description": "* `application/msword` - Doc\n* `application/vnd.openxmlformats-officedocument.wordprocessingml.document` - Docx\n* `image/jpeg` - Jpeg\n* `application/vnd.oasis.opendocument.text` - Odt\n* `application/pdf` - Pdf\n* `text/plain` - Plain Text\n* `image/png` - Png\n* `application/rtf` - Rtf\n* `application/octet-stream` - Other",
             "x-spec-enum-id": "2456dc91a64f0b5f"
-          },
-          "gs_path": { "type": "string", "readOnly": true }
+          }
         },
-        "required": ["content_type", "gs_path", "name", "type"],
+        "required": ["content_type", "name", "type"],
         "x-readme-ref-name": "Attachment"
       },
       "AttachmentRequest": {
@@ -4318,10 +4305,9 @@
                         "type": "string",
                         "description": "* `application/msword` - Doc\n* `application/vnd.openxmlformats-officedocument.wordprocessingml.document` - Docx\n* `image/jpeg` - Jpeg\n* `application/vnd.oasis.opendocument.text` - Odt\n* `application/pdf` - Pdf\n* `text/plain` - Plain Text\n* `image/png` - Png\n* `application/rtf` - Rtf\n* `application/octet-stream` - Other",
                         "x-spec-enum-id": "2456dc91a64f0b5f"
-                      },
-                      "gs_path": { "type": "string", "readOnly": true }
+                      }
                     },
-                    "required": ["content_type", "gs_path", "name", "type"],
+                    "required": ["content_type", "name", "type"],
                     "x-readme-ref-name": "Attachment"
                   },
                   "description": "List of attachments provided by the applicant"
