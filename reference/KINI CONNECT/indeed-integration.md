@@ -1,7 +1,7 @@
 ---
 title: Indeed Integration
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
