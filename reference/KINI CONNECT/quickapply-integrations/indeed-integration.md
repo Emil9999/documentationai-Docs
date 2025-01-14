@@ -5,17 +5,17 @@ hidden: true
 metadata:
   robots: index
 ---
-This document provides detailed instructions on how to integrate QuickApply API webhooks with Indeed. Following these steps will ensure that candidate applications submitted through Indeed are correctly forwarded to the customer's ATS in real-time.
+This document provides comprehensive instructions on integrating QuickApply with Indeed. By following these steps, candidate applications submitted through Indeed will be seamlessly forwarded to your customer's Applicant Tracking System (ATS) in real time.
 
 ### 📥 How to Generate the Indeed Webhook URL
 
-The webhook URL for Indeed must follow the structure below and be dynamically generated for each job posting:
+The webhook URL for Indeed needs to be dynamically generated for each job posting using the following structure:
 
 `https://api.getkini.com/webhooks/indeed/{kini_agency_id}/{kini_company_id}/{external_job_id}`
 
-* **Agency ID**: The unique ID of the agency in the Kini system (use 1 if no agency is involved).
-* **Company ID**: The unique ID of the company in the Kini system.
-* **External Job ID**: The unique job identifier used by the external job provider (e.g., Indeed).
+* **Agency ID**: The unique identifier for the agency Kini. If no agency is involved, use 1 as the default.
+* **Company ID**: The unique identifier for the company in Kini.
+* **External Job ID**: The unique job identifier provided by the external job platform (e.g., Indeed).
 
 Example:  `https://api.getkini.com/webhooks/indeed/12/345/xyz-67890`
 
