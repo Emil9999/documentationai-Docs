@@ -7,17 +7,23 @@ metadata:
 ---
 Our QuickApply API enables seamless integration with various job boards, including Indeed, Monster, and Stepstone, allowing candidate applications to be received from these platforms and forwarded directly to the end customer's ATS (Applicant Tracking System). This documentation outlines how the webhook URLs are structured and how XML job feeds must be adjusted by agencies or partners to include the webhook links, ensuring that the candidate application flow is correctly triggered.
 
-## 🔗 Webhook Overview
+<br />
+
+### 🔗 Webhook Overview
 
 Webhooks are essential for real-time data transfer between the job board and the customer's ATS. When a candidate applies through a job board using QuickApply, the application data is sent to a webhook endpoint provided by our system. This ensures that the application reaches the customer's ATS instantly and without manual intervention.
 
 Each job board requires a unique webhook URL that must be included in the XML job feed submitted by the agency or partner. The webhook URL is specific to each job posting and is dynamically generated based on the job details.
 
-## 📥 How Webhook URLs Are Generated
+<br />
+
+### 📥 How Webhook URLs Are Generated
 
 The webhook URLs follow a consistent structure across all job boards
 
-## 📝 How to Update XML Job Feeds
+<br />
+
+### 📝 How to Update XML Job Feeds
 
 To ensure that candidate applications are correctly routed to the customer's ATS via our webhooks, agencies or partners must update their XML job feeds to include the webhook URLs.
 
@@ -45,7 +51,9 @@ Here’s how to adjust the XML feed:
 </job>
 ```
 
-## 📌 Important Notes
+<br />
+
+### 📌 Important Notes
 
 * Ensure that the webhook URLs are correctly formatted in the XML feed to avoid broken application flows.
 * Always test the updated XML feed before going live to ensure that the candidate application data is correctly routed to our webhook.
