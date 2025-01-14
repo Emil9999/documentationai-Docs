@@ -1,5 +1,5 @@
 ---
-title: Indeed Integration
+title: Indeed
 deprecated: false
 hidden: true
 metadata:
