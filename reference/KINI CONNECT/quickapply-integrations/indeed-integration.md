@@ -7,7 +7,7 @@ metadata:
 ---
 This document provides comprehensive instructions on integrating QuickApply with Indeed. By following these steps, candidate applications submitted through Indeed will be seamlessly forwarded to your customer's Applicant Tracking System (ATS) in real time.
 
-### 📥 How to Generate the Indeed Webhook URL
+## 📥 How to Generate the Indeed Webhook URL
 
 The webhook URL for Indeed needs to be dynamically generated for each job posting using the following structure:
 
@@ -19,11 +19,11 @@ The webhook URL for Indeed needs to be dynamically generated for each job postin
 
 Example:  `https://api.getkini.com/webhooks/indeed/12/345/xyz-67890`
 
-### 📅 When to Generate the Webhook URL
+## 📅 When to Generate the Webhook URL
 
 The webhook URL must be generated before submitting the job to Indeed. Each job posting should have its own unique webhook URL that is included in the XML job feed.
 
-### 🔗 Integrate Webhook URL into Job Feed for Indeed
+## 🔗 Integrate Webhook URL into Job Feed for Indeed
 
 To ensure that applications from Indeed are correctly forwarded to the customer’s ATS via the webhook, the `indeed-apply-data` field in the XML job feed must be updated with the webhook URL. This URL should be placed in the `indeed-apply-jobUrl` field.
 
@@ -64,10 +64,10 @@ To ensure that applications from Indeed are correctly forwarded to the customer�
 
 <br />
 
-### 📚 Additional Resources
+## 📚 Additional Resources
 
 For more detailed information on integrating with Indeed, refer to their official documentation: [Indeed Apply API Documentation](https://docs.indeed.com/indeed-apply/add-indeed-apply)
 
-### 💬 Need Assistance?
+## 💬 Need Assistance?
 
 If you have any questions or need help with the integration, feel free to reach out to us: [support@getkini.com](mailto:support@getkini.com)
