@@ -19,13 +19,13 @@ The webhook URL for Indeed needs to be dynamically generated for each job postin
 
 Example:  `https://api.getkini.com/webhooks/indeed/12/345/xyz-67890`
 
-### When to Generate the Webhook URL
+### 📅 When to Generate the Webhook URL
 
-The Webhook URL must be generated and included in the XML job feed before the job is submitted to Indeed. Each job posting should have its own unique webhook URL.
+The webhook URL must be generated before submitting the job to Indeed. Each job posting should have its own unique webhook URL that is included in the XML job feed.
 
-### Integrate Webhook URL into Job Feed for Indeed
+### 🔗 Integrate Webhook URL into Job Feed for Indeed
 
-To ensure that applications from Indeed are correctly routed to the customer’s ATS via the webhook, the `indeed-apply-data` field in the XML job feed must be updated as follows. The webhook URL is inserted into the `indeed-apply-jobUrl`
+To ensure that applications from Indeed are correctly forwarded to the customer’s ATS via the webhook, the `indeed-apply-data` field in the XML job feed must be updated with the webhook URL. This URL should be placed in the `indeed-apply-jobUrl` field.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -62,6 +62,12 @@ To ensure that applications from Indeed are correctly routed to the customer’s
 </source>
 ```
 
-For detailed Indeed Documentation, please refer to their: [https://docs.indeed.com/indeed-apply/add-indeed-apply](https://docs.indeed.com/indeed-apply/add-indeed-apply)
+<br />
 
-We are also happy to support you with your integration efforts, drop us a message at: [support@getkini.com](mailto:support@getkini.com)
+### 📚 Additional Resources
+
+For more detailed information on integrating with Indeed, refer to their official documentation: [Indeed Apply API Documentation](https://docs.indeed.com/indeed-apply/add-indeed-apply)
+
+### 💬 Need Assistance?
+
+If you have any questions or need help with the integration, feel free to reach out to us: [support@getkini.com](mailto:support@getkini.com)
