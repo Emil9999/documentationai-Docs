@@ -15,9 +15,9 @@ The webhook URL for Indeed needs to be dynamically generated for each job postin
 
 `https://api.getkini.com/webhooks/indeed/{kini_agency_id}/{kini_company_id}/{external_job_id}`
 
-* **Agency ID**: The unique identifier for your agency. It will be provided by the Kini team.
-* **Company ID**: The unique identifier for the company in Kini. It will be provided by the Kini team or via the Companies endpoint.
-* **External Job ID**: The unique job identifier in the ATS. It can be accessed via the Jobs endpoint.
+* **Agency ID**: A unique identifier assigned to your agency, provided by the Kini team.
+* **Company ID**: A unique identifier assigned to the company in Kini, provided by the Kini team or accessible through the Companies endpoint.
+* **External Job ID**: A unique job identifier in the ATS, accessible through the Jobs endpoint.
 
 Example:  `https://api.getkini.com/webhooks/indeed/12/345/xyz-67890`
 
