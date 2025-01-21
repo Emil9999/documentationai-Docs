@@ -6,11 +6,7 @@ hidden: false
 metadata:
   robots: index
 ---
-Overview
-
-API requests to Kini's API are rate limited to the following per connected company (as identified by the company\_id attached to the request):
-
-* Launch: 60 / minute
+API requests to Kini's API are rate limited to the following per connected company (as identified by the company\_id attached to the request): **60 / minute**
 
 For example, if you have 10 customers, the rate limits above would apply to each one separately.
 
