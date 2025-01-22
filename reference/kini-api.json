@@ -1492,15 +1492,80 @@
                           },
                           "category": {
                             "type": ["string"],
-                            "description": "Category of the job, e.g. 'Sales'"
+                            "description": "Category of the job, e.g. 'sales'",
+                            "enum": [
+                              "accounting_finance",
+                              "administration",
+                              "architecture_construction",
+                              "arts_media_entertainment",
+                              "business_development",
+                              "cleaning_facilities",
+                              "consulting",
+                              "customer_service_support",
+                              "data_analytics",
+                              "design",
+                              "education_training",
+                              "engineering",
+                              "entertainment_travel",
+                              "event_management",
+                              "finance",
+                              "healthcare",
+                              "hospitality_tourism",
+                              "hr_recruitment",
+                              "installation_maintenance_repair",
+                              "it_support",
+                              "legal",
+                              "logistics_supply_chain",
+                              "management_executive",
+                              "marketing",
+                              "non_profit",
+                              "operations",
+                              "personal_care_services",
+                              "pharmaceutical_life_sciences",
+                              "product_management",
+                              "project_management",
+                              "public_relations",
+                              "real_estate",
+                              "retail",
+                              "sales",
+                              "science_technology",
+                              "software_development",
+                              "social_services",
+                              "sports_fitness_recreation",
+                              "translation_localization",
+                              "warehouse",
+                              "other"
+                            ]
                           },
                           "employment_type": {
                             "type": ["string"],
-                            "description": "Employment type of the job (full-time, part-time, contract, etc.)"
+                            "description": "Employment type of the job (permanent, contract, minijob, etc.)",
+                            "enum": [
+                              "contract",
+                              "freelance",
+                              "intern",
+                              "temporary",
+                              "volunteer",
+                              "apprenticeship",
+                              "working_student",
+                              "minijob",
+                              "permanent",
+                              "other"
+                            ]
                           },
                           "senority": {
                             "type": ["string"],
-                            "description": "Required or expected seniority level"
+                            "description": "Required or expected seniority level",
+                            "enum": [
+                              "intern",
+                              "junior",
+                              "mid_level",
+                              "senior",
+                              "lead",
+                              "manager",
+                              "director",
+                              "executive"
+                            ]
                           },
                           "start_date": {
                             "type": ["string"],
@@ -1730,15 +1795,80 @@
                   },
                   "category": {
                     "type": ["string"],
-                    "description": "Category of the job, e.g. 'Sales'"
+                    "description": "Category of the job, e.g. 'sales'",
+                    "enum": [
+                      "accounting_finance",
+                      "administration",
+                      "architecture_construction",
+                      "arts_media_entertainment",
+                      "business_development",
+                      "cleaning_facilities",
+                      "consulting",
+                      "customer_service_support",
+                      "data_analytics",
+                      "design",
+                      "education_training",
+                      "engineering",
+                      "entertainment_travel",
+                      "event_management",
+                      "finance",
+                      "healthcare",
+                      "hospitality_tourism",
+                      "hr_recruitment",
+                      "installation_maintenance_repair",
+                      "it_support",
+                      "legal",
+                      "logistics_supply_chain",
+                      "management_executive",
+                      "marketing",
+                      "non_profit",
+                      "operations",
+                      "personal_care_services",
+                      "pharmaceutical_life_sciences",
+                      "product_management",
+                      "project_management",
+                      "public_relations",
+                      "real_estate",
+                      "retail",
+                      "sales",
+                      "science_technology",
+                      "software_development",
+                      "social_services",
+                      "sports_fitness_recreation",
+                      "translation_localization",
+                      "warehouse",
+                      "other"
+                    ]
                   },
                   "employment_type": {
                     "type": ["string"],
-                    "description": "Employment type of the job (full-time, part-time, contract, etc.)"
+                    "description": "Employment type of the job (permanent, contract, minijob, etc.)",
+                    "enum": [
+                      "contract",
+                      "freelance",
+                      "intern",
+                      "temporary",
+                      "volunteer",
+                      "apprenticeship",
+                      "working_student",
+                      "minijob",
+                      "permanent",
+                      "other"
+                    ]
                   },
                   "senority": {
                     "type": ["string"],
-                    "description": "Required or expected seniority level"
+                    "description": "Required or expected seniority level",
+                    "enum": [
+                      "intern",
+                      "junior",
+                      "mid_level",
+                      "senior",
+                      "lead",
+                      "manager",
+                      "director",
+                      "executive"
+                    ]
                   },
                   "start_date": {
                     "type": ["string"],
@@ -1943,15 +2073,80 @@
                   },
                   "category": {
                     "type": ["string"],
-                    "description": "Category of the job, e.g. 'Sales'"
+                    "description": "Category of the job, e.g. 'sales'",
+                    "enum": [
+                      "accounting_finance",
+                      "administration",
+                      "architecture_construction",
+                      "arts_media_entertainment",
+                      "business_development",
+                      "cleaning_facilities",
+                      "consulting",
+                      "customer_service_support",
+                      "data_analytics",
+                      "design",
+                      "education_training",
+                      "engineering",
+                      "entertainment_travel",
+                      "event_management",
+                      "finance",
+                      "healthcare",
+                      "hospitality_tourism",
+                      "hr_recruitment",
+                      "installation_maintenance_repair",
+                      "it_support",
+                      "legal",
+                      "logistics_supply_chain",
+                      "management_executive",
+                      "marketing",
+                      "non_profit",
+                      "operations",
+                      "personal_care_services",
+                      "pharmaceutical_life_sciences",
+                      "product_management",
+                      "project_management",
+                      "public_relations",
+                      "real_estate",
+                      "retail",
+                      "sales",
+                      "science_technology",
+                      "software_development",
+                      "social_services",
+                      "sports_fitness_recreation",
+                      "translation_localization",
+                      "warehouse",
+                      "other"
+                    ]
                   },
                   "employment_type": {
                     "type": ["string"],
-                    "description": "Employment type of the job (full-time, part-time, contract, etc.)"
+                    "description": "Employment type of the job (permanent, contract, minijob, etc.)",
+                    "enum": [
+                      "contract",
+                      "freelance",
+                      "intern",
+                      "temporary",
+                      "volunteer",
+                      "apprenticeship",
+                      "working_student",
+                      "minijob",
+                      "permanent",
+                      "other"
+                    ]
                   },
                   "senority": {
                     "type": ["string"],
-                    "description": "Required or expected seniority level"
+                    "description": "Required or expected seniority level",
+                    "enum": [
+                      "intern",
+                      "junior",
+                      "mid_level",
+                      "senior",
+                      "lead",
+                      "manager",
+                      "director",
+                      "executive"
+                    ]
                   },
                   "start_date": {
                     "type": ["string"],
@@ -2156,15 +2351,80 @@
                   },
                   "category": {
                     "type": ["string"],
-                    "description": "Category of the job, e.g. 'Sales'"
+                    "description": "Category of the job, e.g. 'sales'",
+                    "enum": [
+                      "accounting_finance",
+                      "administration",
+                      "architecture_construction",
+                      "arts_media_entertainment",
+                      "business_development",
+                      "cleaning_facilities",
+                      "consulting",
+                      "customer_service_support",
+                      "data_analytics",
+                      "design",
+                      "education_training",
+                      "engineering",
+                      "entertainment_travel",
+                      "event_management",
+                      "finance",
+                      "healthcare",
+                      "hospitality_tourism",
+                      "hr_recruitment",
+                      "installation_maintenance_repair",
+                      "it_support",
+                      "legal",
+                      "logistics_supply_chain",
+                      "management_executive",
+                      "marketing",
+                      "non_profit",
+                      "operations",
+                      "personal_care_services",
+                      "pharmaceutical_life_sciences",
+                      "product_management",
+                      "project_management",
+                      "public_relations",
+                      "real_estate",
+                      "retail",
+                      "sales",
+                      "science_technology",
+                      "software_development",
+                      "social_services",
+                      "sports_fitness_recreation",
+                      "translation_localization",
+                      "warehouse",
+                      "other"
+                    ]
                   },
                   "employment_type": {
                     "type": ["string"],
-                    "description": "Employment type of the job (full-time, part-time, contract, etc.)"
+                    "description": "Employment type of the job (permanent, contract, minijob, etc.)",
+                    "enum": [
+                      "contract",
+                      "freelance",
+                      "intern",
+                      "temporary",
+                      "volunteer",
+                      "apprenticeship",
+                      "working_student",
+                      "minijob",
+                      "permanent",
+                      "other"
+                    ]
                   },
                   "senority": {
                     "type": ["string"],
-                    "description": "Required or expected seniority level"
+                    "description": "Required or expected seniority level",
+                    "enum": [
+                      "intern",
+                      "junior",
+                      "mid_level",
+                      "senior",
+                      "lead",
+                      "manager",
+                      "director",
+                      "executive"
+                    ]
                   },
                   "start_date": {
                     "type": ["string"],
@@ -2373,15 +2633,80 @@
                     },
                     "category": {
                       "type": ["string"],
-                      "description": "Category of the job, e.g. 'Sales'"
+                      "description": "Category of the job, e.g. 'sales'",
+                      "enum": [
+                        "accounting_finance",
+                        "administration",
+                        "architecture_construction",
+                        "arts_media_entertainment",
+                        "business_development",
+                        "cleaning_facilities",
+                        "consulting",
+                        "customer_service_support",
+                        "data_analytics",
+                        "design",
+                        "education_training",
+                        "engineering",
+                        "entertainment_travel",
+                        "event_management",
+                        "finance",
+                        "healthcare",
+                        "hospitality_tourism",
+                        "hr_recruitment",
+                        "installation_maintenance_repair",
+                        "it_support",
+                        "legal",
+                        "logistics_supply_chain",
+                        "management_executive",
+                        "marketing",
+                        "non_profit",
+                        "operations",
+                        "personal_care_services",
+                        "pharmaceutical_life_sciences",
+                        "product_management",
+                        "project_management",
+                        "public_relations",
+                        "real_estate",
+                        "retail",
+                        "sales",
+                        "science_technology",
+                        "software_development",
+                        "social_services",
+                        "sports_fitness_recreation",
+                        "translation_localization",
+                        "warehouse",
+                        "other"
+                      ]
                     },
                     "employment_type": {
                       "type": ["string"],
-                      "description": "Employment type of the job (full-time, part-time, contract, etc.)"
+                      "description": "Employment type of the job (permanent, contract, minijob, etc.)",
+                      "enum": [
+                        "contract",
+                        "freelance",
+                        "intern",
+                        "temporary",
+                        "volunteer",
+                        "apprenticeship",
+                        "working_student",
+                        "minijob",
+                        "permanent",
+                        "other"
+                      ]
                     },
                     "senority": {
                       "type": ["string"],
-                      "description": "Required or expected seniority level"
+                      "description": "Required or expected seniority level",
+                      "enum": [
+                        "intern",
+                        "junior",
+                        "mid_level",
+                        "senior",
+                        "lead",
+                        "manager",
+                        "director",
+                        "executive"
+                      ]
                     },
                     "start_date": {
                       "type": ["string"],
@@ -2612,15 +2937,80 @@
                     },
                     "category": {
                       "type": ["string"],
-                      "description": "Category of the job, e.g. 'Sales'"
+                      "description": "Category of the job, e.g. 'sales'",
+                      "enum": [
+                        "accounting_finance",
+                        "administration",
+                        "architecture_construction",
+                        "arts_media_entertainment",
+                        "business_development",
+                        "cleaning_facilities",
+                        "consulting",
+                        "customer_service_support",
+                        "data_analytics",
+                        "design",
+                        "education_training",
+                        "engineering",
+                        "entertainment_travel",
+                        "event_management",
+                        "finance",
+                        "healthcare",
+                        "hospitality_tourism",
+                        "hr_recruitment",
+                        "installation_maintenance_repair",
+                        "it_support",
+                        "legal",
+                        "logistics_supply_chain",
+                        "management_executive",
+                        "marketing",
+                        "non_profit",
+                        "operations",
+                        "personal_care_services",
+                        "pharmaceutical_life_sciences",
+                        "product_management",
+                        "project_management",
+                        "public_relations",
+                        "real_estate",
+                        "retail",
+                        "sales",
+                        "science_technology",
+                        "software_development",
+                        "social_services",
+                        "sports_fitness_recreation",
+                        "translation_localization",
+                        "warehouse",
+                        "other"
+                      ]
                     },
                     "employment_type": {
                       "type": ["string"],
-                      "description": "Employment type of the job (full-time, part-time, contract, etc.)"
+                      "description": "Employment type of the job (permanent, contract, minijob, etc.)",
+                      "enum": [
+                        "contract",
+                        "freelance",
+                        "intern",
+                        "temporary",
+                        "volunteer",
+                        "apprenticeship",
+                        "working_student",
+                        "minijob",
+                        "permanent",
+                        "other"
+                      ]
                     },
                     "senority": {
                       "type": ["string"],
-                      "description": "Required or expected seniority level"
+                      "description": "Required or expected seniority level",
+                      "enum": [
+                        "intern",
+                        "junior",
+                        "mid_level",
+                        "senior",
+                        "lead",
+                        "manager",
+                        "director",
+                        "executive"
+                      ]
                     },
                     "start_date": {
                       "type": ["string"],
@@ -3728,15 +4118,80 @@
           },
           "category": {
             "type": ["string"],
-            "description": "Category of the job, e.g. 'Sales'"
+            "description": "Category of the job, e.g. 'sales'",
+            "enum": [
+              "accounting_finance",
+              "administration",
+              "architecture_construction",
+              "arts_media_entertainment",
+              "business_development",
+              "cleaning_facilities",
+              "consulting",
+              "customer_service_support",
+              "data_analytics",
+              "design",
+              "education_training",
+              "engineering",
+              "entertainment_travel",
+              "event_management",
+              "finance",
+              "healthcare",
+              "hospitality_tourism",
+              "hr_recruitment",
+              "installation_maintenance_repair",
+              "it_support",
+              "legal",
+              "logistics_supply_chain",
+              "management_executive",
+              "marketing",
+              "non_profit",
+              "operations",
+              "personal_care_services",
+              "pharmaceutical_life_sciences",
+              "product_management",
+              "project_management",
+              "public_relations",
+              "real_estate",
+              "retail",
+              "sales",
+              "science_technology",
+              "software_development",
+              "social_services",
+              "sports_fitness_recreation",
+              "translation_localization",
+              "warehouse",
+              "other"
+            ]
           },
           "employment_type": {
             "type": ["string"],
-            "description": "Employment type of the job (full-time, part-time, contract, etc.)"
+            "description": "Employment type of the job (permanent, contract, minijob, etc.)",
+            "enum": [
+              "contract",
+              "freelance",
+              "intern",
+              "temporary",
+              "volunteer",
+              "apprenticeship",
+              "working_student",
+              "minijob",
+              "permanent",
+              "other"
+            ]
           },
           "senority": {
             "type": ["string"],
-            "description": "Required or expected seniority level"
+            "description": "Required or expected seniority level",
+            "enum": [
+              "intern",
+              "junior",
+              "mid_level",
+              "senior",
+              "lead",
+              "manager",
+              "director",
+              "executive"
+            ]
           },
           "start_date": {
             "type": ["string"],
@@ -3934,15 +4389,80 @@
           },
           "category": {
             "type": ["string"],
-            "description": "Category of the job, e.g. 'Sales'"
+            "description": "Category of the job, e.g. 'sales'",
+            "enum": [
+              "accounting_finance",
+              "administration",
+              "architecture_construction",
+              "arts_media_entertainment",
+              "business_development",
+              "cleaning_facilities",
+              "consulting",
+              "customer_service_support",
+              "data_analytics",
+              "design",
+              "education_training",
+              "engineering",
+              "entertainment_travel",
+              "event_management",
+              "finance",
+              "healthcare",
+              "hospitality_tourism",
+              "hr_recruitment",
+              "installation_maintenance_repair",
+              "it_support",
+              "legal",
+              "logistics_supply_chain",
+              "management_executive",
+              "marketing",
+              "non_profit",
+              "operations",
+              "personal_care_services",
+              "pharmaceutical_life_sciences",
+              "product_management",
+              "project_management",
+              "public_relations",
+              "real_estate",
+              "retail",
+              "sales",
+              "science_technology",
+              "software_development",
+              "social_services",
+              "sports_fitness_recreation",
+              "translation_localization",
+              "warehouse",
+              "other"
+            ]
           },
           "employment_type": {
             "type": ["string"],
-            "description": "Employment type of the job (full-time, part-time, contract, etc.)"
+            "description": "Employment type of the job (permanent, contract, minijob, etc.)",
+            "enum": [
+              "contract",
+              "freelance",
+              "intern",
+              "temporary",
+              "volunteer",
+              "apprenticeship",
+              "working_student",
+              "minijob",
+              "permanent",
+              "other"
+            ]
           },
           "senority": {
             "type": ["string"],
-            "description": "Required or expected seniority level"
+            "description": "Required or expected seniority level",
+            "enum": [
+              "intern",
+              "junior",
+              "mid_level",
+              "senior",
+              "lead",
+              "manager",
+              "director",
+              "executive"
+            ]
           },
           "start_date": {
             "type": ["string"],
@@ -4063,12 +4583,10 @@
                     "properties": {
                       "label": {
                         "type": "string",
-                        "minLength": 1,
                         "description": "Label of the screening question option"
                       },
                       "value": {
                         "type": "string",
-                        "minLength": 1,
                         "description": "Value of the screening question option, must match the value of a screening question option in the company's ATS"
                       }
                     },
@@ -4425,15 +4943,80 @@
                 },
                 "category": {
                   "type": ["string"],
-                  "description": "Category of the job, e.g. 'Sales'"
+                  "description": "Category of the job, e.g. 'sales'",
+                  "enum": [
+                    "accounting_finance",
+                    "administration",
+                    "architecture_construction",
+                    "arts_media_entertainment",
+                    "business_development",
+                    "cleaning_facilities",
+                    "consulting",
+                    "customer_service_support",
+                    "data_analytics",
+                    "design",
+                    "education_training",
+                    "engineering",
+                    "entertainment_travel",
+                    "event_management",
+                    "finance",
+                    "healthcare",
+                    "hospitality_tourism",
+                    "hr_recruitment",
+                    "installation_maintenance_repair",
+                    "it_support",
+                    "legal",
+                    "logistics_supply_chain",
+                    "management_executive",
+                    "marketing",
+                    "non_profit",
+                    "operations",
+                    "personal_care_services",
+                    "pharmaceutical_life_sciences",
+                    "product_management",
+                    "project_management",
+                    "public_relations",
+                    "real_estate",
+                    "retail",
+                    "sales",
+                    "science_technology",
+                    "software_development",
+                    "social_services",
+                    "sports_fitness_recreation",
+                    "translation_localization",
+                    "warehouse",
+                    "other"
+                  ]
                 },
                 "employment_type": {
                   "type": ["string"],
-                  "description": "Employment type of the job (full-time, part-time, contract, etc.)"
+                  "description": "Employment type of the job (permanent, contract, minijob, etc.)",
+                  "enum": [
+                    "contract",
+                    "freelance",
+                    "intern",
+                    "temporary",
+                    "volunteer",
+                    "apprenticeship",
+                    "working_student",
+                    "minijob",
+                    "permanent",
+                    "other"
+                  ]
                 },
                 "senority": {
                   "type": ["string"],
-                  "description": "Required or expected seniority level"
+                  "description": "Required or expected seniority level",
+                  "enum": [
+                    "intern",
+                    "junior",
+                    "mid_level",
+                    "senior",
+                    "lead",
+                    "manager",
+                    "director",
+                    "executive"
+                  ]
                 },
                 "start_date": {
                   "type": ["string"],
