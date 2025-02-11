@@ -1481,7 +1481,7 @@
                             "description": "Posting status of the job (active, deleted, archived)\n\n* `active` - Job posting is open and accepting applications\n* `deleted` - Job posting has been deleted and is not accepting applications\n* `archived` - Job posting is archived and not accepting applications"
                           },
                           "remote": {
-                            "enum": ["remote", "on-site", "hybrid"],
+                            "enum": ["remote", "hybrid", "on-site"],
                             "type": ["string"],
                             "x-spec-enum-id": "48718b3ae514d1f4",
                             "description": "Work mode of the job (remote, hybrid, on-site)\n\n* `remote` - Fully remote, work from anywhere\n* `on-site` - Fully onsite, work from the company's physical location\n* `hybrid` - Flexible combination of onsite and remote work"
@@ -1520,6 +1520,7 @@
                               "marketing",
                               "non_profit",
                               "operations",
+                              "other",
                               "personal_care_services",
                               "pharmaceutical_life_sciences",
                               "product_management",
@@ -1533,8 +1534,7 @@
                               "social_services",
                               "sports_fitness_recreation",
                               "translation_localization",
-                              "warehouse",
-                              "other"
+                              "warehouse"
                             ]
                           },
                           "employment_type": {
@@ -1545,19 +1545,24 @@
                               "freelance",
                               "intern",
                               "temporary",
+                              "permanent",
                               "volunteer",
                               "apprenticeship",
                               "working_student",
                               "minijob",
-                              "permanent",
                               "other"
                             ]
+                          },
+                          "work_schedule": {
+                            "type": ["string"],
+                            "description": "Work schedule type for the position (full-time, part-time, flexible)",
+                            "enum": ["full_time", "part_time", "flexible"]
                           },
                           "senority": {
                             "type": ["string"],
                             "description": "Required or expected seniority level",
                             "enum": [
-                              "intern",
+                              "unexperienced",
                               "junior",
                               "mid_level",
                               "senior",
@@ -1784,7 +1789,7 @@
                     "description": "Posting status of the job (active, deleted, archived)\n\n* `active` - Job posting is open and accepting applications\n* `deleted` - Job posting has been deleted and is not accepting applications\n* `archived` - Job posting is archived and not accepting applications"
                   },
                   "remote": {
-                    "enum": ["remote", "on-site", "hybrid"],
+                    "enum": ["remote", "hybrid", "on-site"],
                     "type": ["string"],
                     "x-spec-enum-id": "48718b3ae514d1f4",
                     "description": "Work mode of the job (remote, hybrid, on-site)\n\n* `remote` - Fully remote, work from anywhere\n* `on-site` - Fully onsite, work from the company's physical location\n* `hybrid` - Flexible combination of onsite and remote work"
@@ -1823,6 +1828,7 @@
                       "marketing",
                       "non_profit",
                       "operations",
+                      "other",
                       "personal_care_services",
                       "pharmaceutical_life_sciences",
                       "product_management",
@@ -1836,8 +1842,7 @@
                       "social_services",
                       "sports_fitness_recreation",
                       "translation_localization",
-                      "warehouse",
-                      "other"
+                      "warehouse"
                     ]
                   },
                   "employment_type": {
@@ -1848,19 +1853,24 @@
                       "freelance",
                       "intern",
                       "temporary",
+                      "permanent",
                       "volunteer",
                       "apprenticeship",
                       "working_student",
                       "minijob",
-                      "permanent",
                       "other"
                     ]
+                  },
+                  "work_schedule": {
+                    "type": ["string"],
+                    "description": "Work schedule type for the position (full-time, part-time, flexible)",
+                    "enum": ["full_time", "part_time", "flexible"]
                   },
                   "senority": {
                     "type": ["string"],
                     "description": "Required or expected seniority level",
                     "enum": [
-                      "intern",
+                      "unexperienced",
                       "junior",
                       "mid_level",
                       "senior",
@@ -2062,7 +2072,7 @@
                     "description": "Posting status of the job (active, deleted, archived)\n\n* `active` - Job posting is open and accepting applications\n* `deleted` - Job posting has been deleted and is not accepting applications\n* `archived` - Job posting is archived and not accepting applications"
                   },
                   "remote": {
-                    "enum": ["remote", "on-site", "hybrid"],
+                    "enum": ["remote", "hybrid", "on-site"],
                     "type": ["string"],
                     "x-spec-enum-id": "48718b3ae514d1f4",
                     "description": "Work mode of the job (remote, hybrid, on-site)\n\n* `remote` - Fully remote, work from anywhere\n* `on-site` - Fully onsite, work from the company's physical location\n* `hybrid` - Flexible combination of onsite and remote work"
@@ -2101,6 +2111,7 @@
                       "marketing",
                       "non_profit",
                       "operations",
+                      "other",
                       "personal_care_services",
                       "pharmaceutical_life_sciences",
                       "product_management",
@@ -2114,8 +2125,7 @@
                       "social_services",
                       "sports_fitness_recreation",
                       "translation_localization",
-                      "warehouse",
-                      "other"
+                      "warehouse"
                     ]
                   },
                   "employment_type": {
@@ -2126,19 +2136,24 @@
                       "freelance",
                       "intern",
                       "temporary",
+                      "permanent",
                       "volunteer",
                       "apprenticeship",
                       "working_student",
                       "minijob",
-                      "permanent",
                       "other"
                     ]
+                  },
+                  "work_schedule": {
+                    "type": ["string"],
+                    "description": "Work schedule type for the position (full-time, part-time, flexible)",
+                    "enum": ["full_time", "part_time", "flexible"]
                   },
                   "senority": {
                     "type": ["string"],
                     "description": "Required or expected seniority level",
                     "enum": [
-                      "intern",
+                      "unexperienced",
                       "junior",
                       "mid_level",
                       "senior",
@@ -2340,7 +2355,7 @@
                     "description": "Posting status of the job (active, deleted, archived)\n\n* `active` - Job posting is open and accepting applications\n* `deleted` - Job posting has been deleted and is not accepting applications\n* `archived` - Job posting is archived and not accepting applications"
                   },
                   "remote": {
-                    "enum": ["remote", "on-site", "hybrid"],
+                    "enum": ["remote", "hybrid", "on-site"],
                     "type": ["string"],
                     "x-spec-enum-id": "48718b3ae514d1f4",
                     "description": "Work mode of the job (remote, hybrid, on-site)\n\n* `remote` - Fully remote, work from anywhere\n* `on-site` - Fully onsite, work from the company's physical location\n* `hybrid` - Flexible combination of onsite and remote work"
@@ -2379,6 +2394,7 @@
                       "marketing",
                       "non_profit",
                       "operations",
+                      "other",
                       "personal_care_services",
                       "pharmaceutical_life_sciences",
                       "product_management",
@@ -2392,8 +2408,7 @@
                       "social_services",
                       "sports_fitness_recreation",
                       "translation_localization",
-                      "warehouse",
-                      "other"
+                      "warehouse"
                     ]
                   },
                   "employment_type": {
@@ -2404,19 +2419,24 @@
                       "freelance",
                       "intern",
                       "temporary",
+                      "permanent",
                       "volunteer",
                       "apprenticeship",
                       "working_student",
                       "minijob",
-                      "permanent",
                       "other"
                     ]
+                  },
+                  "work_schedule": {
+                    "type": ["string"],
+                    "description": "Work schedule type for the position (full-time, part-time, flexible)",
+                    "enum": ["full_time", "part_time", "flexible"]
                   },
                   "senority": {
                     "type": ["string"],
                     "description": "Required or expected seniority level",
                     "enum": [
-                      "intern",
+                      "unexperienced",
                       "junior",
                       "mid_level",
                       "senior",
@@ -2622,7 +2642,7 @@
                       "description": "Posting status of the job (active, deleted, archived)\n\n* `active` - Job posting is open and accepting applications\n* `deleted` - Job posting has been deleted and is not accepting applications\n* `archived` - Job posting is archived and not accepting applications"
                     },
                     "remote": {
-                      "enum": ["remote", "on-site", "hybrid"],
+                      "enum": ["remote", "hybrid", "on-site"],
                       "type": ["string"],
                       "x-spec-enum-id": "48718b3ae514d1f4",
                       "description": "Work mode of the job (remote, hybrid, on-site)\n\n* `remote` - Fully remote, work from anywhere\n* `on-site` - Fully onsite, work from the company's physical location\n* `hybrid` - Flexible combination of onsite and remote work"
@@ -2661,6 +2681,7 @@
                         "marketing",
                         "non_profit",
                         "operations",
+                        "other",
                         "personal_care_services",
                         "pharmaceutical_life_sciences",
                         "product_management",
@@ -2674,8 +2695,7 @@
                         "social_services",
                         "sports_fitness_recreation",
                         "translation_localization",
-                        "warehouse",
-                        "other"
+                        "warehouse"
                       ]
                     },
                     "employment_type": {
@@ -2686,19 +2706,24 @@
                         "freelance",
                         "intern",
                         "temporary",
+                        "permanent",
                         "volunteer",
                         "apprenticeship",
                         "working_student",
                         "minijob",
-                        "permanent",
                         "other"
                       ]
+                    },
+                    "work_schedule": {
+                      "type": ["string"],
+                      "description": "Work schedule type for the position (full-time, part-time, flexible)",
+                      "enum": ["full_time", "part_time", "flexible"]
                     },
                     "senority": {
                       "type": ["string"],
                       "description": "Required or expected seniority level",
                       "enum": [
-                        "intern",
+                        "unexperienced",
                         "junior",
                         "mid_level",
                         "senior",
@@ -2926,7 +2951,7 @@
                       "description": "Posting status of the job (active, deleted, archived)\n\n* `active` - Job posting is open and accepting applications\n* `deleted` - Job posting has been deleted and is not accepting applications\n* `archived` - Job posting is archived and not accepting applications"
                     },
                     "remote": {
-                      "enum": ["remote", "on-site", "hybrid"],
+                      "enum": ["remote", "hybrid", "on-site"],
                       "type": ["string"],
                       "x-spec-enum-id": "48718b3ae514d1f4",
                       "description": "Work mode of the job (remote, hybrid, on-site)\n\n* `remote` - Fully remote, work from anywhere\n* `on-site` - Fully onsite, work from the company's physical location\n* `hybrid` - Flexible combination of onsite and remote work"
@@ -2965,6 +2990,7 @@
                         "marketing",
                         "non_profit",
                         "operations",
+                        "other",
                         "personal_care_services",
                         "pharmaceutical_life_sciences",
                         "product_management",
@@ -2978,8 +3004,7 @@
                         "social_services",
                         "sports_fitness_recreation",
                         "translation_localization",
-                        "warehouse",
-                        "other"
+                        "warehouse"
                       ]
                     },
                     "employment_type": {
@@ -2990,19 +3015,24 @@
                         "freelance",
                         "intern",
                         "temporary",
+                        "permanent",
                         "volunteer",
                         "apprenticeship",
                         "working_student",
                         "minijob",
-                        "permanent",
                         "other"
                       ]
+                    },
+                    "work_schedule": {
+                      "type": ["string"],
+                      "description": "Work schedule type for the position (full-time, part-time, flexible)",
+                      "enum": ["full_time", "part_time", "flexible"]
                     },
                     "senority": {
                       "type": ["string"],
                       "description": "Required or expected seniority level",
                       "enum": [
-                        "intern",
+                        "unexperienced",
                         "junior",
                         "mid_level",
                         "senior",
@@ -4107,7 +4137,7 @@
             "description": "Posting status of the job (active, deleted, archived)\n\n* `active` - Job posting is open and accepting applications\n* `deleted` - Job posting has been deleted and is not accepting applications\n* `archived` - Job posting is archived and not accepting applications"
           },
           "remote": {
-            "enum": ["remote", "on-site", "hybrid"],
+            "enum": ["remote", "hybrid", "on-site"],
             "type": ["string"],
             "x-spec-enum-id": "48718b3ae514d1f4",
             "description": "Work mode of the job (remote, hybrid, on-site)\n\n* `remote` - Fully remote, work from anywhere\n* `on-site` - Fully onsite, work from the company's physical location\n* `hybrid` - Flexible combination of onsite and remote work"
@@ -4146,6 +4176,7 @@
               "marketing",
               "non_profit",
               "operations",
+              "other",
               "personal_care_services",
               "pharmaceutical_life_sciences",
               "product_management",
@@ -4159,8 +4190,7 @@
               "social_services",
               "sports_fitness_recreation",
               "translation_localization",
-              "warehouse",
-              "other"
+              "warehouse"
             ]
           },
           "employment_type": {
@@ -4171,19 +4201,24 @@
               "freelance",
               "intern",
               "temporary",
+              "permanent",
               "volunteer",
               "apprenticeship",
               "working_student",
               "minijob",
-              "permanent",
               "other"
             ]
+          },
+          "work_schedule": {
+            "type": ["string"],
+            "description": "Work schedule type for the position (full-time, part-time, flexible)",
+            "enum": ["full_time", "part_time", "flexible"]
           },
           "senority": {
             "type": ["string"],
             "description": "Required or expected seniority level",
             "enum": [
-              "intern",
+              "unexperienced",
               "junior",
               "mid_level",
               "senior",
@@ -4378,7 +4413,7 @@
             "description": "Posting status of the job (active, deleted, archived)\n\n* `active` - Job posting is open and accepting applications\n* `deleted` - Job posting has been deleted and is not accepting applications\n* `archived` - Job posting is archived and not accepting applications"
           },
           "remote": {
-            "enum": ["remote", "on-site", "hybrid"],
+            "enum": ["remote", "hybrid", "on-site"],
             "type": ["string"],
             "x-spec-enum-id": "48718b3ae514d1f4",
             "description": "Work mode of the job (remote, hybrid, on-site)\n\n* `remote` - Fully remote, work from anywhere\n* `on-site` - Fully onsite, work from the company's physical location\n* `hybrid` - Flexible combination of onsite and remote work"
@@ -4417,6 +4452,7 @@
               "marketing",
               "non_profit",
               "operations",
+              "other",
               "personal_care_services",
               "pharmaceutical_life_sciences",
               "product_management",
@@ -4430,8 +4466,7 @@
               "social_services",
               "sports_fitness_recreation",
               "translation_localization",
-              "warehouse",
-              "other"
+              "warehouse"
             ]
           },
           "employment_type": {
@@ -4442,19 +4477,24 @@
               "freelance",
               "intern",
               "temporary",
+              "permanent",
               "volunteer",
               "apprenticeship",
               "working_student",
               "minijob",
-              "permanent",
               "other"
             ]
+          },
+          "work_schedule": {
+            "type": ["string"],
+            "description": "Work schedule type for the position (full-time, part-time, flexible)",
+            "enum": ["full_time", "part_time", "flexible"]
           },
           "senority": {
             "type": ["string"],
             "description": "Required or expected seniority level",
             "enum": [
-              "intern",
+              "unexperienced",
               "junior",
               "mid_level",
               "senior",
@@ -4932,7 +4972,7 @@
                   "description": "Posting status of the job (active, deleted, archived)\n\n* `active` - Job posting is open and accepting applications\n* `deleted` - Job posting has been deleted and is not accepting applications\n* `archived` - Job posting is archived and not accepting applications"
                 },
                 "remote": {
-                  "enum": ["remote", "on-site", "hybrid"],
+                  "enum": ["remote", "hybrid", "on-site"],
                   "type": ["string"],
                   "x-spec-enum-id": "48718b3ae514d1f4",
                   "description": "Work mode of the job (remote, hybrid, on-site)\n\n* `remote` - Fully remote, work from anywhere\n* `on-site` - Fully onsite, work from the company's physical location\n* `hybrid` - Flexible combination of onsite and remote work"
@@ -4971,6 +5011,7 @@
                     "marketing",
                     "non_profit",
                     "operations",
+                    "other",
                     "personal_care_services",
                     "pharmaceutical_life_sciences",
                     "product_management",
@@ -4984,8 +5025,7 @@
                     "social_services",
                     "sports_fitness_recreation",
                     "translation_localization",
-                    "warehouse",
-                    "other"
+                    "warehouse"
                   ]
                 },
                 "employment_type": {
@@ -4996,19 +5036,24 @@
                     "freelance",
                     "intern",
                     "temporary",
+                    "permanent",
                     "volunteer",
                     "apprenticeship",
                     "working_student",
                     "minijob",
-                    "permanent",
                     "other"
                   ]
+                },
+                "work_schedule": {
+                  "type": ["string"],
+                  "description": "Work schedule type for the position (full-time, part-time, flexible)",
+                  "enum": ["full_time", "part_time", "flexible"]
                 },
                 "senority": {
                   "type": ["string"],
                   "description": "Required or expected seniority level",
                   "enum": [
-                    "intern",
+                    "unexperienced",
                     "junior",
                     "mid_level",
                     "senior",
