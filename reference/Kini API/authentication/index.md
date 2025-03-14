@@ -42,7 +42,7 @@ Use the `POST /token/` endpoint to generate an access and refresh token.
 }
 ```
 
-### 3. Request Headers
+### 2. Request Headers
 
 Once you have an access token, include it in the Authorization header of your API requests:
 
@@ -50,7 +50,7 @@ Once you have an access token, include it in the Authorization header of your AP
 Authorization: Bearer <your_access_token>
 ```
 
-### 2. Refresh Token
+### 3. Refresh Token
 
 Use the `POST /token/refresh/` endpoint to refresh an expired access token and obtain a new refresh token.
 
