@@ -4,7 +4,7 @@ excerpt: Get an access type JWT using a valid refresh type JWT.
 api:
   file: kini-api.json
   operationId: token_refresh_create
-deprecated: false
+deprecated: true
 hidden: false
 metadata:
   title: ''
