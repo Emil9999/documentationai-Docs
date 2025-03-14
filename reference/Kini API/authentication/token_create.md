@@ -4,7 +4,7 @@ excerpt: Get an access and refresh JWT pair using a set of valid user credential
 api:
   file: kini-api.json
   operationId: token_create
-deprecated: false
+deprecated: true
 hidden: false
 metadata:
   title: ''
