@@ -31,7 +31,7 @@ API Keys can be created and managed through the Kini Partner App. When generatin
 * Generate multiple keys for different applications or environments
 * Revoke keys that are no longer needed
 
-### 3. Using the API Key
+### 2. Using the API Key
 
 Include your API key in the Authorization header of all API requests:
 
