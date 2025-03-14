@@ -1,9 +1,9 @@
 ---
 title: Authentication
 excerpt: >-
-  The Kini API also supports JWT (JSON Web Token) authentication for legacy
-  purposes. This mechanism provides a flexible way to handle authentication and
-  eliminates the need for managing passwords directly.
+  The Kini API supports JWT (JSON Web Token) authentication for legacy purposes.
+  This mechanism provides a flexible way to handle authentication and eliminates
+  the need for managing passwords directly.
 deprecated: true
 hidden: false
 metadata:
@@ -13,6 +13,10 @@ metadata:
 next:
   description: ''
 ---
+> 🚧 JWT Token Authentication Deprecated
+>
+> The authentication flow using username/password credentials to obtain JWT and refresh tokens is still supported but has been deprecated. We recommend migrating to the Bearer API Key authentication method for improved security and simplified integration.
+
 ## Overview
 
 To authenticate with the Kini API:
