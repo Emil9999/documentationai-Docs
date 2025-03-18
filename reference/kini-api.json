@@ -452,7 +452,7 @@
                         },
                         "answer": {
                           "type": "string",
-                          "description": "Answer of the screening question. The expected data type for the 'answer' field depends on the 'answer_type':\n  * 'text', 'textarea', 'select': expects a `str`.\n  * 'boolean': expects a `bool`.\n  * 'multiselect': expects a `list`."
+                          "description": "Answer of the screening question. The expected data type for the 'answer' field depends on the 'answer_type':\n  * 'text', 'textarea', 'select': expects a `str`.\n  * 'boolean': expects a `bool`.\n  * 'multiselect': expects an `array of strings`."
                         }
                       },
                       "required": ["answer", "answer_type", "id", "question"],
@@ -649,7 +649,7 @@
                         },
                         "answer": {
                           "type": "string",
-                          "description": "Answer of the screening question. The expected data type for the 'answer' field depends on the 'answer_type':\n  * 'text', 'textarea', 'select': expects a `str`.\n  * 'boolean': expects a `bool`.\n  * 'multiselect': expects a `list`."
+                          "description": "Answer of the screening question. The expected data type for the 'answer' field depends on the 'answer_type':\n  * 'text', 'textarea', 'select': expects a `str`.\n  * 'boolean': expects a `bool`.\n  * 'multiselect': expects an `array of strings`."
                         }
                       },
                       "required": ["answer", "answer_type", "id", "question"],
@@ -846,7 +846,7 @@
                         },
                         "answer": {
                           "type": "string",
-                          "description": "Answer of the screening question. The expected data type for the 'answer' field depends on the 'answer_type':\n  * 'text', 'textarea', 'select': expects a `str`.\n  * 'boolean': expects a `bool`.\n  * 'multiselect': expects a `list`."
+                          "description": "Answer of the screening question. The expected data type for the 'answer' field depends on the 'answer_type':\n  * 'text', 'textarea', 'select': expects a `str`.\n  * 'boolean': expects a `bool`.\n  * 'multiselect': expects an `array of strings`."
                         }
                       },
                       "required": ["answer", "answer_type", "id", "question"],
@@ -1051,7 +1051,7 @@
                           },
                           "answer": {
                             "type": "string",
-                            "description": "Answer of the screening question. The expected data type for the 'answer' field depends on the 'answer_type':\n  * 'text', 'textarea', 'select': expects a `str`.\n  * 'boolean': expects a `bool`.\n  * 'multiselect': expects a `list`."
+                            "description": "Answer of the screening question. The expected data type for the 'answer' field depends on the 'answer_type':\n  * 'text', 'textarea', 'select': expects a `str`.\n  * 'boolean': expects a `bool`.\n  * 'multiselect': expects an `array of strings`."
                           }
                         },
                         "required": ["answer", "answer_type", "id", "question"],
@@ -1296,7 +1296,7 @@
                           },
                           "answer": {
                             "type": "string",
-                            "description": "Answer of the screening question. The expected data type for the 'answer' field depends on the 'answer_type':\n  * 'text', 'textarea', 'select': expects a `str`.\n  * 'boolean': expects a `bool`.\n  * 'multiselect': expects a `list`."
+                            "description": "Answer of the screening question. The expected data type for the 'answer' field depends on the 'answer_type':\n  * 'text', 'textarea', 'select': expects a `str`.\n  * 'boolean': expects a `bool`.\n  * 'multiselect': expects an `array of strings`."
                           }
                         },
                         "required": ["answer", "answer_type", "id", "question"],
@@ -4829,7 +4829,7 @@
                       },
                       "answer": {
                         "type": "string",
-                        "description": "Answer of the screening question. The expected data type for the 'answer' field depends on the 'answer_type':\n  * 'text', 'textarea', 'select': expects a `str`.\n  * 'boolean': expects a `bool`.\n  * 'multiselect': expects a `list`."
+                        "description": "Answer of the screening question. The expected data type for the 'answer' field depends on the 'answer_type':\n  * 'text', 'textarea', 'select': expects a `str`.\n  * 'boolean': expects a `bool`.\n  * 'multiselect': expects an `array of strings`."
                       }
                     },
                     "required": ["answer", "answer_type", "id", "question"],
