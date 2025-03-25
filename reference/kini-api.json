@@ -64,10 +64,17 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "id": { "type": "integer", "readOnly": true },
+                          "id": {
+                            "type": "integer",
+                            "description": "Kini ID of the application"
+                          },
                           "job": {
                             "type": ["integer"],
                             "description": "Kini ID of the job applied for (either job or external_job_id is required)"
+                          },
+                          "company": {
+                            "type": ["integer"],
+                            "description": "Kini ID of the company offering the job"
                           },
                           "external_job_id": {
                             "type": "string",
@@ -917,7 +924,10 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "id": { "type": "integer", "readOnly": true },
+                    "company": {
+                      "type": ["integer"],
+                      "description": "Kini ID of the company offering the job"
+                    },
                     "job": {
                       "type": ["integer"],
                       "description": "Kini ID of the job applied for (either job or external_job_id is required)"
@@ -1162,7 +1172,10 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "id": { "type": "integer", "readOnly": true },
+                    "company": {
+                      "type": ["integer"],
+                      "description": "Kini ID of the company offering the job"
+                    },
                     "job": {
                       "type": ["integer"],
                       "description": "Kini ID of the job applied for (either job or external_job_id is required)"
@@ -1446,7 +1459,10 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "id": { "type": "integer", "readOnly": true },
+                          "id": {
+                            "type": "integer",
+                            "description": "Kini ID of the job"
+                          },
                           "external_id": {
                             "type": ["string"],
                             "description": "Job's ID in external ATS systems, used for integrations"
@@ -2607,7 +2623,10 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "id": { "type": "integer", "readOnly": true },
+                    "id": {
+                      "type": "integer",
+                      "description": "Kini ID of the job"
+                    },
                     "external_id": {
                       "type": ["string"],
                       "description": "Job's ID in external ATS systems, used for integrations"
@@ -2916,7 +2935,10 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "id": { "type": "integer", "readOnly": true },
+                    "id": {
+                      "type": "integer",
+                      "description": "Kini ID of the job"
+                    },
                     "external_id": {
                       "type": ["string"],
                       "description": "Job's ID in external ATS systems, used for integrations"
@@ -3489,7 +3511,10 @@
       "Application": {
         "type": "object",
         "properties": {
-          "id": { "type": "integer", "readOnly": true },
+          "id": {
+            "type": "integer",
+            "description": "Kini ID of the application"
+          },
           "job": {
             "type": ["integer"],
             "description": "Kini ID of the job applied for (either job or external_job_id is required)"
@@ -3902,8 +3927,8 @@
       "ApplicationScreeningQuestionRequest": {
         "type": "object",
         "properties": {
-          "id": { "type": "string", "minLength": 1 },
-          "question": { "type": "string", "minLength": 1 },
+          "id": { "type": "string" },
+          "question": { "type": "string" },
           "answer_type": {
             "enum": ["boolean", "text", "textarea", "select", "multiselect"],
             "type": "string",
@@ -4098,7 +4123,7 @@
       "Job": {
         "type": "object",
         "properties": {
-          "id": { "type": "integer", "readOnly": true },
+          "id": { "type": "integer", "description": "Kini ID of the job" },
           "external_id": {
             "type": ["string"],
             "description": "Job's ID in external ATS systems, used for integrations"
@@ -4588,7 +4613,6 @@
               "properties": {
                 "id": {
                   "type": "string",
-                  "minLength": 1,
                   "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
                 },
                 "question": {
@@ -4699,7 +4723,10 @@
             "items": {
               "type": "object",
               "properties": {
-                "id": { "type": "integer", "readOnly": true },
+                "id": {
+                  "type": "integer",
+                  "description": "Kini ID of the application"
+                },
                 "job": {
                   "type": ["integer"],
                   "description": "Kini ID of the job applied for (either job or external_job_id is required)"
@@ -4933,7 +4960,10 @@
             "items": {
               "type": "object",
               "properties": {
-                "id": { "type": "integer", "readOnly": true },
+                "id": {
+                  "type": "integer",
+                  "description": "Kini ID of the job"
+                },
                 "external_id": {
                   "type": ["string"],
                   "description": "Job's ID in external ATS systems, used for integrations"
@@ -5261,8 +5291,8 @@
       "ScreeningQuestionRequest": {
         "type": "object",
         "properties": {
-          "id": { "type": "string", "minLength": 1 },
-          "question": { "type": "string", "minLength": 1 },
+          "id": { "type": "string" },
+          "question": { "type": "string" },
           "answer_type": {
             "enum": ["boolean", "text", "textarea", "select", "multiselect"],
             "type": "string",
@@ -5423,7 +5453,6 @@
         "properties": {
           "id": {
             "type": "integer",
-            "readOnly": true,
             "description": "Unique Kini ID of the company"
           },
           "name": { "type": "string", "description": "The company's name" },
