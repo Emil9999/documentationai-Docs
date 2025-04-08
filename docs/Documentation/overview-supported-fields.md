@@ -13,95 +13,113 @@ metadata:
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Supported Fields Job Symc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrationen Vergleich</title>
     <style>
-        /* Container für die Tabelle */
         .table-container {
             width: 100%;
             overflow-x: auto;
-            max-height: 750px; /* Optional: Höhe begrenzen */
+            box-shadow: 0 6px 30px -2px rgba(0, 0, 0, 0.12);
+            border-radius: 0.5rem;
+            background-color: white;
         }
-
-        /* Stil für die Tabelle */
         table {
-            border-collapse: collapse;
             width: 100%;
+            border-collapse: collapse;
+            font-family: monospace;
         }
-
         th, td {
-            border: 1px solid #ddd;
             padding: 8px;
-            text-align: left;
+            text-align: center;
+            border-bottom: 1px solid #e5e7eb;
         }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        /* Fixierte erste Spalte */
         th:first-child, td:first-child {
             position: sticky;
             left: 0;
-            background-color: #fff; /* Hintergrund für Sichtbarkeit */
-            z-index: 1; /* Damit sie über anderen Zellen liegt */
-            min-width: 150px; /* Optional: Breite der fixierten Spalte */
+            background-color: white;
+            z-index: 1;
+            min-width: 150px;
+            text-align: left;
         }
-
-        /* Scrollbar-Styling (optional) */
-        .table-container::-webkit-scrollbar {
-            height: 10px;
+        th {
+            background-color: #f9fafb;
         }
-        .table-container::-webkit-scrollbar-thumb {
-            background: #888;
+        img {
+            height: 20px;
+            vertical-align: middle;
         }
     </style>
 </head>
 <body>
-    <h2>Supported Fields Job Symc</h2>
     <div class="table-container">
-        <table id="sheetTable">
+        <table>
             <thead>
-                <tr id="headerRow"></tr>
+                <tr>
+                    <th>Field</th>
+                    <th><img src="https://www.new-work.se/static/onlyfy-logo.png" alt="Onlyfy Logo"></th>
+                    <th><img src="https://www.guidecom.de/wp-content/uploads/guidecom-logo.png" alt="GuideCom Logo"></th>
+                    <th><img src="https://www.personio.com/wp-content/uploads/personio-logo.svg" alt="Personio Logo"></th>
+                    <th><img src="https://www.cornerstoneondemand.com/wp-content/uploads/cornerstone-logo.png" alt="Cornerstone Logo"></th>
+                    <th><img src="https://www.workday.com/content/dam/web/en-us/images/workday-logo.svg" alt="Workday Logo"></th>
+                    <th><img src="https://www.zvoove.com/wp-content/uploads/zvoove-logo.png" alt="Zvoove Logo"></th>
+                    <th><img src="https://www.softgarden.com/wp-content/uploads/softgarden-logo.svg" alt="Softgarden (XML) Logo"></th>
+                    <th><img src="https://www.softgarden.com/wp-content/uploads/softgarden-logo.svg" alt="Softgarden (API) Logo"></th>
+                    <th><img src="https://www.umantis.com/wp-content/uploads/umantis-logo.png" alt="Umantis Logo"></th>
+                    <th><img src="https://www.dvinci.de/wp-content/uploads/dvinci-logo.svg" alt="D.vinci Logo"></th>
+                    <th>[Logo B-ite]</th>
+                    <th><img src="https://www.hrworks.de/wp-content/uploads/hrworks-logo.png" alt="HRworks Logo"></th>
+                    <th><img src="https://www.cegid.com/wp-content/uploads/cegid-logo.svg" alt="Cegid Logo"></th>
+                    <th><img src="https://www.join.com/wp-content/uploads/join-logo.png" alt="Join Logo"></th>
+                    <th><img src="https://www.kenjo.io/wp-content/uploads/kenjo-logo.svg" alt="Kenjo Logo"></th>
+                    <th><img src="https://www.erecruiter.pl/wp-content/uploads/erecruiter-logo.png" alt="eRecruiter Logo"></th>
+                    <th><img src="https://www.lever.co/wp-content/uploads/lever-logo.svg" alt="Lever Logo"></th>
+                    <th><img src="https://www.factorialhr.com/wp-content/uploads/factorial-logo.png" alt="Factorial Logo"></th>
+                    <th><img src="https://www.teamtailor.com/wp-content/uploads/teamtailor-logo.svg" alt="TeamTailor Logo"></th>
+                    <th><img src="https://www.greenhouse.io/wp-content/uploads/greenhouse-logo.png" alt="Greenhouse Logo"></th>
+                    <th><img src="https://www.sap.com/dam/application/shared/logos/successfactors-logo.svg" alt="Successfactors Logo"></th>
+                    <th><img src="https://www.recruitmentsoftware.recruitee.com/wp-content/uploads/recruitee-logo.png" alt="Recuitee Logo"></th>
+                    <th><img src="https://www.smartrecruiters.com/wp-content/uploads/smartrecruiters-logo.svg" alt="SmartRecruiters Logo"></th>
+                    <th><img src="https://www.hr4you.de/wp-content/uploads/hr4you-logo.png" alt="HR4You Logo"></th>
+                    <th>[Logo Coveto]</th>
+                    <th><img src="https://www.heyrecruit.de/wp-content/uploads/heyrecruit-logo.png" alt="Heyrecruit Logo"></th>
+                    <th><img src="https://www.rexx-systems.com/wp-content/uploads/rexx-logo.svg" alt="Rexx Logo"></th>
+                </tr>
             </thead>
-            <tbody id="bodyRows"></tbody>
+            <tbody>
+                <tr><td>external_id</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>title</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>description</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>posting_url</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>application_url</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>status</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>remote</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>location_name</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>street</td><td>❌</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>postcode</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>city</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>country</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>longitude</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>latitude</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>language</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>category</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>work_schedule</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>employment_type</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>start_date</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>contract_limitation</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>senority</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>contact_name</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>✅</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>contact_email</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>contact_title</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>contact_phone</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>salary</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>salary_from</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>salary_to</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>salary_currency</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>salary_frequency</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td></td><td></td><td></td><td></td></tr>
+                <tr><td>screening_questions</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td></td><td></td><td></td><td></td></tr>
+            </tbody>
         </table>
     </div>
-
-    <script>
-        // URL für CSV-Export deiner Google Sheets
-        const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTTdWlZtE6qfdXXUsiQb81ozfPVTm7LnjBTy1sQJLJhyabqDlFd_PjjPegi7rdC-v5UawKkJ0E4G09B/pub?gid=1403645474&output=csv";
-
-        // Daten abrufen und Tabelle füllen
-        fetch(csvUrl)
-            .then(response => response.text())
-            .then(data => {
-                // CSV in Zeilen aufteilen
-                const rows = data.split('\n').map(row => row.split(','));
-
-                // Header (erste Zeile) einfügen
-                const headerRow = document.getElementById('headerRow');
-                rows[0].forEach(cell => {
-                    const th = document.createElement('th');
-                    th.textContent = cell;
-                    headerRow.appendChild(th);
-                });
-
-                // Datenzeilen einfügen
-                const bodyRows = document.getElementById('bodyRows');
-                for (let i = 1; i < rows.length; i++) {
-                    if (rows[i].length > 1) { // Ignoriere leere Zeilen
-                        const tr = document.createElement('tr');
-                        rows[i].forEach(cell => {
-                            const td = document.createElement('td');
-                            td.textContent = cell;
-                            tr.appendChild(td);
-                        });
-                        bodyRows.appendChild(tr);
-                    }
-                }
-            })
-            .catch(error => console.error('Fehler beim Laden der Daten:', error));
-    </script>
 </body>
 </html>
 `}</HTMLBlock>
