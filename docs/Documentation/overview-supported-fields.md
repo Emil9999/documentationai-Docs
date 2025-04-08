@@ -18,6 +18,7 @@ metadata:
     <style>
         .table-container {
             width: 137.5%;
+          	height: 80%;
             overflow-x: auto;
             box-shadow: 0 6px 30px -2px rgba(0, 0, 0, 0.12);
             border-radius: 0.5rem;
