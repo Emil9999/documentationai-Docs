@@ -15,13 +15,13 @@ metadata:
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Google Sheets mit fixierter Spalte</title>
+    <title>Supported Fields Job Symc</title>
     <style>
         /* Container für die Tabelle */
         .table-container {
             width: 100%;
             overflow-x: auto;
-            max-height: 500px; /* Optional: Höhe begrenzen */
+            max-height: 750px; /* Optional: Höhe begrenzen */
         }
 
         /* Stil für die Tabelle */
@@ -59,7 +59,7 @@ metadata:
     </style>
 </head>
 <body>
-    <h2>Google Sheets mit fixierter Spalte A</h2>
+    <h2>Supported Fields Job Symc</h2>
     <div class="table-container">
         <table id="sheetTable">
             <thead>
