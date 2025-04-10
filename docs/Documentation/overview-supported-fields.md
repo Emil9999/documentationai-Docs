@@ -94,7 +94,7 @@ metadata:
        
         }
         .zvoove-logo {
-            margin-top: 50px;
+            margin-top: 80px;
         }
     </style>
 </head>
