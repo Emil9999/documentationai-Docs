@@ -61,7 +61,7 @@ metadata:
             vertical-align: middle;
       }
         .not-synced {
-            font-size: 70%; /* ❌ bleibt 30% kleiner */
+            font-size: 60%; /* ❌ bleibt 30% kleiner */
         }
     </style>
 </head>
