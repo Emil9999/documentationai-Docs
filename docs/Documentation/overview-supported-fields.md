@@ -35,7 +35,7 @@ metadata:
             padding: 8px;
             text-align: center;
             border-bottom: 1px solid #e5e7eb;
-            min-width:150px; /* Einheitliche feste Breite für alle Spalten */
+            min-width:180px; /* Einheitliche feste Breite für alle Spalten */
             box-sizing: border-box; /* Padding wird in die Breite einbezogen */
         }
         th:first-child, td:first-child {
@@ -57,11 +57,11 @@ metadata:
             background-color: #f9fafb; /* Gleicher Hintergrund wie Header */
         }
         img {
-            height: 25px;
+            height: 30px;
             vertical-align: middle;
         }
         .not-synced {
-            font-size:50%; /* ❌ bleibt 30% kleiner */
+            font-size:70%; /* ❌ bleibt 30% kleiner */
         }
     </style>
 </head>
