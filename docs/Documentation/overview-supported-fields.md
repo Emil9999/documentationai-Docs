@@ -62,7 +62,7 @@ metadata:
         
         }
         td.not-synced {
-            font-size: 70%; /* ❌ bleibt 30% kleiner */
+            font-size: 80%;
         }
         .guidecom-logo {
             width: 200px;
