@@ -60,7 +60,7 @@ metadata:
             height: 30px;
             vertical-align: middle;
       }
-        .not-synced {
+        td.not-synced {
             font-size: 60%; /* ❌ bleibt 30% kleiner */
         }
     </style>
