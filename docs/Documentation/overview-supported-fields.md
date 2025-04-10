@@ -35,7 +35,7 @@ metadata:
             padding: 8px;
             text-align: center;
             border-bottom: 1px solid #e5e7eb;
-            width: 150px; /* Einheitliche feste Breite für alle Spalten */
+            width:200px; /* Einheitliche feste Breite für alle Spalten */
             box-sizing: border-box; /* Padding wird in die Breite einbezogen */
         }
         th:first-child, td:first-child {
