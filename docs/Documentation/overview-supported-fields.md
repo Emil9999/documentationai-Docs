@@ -35,7 +35,7 @@ metadata:
             padding: 8px;
             text-align: center;
             border-bottom: 1px solid #e5e7eb;
-            min-width:200px; /* Einheitliche feste Breite für alle Spalten */
+            min-width:230px; /* Einheitliche feste Breite für alle Spalten */
             box-sizing: border-box; /* Padding wird in die Breite einbezogen */
         }
         th:first-child, td:first-child {
@@ -43,7 +43,7 @@ metadata:
             left: 0;
             background-color: white;
             z-index: 3; /* Höherer z-index für die erste Spalte */
-            min-width: 250px; /* Feste Breite für die erste Spalte */
+            min-width: 210px; /* Feste Breite für die erste Spalte */
             text-align: left;
         }
         th {
