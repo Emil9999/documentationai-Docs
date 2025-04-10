@@ -97,7 +97,7 @@ metadata:
             margin-top: 10px;
         }
         .workday-logo {
-            width: 150px;
+            width: 100px;
             height: auto;
         }
     </style>
