@@ -73,7 +73,7 @@ metadata:
                     <th style="width: 150px;">Field</th>
                     <th style="width: 150px;"><img src="https://onlyfy.com/wp-content/themes/onlyfy/assets/icons/logo.svg" alt="Onlyfy Logo"></th>
                     <th style="width: 150px;"><img src="https://www.guidecom.de/_assets/407aa76fe6bede19af48e7793075494f/img/logo_guidecom.svg" alt="GuideCom Logo"></th>
-                    <th style="width: 150px;"><img src="https://www.personio.com/wp-content/uploads/personio-logo.svg" alt="Personio Logo"></th>
+                    <th style="width: 150px;"><img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3APersonio_logo_%25282024%2529.svg&psig=AOvVaw2l6Ihbp_4yCwoTHiaTdyto&ust=1744365632711000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIicgMKazYwDFQAAAAAdAAAAABAE" alt="Personio Logo"></th>
                     <th style="width: 150px;"><img src="https://www.cornerstoneondemand.com/wp-content/uploads/cornerstone-logo.png" alt="Cornerstone Logo"></th>
                     <th style="width: 150px;"><img src="https://www.workday.com/content/dam/web/en-us/images/workday-logo.svg" alt="Workday Logo"></th>
                     <th style="width: 150px;"><img src="https://www.zvoove.com/wp-content/uploads/zvoove-logo.png" alt="Zvoove Logo"></th>
