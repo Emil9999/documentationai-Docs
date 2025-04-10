@@ -82,7 +82,7 @@ metadata:
         }
         .rexx-logo {
             width: 250px;
-            height: auto;
+            height: 40px;
         }
     </style>
 </head>
