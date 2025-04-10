@@ -43,7 +43,7 @@ metadata:
             left: 0;
             background-color: white;
             z-index: 3; /* Höherer z-index für die erste Spalte */
-            width: 300px; /* Feste Breite für die erste Spalte */
+            min-width: 250px; /* Feste Breite für die erste Spalte */
             text-align: left;
         }
         th {
