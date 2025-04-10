@@ -74,7 +74,7 @@ metadata:
                     <th style="width: 150px;"><img src="https://onlyfy.com/wp-content/themes/onlyfy/assets/icons/logo.svg" alt="Onlyfy Logo"></th>
                     <th style="width: 150px;"><img src="https://www.guidecom.de/_assets/407aa76fe6bede19af48e7793075494f/img/logo_guidecom.svg" alt="GuideCom Logo"></th>
                     <th style="width: 150px;"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Personio_logo_%282024%29.svg" alt="Personio Logo"></th>
-                    <th style="width: 150px;"><img src="https://www.cornerstoneondemand.com/wp-content/uploads/cornerstone-logo.png" alt="Cornerstone Logo"></th>
+                    <th style="width: 150px;"><img src="https://www.cornerstoneondemand.com/_next/image/?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F43ea2a5t%2Fcsod-new%2Fd81c21c51a9626f632933d779140d4638ae1f744-939x146.svg&w=384&q=75" alt="Cornerstone Logo"></th>
                     <th style="width: 150px;"><img src="https://www.workday.com/content/dam/web/en-us/images/workday-logo.svg" alt="Workday Logo"></th>
                     <th style="width: 150px;"><img src="https://www.zvoove.com/wp-content/uploads/zvoove-logo.png" alt="Zvoove Logo"></th>
                     <th style="width: 150px;"><img src="https://www.softgarden.com/wp-content/uploads/softgarden-logo.svg" alt="Softgarden (XML) Logo"></th>
