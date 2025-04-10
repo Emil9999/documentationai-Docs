@@ -79,9 +79,9 @@ metadata:
                     <th style="width: 150px;"><img src="https://go.zvoove.com/hubfs/zvoove-Logo_Cookies.png" alt="Zvoove Logo"></th>
                     <th style="width: 150px;"><img src="https://www.softgarden.com/wp-content/uploads/softgarden-logo.svg" alt="Softgarden (XML) Logo">[XML]</th>
                     <th style="width: 150px;"><img src="https://www.softgarden.com/wp-content/uploads/softgarden-logo.svg" alt="Softgarden (API) Logo">[API]</th>
-                    <th style="width: 150px;"><img src="https://www.umantis.com/wp-content/uploads/2024/02/logo.png" alt="Umantis Logo"></th>
+                    <th style="width: 150px;"><img src="https://www.umantis.com/wp-content/uploads/2024/11/Abacus_Umantis_Logo_Farbe_Claim_klein.png" alt="Umantis Logo"></th>
                     <th style="width: 150px;"><img src="https://www.dvinci.de/wp-content/smush-webp/2020/10/brand_dvinci@2x.png.webp" alt="D.vinci Logo"></th>
-                    <th style="width: 150px;">[Logo B-ite]</th>
+                    <th style="width: 150px;"><img src="https://www.b-ite.de/images/logo-8b4a2b5bccdda5af4b02.svg" alt="B-ite Logo"></th>
                     <th style="width: 150px;"><img src="https://www.hrworks.de/wp-content/uploads/HR_WORKS_LOGO_RGB.svg" alt="HRworks Logo"></th>
                     <th style="width: 150px;"><img src="https://www.cegid.com/de/wp-content/uploads/sites/8/2023/04/cegid-logo-blue.svg" alt="Cegid Logo"></th>
                     <th style="width: 150px;"><img src="https://cdn.join.com/603b807305e48900015fb45c/join-solutions-ag-logo-xl.png" alt="Join Logo"></th>
