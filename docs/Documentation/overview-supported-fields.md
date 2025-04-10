@@ -71,7 +71,7 @@ metadata:
             <thead>
                 <tr>
                     <th style="width: 150px;">Field</th>
-                    <th style="width: 150px;"><img src="https://www.new-work.se/static/onlyfy-logo.png" alt="Onlyfy Logo"></th>
+                    <th style="width: 150px;"><img src="https://onlyfy.com/wp-content/themes/onlyfy/assets/icons/logo.svg" alt="Onlyfy Logo"></th>
                     <th style="width: 150px;"><img src="https://www.guidecom.de/wp-content/uploads/guidecom-logo.png" alt="GuideCom Logo"></th>
                     <th style="width: 150px;"><img src="https://www.personio.com/wp-content/uploads/personio-logo.svg" alt="Personio Logo"></th>
                     <th style="width: 150px;"><img src="https://www.cornerstoneondemand.com/wp-content/uploads/cornerstone-logo.png" alt="Cornerstone Logo"></th>
