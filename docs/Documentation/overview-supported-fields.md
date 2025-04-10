@@ -96,6 +96,11 @@ metadata:
             width: 100px;
             height: auto;
         }
+        .join-logo {
+            width: 100px;
+            height: auto;
+        }
+
     </style>
 </head>
 <body>
@@ -117,7 +122,7 @@ metadata:
                     <th style="width: 150px;"><img src="https://www.b-ite.de/images/logo-8b4a2b5bccdda5af4b02.svg" alt="B-ite Logo"></th>
                     <th style="width: 150px;"><img src="https://www.hrworks.de/wp-content/uploads/HR_WORKS_LOGO_RGB.svg" alt="HRworks Logo"></th>
                     <th style="width: 150px;"><img src="https://www.cegid.com/de/wp-content/uploads/sites/8/2023/04/cegid-logo-blue.svg" alt="Cegid Logo"></th>
-                    <th style="width: 150px;"><img src="https://s3-eu-west-1.amazonaws.com/tpd/logos/60194bf040bb78000169d673/0x0.png" alt="Join Logo"></th>
+                    <th style="width: 150px;"><img class="join-logo" src="https://s3-eu-west-1.amazonaws.com/tpd/logos/60194bf040bb78000169d673/0x0.png" alt="Join Logo"></th>
                     <th style="width: 150px;"><img src="https://kenjo-company-website.cdn.prismic.io/kenjo-company-website/b0934848-ddd6-4e63-ae91-a3ee3f3a4b5a_kenjo-horizontal-logo.svg?fit=max&w=384" alt="Kenjo Logo"></th>
                     <th style="width: 180px;"><img class="erecruiter-logo" src="https://www.erecruiter.net/wp-content/uploads/2020/04/Logo-eRecruiter-0219-RZ-Green.png" alt="eRecruiter Logo"></th>
                     <th style="width: 150px;"><img src="https://www.lever.co/wp-content/uploads/2022/09/Lever_Employ_Logo_Horizontal_Turquoise_Black.png" alt="Lever Logo"></th>
