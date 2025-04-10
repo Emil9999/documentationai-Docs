@@ -17,38 +17,51 @@ metadata:
     <title>Integrationen Vergleich</title>
     <style>
         .table-container {
-            width: 137.5%;
-          	height: 80%;
-            overflow-x: auto;
-          	overflow-y:auto;
+            width: 137.5%; /* Breite der Tabelle */
+            overflow: auto; /* Scrollen in beide Richtungen */
             box-shadow: 0 6px 30px -2px rgba(0, 0, 0, 0.12);
             border-radius: 0.5rem;
             background-color: white;
+            max-height: 80vh; /* Begrenzt die Höhe für vertikales Scrollen */
+            position: relative;
         }
         table {
             width: 100%;
             border-collapse: collapse;
             font-family: monospace;
+            table-layout: fixed; /* Erzwingt feste Spaltenbreiten */
         }
         th, td {
             padding: 8px;
             text-align: center;
             border-bottom: 1px solid #e5e7eb;
+            width: 250px; /* Einheitliche feste Breite für alle Spalten */
+            box-sizing: border-box; /* Padding wird in die Breite einbezogen */
         }
         th:first-child, td:first-child {
             position: sticky;
             left: 0;
             background-color: white;
-            z-index: 1;
-            min-width: 150px;
+            z-index: 3; /* Höherer z-index für die erste Spalte */
+            width: 300px; /* Feste Breite für die erste Spalte */
             text-align: left;
         }
         th {
+            position: sticky;
+            top: 0;
             background-color: #f9fafb;
+            z-index: 2; /* Header über Zellen, unter erster Spalte */
+        }
+        th:first-child {
+            z-index: 4; /* Field bleibt über allem */
+            background-color: #f9fafb; /* Gleicher Hintergrund wie Header */
         }
         img {
             height: 20px;
             vertical-align: middle;
+        }
+        .not-synced {
+            font-size: 70%; /* ❌ bleibt 30% kleiner */
         }
     </style>
 </head>
@@ -88,7 +101,7 @@ metadata:
                 </tr>
             </thead>
             <tbody>
-                <tr><td>external_id</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td></td><td></td><td></td><td></td></tr>
+                            <tr><td>external_id</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td></td><td></td><td></td><td></td></tr>
                 <tr><td>title</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td></td><td></td><td></td><td></td></tr>
                 <tr><td>description</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td></td><td></td><td></td><td></td></tr>
                 <tr><td>posting_url</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td></td><td></td><td></td><td></td></tr>
