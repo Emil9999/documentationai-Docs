@@ -89,7 +89,7 @@ metadata:
             height: auto;
         }
         .erecruiter-logo {
-            width: 180px;
+            width: 130px;
             height: auto;
        
         }
