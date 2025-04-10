@@ -57,7 +57,8 @@ metadata:
             background-color: #f9fafb; /* Gleicher Hintergrund wie Header */
         }
         img {
-            height: 20px;
+            height: 80px;
+         	  width: 200px;
             vertical-align: middle;
         }
         .not-synced {
