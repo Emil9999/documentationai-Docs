@@ -65,7 +65,7 @@ metadata:
             font-size: 70%; /* ❌ bleibt 30% kleiner */
         }
         .large-logo {
-            width: 400px;
+            width: 350px;
             height: auto;
         }
     </style>
