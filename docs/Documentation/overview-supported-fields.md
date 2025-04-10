@@ -77,11 +77,11 @@ metadata:
             height: auto;
         }
         .Hr4you-logo {
-            width: 400px;
+            width: 500px;
             height: auto;
         }
         .rexx-logo {
-            width: 400px;
+            width: 250px;
             height: auto;
         }
     </style>
