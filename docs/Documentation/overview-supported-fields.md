@@ -81,7 +81,7 @@ metadata:
             height: auto;
         }
         .rexx-logo {
-            width: 400px;
+            width: 100px;
             height: auto;
         }
         .factorial-logo {
