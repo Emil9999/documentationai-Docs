@@ -91,10 +91,6 @@ metadata:
         .erecruiter-logo {
             width: 180px;
             height: auto;
-       
-        }
-        .zvoove-logo {
-            margin-top: 10px;
         }
         .workday-logo {
             width: 100px;
