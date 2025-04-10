@@ -260,8 +260,8 @@ metadata:
     <title>Integrationen Vergleich</title>
     <style>
         .table-container {
-            width: 100%; /* Zurück auf 100%, 137,5% ist ungültig und unnötig */
-            overflow: auto; /* Ermöglicht Scrollen in beide Richtungen */
+            width: 137.5%; /* Zurück auf 137.5% */
+            overflow: auto; /* Scrollen in beide Richtungen */
             box-shadow: 0 6px 30px -2px rgba(0, 0, 0, 0.12);
             border-radius: 0.5rem;
             background-color: white;
@@ -277,14 +277,14 @@ metadata:
             padding: 8px;
             text-align: center;
             border-bottom: 1px solid #e5e7eb;
-            width: 180px; /* Vergrößerte, einheitliche Spaltenbreite */
+            width: 250px; /* Fixe, breitere Spaltenbreite für alle Systeme */
         }
         th:first-child, td:first-child {
             position: sticky;
             left: 0;
             background-color: white;
             z-index: 3; /* Höherer z-index für die erste Spalte */
-            min-width: 200px; /* Breiter für bessere Abdeckung */
+            width: 300px; /* Breiter, um Überlappungen zu vermeiden */
             text-align: left;
         }
         th {
@@ -300,7 +300,6 @@ metadata:
         img {
             height: 20px;
             vertical-align: middle;
-            opacity: 0.9; /* Leichte Transparenz für Durchscheinen */
         }
         .not-synced {
             font-size: 70%; /* ❌ bleibt 30% kleiner */
@@ -373,7 +372,7 @@ metadata:
                 <tr><td>salary_to</td><td>✅</td><td class="not-synced">❌</td><td>✅</td><td>✅</td><td class="not-synced">❌</td><td class="not-synced">❌</td><td class="not-synced">❌</td><td class="not-synced">❌</td><td class="not-synced">❌</td><td>✅</td><td class="not-synced">❌</td><td class="not-synced">❌</td><td class="not-synced">❌</td><td>✅</td><td class="not-synced">❌</td><td>✅</td><td class="not-synced">❌</td><td>✅</td><td class="not-synced">❌</td><td>✅</td><td>✅</td><td class="not-synced">❌</td><td class="not-synced">❌</td><td></td><td></td><td></td><td></td></tr>
                 <tr><td>salary_currency</td><td>✅</td><td class="not-synced">❌</td><td>✅</td><td>✅</td><td class="not-synced">❌</td><td>✅</td><td class="not-synced">❌</td><td class="not-synced">❌</td><td class="not-synced">❌</td><td>✅</td><td class="not-synced">❌</td><td class="not-synced">❌</td><td class="not-synced">❌</td><td>✅</td><td class="not-synced">❌</td><td>✅</td><td>✅</td><td class="not-synced">❌</td><td class="not-synced">❌</td><td>✅</td><td>✅</td><td class="not-synced">❌</td><td class="not-synced">❌</td><td></td><td></td><td></td><td></td></tr>
                 <tr><td>salary_frequency</td><td class="not-synced">❌</td><td class="not-synced">❌</td><td>✅</td><td class="not-synced">❌</td><td class="not-synced">❌</td><td>✅</td><td class="not-synced">❌</td><td class="not-synced">❌</td><td class="not-synced">❌</td><td>✅</td><td class="not-synced">❌</td><td class="not-synced">❌</td><td class="not-synced">❌</td><td>✅</td><td class="not-synced">❌</td><td>✅</td><td>✅</td><td>✅</td><td class="not-synced">❌</td><td class="not-synced">❌</td><td>✅</td><td class="not-synced">❌</td><td class="not-synced">❌</td><td></td><td></td><td></td><td></td></tr>
-                <tr><td>screening_questions</td><td class="not-synced">❌</td><td>✅</td><td>✅</td><td class="not-synced">❌</td><td class="not-synced">❌</td><td class="not-synced">❌</td><td>✅</td><td>✅</td><td class="not-synced">❌</td><td>✅</td><td class="not-synced">❌</td><td class="not-synced">❌</td><td class="not-synced">❌</td><td>✅</td><td class="not-synced">❌</td><td>✅</td><td class="not-synced">❌</td><td class="not-synced">❌</td><td>✅</td><td>✅</td><td class="not-synced">❌</td><td>✅</td><td class="not-synced">❌</td><td></td><td></td><td></td><td></td></tr> 
+                <tr><td>screening_questions</td><td class="not-synced">❌</td><td>✅</td><td>✅</td><td class="not-synced">❌</td><td class="not-synced">❌</td><td class="not-synced">❌</td><td>✅</td><td>✅</td><td class="not-synced">❌</td><td>✅</td><td class="not-synced">❌</td><td class="not-synced">❌</td><td class="not-synced">❌</td><td>✅</td><td class="not-synced">❌</td><td>✅</td><td class="not-synced">❌</td><td class="not-synced">❌</td><td>✅</td><td>✅</td><td class="not-synced">❌</td><td>✅</td><td class="not-synced">❌</td><td></td><td></td><td></td><td></td></tr>
             </tbody>
         </table>
     </div>
