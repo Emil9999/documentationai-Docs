@@ -100,11 +100,6 @@ metadata:
             width: 100px;
             height: auto;
         }
-        .centered-logo {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
     </style>
 </head>
 <body>
@@ -126,7 +121,7 @@ metadata:
                     <th style="width: 150px;"><img src="https://www.b-ite.de/images/logo-8b4a2b5bccdda5af4b02.svg" alt="B-ite Logo"></th>
                     <th style="width: 150px;"><img src="https://www.hrworks.de/wp-content/uploads/HR_WORKS_LOGO_RGB.svg" alt="HRworks Logo"></th>
                     <th style="width: 150px;"><img src="https://www.cegid.com/de/wp-content/uploads/sites/8/2023/04/cegid-logo-blue.svg" alt="Cegid Logo"></th>
-                    <th class="centered-logo" style="width: 150px;"><svg width="120" height="75" class="logosvg" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M52.496 8.811h-3.054v8.364L43.664 9.32c-.224-.286-.578-.513-.977-.513l-4.26.005v16.722h4.894v-8.345l5.77 7.849c.221.293.587.479.99.479h2.415c1.016 0 1.84-.8 1.84-1.787V10.597c0-.987-.824-1.786-1.84-1.786ZM24.954 17.19c0-1.973-1.655-3.58-3.689-3.58-2.033 0-3.688 1.607-3.688 3.579 0 1.973 1.655 3.578 3.688 3.578 2.034 0 3.69-1.604 3.69-3.578Zm4.907-.007c0 4.603-3.846 8.334-8.592 8.334-4.744 0-8.59-3.731-8.59-8.334s3.846-8.335 8.591-8.335c4.745 0 8.59 3.731 8.59 8.335Zm1.222-13.735v2.962h4.895V1.66h-3.06c-1.017 0-1.835.8-1.835 1.788v-.001Zm0 22.069h4.895V8.828h-4.895v16.688ZM8.4 8.828h3.053v11.938c.002 5.246-4.382 9.5-9.79 9.5v-4.751c2.698 0 4.896-2.13 4.896-4.749V10.62c0-.987.823-1.792 1.84-1.792Z" fill="#000"></path></svg></th>
+                    <th style="width: 150px;"><svg width="120" height="75" class="logosvg" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M52.496 8.811h-3.054v8.364L43.664 9.32c-.224-.286-.578-.513-.977-.513l-4.26.005v16.722h4.894v-8.345l5.77 7.849c.221.293.587.479.99.479h2.415c1.016 0 1.84-.8 1.84-1.787V10.597c0-.987-.824-1.786-1.84-1.786ZM24.954 17.19c0-1.973-1.655-3.58-3.689-3.58-2.033 0-3.688 1.607-3.688 3.579 0 1.973 1.655 3.578 3.688 3.578 2.034 0 3.69-1.604 3.69-3.578Zm4.907-.007c0 4.603-3.846 8.334-8.592 8.334-4.744 0-8.59-3.731-8.59-8.334s3.846-8.335 8.591-8.335c4.745 0 8.59 3.731 8.59 8.335Zm1.222-13.735v2.962h4.895V1.66h-3.06c-1.017 0-1.835.8-1.835 1.788v-.001Zm0 22.069h4.895V8.828h-4.895v16.688ZM8.4 8.828h3.053v11.938c.002 5.246-4.382 9.5-9.79 9.5v-4.751c2.698 0 4.896-2.13 4.896-4.749V10.62c0-.987.823-1.792 1.84-1.792Z" fill="#000"></path></svg></th>
                     <th style="width: 150px;"><img src="https://kenjo-company-website.cdn.prismic.io/kenjo-company-website/b0934848-ddd6-4e63-ae91-a3ee3f3a4b5a_kenjo-horizontal-logo.svg?fit=max&w=384" alt="Kenjo Logo"></th>
                     <th style="width: 180px;"><img class="erecruiter-logo" src="https://www.erecruiter.net/wp-content/uploads/2020/04/Logo-eRecruiter-0219-RZ-Green.png" alt="eRecruiter Logo"></th>
                     <th style="width: 150px;"><img src="https://www.lever.co/wp-content/uploads/2022/09/Lever_Employ_Logo_Horizontal_Turquoise_Black.png" alt="Lever Logo"></th>
