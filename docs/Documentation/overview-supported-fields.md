@@ -77,10 +77,10 @@ metadata:
                     <th style="width: 150px;"><img src="https://www.cornerstoneondemand.com/_next/image/?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F43ea2a5t%2Fcsod-new%2Fd81c21c51a9626f632933d779140d4638ae1f744-939x146.svg&w=384&q=75" alt="Cornerstone Logo"></th>
                     <th style="width: 150px;"><img src="https://www.workday.com/content/dam/web/zz/images/logos/workday/workday-logo.svg#icon" alt="Workday Logo"></th>
                     <th style="width: 150px;"><img src="https://go.zvoove.com/hubfs/zvoove-Logo_Cookies.png" alt="Zvoove Logo"></th>
-                    <th style="width: 150px;"><img src="https://www.softgarden.com/wp-content/uploads/softgarden-logo.svg" alt="Softgarden (XML) Logo"></th>
-                    <th style="width: 150px;"><img src="https://www.softgarden.com/wp-content/uploads/softgarden-logo.svg" alt="Softgarden (API) Logo"></th>
-                    <th style="width: 150px;"><img src="https://www.umantis.com/wp-content/uploads/umantis-logo.png" alt="Umantis Logo"></th>
-                    <th style="width: 150px;"><img src="https://www.dvinci.de/wp-content/uploads/dvinci-logo.svg" alt="D.vinci Logo"></th>
+                    <th style="width: 150px;"><img src="https://www.softgarden.com/wp-content/uploads/softgarden-logo.svg" alt="Softgarden (XML) Logo">[XML]</th>
+                    <th style="width: 150px;"><img src="https://www.softgarden.com/wp-content/uploads/softgarden-logo.svg" alt="Softgarden (API) Logo">[API]</th>
+                    <th style="width: 150px;"><img src="https://www.umantis.com/wp-content/uploads/2024/02/logo.png" alt="Umantis Logo"></th>
+                    <th style="width: 150px;"><img src="https://www.dvinci.de/wp-content/smush-webp/2020/10/brand_dvinci@2x.png.webp" alt="D.vinci Logo"></th>
                     <th style="width: 150px;">[Logo B-ite]</th>
                     <th style="width: 150px;"><img src="https://www.hrworks.de/wp-content/uploads/hrworks-logo.png" alt="HRworks Logo"></th>
                     <th style="width: 150px;"><img src="https://www.cegid.com/wp-content/uploads/cegid-logo.svg" alt="Cegid Logo"></th>
