@@ -85,7 +85,7 @@ metadata:
             height: auto;
         }
         .factorial-logo {
-            width: 400px;
+            width: 350px;
             height: auto;
         }
         .erecruiter-logo {
