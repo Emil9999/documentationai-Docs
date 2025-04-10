@@ -58,7 +58,7 @@ metadata:
             background-color: #f9fafb; /* Gleicher Hintergrund wie Header */
         }
         img {
-            height: 100px;
+            height: 20px;
             vertical-align: middle;
         
         }
