@@ -89,10 +89,10 @@ metadata:
                     <th style="width: 180px;"><img width="180px" src="https://www.erecruiter.net/wp-content/uploads/2020/04/Logo-eRecruiter-0219-RZ-Green.png" alt="eRecruiter Logo"></th>
                     <th style="width: 150px;"><img src="https://www.lever.co/wp-content/uploads/2022/09/Lever_Employ_Logo_Horizontal_Turquoise_Black.png" alt="Lever Logo"></th>
                     <th style="width: 150px;"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Factorial_company_logo_in_radical_red_color_with_text_saying_Factorial_in_Fira_font_type.png" alt="Factorial Logo"></th>
-                    <th style="width: 150px;"><img src="https://www.teamtailor.com/wp-content/uploads/teamtailor-logo.svg" alt="TeamTailor Logo"></th>
-                    <th style="width: 150px;"><img src="https://www.greenhouse.io/wp-content/uploads/greenhouse-logo.png" alt="Greenhouse Logo"></th>
-                    <th style="width: 150px;"><img src="https://www.sap.com/dam/application/shared/logos/successfactors-logo.svg" alt="Successfactors Logo"></th>
-                    <th style="width: 150px;"><img src="https://www.recruitmentsoftware.recruitee.com/wp-content/uploads/recruitee-logo.png" alt="Recuitee Logo"></th>
+                    <th style="width: 150px;"><img src="https://images.teamtailor-cdn.com/images/s3/teamtailor-production/gallery_picture/image_uploads/2da198be-dbf8-4865-9e24-ea6dcaad606b/original.png" alt="TeamTailor Logo"></th>
+                    <th style="width: 150px;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Greenhouse_logo.png/800px-Greenhouse_logo.png" alt="Greenhouse Logo"></th>
+                    <th style="width: 150px;"><img src="https://hr-path.com/wp-content/uploads/2021/09/SAP_SuccessF_horz_R_pos_blugld.png" alt="Successfactors Logo"></th>
+                    <th style="width: 150px;"><img src="https://www.one-click-recruiting.de/wp-content/uploads/2023/02/Recruitee-logo.png" alt="Recuitee Logo"></th>
                     <th style="width: 150px;"><img src="https://www.smartrecruiters.com/wp-content/uploads/smartrecruiters-logo.svg" alt="SmartRecruiters Logo"></th>
                     <th style="width: 150px;"><img src="https://www.hr4you.de/wp-content/uploads/hr4you-logo.png" alt="HR4You Logo"></th>
                     <th style="width: 150px;">[Logo Coveto]</th>
