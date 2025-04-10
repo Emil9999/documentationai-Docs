@@ -58,7 +58,7 @@ metadata:
         }
         img {
             height: 80px;
-         	  width: 200px;
+         	  min-width: 200px;
             vertical-align: middle;
         }
         .not-synced {
