@@ -44,6 +44,7 @@ metadata:
             background-color: white;
             z-index: 3; /* Höherer z-index für die erste Spalte */
             min-width: 210px; /* Feste Breite für die erste Spalte */
+          	max-height:30px
             text-align: left;
         }
         th {
