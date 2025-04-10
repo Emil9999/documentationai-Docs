@@ -59,9 +59,9 @@ metadata:
         img {
             height: 30px;
             vertical-align: middle;
-        }
+      }
         .not-synced {
-            font-size:70%; /* ❌ bleibt 30% kleiner */
+            font-size: 70%; /* ❌ bleibt 30% kleiner */
         }
     </style>
 </head>
