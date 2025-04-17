@@ -8,7 +8,7 @@ hidden: false
 metadata:
   robots: index
 ---
-**Overview Supported Fields:** Job Sync
+**Supported Fields:** Job Sync
 
 <HTMLBlock>{`
 <!DOCTYPE html>
@@ -175,7 +175,7 @@ metadata:
 </html>
 `}</HTMLBlock>
 
-**Overview Supported Fields:** Candidate Sync
+**Supported Fields:** Candidate Sync
 
 <HTMLBlock>{`
 <!DOCTYPE html>
