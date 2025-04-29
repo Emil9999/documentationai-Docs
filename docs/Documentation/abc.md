@@ -61,9 +61,9 @@ metadata:
     }
     /* Einheitliche Verkleinerung aller Logos im Header */
     th img, th svg {
-      transform: scale(0.8);
+      transform: scale(0.83);
       transform-origin: center;
-      max-height: 35px; /* optional, hält SVGs und PNGs schlank */
+      max-height: 30px; /* optional, hält SVGs und PNGs schlank */
       vertical-align: middle;
     }
     /* Individuelle Logo-Spezifikationen bleiben erhalten, wenn nötig */
@@ -73,16 +73,16 @@ metadata:
       height: auto;
     } 
      img {
-            height: 35px;
+            height: 30px;
             vertical-align: middle;
         
         }
         .guidecom-logo {
-            width: 300px;
+            width: 350px;
             height: auto;
         }
         .recruitee-logo {
-            width: 500px;
+            width: 550px;
             height: auto;
         }
         .coveto-logo {
@@ -98,7 +98,7 @@ metadata:
             height: auto;
         }
         .factorial-logo {
-            width: 450px;
+            width: 550px;
             height: auto;
         }
         .erecruiter-logo {
