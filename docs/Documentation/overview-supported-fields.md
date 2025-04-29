@@ -391,7 +391,48 @@ metadata:
     img.factorial-logo, img.erecruiter-logo, img.workday-logo, img.join-logo {
       width: auto;
       height: auto;
-    }
+    } 
+     img {
+            height: 30px;
+            vertical-align: middle;
+        
+        }
+        .guidecom-logo {
+            width: 200px;
+            height: auto;
+        }
+        .recruitee-logo {
+            width: 400px;
+            height: auto;
+        }
+        .coveto-logo {
+            width: 130px;
+            height: auto;
+        }
+        .Hr4you-logo {
+            width: 70px;
+            height: auto;
+        }
+        .rexx-logo {
+            width: 100px;
+            height: auto;
+        }
+        .factorial-logo {
+            width: 350px;
+            height: auto;
+        }
+        .erecruiter-logo {
+            width: 180px;
+            height: auto;
+        }
+        .workday-logo {
+            width: 100px;
+            height: auto;
+        }
+        .join-logo {
+            width: 90px;
+            height: auto;
+        }
   </style>
 </head>
 <body>
