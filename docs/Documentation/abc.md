@@ -79,7 +79,7 @@ metadata:
         }
         .guidecom-logo {
             width: 350px;
-            height: 35px;
+            height: 50px;
         }
         .recruitee-logo {
             width: 550px;
@@ -87,7 +87,7 @@ metadata:
         }
         .coveto-logo {
             width: 230px;
-            height: 40px;
+            height: 60px;
         }
         .Hr4you-logo {
             width: 70px;
