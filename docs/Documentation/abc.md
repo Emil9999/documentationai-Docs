@@ -73,7 +73,7 @@ metadata:
       height: auto;
     } 
      img {
-            height: 30px;
+            height: 35px;
             vertical-align: middle;
         
         }
