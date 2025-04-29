@@ -2,7 +2,7 @@
 title: abc
 excerpt: abc
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
