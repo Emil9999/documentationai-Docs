@@ -86,7 +86,7 @@ metadata:
             height: auto;
         }
         .coveto-logo {
-            width: 130px;
+            width: 230px;
             height: auto;
         }
         .Hr4you-logo {
