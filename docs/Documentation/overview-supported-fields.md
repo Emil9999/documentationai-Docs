@@ -398,11 +398,11 @@ metadata:
         
         }
         .guidecom-logo {
-            width: 200px;
+            width: 300px;
             height: auto;
         }
         .recruitee-logo {
-            width: 400px;
+            width: 500px;
             height: auto;
         }
         .coveto-logo {
@@ -418,7 +418,7 @@ metadata:
             height: auto;
         }
         .factorial-logo {
-            width: 350px;
+            width: 450px;
             height: auto;
         }
         .erecruiter-logo {
