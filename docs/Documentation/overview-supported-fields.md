@@ -381,7 +381,7 @@ metadata:
     }
     /* Einheitliche Verkleinerung aller Logos im Header */
     th img, th svg {
-      transform: scale(0.75);
+      transform: scale(0.8);
       transform-origin: center;
       max-height: 30px; /* optional, hält SVGs und PNGs schlank */
       vertical-align: middle;
