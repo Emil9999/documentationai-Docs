@@ -20,7 +20,7 @@ metadata:
     .table-container {
       width: 137.5%;
       overflow: auto;
-      box-shadow: 0 6px 30px -2px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 6px 30px 2px rgba(0, 0, 0, 0.12);
       border-radius: 0.5rem;
       background-color: white; /* Immer weißer Hintergrund */
       max-height: 80vh;
