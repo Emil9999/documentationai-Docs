@@ -124,8 +124,8 @@ img.factorial-logo {
     				height:20px;
     		}
     		.sap-logo {
-    				width:200px;
-    				height:20px;
+    				width:230px;
+    				height:22px;
     		}
   </style>
 </head>
