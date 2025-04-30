@@ -75,7 +75,7 @@ metadata:
     img.guidecom-logo,
 img.coveto-logo,
 img.factorial-logo {
-  max-height: none; /* falls globale Einschränkung auf th img existiert */
+  max-height:40px; /* falls globale Einschränkung auf th img existiert */
 }
 
      img {
