@@ -72,6 +72,12 @@ metadata:
       width: auto;
       height: auto;
     } 
+    img.guidecom-logo,
+img.coveto-logo,
+img.factorial-logo {
+  max-height: none; /* falls globale Einschränkung auf th img existiert */
+}
+
      img {
             height: 30px;
             vertical-align: middle;
