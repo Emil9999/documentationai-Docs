@@ -97,7 +97,7 @@ img.factorial-logo {
             width: 300px;
       }
         .coveto-logo {
-           min-width:180px;
+           min-width:90px;
            
         }
         .Hr4you-logo {
