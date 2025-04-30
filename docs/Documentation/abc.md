@@ -40,7 +40,7 @@ metadata:
       padding: 8px;
       text-align: center;
       border-bottom: 1px solid #E5E7EB;
-      min-width: 200px;
+      min-width: 180px;
       box-sizing: border-box;
       background-color: white !important;
       color: #111111 !important;
