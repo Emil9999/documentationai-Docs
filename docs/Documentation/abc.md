@@ -77,7 +77,8 @@ metadata:
 img.coveto-logo,
 img.factorial-logo {
   max-height:38px; /* falls globale Einschränkung auf th img existiert */
-}
+	min-hieght:36px;
+    }
 
      img {
             height: 30px;
@@ -92,7 +93,7 @@ img.factorial-logo {
             width: 300px;
       }
         .coveto-logo {
-            width: 230px;
+            width: 270px;
            
         }
         .Hr4you-logo {
