@@ -25,7 +25,7 @@ metadata:
       background-color: white; /* Immer weißer Hintergrund */
       max-height: 80vh;
       position: relative;
-      padding: 10px;
+      padding: 5px;
     }
     table {
       width: 100%;
