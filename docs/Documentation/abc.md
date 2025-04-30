@@ -140,9 +140,9 @@ img.factorial-logo {
                     <th style="width: 150px;"><img src="https://www.hrworks.de/wp-content/uploads/HR_WORKS_LOGO_RGB.svg" alt="HRworks Logo"></th>
                     <th style="width: 150px;"><img src="https://www.cegid.com/de/wp-content/uploads/sites/8/2023/04/cegid-logo-blue.svg" alt="Cegid Logo"></th>
                     <th style="width: 150px;"><img class="join-logo" src="https://s3-eu-west-1.amazonaws.com/tpd/logos/60194bf040bb78000169d673/0x0.png" alt="Join Logo"></th>
-                    <th style="width: 150px;"><img width="150" height="25" src="https://kenjo-company-website.cdn.prismic.io/kenjo-company-website/b0934848-ddd6-4e63-ae91-a3ee3f3a4b5a_kenjo-horizontal-logo.svg?fit=max&w=384" alt="Kenjo Logo"></th>
+                    <th style="width: 150px;"><img src="https://kenjo-company-website.cdn.prismic.io/kenjo-company-website/b0934848-ddd6-4e63-ae91-a3ee3f3a4b5a_kenjo-horizontal-logo.svg?fit=max&w=384" alt="Kenjo Logo"></th>
                     <th style="width: 180px;"><img class="erecruiter-logo" src="https://www.erecruiter.net/wp-content/uploads/2020/04/Logo-eRecruiter-0219-RZ-Green.png" alt="eRecruiter Logo"></th>
-                    <th style="width: 150px;"><img width="150" height="25" src="https://www.lever.co/wp-content/uploads/2022/09/Lever_Employ_Logo_Horizontal_Turquoise_Black.png" alt="Lever Logo"></th>
+                    <th style="width: 150px;"><img width="150px" height="25px" src="https://www.lever.co/wp-content/uploads/2022/09/Lever_Employ_Logo_Horizontal_Turquoise_Black.png" alt="Lever Logo"></th>
                     <th style="width: 150px;"><img class="factorial-logo" src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Factorial_company_logo_in_radical_red_color_with_text_saying_Factorial_in_Fira_font_type.png" alt="Factorial Logo"></th>
                     <th style="width: 150px;"><img src="https://images.teamtailor-cdn.com/images/s3/teamtailor-production/gallery_picture/image_uploads/2da198be-dbf8-4865-9e24-ea6dcaad606b/original.png" alt="TeamTailor Logo"></th>
                     <th style="width: 150px;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Greenhouse_logo.png/800px-Greenhouse_logo.png" alt="Greenhouse Logo"></th>
