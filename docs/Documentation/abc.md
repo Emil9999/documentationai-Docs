@@ -82,7 +82,6 @@ metadata:
 img.coveto-logo,
 img.factorial-logo {
   max-height:38px; /* falls globale Einschränkung auf th img existiert */
-	min-height:36px;
     }
 
      img {
