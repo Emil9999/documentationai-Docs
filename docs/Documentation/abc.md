@@ -165,7 +165,7 @@ img.factorial-logo {
                     <th style="width: 150px;"><img class="coveto-logo" src="https://www.personalwirtschaft.de/wp-content/uploads/2022/11/coveto-b-g.png" alt="Coveto Logo"></th>
                     <th style="width: 150px;"><img src="https://www.heyrecruit.de/img/heyrecruit_logo_dark.svg" alt="Heyrecruit Logo"></th>
                     <th style="width: 150px;"><img class="rexx-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Rexx-systems-logo.svg/2560px-Rexx-systems-logo.svg.png" alt="Rexx Logo"></th>
-                    <th style="width: 180px;"><img src="https://framerusercontent.com/images/etkEFPMK1gTbsWBi0ud2oiW8dc.svg" alt="Cooperhire Logo"></th>
+                    <th style="width: 180px;"><img class="cooper-logo" src="https://framerusercontent.com/images/etkEFPMK1gTbsWBi0ud2oiW8dc.svg" alt="Cooperhire Logo"></th>
                 </tr>
             </thead>
             <tbody>
