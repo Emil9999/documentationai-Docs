@@ -76,7 +76,7 @@ metadata:
     img.recruitee-logo,
 img.coveto-logo,
 img.factorial-logo {
-  max-height:43px; /* falls globale Einschränkung auf th img existiert */
+  max-height:38px; /* falls globale Einschränkung auf th img existiert */
 }
 
      img {
