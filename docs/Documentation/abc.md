@@ -163,7 +163,7 @@ img.factorial-logo {
                     <th style="width: 150px;"><img class="recruitee-logo" src="https://www.one-click-recruiting.de/wp-content/uploads/2023/02/Recruitee-logo.png" alt="Recuitee Logo"></th>
                     <th style="width: 150px;"><img src="https://www.smartrecruiters.com/wp-content/themes/smartrecruiters/img/2024/SmartRecruiters-Logo.svg" alt="SmartRecruiters Logo"></th>
                     <th style="width: 150px;"><img class="Hr4you-logo" src="https://www.hr4you.de/wp-content/uploads/2021/08/HR4YOU-neuesLogo_cmyk.png" alt="HR4You Logo"></th>
-                    <th style="width: 200px;"><img class="coveto-logo" src="https://www.personalwirtschaft.de/wp-content/uploads/2022/11/coveto-b-g.png" alt="Coveto Logo"></th>
+                    <th style="min-width: 200px;"><img class="coveto-logo" src="https://www.personalwirtschaft.de/wp-content/uploads/2022/11/coveto-b-g.png" alt="Coveto Logo"></th>
                     <th style="width: 150px;"><img src="https://www.heyrecruit.de/img/heyrecruit_logo_dark.svg" alt="Heyrecruit Logo"></th>
                     <th style="width: 150px;"><img class="rexx-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Rexx-systems-logo.svg/2560px-Rexx-systems-logo.svg.png" alt="Rexx Logo"></th>
                     <th style="width: 180px;"><img class="cooper-logo" src="https://framerusercontent.com/images/etkEFPMK1gTbsWBi0ud2oiW8dc.svg" alt="Cooperhire Logo"></th>
