@@ -120,8 +120,8 @@ img.factorial-logo {
             height: auto;
         }
     		.lever-logo {
-    				width:180px;
-    				height:18px;
+    				width:200px;
+    				height:20px;
     		}
   </style>
 </head>
