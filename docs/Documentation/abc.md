@@ -123,6 +123,10 @@ img.factorial-logo {
     				width:200px;
     				height:20px;
     		}
+    		.sap-logo {
+    				width:200px;
+    				height:20px;
+    		}
   </style>
 </head>
 <body>
@@ -150,14 +154,14 @@ img.factorial-logo {
                     <th style="width: 150px;"><img class="factorial-logo" src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Factorial_company_logo_in_radical_red_color_with_text_saying_Factorial_in_Fira_font_type.png" alt="Factorial Logo"></th>
                     <th style="width: 150px;"><img src="https://images.teamtailor-cdn.com/images/s3/teamtailor-production/gallery_picture/image_uploads/2da198be-dbf8-4865-9e24-ea6dcaad606b/original.png" alt="TeamTailor Logo"></th>
                     <th style="width: 150px;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Greenhouse_logo.png/800px-Greenhouse_logo.png" alt="Greenhouse Logo"></th>
-                    <th style="width: 150px;"><img src="https://hr-path.com/wp-content/uploads/2021/09/SAP_SuccessF_horz_R_pos_blugld.png" alt="Successfactors Logo"></th>
+                    <th style="width: 150px;"><img class="sap-logo" src="https://hr-path.com/wp-content/uploads/2021/09/SAP_SuccessF_horz_R_pos_blugld.png" alt="Successfactors Logo"></th>
                     <th style="width: 150px;"><img class="recruitee-logo" src="https://www.one-click-recruiting.de/wp-content/uploads/2023/02/Recruitee-logo.png" alt="Recuitee Logo"></th>
                     <th style="width: 150px;"><img src="https://www.smartrecruiters.com/wp-content/themes/smartrecruiters/img/2024/SmartRecruiters-Logo.svg" alt="SmartRecruiters Logo"></th>
                     <th style="width: 150px;"><img class="Hr4you-logo" src="https://www.hr4you.de/wp-content/uploads/2021/08/HR4YOU-neuesLogo_cmyk.png" alt="HR4You Logo"></th>
                     <th style="width: 150px;"><img class="coveto-logo" src="https://www.personalwirtschaft.de/wp-content/uploads/2022/11/coveto-b-g.png" alt="Coveto Logo"></th>
                     <th style="width: 150px;"><img src="https://www.heyrecruit.de/img/heyrecruit_logo_dark.svg" alt="Heyrecruit Logo"></th>
                     <th style="width: 150px;"><img class="rexx-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Rexx-systems-logo.svg/2560px-Rexx-systems-logo.svg.png" alt="Rexx Logo"></th>
-                    <th style="width: 200px;"><img src="https://framerusercontent.com/images/etkEFPMK1gTbsWBi0ud2oiW8dc.svg" alt="Cooperhire Logo"></th>
+                    <th style="width: 180px;"><img src="https://framerusercontent.com/images/etkEFPMK1gTbsWBi0ud2oiW8dc.svg" alt="Cooperhire Logo"></th>
                 </tr>
             </thead>
             <tbody>
