@@ -97,7 +97,7 @@ img.factorial-logo {
             width: 300px;
       }
         .coveto-logo {
-           min- width:180px;
+           min-width:180px;
            
         }
         .Hr4you-logo {
@@ -133,7 +133,7 @@ img.factorial-logo {
     				height:22px;
     		}
     		.cooper-logo {
-    				width:200px;
+    				width:150px;
     				height:24px;
     		}
   </style>
