@@ -75,7 +75,7 @@ metadata:
     img.guidecom-logo,
 img.coveto-logo,
 img.factorial-logo {
-  max-height:40px; /* falls globale Einschränkung auf th img existiert */
+  max-height:43px; /* falls globale Einschränkung auf th img existiert */
 }
 
      img {
@@ -85,7 +85,7 @@ img.factorial-logo {
         }
         .guidecom-logo {
             width: 350px;
-            height: 50px;
+    
         }
         .recruitee-logo {
             width: 550px;
@@ -93,7 +93,7 @@ img.factorial-logo {
         }
         .coveto-logo {
             width: 230px;
-            height: 60px;
+           
         }
         .Hr4you-logo {
             width: 70px;
@@ -105,7 +105,7 @@ img.factorial-logo {
         }
         .factorial-logo {
             width: 350px;
-            height: auto;
+            
         }
         .erecruiter-logo {
             width: 180px;
@@ -125,6 +125,10 @@ img.factorial-logo {
     		}
     		.sap-logo {
     				width:240px;
+    				height:24px;
+    		}
+    		.cooper-logo {
+    				width:200px;
     				height:24px;
     		}
   </style>
