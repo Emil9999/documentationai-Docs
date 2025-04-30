@@ -174,3 +174,79 @@ metadata:
 </body>
 </html>
 `}</HTMLBlock>
+
+<HTMLBlock>{`
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Integrationen Vergleich</title>
+  <style>
+    body { background: inherit; }
+    .table-container {
+      width: 100%;
+      overflow: auto;
+      box-shadow: 0 6px 30px -2px rgba(0, 0, 0, 0.12);
+      border-radius: 0.5rem;
+      background-color: white;
+      max-height: 80vh;
+      padding: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: monospace;
+      table-layout: fixed;
+      background-color: white;
+    }
+    th, td {
+      padding: 8px;
+      text-align: center;
+      border-bottom: 1px solid #E5E7EB;
+      min-width: 150px;
+    }
+    th:first-child, td:first-child {
+      position: sticky;
+      left: 0;
+      background-color: white;
+      text-align: left;
+      min-width: 210px;
+      z-index: 3;
+    }
+    th {
+      position: sticky;
+      top: 0;
+      background-color: #F9FAFB;
+      z-index: 2;
+    }
+    th:first-child {
+      z-index: 4;
+    }
+  </style>
+</head>
+<body>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Candidate Sync</th>
+          <th>Onlyfy</th>
+          <th>Guidecom</th>
+          <th>XING</th>
+          <th>Cornerstone</th>
+          <th>Workday</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>job</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+        <tr><td>email</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+        <tr><td>first_name</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+        <tr><td>last_name</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+        <tr><td>gender</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
+`}</HTMLBlock>
