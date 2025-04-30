@@ -104,7 +104,7 @@ img.factorial-logo {
             height: auto;
         }
         .factorial-logo {
-            width: 550px;
+            width: 350px;
             height: auto;
         }
         .erecruiter-logo {
