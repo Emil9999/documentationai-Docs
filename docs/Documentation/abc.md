@@ -229,21 +229,55 @@ metadata:
   <div class="table-container">
     <table>
       <thead>
-        <tr>
-          <th>Candidate Sync</th>
-          <th>Onlyfy</th>
-          <th>Guidecom</th>
-          <th>XING</th>
-          <th>Cornerstone</th>
-          <th>Workday</th>
-        </tr>
-      </thead>
+  <tr>
+    <th>Candidate Sync</th>
+    <th><img src="https://onlyfy.com/wp-content/themes/onlyfy/assets/icons/logo.svg" alt="Onlyfy Logo" style="max-height:30px;"></th>
+    <th><img src="https://www.guidecom.de/_assets/407aa76fe6bede19af48e7793075494f/img/logo_guidecom.svg" alt="Guidecom Logo" style="max-height:30px;"></th>
+    <th><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Greenhouse_logo.png/800px-Greenhouse_logo.png" alt="XING Logo" style="max-height:30px;"></th>
+    <th><img src="https://www.cornerstoneondemand.com/_next/image/?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F43ea2a5t%2Fcsod-new%2Fd81c21c51a9626f632933d779140d4638ae1f744-939x146.svg&w=384&q=75" alt="Cornerstone Logo" style="max-height:30px;"></th>
+    <th><img src="https://www.workday.com/content/dam/web/zz/images/logos/workday/workday-logo.svg#icon" alt="Workday Logo" style="max-height:30px;"></th>
+    <th><img src="https://hr-path.com/wp-content/uploads/2021/09/SAP_SuccessF_horz_R_pos_blugld.png" alt="SAP Logo" style="max-height:30px;"></th>
+    <th><img src="https://softgarden.com/wp-content/uploads/2023/06/logo_light.png" alt="Softgarden Logo" style="max-height:30px;"></th>
+    <th><img src="https://www.umantis.com/wp-content/uploads/2024/11/Abacus_Umantis_Logo_Farbe_Claim_klein.png" alt="Umantis Logo" style="max-height:30px;"></th>
+    <th><img src="https://www.dvinci.de/wp-content/smush-webp/2020/10/brand_dvinci@2x.png.webp" alt="D.vinci Logo" style="max-height:30px;"></th>
+    <th><img src="https://www.b-ite.de/images/logo-8b4a2b5bccdda5af4b02.svg" alt="B-ite Logo" style="max-height:30px;"></th>
+    <th><img src="https://www.hrworks.de/wp-content/uploads/HR_WORKS_LOGO_RGB.svg" alt="HRworks Logo" style="max-height:30px;"></th>
+    <th><img src="https://www.cegid.com/de/wp-content/uploads/sites/8/2023/04/cegid-logo-blue.svg" alt="Cegid Logo" style="max-height:30px;"></th>
+    <th><img src="https://s3-eu-west-1.amazonaws.com/tpd/logos/60194bf040bb78000169d673/0x0.png" alt="Join Logo" style="max-height:30px;"></th>
+    <th><img src="https://kenjo-company-website.cdn.prismic.io/kenjo-company-website/b0934848-ddd6-4e63-ae91-a3ee3f3a4b5a_kenjo-horizontal-logo.svg?fit=max&w=384" alt="Kenjo Logo" style="max-height:30px;"></th>
+    <th><img src="https://www.erecruiter.net/wp-content/uploads/2020/04/Logo-eRecruiter-0219-RZ-Green.png" alt="eRecruiter Logo" style="max-height:30px;"></th>
+    <th><img src="https://www.lever.co/wp-content/uploads/2022/09/Lever_Employ_Logo_Horizontal_Turquoise_Black.png" alt="Lever Logo" style="max-height:30px;"></th>
+    <th><img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Factorial_company_logo_in_radical_red_color_with_text_saying_Factorial_in_Fira_font_type.png" alt="Factorial Logo" style="max-height:30px;"></th>
+    <th><img src="https://images.teamtailor-cdn.com/images/s3/teamtailor-production/gallery_picture/image_uploads/2da198be-dbf8-4865-9e24-ea6dcaad606b/original.png" alt="TeamTailor Logo" style="max-height:30px;"></th>
+    <th><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Greenhouse_logo.png/800px-Greenhouse_logo.png" alt="Greenhouse Logo" style="max-height:30px;"></th>
+    <th><img src="https://hr-path.com/wp-content/uploads/2021/09/SAP_SuccessF_horz_R_pos_blugld.png" alt="Successfactors Logo" style="max-height:30px;"></th>
+    <th><img src="https://www.one-click-recruiting.de/wp-content/uploads/2023/02/Recruitee-logo.png" alt="Recruitee Logo" style="max-height:30px;"></th>
+    <th><img src="https://www.smartrecruiters.com/wp-content/themes/smartrecruiters/img/2024/SmartRecruiters-Logo.svg" alt="SmartRecruiters Logo" style="max-height:30px;"></th>
+    <th><img src="https://www.hr4you.de/wp-content/uploads/2021/08/HR4YOU-neuesLogo_cmyk.png" alt="HR4You Logo" style="max-height:30px;"></th>
+    <th><img src="https://www.personalwirtschaft.de/wp-content/uploads/2022/11/coveto-b-g.png" alt="Coveto Logo" style="max-height:30px;"></th>
+    <th><img src="https://www.heyrecruit.de/img/heyrecruit_logo_dark.svg" alt="Heyrecruit Logo" style="max-height:30px;"></th>
+    <th><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Rexx-systems-logo.svg/2560px-Rexx-systems-logo.svg.png" alt="Rexx Logo" style="max-height:30px;"></th>
+    <th><img src="https://framerusercontent.com/images/etkEFPMK1gTbsWBi0ud2oiW8dc.svg" alt="Cooperhire Logo" style="max-height:30px;"></th>
+  </tr>
+</thead>
       <tbody>
-        <tr><td>job</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
-        <tr><td>email</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
-        <tr><td>first_name</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
-        <tr><td>last_name</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
-        <tr><td>gender</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td></tr>
+        <tr><td>job</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+        <tr><td>email</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+        <tr><td>first_name</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+        <tr><td>last_name</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+        <tr><td>gender</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td></tr>
+        <tr><td>phone</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+        <tr><td>street</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td></tr>
+        <tr><td>postcode</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td></tr>
+        <tr><td>city</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td></tr>
+        <tr><td>country</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td></tr>
+        <tr><td>skill</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td></tr>
+        <tr><td>social_links</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td></tr>
+        <tr><td>applied_at</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td></tr>
+        <tr><td>notes</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td></tr>
+        <tr><td>channel</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+        <tr><td>screening_questions</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td></tr>
+        <tr><td>attachments</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td><td>❌</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
       </tbody>
     </table>
   </div>
