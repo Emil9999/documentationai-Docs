@@ -73,6 +73,7 @@ metadata:
       height: auto;
     } 
     img.guidecom-logo,
+    img.recruitee-logo,
 img.coveto-logo,
 img.factorial-logo {
   max-height:43px; /* falls globale Einschränkung auf th img existiert */
@@ -88,9 +89,8 @@ img.factorial-logo {
     
         }
         .recruitee-logo {
-            width: 550px;
-            height: auto;
-        }
+            width: 300px;
+      }
         .coveto-logo {
             width: 230px;
            
@@ -124,8 +124,8 @@ img.factorial-logo {
     				height:20px;
     		}
     		.sap-logo {
-    				width:240px;
-    				height:24px;
+    				width:245px;
+    				height:22px;
     		}
     		.cooper-logo {
     				width:200px;
