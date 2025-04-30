@@ -133,7 +133,7 @@ img.factorial-logo {
     				height:22px;
     		}
     		.cooper-logo {
-    				width:150px;
+    				width:140px;
     				height:24px;
     		}
   </style>
