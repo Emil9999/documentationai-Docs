@@ -38,7 +38,7 @@ metadata:
       padding: 8px;
       text-align: center;
       border-bottom: 1px solid #E5E7EB;
-      min-width: 230px;
+      min-width: 250px;
       box-sizing: border-box;
     }
     th:first-child, td:first-child {
@@ -46,7 +46,7 @@ metadata:
       left: 0;
       background-color: white;
       z-index: 3;
-      min-width: 210px;
+      min-width: 250px;
       text-align: left;
     }
     th {
