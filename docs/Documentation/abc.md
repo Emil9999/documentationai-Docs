@@ -15,7 +15,8 @@ metadata:
   <title>Integrationen Vergleich</title>
   <style>
     body {
-      background: inherit; /* lässt restliche Seite reagieren auf Light/Dark Mode */
+            background-color: white !important;
+      color: #111111 !important;
     }
     .table-container {
       width: 137.5%;
@@ -23,6 +24,7 @@ metadata:
       box-shadow: 0 6px 30px 2px rgba(0, 0, 0, 0.12);
       border-radius: 0.5rem;
       background-color: white; /* Immer weißer Hintergrund */
+      color: #111111 !important;
       max-height: 80vh;
       position: relative;
       padding: 15px;
@@ -40,6 +42,8 @@ metadata:
       border-bottom: 1px solid #E5E7EB;
       min-width: 250px;
       box-sizing: border-box;
+      background-color: white !important;
+      color: #111111 !important;
     }
     th:first-child, td:first-child {
       position: sticky;
@@ -53,6 +57,7 @@ metadata:
       position: sticky;
       top: 0;
       background-color: #F9FAFB;
+      color: #111111 !important;
       z-index: 2;
     }
     th:first-child {
@@ -77,7 +82,7 @@ metadata:
 img.coveto-logo,
 img.factorial-logo {
   max-height:38px; /* falls globale Einschränkung auf th img existiert */
-	min-hieght:36px;
+	min-height:36px;
     }
 
      img {
