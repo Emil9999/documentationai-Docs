@@ -272,6 +272,7 @@ img.factorial-logo {
       }
         .coveto-logo {
            min-width:90px;
+          max-width:80px;
            
         }
         .Hr4you-logo {
