@@ -11,46 +11,47 @@ metadata:
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Integrationen Vergleich</title>
   <style>
-    /* Äußerer Container: schneidet alles oberhalb/links der Sticky-Zellen ab */
+    /* äußerer Container: Rahmen, Schatten, Rundung */
     .table-container {
+      width: 100%;
       background-color: white;
       box-shadow: 0 6px 30px -2px rgba(0, 0, 0, 0.12);
       border-radius: 0.5rem;
-      overflow: hidden;          /* HIDE extra content */
-      position: relative;
-      max-height: 80vh;
     }
 
-    /* Innerer Scroll-Wrapper: übernimmt Breite und Scrollbars */
-    .table-scroll {
-      width: 137.5%;             /* ursprüngliche Breite */
-      overflow: auto;            /* Scroll in beiden Richtungen */
-      max-height: 100%;
-      position: relative;        /* für Sticky-Positionierung */
+    /* horizontaler Scroll-Wrapper */
+    .h-scroll {
+      overflow-x: auto;
+    }
+
+    /* vertikaler Scroll-Wrapper */
+    .v-scroll {
+      max-height: 80vh;   /* deiner alten max-height */
+      overflow-y: auto;
     }
 
     table {
-      width: 100%;
-      border-collapse: collapse; /* keine Zwischenabstände */
-      border-spacing: 0;         /* Extra sicherheitshalber */
-      table-layout: fixed;
+      border-collapse: collapse;
+      border-spacing: 0;
+      table-layout: fixed;  /* feste Spaltenbreiten */
       font-family: monospace;
+      /* Breite bestimmt sich aus den min-widths der Zellen */
     }
 
     th, td {
       padding: 8px;
-      margin: 0;                 /* Kein Rand, damit nichts hervorlugt */
+      margin: 0;              /* ganz wichtig, damit nichts hervorlugt */
       text-align: center;
       border-bottom: 1px solid #e5e7eb;
       min-width: 230px;
       box-sizing: border-box;
-      background-clip: padding-box; /* Hintergrund bleibt innerhalb des Padding-Bereichs */
+      background-clip: padding-box;
     }
 
-    /* Erste Spalte sticky */
+    /* sticky erste Spalte */
     th:first-child,
     td:first-child {
       position: sticky;
@@ -61,7 +62,7 @@ metadata:
       text-align: left;
     }
 
-    /* Header sticky */
+    /* sticky Kopfzeile */
     th {
       position: sticky;
       top: 0;
@@ -69,7 +70,7 @@ metadata:
       z-index: 2;
     }
 
-    /* Überschreibung für die linke obere Zelle */
+    /* linke obere Zelle über allem */
     th:first-child {
       z-index: 4;
       background-color: #f9fafb;
