@@ -98,7 +98,11 @@ metadata:
         .join-logo {
             width: 90px;
             height: auto;
-        }
+            		}
+ 
+      .table-container {
+  padding: 0 15px 15px 0 !important;
+}
 
     </style>
 </head>
