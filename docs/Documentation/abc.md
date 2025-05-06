@@ -147,6 +147,10 @@ img.factorial-logo {
     .table-container th:first-child,
     .table-container td:first-child {
       margin-left: 0 !important;
+       } 
+      .table-container {
+  padding: 0 15px 15px 0 !important;
+}
    
   </style>
 </head>
