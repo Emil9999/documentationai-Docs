@@ -136,18 +136,7 @@ img.factorial-logo {
     				width:140px;
     				height:24px;
     		}
-     .table-container table,
-    .table-container th,
-    .table-container td {
-      margin: 0 !important;
-    }
-    .table-container thead th {
-      margin-top: 0 !important;
-    }
-    .table-container th:first-child,
-    .table-container td:first-child {
-      margin-left: 0 !important;
-       } 
+ 
       .table-container {
   padding: 0 15px 15px 0 !important;
 }
