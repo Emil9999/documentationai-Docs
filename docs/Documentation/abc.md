@@ -29,7 +29,7 @@ metadata:
 
     /* vertikaler Scroll-Wrapper */
     .v-scroll {
-      max-height: 80vh;   /* deiner alten max-height */
+      max-height: auto;   /* deiner alten max-height */
       overflow-y: auto;
     }
 
