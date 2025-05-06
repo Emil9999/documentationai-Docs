@@ -271,6 +271,7 @@ img.factorial-logo {
             width: 300px;
       }
         .coveto-logo {
+          min-height:30px;
            min-width:90px;
           max-width:100px;
            
