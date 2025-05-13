@@ -19,7 +19,7 @@ metadata:
     <title>Integrationen Vergleich</title>
     <style>
         .table-container {
-            width: 100%; /* Breite der Tabelle */
+            width: 137.5%; /* Breite der Tabelle */
             overflow: auto; /* Scrollen in beide Richtungen */
             box-shadow: 0 6px 30px -2px rgba(0, 0, 0, 0.12);
             border-radius: 0.5rem;
