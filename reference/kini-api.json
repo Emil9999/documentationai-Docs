@@ -3505,7 +3505,7 @@
     },
     "/clickout/": {
       "post": {
-        "operationId": "cklickout_create",
+        "operationId": "clickout_create",
         "tags": ["Shop"],
         "summary": "Create a clickout link to access the shop",
         "description": "Creates a new clickout link to access the shop",
