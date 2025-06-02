@@ -3516,11 +3516,11 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": ["job_id", "email"],
+                "required": ["external_job_id", "email"],
                 "properties": {
-                  "job_id": {
+                  "external_job_id": {
                     "type": "integer",
-                    "description": "External Job ID of the job to apply for"
+                    "description": "External Job ID of the job to promote"
                   },
                   "email": {
                     "type": "string",
