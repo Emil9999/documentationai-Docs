@@ -31,7 +31,7 @@
           }
         ],
         "tags": ["Applications"],
-        "security": [{ "jwtAuth": [] }],
+        "security": [{ "bearerAuth": [] }],
         "responses": {
           "200": {
             "content": {
@@ -916,7 +916,7 @@
           },
           "required": true
         },
-        "security": [{ "jwtAuth": [] }],
+        "security": [{ "bearerAuth": [] }],
         "responses": {
           "201": {
             "content": {
@@ -1164,7 +1164,7 @@
           }
         ],
         "tags": ["Applications"],
-        "security": [{ "jwtAuth": [] }],
+        "security": [{ "bearerAuth": [] }],
         "responses": {
           "200": {
             "content": {
@@ -1426,7 +1426,7 @@
           }
         ],
         "tags": ["Jobs"],
-        "security": [{ "jwtAuth": [] }],
+        "security": [{ "bearerAuth": [] }],
         "responses": {
           "200": {
             "content": {
@@ -2613,7 +2613,7 @@
             }
           }
         },
-        "security": [{ "jwtAuth": [] }],
+        "security": [{ "bearerAuth": [] }],
         "responses": {
           "201": {
             "content": {
@@ -2925,7 +2925,7 @@
           }
         ],
         "tags": ["Jobs"],
-        "security": [{ "jwtAuth": [] }],
+        "security": [{ "bearerAuth": [] }],
         "responses": {
           "200": {
             "content": {
@@ -3397,7 +3397,7 @@
         "description": "List companies that the authenticated user has access to through agencies or partners.",
         "summary": "List Companies",
         "tags": ["Companies"],
-        "security": [{ "jwtAuth": [] }],
+        "security": [{ "bearerAuth": [] }],
         "responses": {
           "200": {
             "content": {
@@ -3507,6 +3507,7 @@
       "post": {
         "operationId": "clickout_create",
         "tags": ["Shop"],
+        "security": [{ "bearerAuth": [] }],
         "summary": "Create a clickout link to access the shop",
         "description": "Creates a new clickout link to access the shop",
         "requestBody": {
@@ -5593,7 +5594,11 @@
       }
     },
     "securitySchemes": {
-      "jwtAuth": { "type": "http", "scheme": "bearer", "bearerFormat": "JWT" }
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Bearer API Key Authentication. Include your API key in the Authorization header."
+      }
     }
   },
   "servers": [
