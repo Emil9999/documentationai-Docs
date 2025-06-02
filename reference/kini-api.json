@@ -2578,12 +2578,10 @@
                             "properties": {
                               "label": {
                                 "type": "string",
-                                "minLength": 1,
                                 "description": "Label of the screening question option"
                               },
                               "value": {
                                 "type": "string",
-                                "minLength": 1,
                                 "description": "Value of the screening question option, must match the value of a screening question option in the company's ATS"
                               }
                             },
@@ -3501,6 +3499,64 @@
               }
             },
             "description": ""
+          }
+        }
+      }
+    },
+    "/clickout/": {
+      "post": {
+        "operationId": "cklickout_create",
+        "tags": ["Shop"],
+        "summary": "Create a clickout link to access the shop",
+        "description": "Creates a new clickout link to access the shop",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["job_id", "email"],
+                "properties": {
+                  "job_id": {
+                    "type": "integer",
+                    "description": "External Job ID of the job to apply for"
+                  },
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "description": "Email address of the user"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Clickout link created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "format": "uri",
+                      "description": "The clickout URL for accessing the shop"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request parameters"
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing authentication token"
+          },
+          "404": {
+            "description": "Job not found"
           }
         }
       }
