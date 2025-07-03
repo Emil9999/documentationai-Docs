@@ -632,3 +632,126 @@ img.factorial-logo {
 </body>
 </html>
 `}</HTMLBlock>
+
+<HTMLBlock>{`
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Integrationen Vergleich</title>
+  <style>
+    body { font-family: sans-serif; }
+    .filter-container { margin: 1rem; }
+    #ats-search { padding: .4rem; font-size: 1rem; width: 250px; }
+    #reset-filter { margin-left: .5rem; padding: .4rem .8rem; }
+
+    .table-container {
+      width: 100%; overflow: auto; max-height: 60vh;
+      box-shadow: 0 6px 30px -2px rgba(0,0,0,.12);
+      border-radius: .5rem; background: #fff;
+    }
+    table {
+      border-collapse: collapse; width: 100%; min-width: 600px;
+      table-layout: fixed; font-family: monospace;
+    }
+    th, td {
+      border: 1px solid #e5e7eb; padding: 8px; text-align: center;
+    }
+    th:first-child, td:first-child {
+      position: sticky; left: 0; background: #f9fafb; z-index: 2;
+      text-align: left;
+    }
+    th { position: sticky; top: 0; background: #f1f5f9; z-index: 1; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+
+  <div class="filter-container">
+    <label for="ats-search">Filter ATS:</label>
+    <input list="ats-list" id="ats-search" placeholder="ATS-Name suchen">
+    <datalist id="ats-list">
+      <option value="Onlyfy">
+      <option value="GuideCom">
+      <option value="Personio">
+      <option value="Cornerstone">
+      <option value="Workday">
+      <option value="Zvoove">
+      <!-- … alle anderen ATS-Werte … -->
+    </datalist>
+    <button id="reset-filter">Zurücksetzen</button>
+  </div>
+
+  <div class="table-container">
+    <table id="ats-table">
+      <thead>
+        <tr>
+          <th>Feld</th>
+          <th data-ats="Onlyfy">Onlyfy</th>
+          <th data-ats="GuideCom">GuideCom</th>
+          <th data-ats="Personio">Personio</th>
+          <th data-ats="Cornerstone">Cornerstone</th>
+          <th data-ats="Workday">Workday</th>
+          <th data-ats="Zvoove">Zvoove</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>external_id</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+        <tr><td>title</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+        <tr><td>description</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    (function(){
+      const input      = document.getElementById('ats-search');
+      const resetBtn   = document.getElementById('reset-filter');
+      const table      = document.getElementById('ats-table');
+      const headerRow  = table.tHead.rows[0];
+
+      function filterTable(){
+        const val = input.value.trim().toLowerCase();
+        // finde Index der Spalte mit passendem data-ats
+        let idxMatch = -1;
+        Array.from(headerRow.cells).forEach((th, i)=>{
+          if (th.dataset.ats && th.dataset.ats.toLowerCase() === val) {
+            idxMatch = i;
+          }
+        });
+        // zeige alle, falls kein Treffer
+        if (idxMatch < 0) {
+          table.querySelectorAll('.hidden')
+               .forEach(c => c.classList.remove('hidden'));
+          return;
+        }
+        // sonst 1. Spalte + matchIndex zeigen, alle anderen ausblenden
+        table.querySelectorAll('thead tr, tbody tr').forEach(row=>{
+          Array.from(row.cells).forEach((cell,i)=>{
+            cell.classList.toggle('hidden', i!==0 && i!==idxMatch);
+          });
+        });
+      }
+
+      // bei jeder Eingabe filtern
+      input.addEventListener('input', filterTable);
+      // Enter ebenfalls
+      input.addEventListener('keydown', e=>{
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          filterTable();
+        }
+      });
+      // Reset
+      resetBtn.addEventListener('click', ()=>{
+        input.value = '';
+        table.querySelectorAll('.hidden')
+             .forEach(c => c.classList.remove('hidden'));
+      });
+    })();
+  </script>
+
+</body>
+</html>
+`}</HTMLBlock>
