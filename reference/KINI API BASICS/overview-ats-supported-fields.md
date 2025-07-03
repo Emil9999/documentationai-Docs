@@ -374,8 +374,11 @@ img.factorial-logo {
                     <th data-ats="Recruitee">Recruitee</th>
                     <th data-ats="SmartRecruiters">SmartRecruiters</th>
                    <th data-ats="HR4You">HR4You</th>
- 										<th data-ats="Coveto">Coveto</th>
-                    <th data-ats="Rexx">Rexx</th>
+                  <th data-ats="Coveto">Coveto</th>
+										<th data-ats="Heyrecruit">Heyrecruit</th>
+                  <th data-ats="Rexx">Rexx</th>
+									<th data-ats="Cooperhire">Cooperhire</th>
+
 
                 </tr>
             </thead>
