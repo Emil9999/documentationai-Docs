@@ -467,7 +467,7 @@ img.factorial-logo {
         <datalist id="ats-list">
             <option value="Onlyfy">
             <option value="GuideCom">
-            <option value="CustomSVG">    <!-- Platzhalter für das erste SVG-Logo -->
+            <option value="Personio">    
             <option value="Cornerstone">
             <option value="Workday">
             <option value="Zvoove">
@@ -497,7 +497,6 @@ img.factorial-logo {
     <div class="table-container">
         <table id="ats-table">
             <thead>
-                <!-- 1. Header-Zeile: Logos -->
                 <tr>
                     <th style="width: 150px;">Job Sync</th>
                     <th style="width: 150px;"><img src="https://onlyfy.com/wp-content/themes/onlyfy/assets/icons/logo.svg" alt="Onlyfy Logo"></th>
@@ -531,7 +530,7 @@ img.factorial-logo {
                     <th>ATS Name</th>
                     <th data-ats="Onlyfy">Onlyfy</th>
                     <th data-ats="GuideCom">GuideCom</th>
-                    <th data-ats="CustomSVG">CustomSVG</th>
+                    <th data-ats="Personio">Personio</th>
                     <th data-ats="Cornerstone">Cornerstone</th>
                     <th data-ats="Workday">Workday</th>
                     <th data-ats="Zvoove">Zvoove</th>
