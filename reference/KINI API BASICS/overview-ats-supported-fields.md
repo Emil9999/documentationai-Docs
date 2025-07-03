@@ -438,61 +438,10 @@ img.factorial-logo {
         .erecruiter-logo { width: 180px; height: auto; }
         .workday-logo { width: 100px; height: auto; }
         .join-logo { width: 90px; height: auto; }
-
-        /* Helferklasse zum Ausblenden */
-        .hidden { display: none; }
-
-        /* Styling für Such-Filter */
-        .filter-container {
-            margin: 1rem;
-            font-family: sans-serif;
-        }
-        #ats-search {
-            padding: .4rem;
-            font-size: 1rem;
-        }
-        #reset-filter {
-            margin-left: .5rem;
-            padding: .4rem .8rem;
-            font-size: .9rem;
         }
     </style>
 </head>
 <body>
-
-    <!-- SUCH-BOX MIT AUTOCOMPLETE -->
-    <div class="filter-container">
-        <label for="ats-search">Filter ATS:</label>
-        <input type="text" id="ats-search" list="ats-list" placeholder="ATS-Name suchen">
-        <datalist id="ats-list">
-            <option value="Onlyfy">
-            <option value="GuideCom">
-            <option value="Personio">    
-            <option value="Cornerstone">
-            <option value="Workday">
-            <option value="Zvoove">
-            <option value="Softgarden (XML)">
-            <option value="Softgarden (API)">
-            <option value="Umantis">
-            <option value="D.vinci">
-            <option value="B-ite">
-            <option value="HRworks">
-            <option value="Cegid">
-            <option value="Join">
-            <option value="Kenjo">
-            <option value="eRecruiter">
-            <option value="Lever">
-            <option value="Factorial">
-            <option value="TeamTailor">
-            <option value="Greenhouse">
-            <option value="Successfactors">
-            <option value="Recruitee">
-            <option value="SmartRecruiters">
-            <option value="Coveto">
-            <option value="HR4You">
-        </datalist>
-        <button id="reset-filter">Zurücksetzen</button>
-    </div>
 
     <div class="table-container">
         <table id="ats-table">
