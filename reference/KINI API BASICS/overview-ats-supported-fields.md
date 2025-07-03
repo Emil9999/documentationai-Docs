@@ -17,7 +17,7 @@ metadata:
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Integrationen Vergleich</title>
-    <style>
+  <style>
         .table-container {
             width: 137.5%; /* Breite der Tabelle */
             overflow: auto; /* Scrollen in beide Richtungen */
@@ -383,7 +383,17 @@ img.factorial-logo {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Integrationen Vergleich</title>
-    <style>
+	  <style>
+   #ats-select {
+      padding: .4rem;
+      font-size: 1rem;
+      width: 220px;
+      height: auto;
+      max-height: 10em;    /* limitiert die Höhe */
+      overflow-y: auto;    /* inneres Scrollen */
+      display: block;
+    }	
+
         .table-container {
             width: 137.5%; /* Breite der Tabelle */
             overflow: auto; /* Scrollen in beide Richtungen */
