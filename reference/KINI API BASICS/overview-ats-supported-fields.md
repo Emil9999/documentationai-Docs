@@ -71,7 +71,9 @@ metadata:
         .factorial-logo { width: 350px; height: auto; }
         .erecruiter-logo { width: 180px; height: auto; }
         .workday-logo { width: 100px; height: auto; }
-        .join-logo { width: 90px; height: auto; }
+      .join-logo { width: 90px; height: auto; }
+			.rexx-logo { width: 100px; height: auto; }
+
         }
     </style>
 </head>
@@ -106,7 +108,9 @@ metadata:
                     <th style="width: 150px;"><img class="recruitee-logo" src="https://www.one-click-recruiting.de/wp-content/uploads/2023/02/Recruitee-logo.png" alt="Recruitee Logo"></th>
                     <th style="width: 150px;"><img src="https://www.smartrecruiters.com/wp-content/themes/smartrecruiters/img/2024/SmartRecruiters-Logo.svg" alt="SmartRecruiters Logo"></th>
                     <th style="width: 200px;"><img class="coveto-logo" src="https://www.personalwirtschaft.de/wp-content/uploads/2022/11/coveto-b-g.png" alt="Coveto Logo"></th>
-                    <th style="width: 150px;"><img class="Hr4you-logo" src="https://www.hr4you.de/wp-content/uploads/2021/08/HR4YOU-neuesLogo_cmyk.png" alt="HR4You Logo"></th>
+                  <th style="width: 150px;"><img class="Hr4you-logo" src="https://www.hr4you.de/wp-content/uploads/2021/08/HR4YOU-neuesLogo_cmyk.png" alt="HR4You Logo"></th>
+ <th style="width: 150px;"><img class="rexx-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Rexx-systems-logo.svg/2560px-Rexx-systems-logo.svg.png" alt="Rexx Logo"></th>
+
                 </tr>
                
                 <tr>
@@ -139,7 +143,7 @@ metadata:
                 </tr>
             </thead>
             <tbody>
-              <tr><td>external_id</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>title</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+              <tr><td>external_id</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>title</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
 <tr><td>description</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
 <tr><td>posting_url</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
 <tr><td>application_url</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
