@@ -767,7 +767,7 @@ img.factorial-logo {
           <th>ATS Name</th>
           <th data-ats="Onlyfy">Onlyfy</th>
           <th data-ats="GuideCom">GuideCom</th>
-          <th data-ats="CustomSVG">CustomSVG</th>
+          <th data-ats="Personio">Personio</th>
           <th data-ats="Cornerstone">Cornerstone</th>
           <th data-ats="Workday">Workday</th>
           <th data-ats="Zvoove">Zvoove</th>
