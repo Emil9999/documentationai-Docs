@@ -190,136 +190,77 @@ metadata:
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Integrationen Vergleich</title>
-  <style>
-    body {
-            background-color: white !important;
-      color: #111111 !important;
-    }
-    .table-container {
-      width: 137.5%;
-      overflow: auto;
-      box-shadow: 0 6px 30px 2px rgba(0, 0, 0, 0.12);
-      border-radius: 0.5rem;
-      background-color: white; /* Immer weißer Hintergrund */
-      color: #111111 !important;
-      max-height: 80vh;
-      position: relative;
-      padding: 15px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-family: monospace;
-      table-layout: fixed;
-      background-color: white; /* Auch Tabelle selbst weiß */
-    }
-    th, td {
-      padding: 8px;
-      text-align: center;
-      border-bottom: 1px solid #E5E7EB;
-      min-width: 180px;
-      box-sizing: border-box;
-      background-color: white !important;
-      color: #111111 !important;
-    }
-    th:first-child, td:first-child {
-      position: sticky;
-      left: 0;
-      background-color: white;
-      z-index: 3;
-      min-width: 250px;
-      text-align: left;
-    }
-    th {
-      position: sticky;
-      top: 0;
-      background-color: #F9FAFB;
-      color: #111111 !important;
-      z-index: 2;
-    }
-    th:first-child {
-      z-index: 4;
-      background-color: #F9FAFB;
-    }
-    /* Einheitliche Verkleinerung aller Logos im Header */
-    th img, th svg {
-      transform: scale(0.83);
-      transform-origin: center;
-      max-height: 30px; /* optional, hält SVGs und PNGs schlank */
-      vertical-align: middle;
-    }
-    /* Individuelle Logo-Spezifikationen bleiben erhalten, wenn nötig */
-    img.guidecom-logo, img.recruitee-logo, img.coveto-logo, img.Hr4you-logo, img.rexx-logo,
-    img.factorial-logo, img.erecruiter-logo, img.workday-logo, img.join-logo {
-      width: auto;
-      height: auto;
-    } 
-    img.guidecom-logo,
-    img.recruitee-logo,
-img.coveto-logo,
-img.factorial-logo {
-  max-height:38px; /* falls globale Einschränkung auf th img existiert */
-    }
-
-     img {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrationen Vergleich</title>
+    <style>
+        .table-container {
+            width: 137.5%; /* Breite der Tabelle */
+            overflow: auto; /* Scrollen in beide Richtungen */
+            box-shadow: 0 6px 30px -2px rgba(0, 0, 0, 0.12);
+            border-radius: 0.5rem;
+            background-color: white;
+            max-height: 80vh; /* Begrenzt die Höhe für vertikales Scrollen */
+            position: relative;
+            padding: 0 15px 15px 0 !important;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: monospace;
+            table-layout: fixed; /* Erzwingt feste Spaltenbreiten */
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #e5e7eb;
+            min-width: 230px; /* Einheitliche feste Breite für alle Spalten */
+            box-sizing: border-box; /* Padding wird in die Breite einbezogen */
+        }
+        th:first-child, td:first-child {
+            position: sticky;
+            left: 0;
+            background-color: white;
+            z-index: 5; /* Höherer z-index für die erste Spalte */
+            min-width: 210px; /* Feste Breite für die erste Spalte */
+            text-align: left;
+        }
+        th {
+            position: sticky;
+            top: 0;
+            background-color: #f9fafb;
+            z-index: 4; /* Header über Zellen und ATS Name row */
+        }
+        th:first-child {
+            z-index: 6; /* Field bleibt über allem */
+            background-color: #f9fafb; /* Gleicher Hintergrund wie Header */
+        }
+        tr:nth-child(2) th { /* Targeting the "ATS Name" row */
+            position: sticky;
+            top: 40px; /* Fixed below header row height */
+            background-color: #f9fafb;
+            z-index: 3; /* Below header row but above body */
+            border-bottom: 2px solid #e5e7eb; /* Ensure visual separation */
+        }
+        tr:nth-child(2) th:first-child {
+            z-index: 5; /* Keep first column sticky and above other cells */
+        }
+        img {
             height: 30px;
             vertical-align: middle;
-        
         }
-        .guidecom-logo {
-            width: 350px;
-    
-        }
-        .recruitee-logo {
-            width: 300px;
-      }
-        .coveto-logo {
-          min-height:40px;
-           min-width:80px;
-          max-width:85px;
-           
-        }
-        .Hr4you-logo {
-            width: 70px;
-            height: auto;
-        }
-        .rexx-logo {
-            width: 100px;
-            height: auto;
-        }
-        .factorial-logo {
-            width: 350px;
-            
-        }
-        .erecruiter-logo {
-            width: 180px;
-            height: auto;
-        }
-        .workday-logo {
-            width: 100px;
-            height: auto;
-        }
-        .join-logo {
-            width: 90px;
-            height: auto;
-        }
-    		.lever-logo {
-    				width:200px;
-    				height:20px;
-    		}
-    		.sap-logo {
-    				width:245px;
-    				height:22px;
-    		}
-    		.cooper-logo {
-    				width:140px;
-    				height:24px;
-    		}
-  </style>
+        .guidecom-logo { width: 200px; height: auto; }
+        .recruitee-logo { width: 400px; height: auto; }
+        .coveto-logo { min-height: 40px; min-width: 80px; max-width: 85px; height: auto; }
+        .Hr4you-logo { width: 70px; height: auto; }
+        .rexx-logo { width: 100px; height: auto; }
+        .factorial-logo { width: 350px; height: auto; }
+        .erecruiter-logo { width: 180px; height: auto; }
+        .workday-logo { width: 100px; height: auto; }
+        .join-logo { width: 90px; height: auto; }
+    </style>
 </head>
+<body>
 <body>
   <div class="table-container">
  				 <table>
