@@ -464,7 +464,7 @@ img.factorial-logo {
         }
         tr:nth-child(2) th { /* Targeting the "ATS Name" row */
             position: sticky;
-            top: 40px; /* Below the header row height */
+            top: 40px; /* Fixed below header row height */
             background-color: #f9fafb;
             z-index: 3; /* Below header row but above body */
         }
