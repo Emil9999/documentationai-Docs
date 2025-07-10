@@ -65,7 +65,7 @@ metadata:
         }
         .guidecom-logo { width: 200px; height: auto; }
         .recruitee-logo { width: 400px; height: auto; }
-        .coveto-logo { min-height: 15px; min-width: 80px; max-width: 85px; max-height: 35px; }
+        .coveto-logo { min-height: 15px; min-width: 80px; max-width: 85px; max-height: 40px; }
         .Hr4you-logo { width: 70px; height: auto; }
         .rexx-logo { width: 100px; height: auto; }
         .factorial-logo { width: 350px; height: auto; }
