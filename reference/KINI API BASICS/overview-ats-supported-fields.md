@@ -259,10 +259,9 @@ metadata:
         .factorial-logo { width: 350px; height: auto; }
         .erecruiter-logo { width: 180px; height: auto; }
         .workday-logo { width: 100px; height: auto; }
-        .join-logo { width: 90px; height: auto; }
+   	    .join-logo { width: 90px; height: auto; } 
 				.onlyfy-logo { width: 100px; height: auto; }
-
-
+				.cooper-logo { width: 100px; height: auto; }
         }
     </style>
 </head>
