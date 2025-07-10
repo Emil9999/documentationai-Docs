@@ -261,7 +261,7 @@ metadata:
         .workday-logo { width: 100px; height: auto; }
    	    .join-logo { width: 90px; height: auto; } 
 				.onlyfy-logo { width: 100px; height: auto; }
-				.cooper-logo { width: 100px; height: auto; }
+				.cooper-logo { width: 120px; height: auto; }
         }
     </style>
 </head>
