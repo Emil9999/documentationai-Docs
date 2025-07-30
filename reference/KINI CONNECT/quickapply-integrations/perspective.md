@@ -5,3 +5,96 @@ hidden: true
 metadata:
   robots: index
 ---
+## 🚀 Integrating Perspective Funnels with Kini
+
+This document provides clear instructions on how to configure Perspective so that candidate applications are successfully sent to Kini and then forwarded to your Applicant Tracking System (ATS) in real time.
+
+***
+
+### 🔑 Required Setup in Perspective
+
+To ensure smooth integration, please follow these steps in your Perspective funnel configuration:
+
+#### 1️⃣ External Job ID as **`utm_term`**
+
+Each application must include the **external job ID** from your ATS:
+
+* Add a **Hidden Field** in your Perspective funnel named `utm_term`.
+* Pass the external job ID from the job posting URL to this hidden field.
+
+✅ **Example:**
+
+```
+https://your-perspective-page.com/apply?utm_term=123456
+```
+
+Here, `123456` is the external job ID that Kini uses to map the application to the correct job.
+
+***
+
+#### 2️⃣ Use Perspective Built-in Fields
+
+Perspective’s **built-in candidate fields** (e.g., first name, last name, email) must be used for core candidate data. Supported fields include:
+
+* `firstName`
+* `lastName`
+* `email`
+* `phone`
+* `website`
+* `address`
+* `city`
+* `postalCode`
+* `country`
+
+These fields are automatically mapped to the candidate profile in Kini and forwarded to the ATS.
+
+***
+
+#### 3️⃣ Fallback Job ID (Optional)
+
+If no `utm_term` is provided (e.g., via a shared application link), candidates will be assigned to a **fallback job** in Kini.
+
+* Share your **fallback job ID** with Kini so we can configure it.
+
+***
+
+#### 4️⃣ Screening Questions
+
+Screening questions must be configured so that their IDs and answer options match your ATS.
+
+* Retrieve the question IDs and options from your ATS (via the Kini API or Job feed).
+* In Perspective, add each question using the ID prefixed with `sq_`.
+
+✅ **Example:**\
+If the ATS question ID is `earliestStartDay`, use `sq_earliestStartDay` in Perspective.
+Ensure the **answer choices match 1:1** with those in the ATS.
+
+***
+
+#### 5️⃣ Ignored Fields
+
+Any Perspective field prefixed with **`ignore_`** will be excluded from the synchronization and not forwarded to the ATS.
+
+***
+
+#### 6️⃣ All Other Fields → Comments
+
+Fields that do not match the above criteria will be automatically appended as **comments** to the candidate profile in the ATS.
+
+***
+
+### ✅ Summary of Perspective Setup
+
+* [ ] Add **`utm_term`** as a hidden field and pass the external job ID.
+* [ ] Use built-in Perspective fields for candidate basics (name, email, phone, etc.).
+* [ ] Provide Kini with a **fallback job ID** (optional but recommended).
+* [ ] Configure screening questions using **`sq_<ID>`** and exact answer options.
+* [ ] Prefix any non-ATS fields with **`ignore_`** to exclude them.
+* [ ] Remaining fields will automatically be stored as comments.
+
+***
+
+### 💬 Need Help?
+
+If you need assistance with the setup or want Kini to review your Perspective funnel, please reach out to us:\
+📧 **[support@getkini.com](mailto:support@getkini.com)**
