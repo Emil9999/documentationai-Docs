@@ -1,16 +1,14 @@
 ---
-title: Perspective
+title: Perspective Funnels
+excerpt: >-
+  This document provides clear instructions on how to configure Perspective so
+  that candidate applications are successfully sent to Kini and then forwarded
+  to your Applicant Tracking System (ATS) in real time.
 deprecated: false
 hidden: true
 metadata:
   robots: index
 ---
-## 🚀 Integrating Perspective Funnels with Kini
-
-This document provides clear instructions on how to configure Perspective so that candidate applications are successfully sent to Kini and then forwarded to your Applicant Tracking System (ATS) in real time.
-
-***
-
 ### 🔑 Required Setup in Perspective
 
 To ensure smooth integration, please follow these steps in your Perspective funnel configuration:
@@ -83,6 +81,19 @@ Fields that do not match the above criteria will be automatically appended as **
 
 ***
 
+#### 7️⃣ Add Webhook URL
+
+Within your funnel, go to **Apps > Webhooks** and add the provided webhook URL.
+
+`https://api.getkini.com/webhooks/perspective/{company_id}`
+
+* Replace `{company_id}` with the ID of your company in Kini (see [Partner App](https://app.getkini.com/)).
+* **Important:** This URL must be added to every funnel for which the integration should be enabled.
+
+![](https://files.readme.io/41423469bee779717b7a4c97b04022e3239ec2aa46d0edbef2ebdafb0d48bf25-CleanShot_2025-07-30_at_15.01.012x.png)
+
+<br />
+
 ### ✅ Summary of Perspective Setup
 
 * [ ] Add **`utm_term`** as a hidden field and pass the external job ID.
@@ -91,6 +102,7 @@ Fields that do not match the above criteria will be automatically appended as **
 * [ ] Configure screening questions using **`sq_<ID>`** and exact answer options.
 * [ ] Prefix any non-ATS fields with **`ignore_`** to exclude them.
 * [ ] Remaining fields will automatically be stored as comments.
+* [ ] Add the **Webhook URL** under Apps > Webhooks for all relevant funnels.
 
 ***
 
