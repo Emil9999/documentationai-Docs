@@ -66,19 +66,37 @@ Ensure the **answer choices match 1:1** with those in the ATS.
 
 ***
 
-#### 5️⃣ Ignored Fields
+#### :five: File Attachments
+
+Use Perspective's standard file upload field but change the tracking ID to start with file\_:
+
+##### Primary file types (recommended):
+
+* `file_cv` - CV/Resume files
+* `file_resume` - Resume files
+* `file_cover_letter` - Cover letter files
+
+##### Other file types:
+
+* Any id with the prefix `file_` also works, i.e `file_certificate`, `file_other` etc.
+
+***
+
+<br />
+
+#### :six: Ignored Fields
 
 Any Perspective field prefixed with **`ignore_`** will be excluded from the synchronization and not forwarded to the ATS.
 
 ***
 
-#### 6️⃣ All Other Fields → Comments
+#### :seven: All Other Fields → Comments
 
 Fields that do not match the above criteria will be automatically appended as **comments** to the candidate profile in the ATS.
 
 ***
 
-#### 7️⃣ Add Webhook URL
+#### :eight: Add Webhook URL
 
 Within your funnel, go to **Apps > Webhooks** and add the provided webhook URL.
 
@@ -96,6 +114,7 @@ Within your funnel, go to **Apps > Webhooks** and add the provided webhook URL.
 * [ ] Add **`utm_term`** as a URL parameter to pass the external job ID.
 * [ ] Use built-in Perspective fields for candidate basics (name, email, phone, etc.).
 * [ ] Provide Kini with a **fallback job ID** (optional but recommended).
+* [ ] Use the `**file_**` prefix in any file upload fields.
 * [ ] Configure screening questions using **`sq_<ID>`** and exact answer options.
 * [ ] Prefix any non-ATS fields with **`ignore_`** to exclude them.
 * [ ] Remaining fields will automatically be stored as comments.
