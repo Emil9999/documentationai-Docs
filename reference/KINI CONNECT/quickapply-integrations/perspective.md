@@ -114,7 +114,7 @@ Within your funnel, go to **Apps > Webhooks** and add the provided webhook URL.
 * [ ] Add **`utm_term`** as a URL parameter to pass the external job ID.
 * [ ] Use built-in Perspective fields for candidate basics (name, email, phone, etc.).
 * [ ] Provide Kini with a **fallback job ID** (optional but recommended).
-* [ ] Use the `*file_*` prefix in any file upload fields.
+* [ ] Use the `file_` prefix in any file upload fields.
 * [ ] Configure screening questions using **`sq_<ID>`** and exact answer options.
 * [ ] Prefix any non-ATS fields with **`ignore_`** to exclude them.
 * [ ] Remaining fields will automatically be stored as comments.
