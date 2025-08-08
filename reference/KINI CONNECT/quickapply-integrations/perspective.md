@@ -68,7 +68,7 @@ Ensure the **answer choices match 1:1** with those in the ATS.
 
 #### :five: File Attachments
 
-Use Perspective's standard file upload field but change the tracking ID to start with file\_:
+Use Perspective's standard file upload field but change the tracking ID to start with **`file_`**:
 
 ##### Primary file types (recommended):
 
