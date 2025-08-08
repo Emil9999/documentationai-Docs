@@ -78,7 +78,7 @@ Use Perspective's standard file upload field but change the tracking ID to start
 
 ##### Other file types:
 
-* Any id with the prefix `file_` also works, i.e `file_certificate`, `file_other` etc.
+* Any ID with the prefix `file_` also works, i.e `file_certificate`, `file_other` etc.
 
 ***
 
