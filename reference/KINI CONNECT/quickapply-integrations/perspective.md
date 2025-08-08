@@ -15,10 +15,7 @@ To ensure smooth integration, please follow these steps in your Perspective funn
 
 #### 1️⃣ External Job ID as **`utm_term`**
 
-Each application must include the **external job ID** from your ATS:
-
-* Add a **Hidden Field** in your Perspective funnel named `utm_term`.
-* Pass the external job ID from the job posting URL to this hidden field.
+Each application must include the **external job ID** from your ATS as an `utm_term` parameter in the funnel URL.
 
 ✅ **Example:**
 
@@ -26,7 +23,7 @@ Each application must include the **external job ID** from your ATS:
 https://your-perspective-page.com/apply?utm_term=123456
 ```
 
-Here, `123456` is the external job ID that Kini uses to map the application to the correct job.
+Here, `123456` is the external job ID that Kini uses to map the application to the correct job. Simply add the parameter when sharing your funnel.
 
 ***
 
@@ -96,7 +93,7 @@ Within your funnel, go to **Apps > Webhooks** and add the provided webhook URL.
 
 ### ✅ Summary of Perspective Setup
 
-* [ ] Add **`utm_term`** as a hidden field and pass the external job ID.
+* [ ] Add **`utm_term`** as a URL parameter to pass the external job ID.
 * [ ] Use built-in Perspective fields for candidate basics (name, email, phone, etc.).
 * [ ] Provide Kini with a **fallback job ID** (optional but recommended).
 * [ ] Configure screening questions using **`sq_<ID>`** and exact answer options.
