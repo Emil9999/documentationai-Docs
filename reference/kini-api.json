@@ -3832,7 +3832,8 @@
             "schema": {
               "type": "string"
             },
-            "required": true
+            "required": true,
+            "description": "ID of the Company"
           }
         ],
         "tags": [
