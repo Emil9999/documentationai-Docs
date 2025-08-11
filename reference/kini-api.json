@@ -2917,6 +2917,13 @@
         "summary": "Get Job",
         "parameters": [
           {
+            "in": "header",
+            "name": "Company-Id",
+            "schema": { "type": "string" },
+            "description": "ID of the Company",
+            "required": true
+          },
+          {
             "in": "path",
             "name": "id",
             "schema": { "type": "string" },
