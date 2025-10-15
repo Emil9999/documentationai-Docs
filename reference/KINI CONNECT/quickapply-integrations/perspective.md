@@ -62,7 +62,7 @@ Screening questions must be configured so that their IDs and answer options matc
 * Retrieve the question IDs and options from your ATS (via the Kini API or Job feed).
 * In Perspective, add each question using the ID prefixed with `sq_`.
 
-✅ **Example:**\
+✅ **Example:**
 If the ATS question ID is `earliestStartDay`, use `sq_earliestStartDay` in Perspective.
 Ensure the **answer choices match 1:1** with those in the ATS.
 
@@ -105,9 +105,10 @@ Within your funnel, go to **Apps > Webhooks** and add the provided webhook URL.
 `https://api.getkini.com/webhooks/perspective/{company_id}`
 
 * Replace `{company_id}` with the ID of your company in Kini (see [Partner App](https://app.getkini.com/)).
+* Add the webhook URL under **Funnel Completed**, not *New Lead* .
 * **Important:** This URL must be added to every funnel for which the integration should be enabled.
 
-![](https://files.readme.io/41423469bee779717b7a4c97b04022e3239ec2aa46d0edbef2ebdafb0d48bf25-CleanShot_2025-07-30_at_15.01.012x.png)
+<Image align="center" border={false} caption="Make sure to insert the webhook in &#x22;Funnel Completed&#x22;, NOT &#x22;New Lead&#x22;" src="https://files.readme.io/34bb93d113176cf83c7d9c624d690a5bc3e1bb64061765a2be3224e5e3eececb-image.png" />
 
 <br />
 
@@ -126,5 +127,5 @@ Within your funnel, go to **Apps > Webhooks** and add the provided webhook URL.
 
 ### 💬 Need Help?
 
-If you need assistance with the setup or want Kini to review your Perspective funnel, please reach out to us:\
+If you need assistance with the setup or want Kini to review your Perspective funnel, please reach out to us:
 📧 **[support@getkini.com](mailto:support@getkini.com)**
