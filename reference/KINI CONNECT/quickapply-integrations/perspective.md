@@ -6,6 +6,8 @@ excerpt: >-
   to your Applicant Tracking System (ATS) in real time.
 deprecated: false
 hidden: true
+link:
+  new_tab: false
 metadata:
   robots: index
 ---
@@ -29,7 +31,7 @@ Here, `123456` is the external job ID that Kini uses to map the application to t
 
 #### 2️⃣ Use Perspective Built-in Fields
 
-Perspective’s **built-in candidate fields** (e.g., first name, last name, email) must be used for core candidate data. Supported fields include:
+Perspective's **built-in candidate fields** (e.g., first name, last name, email) must be used for core candidate data. Supported fields include:
 
 * `firstName`
 * `lastName`
@@ -98,12 +100,13 @@ Fields that do not match the above criteria will be automatically appended as **
 
 #### :eight: Add Webhook URL
 
-Within your funnel, go to **Apps > Webhooks** and add the provided webhook URL.
+Within your funnel, go to **Apps > Webhooks** and add the provided webhook URL **under "Funnel Completed"** (NOT "New Lead").
 
 `https://api.getkini.com/webhooks/perspective/{company_id}`
 
 * Replace `{company_id}` with the ID of your company in Kini (see [Partner App](https://app.getkini.com/)).
 * **Important:** This URL must be added to every funnel for which the integration should be enabled.
+* **Critical:** Ensure you select "Funnel Completed" as the trigger event, not "New Lead".
 
 ![](https://files.readme.io/41423469bee779717b7a4c97b04022e3239ec2aa46d0edbef2ebdafb0d48bf25-CleanShot_2025-07-30_at_15.01.012x.png)
 
@@ -118,7 +121,7 @@ Within your funnel, go to **Apps > Webhooks** and add the provided webhook URL.
 * [ ] Configure screening questions using **`sq_<ID>`** and exact answer options.
 * [ ] Prefix any non-ATS fields with **`ignore_`** to exclude them.
 * [ ] Remaining fields will automatically be stored as comments.
-* [ ] Add the **Webhook URL** under Apps > Webhooks for all relevant funnels.
+* [ ] Add the **Webhook URL** under Apps > Webhooks for "Funnel Completed" (NOT "New Lead") for all relevant funnels.
 
 ***
 
