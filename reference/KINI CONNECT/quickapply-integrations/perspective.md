@@ -15,9 +15,21 @@ metadata:
 
 To ensure smooth integration, please follow these steps in your Perspective funnel configuration:
 
-#### 1️⃣ External Job ID as **`utm_term`**
+#### 1️⃣ Choose your External Job ID method
 
-Each application must include the **external job ID** from your ATS as an `utm_term` parameter in the funnel URL.
+You must choose exactly one of the following methods to pass the external job ID from your ATS. Do not use both methods.
+
+**Option A: Result page title (recommended) ✨**
+Include the external job ID in your final result/thank-you page title by wrapping it in square brackets.
+
+✅ **Example**:
+`Thank you – Sales Manager [EU-42]`
+
+In that case _EU-42_ will be used as the external Job ID. Please make sure to not include any spaces inside the brackets.
+
+**Option B: URL parameter utm_term ✨**
+
+If this option is chosen, each application must include the **external job ID** from your ATS as an `utm_term` parameter in the funnel URL.
 
 ✅ **Example:**
 
@@ -105,7 +117,7 @@ Within your funnel, go to **Apps > Webhooks** and add the provided webhook URL.
 `https://api.getkini.com/webhooks/perspective/{company_id}`
 
 * Replace `{company_id}` with the ID of your company in Kini (see [Partner App](https://app.getkini.com/)).
-* Add the webhook URL under **Funnel Completed**, not *New Lead* .
+* Add the webhook URL under **Funnel Completed**, not _New Lead_ .
 * **Important:** This URL must be added to every funnel for which the integration should be enabled.
 
 <Image align="center" border={false} caption="Make sure to insert the webhook in &#x22;Funnel Completed&#x22;, NOT &#x22;New Lead&#x22;" src="https://files.readme.io/34bb93d113176cf83c7d9c624d690a5bc3e1bb64061765a2be3224e5e3eececb-image.png" />
@@ -114,7 +126,7 @@ Within your funnel, go to **Apps > Webhooks** and add the provided webhook URL.
 
 ### ✅ Summary of Perspective Setup
 
-* [ ] Add **`utm_term`** as a URL parameter to pass the external job ID.
+* [ ] Either embed the **external_id** in brackets in your result page title **or** add **`utm_term`** as a URL parameter to pass the external job ID.
 * [ ] Use built-in Perspective fields for candidate basics (name, email, phone, etc.).
 * [ ] Provide Kini with a **fallback job ID** (optional but recommended).
 * [ ] Use the `file_` prefix in any file upload fields.
