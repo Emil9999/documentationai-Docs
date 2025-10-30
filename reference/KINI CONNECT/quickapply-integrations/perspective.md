@@ -29,7 +29,7 @@ In that case _EU-42_ will be used as the external Job ID. Please make sure to no
 
 **Option B: URL parameter utm_term ✨**
 
-If this option is chosen, each application must include the **external job ID** from your ATS as an `utm_term` parameter in the funnel URL.  
+If this option is chosen, each application must include the **external job ID** from your ATS as an `utm_term` parameter in the funnel URL.
 
 ✅ **Example:**
 
@@ -37,9 +37,9 @@ If this option is chosen, each application must include the **external job ID** 
 https://your-perspective-page.com/apply?utm_term=123456
 ```
 
-Here, `123456` is the external job ID that Kini uses to map the application to the correct job. Simply add the parameter when sharing your funnel.  
+Here, `123456` is the external job ID that Kini uses to map the application to the correct job. Simply add the parameter when sharing your funnel.
 
-### :question:Not sure where to find your external_id? 
+#### :question:Not sure where to find your external_id?
 
 If you're not sure where to find your Job's external_id, feel free to reach out to us:
 📧 **[support@getkini.com](mailto:support@getkini.com)**
