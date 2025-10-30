@@ -39,7 +39,7 @@ https://your-perspective-page.com/apply?utm_term=123456
 
 Here, `123456` is the external job ID that Kini uses to map the application to the correct job. Simply add the parameter when sharing your funnel.
 
-#### :question:Not sure where to find your external_id?
+##### :question:Not sure where to find your external_id?
 
 If you're not sure where to find your Job's external_id, feel free to reach out to us:
 📧 **[support@getkini.com](mailto:support@getkini.com)**
