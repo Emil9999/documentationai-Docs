@@ -3798,6 +3798,46 @@
                         "employer_logo": "https://example.com/logo.png"
                       },
                       "maxProperties": 10
+                    },
+                    "description_sections": {
+                      "type": "array",
+                      "nullable": true,
+                      "description": "Structured sections of the job description",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "Stable identifier of the section"
+                          },
+                          "type": {
+                            "type": "string",
+                            "description": "Section type",
+                            "enum": [
+                              "introduction",
+                              "tasks",
+                              "profile",
+                              "benefits",
+                              "contact",
+                              "other"
+                            ]
+                          },
+                          "order": {
+                            "type": "integer",
+                            "description": "Display order (ascending)"
+                          },
+                          "title": {
+                            "type": "string",
+                            "description": "Section title"
+                          },
+                          "content": {
+                            "type": "string",
+                            "description": "Section content"
+                          }
+                        },
+                        "required": ["id", "type", "order", "title", "content"],
+                        "x-readme-ref-name": "DescriptionSection"
+                      }
                     }
                   },
                   "required": [
@@ -4208,6 +4248,46 @@
                         "employer_logo": "https://example.com/logo.png"
                       },
                       "maxProperties": 10
+                    },
+                    "description_sections": {
+                      "type": "array",
+                      "nullable": true,
+                      "description": "Structured sections of the job description",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "Stable identifier of the section"
+                          },
+                          "type": {
+                            "type": "string",
+                            "description": "Section type",
+                            "enum": [
+                              "introduction",
+                              "tasks",
+                              "profile",
+                              "benefits",
+                              "contact",
+                              "other"
+                            ]
+                          },
+                          "order": {
+                            "type": "integer",
+                            "description": "Display order (ascending)"
+                          },
+                          "title": {
+                            "type": "string",
+                            "description": "Section title"
+                          },
+                          "content": {
+                            "type": "string",
+                            "description": "Section content"
+                          }
+                        },
+                        "required": ["id", "type", "order", "title", "content"],
+                        "x-readme-ref-name": "DescriptionSection"
+                      }
                     }
                   },
                   "required": [
@@ -5668,6 +5748,46 @@
               "employer_logo": "https://example.com/logo.png"
             },
             "maxProperties": 10
+          },
+          "description_sections": {
+            "type": "array",
+            "nullable": true,
+            "description": "Structured sections of the job description",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Stable identifier of the section"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "Section type",
+                  "enum": [
+                    "introduction",
+                    "tasks",
+                    "profile",
+                    "benefits",
+                    "contact",
+                    "other"
+                  ]
+                },
+                "order": {
+                  "type": "integer",
+                  "description": "Display order (ascending)"
+                },
+                "title": {
+                  "type": "string",
+                  "description": "Section title"
+                },
+                "content": {
+                  "type": "string",
+                  "description": "Section content"
+                }
+              },
+              "required": ["id", "type", "order", "title", "content"],
+              "x-readme-ref-name": "DescriptionSection"
+            }
           }
         },
         "required": [
