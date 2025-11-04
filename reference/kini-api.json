@@ -4082,15 +4082,11 @@
                       "description": "Kini ID of the job"
                     },
                     "external_id": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Job's ID in external ATS systems, used for integrations"
                     },
                     "company": {
-                      "type": [
-                        "integer"
-                      ],
+                      "type": "number",
                       "description": "Kini ID of the company offering the job"
                     },
                     "title": {
@@ -4099,23 +4095,15 @@
                       "maxLength": 255
                     },
                     "description": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Detailed description of the job's responsibilities and requirements"
                     },
                     "posting_url": {
-                      "type": [
-                        "string"
-                      ],
-                      "format": "uri",
+                      "type": "string",
                       "description": "URL of the job posted on the company's career page"
                     },
                     "application_url": {
-                      "type": [
-                        "string"
-                      ],
-                      "format": "uri",
+                      "type": "string",
                       "description": "URL through which applicants can apply on the company's career page"
                     },
                     "status": {
@@ -4124,9 +4112,7 @@
                         "deleted",
                         "archived"
                       ],
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "x-spec-enum-id": "ead97c7bc7363dd0",
                       "description": "Posting status of the job (active, deleted, archived)\n\n* `active` - Job posting is open and accepting applications\n* `deleted` - Job posting has been deleted and is not accepting applications\n* `archived` - Job posting is archived and not accepting applications"
                     },
@@ -4136,22 +4122,16 @@
                         "hybrid",
                         "on-site"
                       ],
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "x-spec-enum-id": "48718b3ae514d1f4",
                       "description": "Work mode of the job (remote, hybrid, on-site)\n\n* `remote` - Fully remote, work from anywhere\n* `on-site` - Fully onsite, work from the company's physical location\n* `hybrid` - Flexible combination of onsite and remote work"
                     },
                     "language": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Language of the job posting"
                     },
                     "category": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Category of the job, e.g. 'sales'",
                       "enum": [
                         "accounting_finance",
@@ -4198,9 +4178,7 @@
                       ]
                     },
                     "employment_type": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Employment type of the job (permanent, contract, minijob, etc.)",
                       "enum": [
                         "contract",
@@ -4216,9 +4194,7 @@
                       ]
                     },
                     "work_schedule": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Work schedule type for the position (full-time, part-time, flexible)",
                       "enum": [
                         "full_time",
@@ -4227,9 +4203,7 @@
                       ]
                     },
                     "senority": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Required or expected seniority level",
                       "enum": [
                         "unexperienced",
@@ -4243,122 +4217,87 @@
                       ]
                     },
                     "start_date": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Required or expected start date"
                     },
                     "contract_limitation": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Contractual limitations or terms associated with the job"
                     },
                     "location_name": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Full-text location of where the job is based"
                     },
                     "street": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Street of the job's location"
                     },
                     "city": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "City of the job's location"
                     },
                     "country": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Country of the job's location"
                     },
                     "postcode": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Postal code of the job's location"
                     },
                     "longitude": {
-                      "type": [
-                        "string"
-                      ],
-                      "format": "decimal",
+                      "type": "number",
                       "pattern": "^-?\\d{0,3}(?:\\.\\d{0,6})?$",
-                      "description": "Longitude coordinate of the job's location"
+                      "description": "Longitude coordinate of the job's location",
+                      "format": "float"
                     },
                     "latitude": {
-                      "type": [
-                        "string"
-                      ],
-                      "format": "decimal",
+                      "type": "number",
+                      "format": "float",
                       "pattern": "^-?\\d{0,3}(?:\\.\\d{0,6})?$",
                       "description": "Latitude coordinate of the job's location"
                     },
                     "salary": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "General description of the salary package"
                     },
                     "salary_from": {
-                      "type": [
-                        "integer"
-                      ],
+                      "type": "number",
                       "description": "Starting salary range"
                     },
                     "salary_to": {
-                      "type": [
-                        "integer"
-                      ],
+                      "type": "number",
                       "description": "Maximum salary range"
                     },
                     "salary_currency": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Currency of the stated salary"
                     },
                     "salary_frequency": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Payout frequency of the stated salary (annual, monthly, etc.)"
                     },
                     "contact_name": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Name of the contact person responsible for the job posting"
                     },
                     "contact_email": {
-                      "type": [
-                        "string"
-                      ],
-                      "format": "email",
+                      "type": "string",
                       "description": "E-Mail Address of the contact person responsible for the job posting"
                     },
                     "contact_title": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Work title of the contact person responsible for the job posting"
                     },
                     "contact_phone": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Phone Number of the contact person responsible for the job posting"
                     },
+                    "banner_image": {
+                      "type": "string",
+                      "description": "Banner Image URL"
+                    },
                     "import_source": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Source from which the job was created (API, etc.)"
                     },
                     "screening_questions": {
