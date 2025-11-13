@@ -19,14 +19,14 @@ The following payload will be sent to your configured webhook URL:
 
 ```json
 {
-"company_id": 123,
-"partner_id": 10,
-"application_id": 45213,
-"partner_company_id":"1019261",
-"partner_application_id": "123",
-"external_job_id": "1604531",
-"status": "SUCCESS",
-"failure_error": null
+	"company_id": 123,
+	"partner_id": 10,
+	"application_id": 45213,
+	"partner_company_id":"1019261",
+	"partner_application_id": "123",
+	"external_job_id": "1604531",
+	"status": "SUCCESS",
+	"failure_error": null
 }
 ```
 
