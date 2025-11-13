@@ -5,7 +5,7 @@ excerpt: >-
   statuses. Whenever a status update occurs, a Webhook Payload will be sent to a
   URL you define.
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
