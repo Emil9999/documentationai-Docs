@@ -2,8 +2,8 @@
 title: Job Booking Status Update
 excerpt: >-
   The Status Webhook allows you to receive real-time updates on job booking
-  statuses. Whenever a status update occurs, a Webhook Payload will be sent to a
-  URL you define.
+  statuses. Whenever a job booking's status changes, a Webhook Payload will be
+  sent to a URL you define.
 deprecated: false
 hidden: true
 metadata:
