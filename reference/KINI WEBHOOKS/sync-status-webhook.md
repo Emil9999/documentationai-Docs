@@ -1,9 +1,9 @@
 ---
-title: Sync Status Update
+title: Application Sync Status Update
 excerpt: >-
   The Status Webhook allows you to receive real-time updates on application
-  statuses. Whenever a status update occurs, a Webhook Payload will be sent to a
-  URL you define.
+  statuses. Whenever an application's status changes, a Webhook Payload will be
+  sent to a URL you define.
 deprecated: false
 hidden: false
 metadata:
