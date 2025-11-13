@@ -15,14 +15,16 @@ The following payload will be sent to your configured webhook URL:
 
 ```json
 {
-    "company_id": 123,
-    "partner_id": 10,
-    "application_id": 45213,
-  	"partner_company_id":"1019261",
-    "partner_application_id": "123",
-    "external_job_id": "1604531",
-    "status": "SUCCESS",
-    "failure_error": null
+	"company_id": 123,
+	"company_name": ,
+	"partner_company_id": "company__partner_company_id",
+	"booking_id": "job_booking__id",
+	"booking_job_id": "job_booking__job",
+	"booking_job_title": "job_booking__title",
+	"booking_product_name": "job_booking__product__name",
+	"booking_url": "job_booking__booking_url",
+  "booking_status": "job_booking__status",
+	"transaction_id": "job_booking__transaction"
 }
 ```
 
@@ -46,7 +48,7 @@ The `status` field can have the following values:
 * **SUCCESS**: The application was synchronized successfully.
 * **FAILURE**: An error occurred during synchronization. Failure details are provided in the field `failure_error`.
 * **NOTSENT**: Synchronization hasn't been set to the ATS or is still in progress.
-* **EXPECTED\_FAILURE**: Synchronization failed due to an expected error, such as `DuplicateApplicationError`, `JobNotPublishedError`
+* **EXPECTED_FAILURE**: Synchronization failed due to an expected error, such as `DuplicateApplicationError`, `JobNotPublishedError`
 
 <br />
 
