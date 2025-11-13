@@ -49,7 +49,7 @@ The `status` field can have the following values:
 
 * **BOOKED**: The job booking was successfully created in the database.
 * **PROCESSING**: The job booking has been reviewed and is queued to be posted online.
-* **PUBLISHED**: The job booking is online on the job board. The `booking_url` field will now be filled.
+* **PUBLISHED**: The job booking is now online on the job board. The `booking_url` field will be filled.
 * **UNPUBLISHED**: The job booking was prematurely taken down by the customer.
 * **EXPIRED**: The duration for which the job booking was online has ended. The booking has been removed from the job board.
 
