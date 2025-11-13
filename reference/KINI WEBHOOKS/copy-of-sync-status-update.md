@@ -16,8 +16,8 @@ The following payload will be sent to your configured webhook URL:
 ```json
 {
 	"company_id": 123,
-	"company_name": ,
-	"partner_company_id": "company__partner_company_id",
+	"company_name": "Test GmbH",
+	"partner_company_id": "",
 	"booking_id": "job_booking__id",
 	"booking_job_id": "job_booking__job",
 	"booking_job_title": "job_booking__title",
