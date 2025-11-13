@@ -17,27 +17,29 @@ The following payload will be sent to your configured webhook URL:
 {
 	"company_id": 123,
 	"company_name": "Test GmbH",
-	"partner_company_id": "",
-	"booking_id": "job_booking__id",
-	"booking_job_id": "job_booking__job",
-	"booking_job_title": "job_booking__title",
-	"booking_product_name": "job_booking__product__name",
-	"booking_url": "job_booking__booking_url",
-  "booking_status": "job_booking__status",
-	"transaction_id": "job_booking__transaction"
+  "partner_company_id": "1019261",
+	"booking_job_id": 98234,
+	"booking_id": 954237,
+	"booking_job_title": "Koch (w/m/d)",
+	"booking_product_name": "Indeed.com Germany (Sponsored Job)",
+	"booking_url": "https://www.indeed.com/koch/",
+  "booking_status": "PUBLISHED",
+	"transaction_id": "ffdc0e8c-2653-4589-96bb-fef46e9fb520"
 }
 ```
 
-| Field Name               | Type   | Description                                                                                                 |
-| :----------------------- | :----- | :---------------------------------------------------------------------------------------------------------- |
-| `company_id`             | int    | The unique Kini ID of the company.                                                                          |
-| `partner_id`             | int    | The unique Kini ID of the partner.                                                                          |
-| `application_id`         | int    | The unique Kini ID of the application.                                                                      |
-| `partner_company_id`     | string | The partner-specific ID of the company, in case it was provided upon company onboarding.                    |
-| `partner_application_id` | string | The partner-specific ID of the application, in case it was provided upon application creation.              |
-| `external_job_id`        | string | The external job ID.                                                                                        |
-| `status`                 | enum   | The current synchronization status of the application (`SUCCESS`, `FAILURE`, `EXPECTED_FAILURE`, `NOTSENT`) |
-| `failure_error`          | string | Error details if the synchronization failed (otherwise `null`).                                             |
+| Field Name             | Type   | Description                                                                                                                   |
+| :--------------------- | :----- | :---------------------------------------------------------------------------------------------------------------------------- |
+| `company_id`           | int    | The unique Kini ID of the company.                                                                                            |
+| `company_name`         | string | The name of the company.                                                                                                      |
+| `partner_company_id`   | string | The partner-specific ID of the company, in case it was provided upon company onboarding.                                      |
+| `booking_job_id`       | int    | The unique Kini ID of the job for which the job booking was made.                                                             |
+| `booking_id`           | int    | The unique Kini ID of the job booking.                                                                                        |
+| `booking_job_title`    | string | The title of the job booking.                                                                                                 |
+| `booking_product_name` | string | The name of the product which was purchased for this job booking.                                                             |
+| `booking_url`          | string | The url of the job booking once it is published. In case of new bookings, this field is empty until the booking is published. |
+| `booking_status`       | enum   | The current status of the job booking (`BOOKED`, `PROCESSING`, `PUBLISHED`, `UNPUBLISHED`, `EXPIRED`).                        |
+| `transaction_id`       | uuid   | The unique transaction ID associated with the job booking.                                                                    |
 
 <br />
 
