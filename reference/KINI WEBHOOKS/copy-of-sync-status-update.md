@@ -17,13 +17,13 @@ The following payload will be sent to your configured webhook URL:
 {
 	"company_id": 123,
 	"company_name": "Test GmbH",
-  "partner_company_id": "1019261",
+	"partner_company_id": "1019261",
 	"booking_job_id": 98234,
 	"booking_id": 954237,
 	"booking_job_title": "Koch (w/m/d)",
 	"booking_product_name": "Indeed.com Germany (Sponsored Job)",
 	"booking_url": "https://www.indeed.com/koch/",
-  "booking_status": "PUBLISHED",
+	"booking_status": "PUBLISHED",
 	"transaction_id": "ffdc0e8c-2653-4589-96bb-fef46e9fb520"
 }
 ```
