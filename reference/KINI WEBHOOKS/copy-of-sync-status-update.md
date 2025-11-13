@@ -48,10 +48,10 @@ The following payload will be sent to your configured webhook URL:
 The `status` field can have the following values:
 
 * **BOOKED**: The job booking was successfully created in the database.
-* **PROCESSING**: The job booking has been reviewed successfully and is queued to be posted online.
-* **PUBLISHED**: The job booking is online on the job board. `booking_url` should now be filled.
+* **PROCESSING**: The job booking has been reviewed and is queued to be posted online.
+* **PUBLISHED**: The job booking is online on the job board. The `booking_url` field will now be filled.
 * **UNPUBLISHED**: The job booking was prematurely taken down by the customer.
-* **EXPIRED**: The job booking
+* **EXPIRED**: The duration for which the job booking was online has ended. The booking has been removed from the job board.
 
 <br />
 
@@ -65,7 +65,7 @@ Authentication is handled via an API key sent in the request header.
 Authorization: Bearer <API_KEY>
 ```
 
-The API key will be provided to you separately. Ensure that your webhook endpoint is secure and accessible only by authorized requests.
+The API key can be found in the Kini app, or can be provided to you separately. Ensure that your webhook endpoint is secure and accessible only by authorized requests.
 
 <br />
 
@@ -84,5 +84,4 @@ https://your-domain.com/kini-status
 ### Notes
 
 * Ensure your webhook URL supports HTTPS for secure communication.
-* Implement robust handling for the webhook payload, especially for the `failure_error` field.
 * Webhook calls may be retried periodically if no successful response (HTTP 2xx) is received.
