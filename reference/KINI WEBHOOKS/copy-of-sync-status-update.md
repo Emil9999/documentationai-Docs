@@ -2,8 +2,8 @@
 title: Job Booking Status Update
 excerpt: >-
   The Status Webhook allows you to receive real-time updates on job booking
-  statuses. Whenever a job booking's status changes, a Webhook Payload will be
-  sent to a URL you define.
+  statuses. Whenever a job booking is `booked` or `published`, a Webhook Payload
+  will be sent to a URL you define.
 deprecated: false
 hidden: true
 metadata:
@@ -47,10 +47,11 @@ The following payload will be sent to your configured webhook URL:
 
 The `status` field can have the following values:
 
-* **SUCCESS**: The application was synchronized successfully.
-* **FAILURE**: An error occurred during synchronization. Failure details are provided in the field `failure_error`.
-* **NOTSENT**: Synchronization hasn't been set to the ATS or is still in progress.
-* **EXPECTED_FAILURE**: Synchronization failed due to an expected error, such as `DuplicateApplicationError`, `JobNotPublishedError`
+* **BOOKED**: The job booking was successfully created in the database.
+* **PROCESSING**: The job booking has been reviewed successfully and is queued to be posted online.
+* **PUBLISHED**: The job booking is online on the job board. `booking_url` should now be filled.
+* **UNPUBLISHED**: The job booking was prematurely taken down by the customer.
+* **EXPIRED**: The job booking
 
 <br />
 
