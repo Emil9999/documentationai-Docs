@@ -1,6 +1,6 @@
 ---
-title: Copy of Create Job
-excerpt: Create a Job posting at a Company using the Company's ID.
+title: Patch Job
+excerpt: Patch a Job posting at a Company using the Company's ID.
 api:
   file: kini-api.json
   operationId: post_jobs-1
