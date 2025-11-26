@@ -4627,6 +4627,1702 @@
           }
         }
       }
+    },
+    "/jobs/-1": {
+      "post": {
+        "operationId": "post_jobs-1",
+        "description": "Create a Job posting at a Company using the Company's ID.",
+        "summary": "Copy of Create Job",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Company-Id",
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID of the Company",
+            "required": true
+          }
+        ],
+        "tags": [
+          "Jobs"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "external_id": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Job's ID in external ATS systems, used for integrations"
+                  },
+                  "title": {
+                    "type": "string",
+                    "description": "Title of the job",
+                    "maxLength": 255
+                  },
+                  "description": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Detailed description of the job's responsibilities and requirements"
+                  },
+                  "posting_url": {
+                    "type": [
+                      "string"
+                    ],
+                    "format": "uri",
+                    "description": "URL of the job posted on the company's career page"
+                  },
+                  "application_url": {
+                    "type": [
+                      "string"
+                    ],
+                    "format": "uri",
+                    "description": "URL through which applicants can apply on the company's career page"
+                  },
+                  "status": {
+                    "enum": [
+                      "active",
+                      "deleted",
+                      "archived"
+                    ],
+                    "type": [
+                      "string"
+                    ],
+                    "x-spec-enum-id": "ead97c7bc7363dd0",
+                    "description": "Posting status of the job (active, deleted, archived)\n\n* `active` - Job posting is open and accepting applications\n* `deleted` - Job posting has been deleted and is not accepting applications\n* `archived` - Job posting is archived and not accepting applications"
+                  },
+                  "remote": {
+                    "enum": [
+                      "remote",
+                      "hybrid",
+                      "on-site"
+                    ],
+                    "type": [
+                      "string"
+                    ],
+                    "x-spec-enum-id": "48718b3ae514d1f4",
+                    "description": "Work mode of the job (remote, hybrid, on-site)\n\n* `remote` - Fully remote, work from anywhere\n* `on-site` - Fully onsite, work from the company's physical location\n* `hybrid` - Flexible combination of onsite and remote work"
+                  },
+                  "language": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Language of the job posting"
+                  },
+                  "category": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Category of the job, e.g. 'sales'",
+                    "enum": [
+                      "accounting_finance",
+                      "administration",
+                      "architecture_construction",
+                      "arts_media_entertainment",
+                      "business_development",
+                      "cleaning_facilities",
+                      "consulting",
+                      "customer_service_support",
+                      "data_analytics",
+                      "design",
+                      "education_training",
+                      "engineering",
+                      "entertainment_travel",
+                      "event_management",
+                      "finance",
+                      "healthcare",
+                      "hospitality_tourism",
+                      "hr_recruitment",
+                      "installation_maintenance_repair",
+                      "it_support",
+                      "legal",
+                      "logistics_supply_chain",
+                      "management_executive",
+                      "marketing",
+                      "non_profit",
+                      "operations",
+                      "other",
+                      "personal_care_services",
+                      "pharmaceutical_life_sciences",
+                      "product_management",
+                      "project_management",
+                      "public_relations",
+                      "real_estate",
+                      "retail",
+                      "sales",
+                      "science_technology",
+                      "software_development",
+                      "social_services",
+                      "sports_fitness_recreation",
+                      "translation_localization",
+                      "warehouse"
+                    ]
+                  },
+                  "employment_type": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Employment type of the job (permanent, contract, minijob, etc.)",
+                    "enum": [
+                      "contract",
+                      "freelance",
+                      "intern",
+                      "temporary",
+                      "permanent",
+                      "volunteer",
+                      "apprenticeship",
+                      "working_student",
+                      "minijob",
+                      "other"
+                    ]
+                  },
+                  "work_schedule": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Work schedule type for the position (full-time, part-time, flexible)",
+                    "enum": [
+                      "full_time",
+                      "part_time",
+                      "flexible"
+                    ]
+                  },
+                  "senority": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Required or expected seniority level",
+                    "enum": [
+                      "unexperienced",
+                      "junior",
+                      "mid_level",
+                      "senior",
+                      "lead",
+                      "manager",
+                      "director",
+                      "executive"
+                    ]
+                  },
+                  "start_date": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Required or expected start date"
+                  },
+                  "contract_limitation": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Contractual limitations or terms associated with the job"
+                  },
+                  "location_name": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Full-text location of where the job is based"
+                  },
+                  "street": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Street of the job's location"
+                  },
+                  "city": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "City of the job's location"
+                  },
+                  "country": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Country of the job's location"
+                  },
+                  "postcode": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Postal code of the job's location"
+                  },
+                  "longitude": {
+                    "type": [
+                      "string"
+                    ],
+                    "format": "decimal",
+                    "pattern": "^-?\\d{0,3}(?:\\.\\d{0,6})?$",
+                    "description": "Longitude coordinate of the job's location"
+                  },
+                  "latitude": {
+                    "type": [
+                      "string"
+                    ],
+                    "format": "decimal",
+                    "pattern": "^-?\\d{0,3}(?:\\.\\d{0,6})?$",
+                    "description": "Latitude coordinate of the job's location"
+                  },
+                  "salary": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "General description of the salary package"
+                  },
+                  "salary_from": {
+                    "type": [
+                      "integer"
+                    ],
+                    "description": "Starting salary range"
+                  },
+                  "salary_to": {
+                    "type": [
+                      "integer"
+                    ],
+                    "description": "Maximum salary range"
+                  },
+                  "salary_currency": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Currency of the stated salary"
+                  },
+                  "salary_frequency": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Payout frequency of the stated salary (annual, monthly, etc.)"
+                  },
+                  "contact_name": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Name of the contact person responsible for the job posting"
+                  },
+                  "contact_email": {
+                    "type": [
+                      "string"
+                    ],
+                    "format": "email",
+                    "description": "E-Mail Address of the contact person responsible for the job posting"
+                  },
+                  "contact_title": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Work title of the contact person responsible for the job posting"
+                  },
+                  "contact_phone": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Phone Number of the contact person responsible for the job posting"
+                  },
+                  "banner_image": {
+                    "type": "string",
+                    "description": "Banner Image URL"
+                  },
+                  "screening_questions": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
+                        },
+                        "question": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "Question of the screening question"
+                        },
+                        "answer_type": {
+                          "enum": [
+                            "boolean",
+                            "text",
+                            "textarea",
+                            "select",
+                            "multiselect"
+                          ],
+                          "type": "string",
+                          "description": "Answer type of the screening question",
+                          "x-spec-enum-id": "82857413e8e5153a"
+                        },
+                        "required": {
+                          "type": "boolean",
+                          "description": "Whether the screening question is required"
+                        },
+                        "options": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "label": {
+                                "type": "string",
+                                "minLength": 1,
+                                "description": "Label of the screening question option"
+                              },
+                              "value": {
+                                "type": "string",
+                                "minLength": 1,
+                                "description": "Value of the screening question option, must match the value of a screening question option in the company's ATS"
+                              }
+                            },
+                            "required": [
+                              "label",
+                              "value"
+                            ],
+                            "x-readme-ref-name": "ScreeningQuestionOptionRequest"
+                          },
+                          "description": "Required for select and multiselect answer types"
+                        }
+                      },
+                      "required": [
+                        "answer_type",
+                        "id",
+                        "question",
+                        "required"
+                      ],
+                      "x-readme-ref-name": "ScreeningQuestionRequest"
+                    }
+                  },
+                  "description_sections": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "Identifier of the section"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Section type",
+                          "enum": [
+                            "introduction",
+                            "tasks",
+                            "profile",
+                            "benefits",
+                            "contact",
+                            "other"
+                          ]
+                        },
+                        "order": {
+                          "type": "integer",
+                          "description": "Display order (ascending)"
+                        },
+                        "title": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "Section title"
+                        },
+                        "content": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "Section content"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "type",
+                        "order",
+                        "title",
+                        "content"
+                      ],
+                      "x-readme-ref-name": "DescriptionSectionRequest"
+                    }
+                  },
+                  "custom_fields": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    },
+                    "description": "Custom fields for the job posting as key-value pairs",
+                    "example": {
+                      "department": "Engineering",
+                      "location_type": "Hybrid",
+                      "salary_range": "60000-80000"
+                    },
+                    "maxProperties": 10
+                  }
+                },
+                "required": [
+                  "id"
+                ],
+                "x-readme-ref-name": "JobRequest"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "external_id": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Job's ID in external ATS systems, used for integrations"
+                  },
+                  "company": {
+                    "type": [
+                      "integer"
+                    ],
+                    "description": "Kini ID of the company offering the job"
+                  },
+                  "title": {
+                    "type": "string",
+                    "description": "Title of the job",
+                    "maxLength": 255
+                  },
+                  "description": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Detailed description of the job's responsibilities and requirements"
+                  },
+                  "posting_url": {
+                    "type": [
+                      "string"
+                    ],
+                    "format": "uri",
+                    "description": "URL of the job posted on the company's career page"
+                  },
+                  "application_url": {
+                    "type": [
+                      "string"
+                    ],
+                    "format": "uri",
+                    "description": "URL through which applicants can apply on the company's career page"
+                  },
+                  "status": {
+                    "enum": [
+                      "active",
+                      "deleted",
+                      "archived"
+                    ],
+                    "type": [
+                      "string"
+                    ],
+                    "x-spec-enum-id": "ead97c7bc7363dd0",
+                    "description": "Posting status of the job (active, deleted, archived)\n\n* `active` - Job posting is open and accepting applications\n* `deleted` - Job posting has been deleted and is not accepting applications\n* `archived` - Job posting is archived and not accepting applications"
+                  },
+                  "remote": {
+                    "enum": [
+                      "remote",
+                      "hybrid",
+                      "on-site"
+                    ],
+                    "type": [
+                      "string"
+                    ],
+                    "x-spec-enum-id": "48718b3ae514d1f4",
+                    "description": "Work mode of the job (remote, hybrid, on-site)\n\n* `remote` - Fully remote, work from anywhere\n* `on-site` - Fully onsite, work from the company's physical location\n* `hybrid` - Flexible combination of onsite and remote work"
+                  },
+                  "language": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Language of the job posting"
+                  },
+                  "category": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Category of the job, e.g. 'sales'",
+                    "enum": [
+                      "accounting_finance",
+                      "administration",
+                      "architecture_construction",
+                      "arts_media_entertainment",
+                      "business_development",
+                      "cleaning_facilities",
+                      "consulting",
+                      "customer_service_support",
+                      "data_analytics",
+                      "design",
+                      "education_training",
+                      "engineering",
+                      "entertainment_travel",
+                      "event_management",
+                      "finance",
+                      "healthcare",
+                      "hospitality_tourism",
+                      "hr_recruitment",
+                      "installation_maintenance_repair",
+                      "it_support",
+                      "legal",
+                      "logistics_supply_chain",
+                      "management_executive",
+                      "marketing",
+                      "non_profit",
+                      "operations",
+                      "other",
+                      "personal_care_services",
+                      "pharmaceutical_life_sciences",
+                      "product_management",
+                      "project_management",
+                      "public_relations",
+                      "real_estate",
+                      "retail",
+                      "sales",
+                      "science_technology",
+                      "software_development",
+                      "social_services",
+                      "sports_fitness_recreation",
+                      "translation_localization",
+                      "warehouse"
+                    ]
+                  },
+                  "employment_type": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Employment type of the job (permanent, contract, minijob, etc.)",
+                    "enum": [
+                      "contract",
+                      "freelance",
+                      "intern",
+                      "temporary",
+                      "permanent",
+                      "volunteer",
+                      "apprenticeship",
+                      "working_student",
+                      "minijob",
+                      "other"
+                    ]
+                  },
+                  "work_schedule": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Work schedule type for the position (full-time, part-time, flexible)",
+                    "enum": [
+                      "full_time",
+                      "part_time",
+                      "flexible"
+                    ]
+                  },
+                  "senority": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Required or expected seniority level",
+                    "enum": [
+                      "unexperienced",
+                      "junior",
+                      "mid_level",
+                      "senior",
+                      "lead",
+                      "manager",
+                      "director",
+                      "executive"
+                    ]
+                  },
+                  "start_date": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Required or expected start date"
+                  },
+                  "contract_limitation": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Contractual limitations or terms associated with the job"
+                  },
+                  "location_name": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Full-text location of where the job is based"
+                  },
+                  "street": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Street of the job's location"
+                  },
+                  "city": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "City of the job's location"
+                  },
+                  "country": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Country of the job's location"
+                  },
+                  "postcode": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Postal code of the job's location"
+                  },
+                  "longitude": {
+                    "type": [
+                      "string"
+                    ],
+                    "format": "decimal",
+                    "pattern": "^-?\\d{0,3}(?:\\.\\d{0,6})?$",
+                    "description": "Longitude coordinate of the job's location"
+                  },
+                  "latitude": {
+                    "type": [
+                      "string"
+                    ],
+                    "format": "decimal",
+                    "pattern": "^-?\\d{0,3}(?:\\.\\d{0,6})?$",
+                    "description": "Latitude coordinate of the job's location"
+                  },
+                  "salary": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "General description of the salary package"
+                  },
+                  "salary_from": {
+                    "type": [
+                      "integer"
+                    ],
+                    "description": "Starting salary range"
+                  },
+                  "salary_to": {
+                    "type": [
+                      "integer"
+                    ],
+                    "description": "Maximum salary range"
+                  },
+                  "salary_currency": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Currency of the stated salary"
+                  },
+                  "salary_frequency": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Payout frequency of the stated salary (annual, monthly, etc.)"
+                  },
+                  "contact_name": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Name of the contact person responsible for the job posting"
+                  },
+                  "contact_email": {
+                    "type": [
+                      "string"
+                    ],
+                    "format": "email",
+                    "description": "E-Mail Address of the contact person responsible for the job posting"
+                  },
+                  "contact_title": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Work title of the contact person responsible for the job posting"
+                  },
+                  "contact_phone": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Phone Number of the contact person responsible for the job posting"
+                  },
+                  "banner_image": {
+                    "type": "string",
+                    "description": "Banner Image URL"
+                  },
+                  "import_source": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Source from which the job was created (API, etc.)"
+                  },
+                  "screening_questions": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
+                        },
+                        "question": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "Question of the screening question"
+                        },
+                        "answer_type": {
+                          "enum": [
+                            "boolean",
+                            "text",
+                            "textarea",
+                            "select",
+                            "multiselect"
+                          ],
+                          "type": "string",
+                          "description": "Answer type of the screening question",
+                          "x-spec-enum-id": "82857413e8e5153a"
+                        },
+                        "required": {
+                          "type": "boolean",
+                          "description": "Whether the screening question is required"
+                        },
+                        "options": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "label": {
+                                "type": "string",
+                                "minLength": 1,
+                                "description": "Label of the screening question option"
+                              },
+                              "value": {
+                                "type": "string",
+                                "minLength": 1,
+                                "description": "Value of the screening question option, must match the value of a screening question option in the company's ATS"
+                              }
+                            },
+                            "required": [
+                              "label",
+                              "value"
+                            ],
+                            "x-readme-ref-name": "ScreeningQuestionOptionRequest"
+                          },
+                          "description": "Required for select and multiselect answer types"
+                        }
+                      },
+                      "required": [
+                        "answer_type",
+                        "id",
+                        "question",
+                        "required"
+                      ],
+                      "x-readme-ref-name": "ScreeningQuestionRequest"
+                    }
+                  },
+                  "description_sections": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "Identifier of the section"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Section type",
+                          "enum": [
+                            "introduction",
+                            "tasks",
+                            "profile",
+                            "benefits",
+                            "contact",
+                            "other"
+                          ]
+                        },
+                        "order": {
+                          "type": "integer",
+                          "description": "Display order (ascending)"
+                        },
+                        "title": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "Section title"
+                        },
+                        "content": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "Section content"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "type",
+                        "order",
+                        "title",
+                        "content"
+                      ],
+                      "x-readme-ref-name": "DescriptionSectionRequest"
+                    }
+                  },
+                  "custom_fields": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    },
+                    "description": "Custom fields for the job posting as key-value pairs",
+                    "example": {
+                      "department": "Engineering",
+                      "location_type": "Hybrid",
+                      "salary_range": "60000-80000"
+                    },
+                    "maxProperties": 10
+                  }
+                },
+                "required": [
+                  "id"
+                ],
+                "x-readme-ref-name": "JobRequest"
+              }
+            },
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "external_id": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Job's ID in external ATS systems, used for integrations"
+                  },
+                  "company": {
+                    "type": [
+                      "integer"
+                    ],
+                    "description": "Kini ID of the company offering the job"
+                  },
+                  "title": {
+                    "type": "string",
+                    "description": "Title of the job",
+                    "maxLength": 255
+                  },
+                  "description": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Detailed description of the job's responsibilities and requirements"
+                  },
+                  "posting_url": {
+                    "type": [
+                      "string"
+                    ],
+                    "format": "uri",
+                    "description": "URL of the job posted on the company's career page"
+                  },
+                  "application_url": {
+                    "type": [
+                      "string"
+                    ],
+                    "format": "uri",
+                    "description": "URL through which applicants can apply on the company's career page"
+                  },
+                  "status": {
+                    "enum": [
+                      "active",
+                      "deleted",
+                      "archived"
+                    ],
+                    "type": [
+                      "string"
+                    ],
+                    "x-spec-enum-id": "ead97c7bc7363dd0",
+                    "description": "Posting status of the job (active, deleted, archived)\n\n* `active` - Job posting is open and accepting applications\n* `deleted` - Job posting has been deleted and is not accepting applications\n* `archived` - Job posting is archived and not accepting applications"
+                  },
+                  "remote": {
+                    "enum": [
+                      "remote",
+                      "hybrid",
+                      "on-site"
+                    ],
+                    "type": [
+                      "string"
+                    ],
+                    "x-spec-enum-id": "48718b3ae514d1f4",
+                    "description": "Work mode of the job (remote, hybrid, on-site)\n\n* `remote` - Fully remote, work from anywhere\n* `on-site` - Fully onsite, work from the company's physical location\n* `hybrid` - Flexible combination of onsite and remote work"
+                  },
+                  "language": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Language of the job posting"
+                  },
+                  "category": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Category of the job, e.g. 'sales'",
+                    "enum": [
+                      "accounting_finance",
+                      "administration",
+                      "architecture_construction",
+                      "arts_media_entertainment",
+                      "business_development",
+                      "cleaning_facilities",
+                      "consulting",
+                      "customer_service_support",
+                      "data_analytics",
+                      "design",
+                      "education_training",
+                      "engineering",
+                      "entertainment_travel",
+                      "event_management",
+                      "finance",
+                      "healthcare",
+                      "hospitality_tourism",
+                      "hr_recruitment",
+                      "installation_maintenance_repair",
+                      "it_support",
+                      "legal",
+                      "logistics_supply_chain",
+                      "management_executive",
+                      "marketing",
+                      "non_profit",
+                      "operations",
+                      "other",
+                      "personal_care_services",
+                      "pharmaceutical_life_sciences",
+                      "product_management",
+                      "project_management",
+                      "public_relations",
+                      "real_estate",
+                      "retail",
+                      "sales",
+                      "science_technology",
+                      "software_development",
+                      "social_services",
+                      "sports_fitness_recreation",
+                      "translation_localization",
+                      "warehouse"
+                    ]
+                  },
+                  "employment_type": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Employment type of the job (permanent, contract, minijob, etc.)",
+                    "enum": [
+                      "contract",
+                      "freelance",
+                      "intern",
+                      "temporary",
+                      "permanent",
+                      "volunteer",
+                      "apprenticeship",
+                      "working_student",
+                      "minijob",
+                      "other"
+                    ]
+                  },
+                  "work_schedule": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Work schedule type for the position (full-time, part-time, flexible)",
+                    "enum": [
+                      "full_time",
+                      "part_time",
+                      "flexible"
+                    ]
+                  },
+                  "senority": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Required or expected seniority level",
+                    "enum": [
+                      "unexperienced",
+                      "junior",
+                      "mid_level",
+                      "senior",
+                      "lead",
+                      "manager",
+                      "director",
+                      "executive"
+                    ]
+                  },
+                  "start_date": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Required or expected start date"
+                  },
+                  "contract_limitation": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Contractual limitations or terms associated with the job"
+                  },
+                  "location_name": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Full-text location of where the job is based"
+                  },
+                  "street": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Street of the job's location"
+                  },
+                  "city": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "City of the job's location"
+                  },
+                  "country": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Country of the job's location"
+                  },
+                  "postcode": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Postal code of the job's location"
+                  },
+                  "longitude": {
+                    "type": [
+                      "string"
+                    ],
+                    "format": "decimal",
+                    "pattern": "^-?\\d{0,3}(?:\\.\\d{0,6})?$",
+                    "description": "Longitude coordinate of the job's location"
+                  },
+                  "latitude": {
+                    "type": [
+                      "string"
+                    ],
+                    "format": "decimal",
+                    "pattern": "^-?\\d{0,3}(?:\\.\\d{0,6})?$",
+                    "description": "Latitude coordinate of the job's location"
+                  },
+                  "salary": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "General description of the salary package"
+                  },
+                  "salary_from": {
+                    "type": [
+                      "integer"
+                    ],
+                    "description": "Starting salary range"
+                  },
+                  "salary_to": {
+                    "type": [
+                      "integer"
+                    ],
+                    "description": "Maximum salary range"
+                  },
+                  "salary_currency": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Currency of the stated salary"
+                  },
+                  "salary_frequency": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Payout frequency of the stated salary (annual, monthly, etc.)"
+                  },
+                  "contact_name": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Name of the contact person responsible for the job posting"
+                  },
+                  "contact_email": {
+                    "type": [
+                      "string"
+                    ],
+                    "format": "email",
+                    "description": "E-Mail Address of the contact person responsible for the job posting"
+                  },
+                  "contact_title": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Work title of the contact person responsible for the job posting"
+                  },
+                  "contact_phone": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Phone Number of the contact person responsible for the job posting"
+                  },
+                  "banner_image": {
+                    "type": "string",
+                    "description": "Banner Image URL"
+                  },
+                  "import_source": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Source from which the job was created (API, etc.)"
+                  },
+                  "screening_questions": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
+                        },
+                        "question": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "Question of the screening question"
+                        },
+                        "answer_type": {
+                          "enum": [
+                            "boolean",
+                            "text",
+                            "textarea",
+                            "select",
+                            "multiselect"
+                          ],
+                          "type": "string",
+                          "description": "Answer type of the screening question",
+                          "x-spec-enum-id": "82857413e8e5153a"
+                        },
+                        "required": {
+                          "type": "boolean"
+                        },
+                        "options": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "label": {
+                                "type": "string",
+                                "description": "Label of the screening question option"
+                              },
+                              "value": {
+                                "type": "string",
+                                "description": "Value of the screening question option, must match the value of a screening question option in the company's ATS"
+                              }
+                            },
+                            "required": [
+                              "label",
+                              "value"
+                            ],
+                            "x-readme-ref-name": "ScreeningQuestionOptionRequest"
+                          },
+                          "description": "Required for select and multiselect answer types"
+                        }
+                      },
+                      "required": [
+                        "answer_type",
+                        "id",
+                        "question",
+                        "required"
+                      ],
+                      "x-readme-ref-name": "ScreeningQuestionRequest"
+                    }
+                  },
+                  "description_sections": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "Stable identifier of the section"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Section type",
+                          "enum": [
+                            "introduction",
+                            "tasks",
+                            "profile",
+                            "benefits",
+                            "contact",
+                            "other"
+                          ]
+                        },
+                        "order": {
+                          "type": "integer",
+                          "description": "Display order (ascending)"
+                        },
+                        "title": {
+                          "type": "string",
+                          "description": "Section title"
+                        },
+                        "content": {
+                          "type": "string",
+                          "description": "Section content"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "type",
+                        "order",
+                        "title",
+                        "content"
+                      ],
+                      "x-readme-ref-name": "DescriptionSectionRequest"
+                    }
+                  },
+                  "custom_fields": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    },
+                    "description": "Custom fields for the job posting as key-value pairs",
+                    "example": {
+                      "department": "Engineering",
+                      "location_type": "Hybrid",
+                      "salary_range": "60000-80000"
+                    },
+                    "maxProperties": 10
+                  }
+                },
+                "required": [
+                  "id"
+                ],
+                "x-readme-ref-name": "JobRequest"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "Kini ID of the job"
+                    },
+                    "external_id": {
+                      "type": [
+                        "string"
+                      ],
+                      "description": "Job's ID in external ATS systems, used for integrations"
+                    },
+                    "company": {
+                      "type": [
+                        "integer"
+                      ],
+                      "description": "Kini ID of the company offering the job"
+                    },
+                    "title": {
+                      "type": "string",
+                      "description": "Title of the job",
+                      "maxLength": 255
+                    },
+                    "description": {
+                      "type": [
+                        "string"
+                      ],
+                      "description": "Detailed description of the job's responsibilities and requirements"
+                    },
+                    "posting_url": {
+                      "type": [
+                        "string"
+                      ],
+                      "format": "uri",
+                      "description": "URL of the job posted on the company's career page"
+                    },
+                    "application_url": {
+                      "type": [
+                        "string"
+                      ],
+                      "format": "uri",
+                      "description": "URL through which applicants can apply on the company's career page"
+                    },
+                    "status": {
+                      "enum": [
+                        "active",
+                        "deleted",
+                        "archived"
+                      ],
+                      "type": [
+                        "string"
+                      ],
+                      "x-spec-enum-id": "ead97c7bc7363dd0",
+                      "description": "Posting status of the job (active, deleted, archived)\n\n* `active` - Job posting is open and accepting applications\n* `deleted` - Job posting has been deleted and is not accepting applications\n* `archived` - Job posting is archived and not accepting applications"
+                    },
+                    "remote": {
+                      "enum": [
+                        "remote",
+                        "hybrid",
+                        "on-site"
+                      ],
+                      "type": [
+                        "string"
+                      ],
+                      "x-spec-enum-id": "48718b3ae514d1f4",
+                      "description": "Work mode of the job (remote, hybrid, on-site)\n\n* `remote` - Fully remote, work from anywhere\n* `on-site` - Fully onsite, work from the company's physical location\n* `hybrid` - Flexible combination of onsite and remote work"
+                    },
+                    "language": {
+                      "type": [
+                        "string"
+                      ],
+                      "description": "Language of the job posting"
+                    },
+                    "category": {
+                      "type": [
+                        "string"
+                      ],
+                      "description": "Category of the job, e.g. 'sales'",
+                      "enum": [
+                        "accounting_finance",
+                        "administration",
+                        "architecture_construction",
+                        "arts_media_entertainment",
+                        "business_development",
+                        "cleaning_facilities",
+                        "consulting",
+                        "customer_service_support",
+                        "data_analytics",
+                        "design",
+                        "education_training",
+                        "engineering",
+                        "entertainment_travel",
+                        "event_management",
+                        "finance",
+                        "healthcare",
+                        "hospitality_tourism",
+                        "hr_recruitment",
+                        "installation_maintenance_repair",
+                        "it_support",
+                        "legal",
+                        "logistics_supply_chain",
+                        "management_executive",
+                        "marketing",
+                        "non_profit",
+                        "operations",
+                        "other",
+                        "personal_care_services",
+                        "pharmaceutical_life_sciences",
+                        "product_management",
+                        "project_management",
+                        "public_relations",
+                        "real_estate",
+                        "retail",
+                        "sales",
+                        "science_technology",
+                        "software_development",
+                        "social_services",
+                        "sports_fitness_recreation",
+                        "translation_localization",
+                        "warehouse"
+                      ]
+                    },
+                    "employment_type": {
+                      "type": [
+                        "string"
+                      ],
+                      "description": "Employment type of the job (permanent, contract, minijob, etc.)",
+                      "enum": [
+                        "contract",
+                        "freelance",
+                        "intern",
+                        "temporary",
+                        "permanent",
+                        "volunteer",
+                        "apprenticeship",
+                        "working_student",
+                        "minijob",
+                        "other"
+                      ]
+                    },
+                    "work_schedule": {
+                      "type": [
+                        "string"
+                      ],
+                      "description": "Work schedule type for the position (full-time, part-time, flexible)",
+                      "enum": [
+                        "full_time",
+                        "part_time",
+                        "flexible"
+                      ]
+                    },
+                    "senority": {
+                      "type": [
+                        "string"
+                      ],
+                      "description": "Required or expected seniority level",
+                      "enum": [
+                        "unexperienced",
+                        "junior",
+                        "mid_level",
+                        "senior",
+                        "lead",
+                        "manager",
+                        "director",
+                        "executive"
+                      ]
+                    },
+                    "start_date": {
+                      "type": [
+                        "string"
+                      ],
+                      "description": "Required or expected start date"
+                    },
+                    "contract_limitation": {
+                      "type": [
+                        "string"
+                      ],
+                      "description": "Contractual limitations or terms associated with the job"
+                    },
+                    "location_name": {
+                      "type": [
+                        "string"
+                      ],
+                      "description": "Full-text location of where the job is based"
+                    },
+                    "street": {
+                      "type": [
+                        "string"
+                      ],
+                      "description": "Street of the job's location"
+                    },
+                    "city": {
+                      "type": [
+                        "string"
+                      ],
+                      "description": "City of the job's location"
+                    },
+                    "country": {
+                      "type": [
+                        "string"
+                      ],
+                      "description": "Country of the job's location"
+                    },
+                    "postcode": {
+                      "type": [
+                        "string"
+                      ],
+                      "description": "Postal code of the job's location"
+                    },
+                    "longitude": {
+                      "type": [
+                        "string"
+                      ],
+                      "format": "decimal",
+                      "pattern": "^-?\\d{0,3}(?:\\.\\d{0,6})?$",
+                      "description": "Longitude coordinate of the job's location"
+                    },
+                    "latitude": {
+                      "type": [
+                        "string"
+                      ],
+                      "format": "decimal",
+                      "pattern": "^-?\\d{0,3}(?:\\.\\d{0,6})?$",
+                      "description": "Latitude coordinate of the job's location"
+                    },
+                    "salary": {
+                      "type": [
+                        "string"
+                      ],
+                      "description": "General description of the salary package"
+                    },
+                    "salary_from": {
+                      "type": [
+                        "integer"
+                      ],
+                      "description": "Starting salary range"
+                    },
+                    "salary_to": {
+                      "type": [
+                        "integer"
+                      ],
+                      "description": "Maximum salary range"
+                    },
+                    "salary_currency": {
+                      "type": [
+                        "string"
+                      ],
+                      "description": "Currency of the stated salary"
+                    },
+                    "salary_frequency": {
+                      "type": [
+                        "string"
+                      ],
+                      "description": "Payout frequency of the stated salary (annual, monthly, etc.)"
+                    },
+                    "contact_name": {
+                      "type": [
+                        "string"
+                      ],
+                      "description": "Name of the contact person responsible for the job posting"
+                    },
+                    "contact_email": {
+                      "type": [
+                        "string"
+                      ],
+                      "format": "email",
+                      "description": "E-Mail Address of the contact person responsible for the job posting"
+                    },
+                    "contact_title": {
+                      "type": [
+                        "string"
+                      ],
+                      "description": "Work title of the contact person responsible for the job posting"
+                    },
+                    "contact_phone": {
+                      "type": [
+                        "string"
+                      ],
+                      "description": "Phone Number of the contact person responsible for the job posting"
+                    },
+                    "banner_image": {
+                      "type": "string",
+                      "description": "Banner Image URL"
+                    },
+                    "import_source": {
+                      "type": [
+                        "string"
+                      ],
+                      "description": "Source from which the job was created (API, etc.)"
+                    },
+                    "screening_questions": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
+                          },
+                          "question": {
+                            "type": "string",
+                            "description": "Question of the screening question"
+                          },
+                          "answer_type": {
+                            "enum": [
+                              "boolean",
+                              "text",
+                              "textarea",
+                              "select",
+                              "multiselect"
+                            ],
+                            "type": "string",
+                            "description": "Answer type of the screening question",
+                            "x-spec-enum-id": "82857413e8e5153a"
+                          },
+                          "required": {
+                            "type": "boolean",
+                            "description": "Whether the screening question is required"
+                          },
+                          "options": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "label": {
+                                  "type": "string",
+                                  "description": "Label of the screening question option"
+                                },
+                                "value": {
+                                  "type": "string",
+                                  "description": "Value of the screening question option, must match the value of a screening question option in the company's ATS"
+                                }
+                              },
+                              "required": [
+                                "label",
+                                "value"
+                              ],
+                              "x-readme-ref-name": "ScreeningQuestionOption"
+                            },
+                            "description": "Required for select and multiselect answer types"
+                          }
+                        },
+                        "required": [
+                          "answer_type",
+                          "id",
+                          "question",
+                          "required"
+                        ],
+                        "x-readme-ref-name": "ScreeningQuestion"
+                      }
+                    },
+                    "description_sections": {
+                      "type": "array",
+                      "description": "Structured sections of the job description",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "Identifier of the section"
+                          },
+                          "type": {
+                            "type": "string",
+                            "description": "Section type",
+                            "enum": [
+                              "introduction",
+                              "tasks",
+                              "profile",
+                              "benefits",
+                              "contact",
+                              "other"
+                            ]
+                          },
+                          "order": {
+                            "type": "integer",
+                            "description": "Display order (ascending)"
+                          },
+                          "title": {
+                            "type": "string",
+                            "description": "Section title"
+                          },
+                          "content": {
+                            "type": "string",
+                            "description": "Section content"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "type",
+                          "order",
+                          "title",
+                          "content"
+                        ],
+                        "x-readme-ref-name": "DescriptionSection"
+                      }
+                    },
+                    "custom_fields": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "description": "Custom fields for the job posting as key-value pairs",
+                      "example": {
+                        "employer_name": "Acme Inc.",
+                        "employer_logo": "https://example.com/logo.png"
+                      },
+                      "maxProperties": 10
+                    }
+                  },
+                  "required": [
+                    "id"
+                  ],
+                  "x-readme-ref-name": "Job"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      }
     }
   },
   "components": {
