@@ -8,9 +8,11 @@ hidden: false
 metadata:
   robots: index
 ---
-> ✨ Supported Endpoints
->
-> Filtering is supported for the **GET /jobs**, **GET /candidates**, and **GET /applications** endpoints. Ensure you use the correct parameters to avoid unnecessary data processing.
+<Callout icon="✨" theme="default">
+  ### Supported Endpoints
+
+  Filtering is supported for the **GET /jobs**, **GET /candidates**, and **GET /applications** endpoints. Ensure you use the correct parameters to avoid unnecessary data processing.
+</Callout>
 
 ## Filtering Parameters
 
@@ -57,6 +59,7 @@ The following parameters can be used to filter results across different endpoint
 | :---------------------- | :--------------------------------------------------------------------- | :-------------------------- | :-------------------------------------- |
 | `name`                  | Filters companies by their name                                        | Contains (case-insensitive) | `/companies?name=Acme`                  |
 | `ats`                   | Filters companies by their applicant tracking system (ATS)             | Exact match                 | `/companies?ats=personio`               |
+| `partner_company_id`    | Filters companies by their parter's internal reference (if provided)   | Exact match                 | `/companies?partner_company_id=123`     |
 | `candidate_sync_active` | Filters companies by candidate synchronization status (`true`/`false`) | Exact match                 | `/companies?candidate_sync_active=true` |
 | `job_sync_active`       | Filters companies by job synchronization status (`true`/`false`)       | Exact match                 | `/companies?job_sync_active=false`      |
 

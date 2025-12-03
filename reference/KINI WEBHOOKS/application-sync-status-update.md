@@ -1,9 +1,9 @@
 ---
-title: Sync Status Update
+title: Application Sync Status Update
 excerpt: >-
   The Status Webhook allows you to receive real-time updates on application
-  statuses. Whenever a status update occurs, a Webhook Payload will be sent to a
-  URL you define.
+  statuses. Whenever an application's status changes, a Webhook Payload will be
+  sent to a URL you define.
 deprecated: false
 hidden: false
 metadata:
@@ -19,13 +19,14 @@ The following payload will be sent to your configured webhook URL:
 
 ```json
 {
-    "company_id": 123,
-    "partner_id": 10,
-    "application_id": 45213,
-    "partner_application_id": "123",
-    "external_job_id": "1604531",
-    "status": "SUCCESS",
-    "failure_error": null
+	"company_id": 123,
+	"partner_id": 10,
+	"application_id": 45213,
+	"partner_company_id":"1019261",
+	"partner_application_id": "123",
+	"external_job_id": "1604531",
+	"status": "SUCCESS",
+	"failure_error": null
 }
 ```
 
@@ -34,6 +35,7 @@ The following payload will be sent to your configured webhook URL:
 | `company_id`             | int    | The unique Kini ID of the company.                                                                          |
 | `partner_id`             | int    | The unique Kini ID of the partner.                                                                          |
 | `application_id`         | int    | The unique Kini ID of the application.                                                                      |
+| `partner_company_id`     | string | The partner-specific ID of the company, in case it was provided upon company onboarding.                    |
 | `partner_application_id` | string | The partner-specific ID of the application, in case it was provided upon application creation.              |
 | `external_job_id`        | string | The external job ID.                                                                                        |
 | `status`                 | enum   | The current synchronization status of the application (`SUCCESS`, `FAILURE`, `EXPECTED_FAILURE`, `NOTSENT`) |
@@ -48,7 +50,7 @@ The `status` field can have the following values:
 * **SUCCESS**: The application was synchronized successfully.
 * **FAILURE**: An error occurred during synchronization. Failure details are provided in the field `failure_error`.
 * **NOTSENT**: Synchronization hasn't been set to the ATS or is still in progress.
-* **EXPECTED\_FAILURE**: Synchronization failed due to an expected error, such as `DuplicateApplicationError`, `JobNotPublishedError`
+* **EXPECTED_FAILURE**: Synchronization failed due to an expected error, such as `DuplicateApplicationError`, `JobNotPublishedError`
 
 <br />
 

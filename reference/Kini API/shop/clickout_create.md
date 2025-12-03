@@ -1,9 +1,9 @@
 ---
-title: Get Refresh Token
-excerpt: Get an access type JWT using a valid refresh type JWT.
+title: Create a clickout link to access the shop
+excerpt: Creates a new clickout link to access the shop
 api:
   file: kini-api.json
-  operationId: token_refresh_create
+  operationId: clickout_create
 deprecated: false
 hidden: false
 metadata:

@@ -44,7 +44,7 @@
         ],
         "security": [
           {
-            "jwtAuth": []
+            "bearerAuth": []
           }
         ],
         "responses": {
@@ -56,34 +56,44 @@
                   "properties": {
                     "count": {
                       "type": "integer",
-                      "example": 123
+                      "example": 123,
+                      "description": "Total number of records available across all pages"
                     },
                     "next": {
                       "type": "string",
                       "nullable": true,
                       "format": "uri",
-                      "example": "http://api.example.org/accounts/?page=4"
+                      "example": "http://api.example.org/accounts/?page=4",
+                      "description": "URL to the next page of results"
                     },
                     "previous": {
                       "type": "string",
                       "nullable": true,
                       "format": "uri",
-                      "example": "http://api.example.org/accounts/?page=2"
+                      "example": "http://api.example.org/accounts/?page=2",
+                      "description": "URL to the previous page of results"
                     },
                     "results": {
                       "type": "array",
+                      "description": "List of applications",
                       "items": {
                         "type": "object",
                         "properties": {
                           "id": {
                             "type": "integer",
-                            "readOnly": true
+                            "description": "Kini ID of the application"
                           },
                           "job": {
                             "type": [
                               "integer"
                             ],
                             "description": "Kini ID of the job applied for (either job or external_job_id is required)"
+                          },
+                          "company": {
+                            "type": [
+                              "integer"
+                            ],
+                            "description": "Kini ID of the company offering the job"
                           },
                           "external_job_id": {
                             "type": "string",
@@ -238,10 +248,12 @@
                               "type": "object",
                               "properties": {
                                 "id": {
-                                  "type": "string"
+                                  "type": "string",
+                                  "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
                                 },
                                 "question": {
-                                  "type": "string"
+                                  "type": "string",
+                                  "description": "Question of the screening question"
                                 },
                                 "answer_type": {
                                   "enum": [
@@ -252,10 +264,13 @@
                                     "multiselect"
                                   ],
                                   "type": "string",
-                                  "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                                  "description": "Answer type of the screening question",
                                   "x-spec-enum-id": "82857413e8e5153a"
                                 },
-                                "answer": {}
+                                "answer": {
+                                  "type": "string",
+                                  "description": "Answer of the screening question"
+                                }
                               },
                               "required": [
                                 "answer",
@@ -300,15 +315,10 @@
                                   "type": "string",
                                   "description": "* `application/msword` - Doc\n* `application/vnd.openxmlformats-officedocument.wordprocessingml.document` - Docx\n* `image/jpeg` - Jpeg\n* `application/vnd.oasis.opendocument.text` - Odt\n* `application/pdf` - Pdf\n* `text/plain` - Plain Text\n* `image/png` - Png\n* `application/rtf` - Rtf\n* `application/octet-stream` - Other",
                                   "x-spec-enum-id": "2456dc91a64f0b5f"
-                                },
-                                "gs_path": {
-                                  "type": "string",
-                                  "readOnly": true
                                 }
                               },
                               "required": [
                                 "content_type",
-                                "gs_path",
                                 "name",
                                 "type"
                               ],
@@ -559,11 +569,13 @@
                       "properties": {
                         "id": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
                         },
                         "question": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "description": "Question of the screening question"
                         },
                         "answer_type": {
                           "enum": [
@@ -574,10 +586,13 @@
                             "multiselect"
                           ],
                           "type": "string",
-                          "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                          "description": "Answer type of the screening question",
                           "x-spec-enum-id": "82857413e8e5153a"
                         },
-                        "answer": {}
+                        "answer": {
+                          "type": "string",
+                          "description": "Answer of the screening question. The expected data type for the 'answer' field depends on the 'answer_type':\n  * 'text', 'textarea', 'select': expects a `str`.\n  * 'boolean': expects a `bool`.\n  * 'multiselect': expects an `array of strings`."
+                        }
                       },
                       "required": [
                         "answer",
@@ -826,11 +841,13 @@
                       "properties": {
                         "id": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
                         },
                         "question": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "description": "Question of the screening question"
                         },
                         "answer_type": {
                           "enum": [
@@ -841,10 +858,13 @@
                             "multiselect"
                           ],
                           "type": "string",
-                          "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                          "description": "Answer type of the screening question",
                           "x-spec-enum-id": "82857413e8e5153a"
                         },
-                        "answer": {}
+                        "answer": {
+                          "type": "string",
+                          "description": "Answer of the screening question. The expected data type for the 'answer' field depends on the 'answer_type':\n  * 'text', 'textarea', 'select': expects a `str`.\n  * 'boolean': expects a `bool`.\n  * 'multiselect': expects an `array of strings`."
+                        }
                       },
                       "required": [
                         "answer",
@@ -1093,11 +1113,13 @@
                       "properties": {
                         "id": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
                         },
                         "question": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "description": "Question of the screening question"
                         },
                         "answer_type": {
                           "enum": [
@@ -1108,10 +1130,13 @@
                             "multiselect"
                           ],
                           "type": "string",
-                          "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                          "description": "Answer type of the screening question",
                           "x-spec-enum-id": "82857413e8e5153a"
                         },
-                        "answer": {}
+                        "answer": {
+                          "type": "string",
+                          "description": "Answer of the screening question. The expected data type for the 'answer' field depends on the 'answer_type':\n  * 'text', 'textarea', 'select': expects a `str`.\n  * 'boolean': expects a `bool`.\n  * 'multiselect': expects an `array of strings`."
+                        }
                       },
                       "required": [
                         "answer",
@@ -1198,7 +1223,7 @@
         },
         "security": [
           {
-            "jwtAuth": []
+            "bearerAuth": []
           }
         ],
         "responses": {
@@ -1208,9 +1233,11 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer",
-                      "readOnly": true
+                    "company": {
+                      "type": [
+                        "integer"
+                      ],
+                      "description": "Kini ID of the company offering the job"
                     },
                     "job": {
                       "type": [
@@ -1371,10 +1398,12 @@
                         "type": "object",
                         "properties": {
                           "id": {
-                            "type": "string"
+                            "type": "string",
+                            "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
                           },
                           "question": {
-                            "type": "string"
+                            "type": "string",
+                            "description": "Question of the screening question"
                           },
                           "answer_type": {
                             "enum": [
@@ -1385,10 +1414,13 @@
                               "multiselect"
                             ],
                             "type": "string",
-                            "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                            "description": "Answer type of the screening question",
                             "x-spec-enum-id": "82857413e8e5153a"
                           },
-                          "answer": {}
+                          "answer": {
+                            "type": "string",
+                            "description": "Answer of the screening question. The expected data type for the 'answer' field depends on the 'answer_type':\n  * 'text', 'textarea', 'select': expects a `str`.\n  * 'boolean': expects a `bool`.\n  * 'multiselect': expects an `array of strings`."
+                          }
                         },
                         "required": [
                           "answer",
@@ -1433,15 +1465,10 @@
                             "type": "string",
                             "description": "* `application/msword` - Doc\n* `application/vnd.openxmlformats-officedocument.wordprocessingml.document` - Docx\n* `image/jpeg` - Jpeg\n* `application/vnd.oasis.opendocument.text` - Odt\n* `application/pdf` - Pdf\n* `text/plain` - Plain Text\n* `image/png` - Png\n* `application/rtf` - Rtf\n* `application/octet-stream` - Other",
                             "x-spec-enum-id": "2456dc91a64f0b5f"
-                          },
-                          "gs_path": {
-                            "type": "string",
-                            "readOnly": true
                           }
                         },
                         "required": [
                           "content_type",
-                          "gs_path",
                           "name",
                           "type"
                         ],
@@ -1523,7 +1550,7 @@
         ],
         "security": [
           {
-            "jwtAuth": []
+            "bearerAuth": []
           }
         ],
         "responses": {
@@ -1533,9 +1560,11 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "integer",
-                      "readOnly": true
+                    "company": {
+                      "type": [
+                        "integer"
+                      ],
+                      "description": "Kini ID of the company offering the job"
                     },
                     "job": {
                       "type": [
@@ -1696,10 +1725,12 @@
                         "type": "object",
                         "properties": {
                           "id": {
-                            "type": "string"
+                            "type": "string",
+                            "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
                           },
                           "question": {
-                            "type": "string"
+                            "type": "string",
+                            "description": "Question of the screening question"
                           },
                           "answer_type": {
                             "enum": [
@@ -1710,10 +1741,13 @@
                               "multiselect"
                             ],
                             "type": "string",
-                            "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                            "description": "Answer type of the screening question",
                             "x-spec-enum-id": "82857413e8e5153a"
                           },
-                          "answer": {}
+                          "answer": {
+                            "type": "string",
+                            "description": "Answer of the screening question. The expected data type for the 'answer' field depends on the 'answer_type':\n  * 'text', 'textarea', 'select': expects a `str`.\n  * 'boolean': expects a `bool`.\n  * 'multiselect': expects an `array of strings`."
+                          }
                         },
                         "required": [
                           "answer",
@@ -1758,15 +1792,10 @@
                             "type": "string",
                             "description": "* `application/msword` - Doc\n* `application/vnd.openxmlformats-officedocument.wordprocessingml.document` - Docx\n* `image/jpeg` - Jpeg\n* `application/vnd.oasis.opendocument.text` - Odt\n* `application/pdf` - Pdf\n* `text/plain` - Plain Text\n* `image/png` - Png\n* `application/rtf` - Rtf\n* `application/octet-stream` - Other",
                             "x-spec-enum-id": "2456dc91a64f0b5f"
-                          },
-                          "gs_path": {
-                            "type": "string",
-                            "readOnly": true
                           }
                         },
                         "required": [
                           "content_type",
-                          "gs_path",
                           "name",
                           "type"
                         ],
@@ -1827,7 +1856,7 @@
         }
       }
     },
-    "/jobs": {
+    "/jobs/": {
       "get": {
         "operationId": "jobs_list",
         "description": "Read several Job details identified by their unique Company ID.",
@@ -1866,7 +1895,7 @@
         ],
         "security": [
           {
-            "jwtAuth": []
+            "bearerAuth": []
           }
         ],
         "responses": {
@@ -1878,28 +1907,32 @@
                   "properties": {
                     "count": {
                       "type": "integer",
-                      "example": 123
+                      "example": 123,
+                      "description": "Total number of records available across all pages"
                     },
                     "next": {
                       "type": "string",
                       "nullable": true,
                       "format": "uri",
-                      "example": "http://api.example.org/accounts/?page=4"
+                      "example": "http://api.example.org/accounts/?page=4",
+                      "description": "URL to the next page of results"
                     },
                     "previous": {
                       "type": "string",
                       "nullable": true,
                       "format": "uri",
-                      "example": "http://api.example.org/accounts/?page=2"
+                      "example": "http://api.example.org/accounts/?page=2",
+                      "description": "URL to the previous page of results"
                     },
                     "results": {
                       "type": "array",
+                      "description": "List of jobs",
                       "items": {
                         "type": "object",
                         "properties": {
                           "id": {
                             "type": "integer",
-                            "readOnly": true
+                            "description": "Kini ID of the job"
                           },
                           "external_id": {
                             "type": [
@@ -1960,8 +1993,8 @@
                           "remote": {
                             "enum": [
                               "remote",
-                              "on-site",
-                              "hybrid"
+                              "hybrid",
+                              "on-site"
                             ],
                             "type": [
                               "string"
@@ -1979,7 +2012,50 @@
                             "type": [
                               "string"
                             ],
-                            "description": "Category of the job, e.g. 'Sales'"
+                            "description": "Category of the job, e.g. 'sales'",
+                            "enum": [
+                              "accounting_finance",
+                              "administration",
+                              "architecture_construction",
+                              "arts_media_entertainment",
+                              "business_development",
+                              "cleaning_facilities",
+                              "consulting",
+                              "customer_service_support",
+                              "data_analytics",
+                              "design",
+                              "education_training",
+                              "engineering",
+                              "entertainment_travel",
+                              "event_management",
+                              "finance",
+                              "healthcare",
+                              "hospitality_tourism",
+                              "hr_recruitment",
+                              "installation_maintenance_repair",
+                              "it_support",
+                              "legal",
+                              "logistics_supply_chain",
+                              "management_executive",
+                              "marketing",
+                              "non_profit",
+                              "operations",
+                              "other",
+                              "personal_care_services",
+                              "pharmaceutical_life_sciences",
+                              "product_management",
+                              "project_management",
+                              "public_relations",
+                              "real_estate",
+                              "retail",
+                              "sales",
+                              "science_technology",
+                              "software_development",
+                              "social_services",
+                              "sports_fitness_recreation",
+                              "translation_localization",
+                              "warehouse"
+                            ]
                           },
                           "work_schedule": {
                             "type": [
@@ -1991,13 +2067,46 @@
                             "type": [
                               "string"
                             ],
-                            "description": "Employment type of the job (full-time, part-time, contract, etc.)"
+                            "description": "Employment type of the job (permanent, contract, minijob, etc.)",
+                            "enum": [
+                              "contract",
+                              "freelance",
+                              "intern",
+                              "temporary",
+                              "permanent",
+                              "volunteer",
+                              "apprenticeship",
+                              "working_student",
+                              "minijob",
+                              "other"
+                            ]
+                          },
+                          "work_schedule": {
+                            "type": [
+                              "string"
+                            ],
+                            "description": "Work schedule type for the position (full-time, part-time, flexible)",
+                            "enum": [
+                              "full_time",
+                              "part_time",
+                              "flexible"
+                            ]
                           },
                           "senority": {
                             "type": [
                               "string"
                             ],
-                            "description": "Required or expected seniority level"
+                            "description": "Required or expected seniority level",
+                            "enum": [
+                              "unexperienced",
+                              "junior",
+                              "mid_level",
+                              "senior",
+                              "lead",
+                              "manager",
+                              "director",
+                              "executive"
+                            ]
                           },
                           "education": {
                             "type": [
@@ -2118,11 +2227,14 @@
                             ],
                             "description": "Phone Number of the contact person responsible for the job posting"
                           },
+                          "banner_image": {
+                            "type": "string",
+                            "description": "Banner Image URL"
+                          },
                           "import_source": {
                             "type": [
                               "string"
                             ],
-                            "readOnly": true,
                             "description": "Source from which the job was created (API, etc.)"
                           },
                           "screening_questions": {
@@ -2131,10 +2243,12 @@
                               "type": "object",
                               "properties": {
                                 "id": {
-                                  "type": "string"
+                                  "type": "string",
+                                  "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
                                 },
                                 "question": {
-                                  "type": "string"
+                                  "type": "string",
+                                  "description": "Question of the screening question"
                                 },
                                 "answer_type": {
                                   "enum": [
@@ -2142,14 +2256,16 @@
                                     "text",
                                     "textarea",
                                     "select",
-                                    "multiselect"
+                                    "multiselect",
+                                    "integer"
                                   ],
                                   "type": "string",
-                                  "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                                  "description": "Answer type of the screening question",
                                   "x-spec-enum-id": "82857413e8e5153a"
                                 },
                                 "required": {
-                                  "type": "boolean"
+                                  "type": "boolean",
+                                  "description": "Whether the screening question is required"
                                 },
                                 "options": {
                                   "type": "array",
@@ -2157,10 +2273,12 @@
                                     "type": "object",
                                     "properties": {
                                       "label": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "description": "Label of the screening question option"
                                       },
                                       "value": {
-                                        "type": "string"
+                                        "type": "string",
+                                        "description": "Value of the screening question option, must match the value of a screening question option in the company's ATS"
                                       }
                                     },
                                     "required": [
@@ -2181,36 +2299,39 @@
                               "x-readme-ref-name": "ScreeningQuestion"
                             }
                           },
-                          "banner_image": {
-                            "type": [
-                              "string"
-                            ],
-                            "format": "uri",
-                            "description": "URL of the banner image displayed with the job posting"
-                          },
                           "description_sections": {
                             "type": "array",
-                            "description": "Structured sections of the job description",
                             "items": {
-                              "type": "object",
                               "properties": {
                                 "id": {
-                                  "type": "string"
+                                  "type": "string",
+                                  "description": "ID of the section"
                                 },
                                 "type": {
                                   "type": "string",
-                                  "description": "Type of the description section (introduction, tasks, profile, benefits, contact, other)"
+                                  "enum": [
+                                    "tasks",
+                                    "profile",
+                                    "benefits",
+                                    "contact",
+                                    "other"
+                                  ],
+                                  "description": "Type of the section"
                                 },
                                 "order": {
-                                  "type": "integer"
+                                  "type": "string",
+                                  "description": "Display order (ascending)"
                                 },
                                 "title": {
-                                  "type": "string"
+                                  "type": "string",
+                                  "description": "Section title"
                                 },
                                 "content": {
-                                  "type": "string"
+                                  "type": "string",
+                                  "description": "Section content"
                                 }
                               },
+                              "type": "object",
                               "required": [
                                 "id",
                                 "type",
@@ -2238,6 +2359,11 @@
                         ],
                         "x-readme-ref-name": "Job"
                       }
+                    },
+                    "apply_webhooks": {
+                      "type": "object",
+                      "properties": {},
+                      "description": "Supported webhooks for candidateSync (based on enabled features)"
                     }
                   },
                   "x-readme-ref-name": "PaginatedJobList"
@@ -2277,12 +2403,6 @@
                       "string"
                     ],
                     "description": "Job's ID in external ATS systems, used for integrations"
-                  },
-                  "company": {
-                    "type": [
-                      "integer"
-                    ],
-                    "description": "Kini ID of the company offering the job"
                   },
                   "title": {
                     "type": "string",
@@ -2331,8 +2451,8 @@
                   "remote": {
                     "enum": [
                       "remote",
-                      "on-site",
-                      "hybrid"
+                      "hybrid",
+                      "on-site"
                     ],
                     "type": [
                       "string"
@@ -2350,7 +2470,50 @@
                     "type": [
                       "string"
                     ],
-                    "description": "Category of the job, e.g. 'Sales'"
+                    "description": "Category of the job, e.g. 'sales'",
+                    "enum": [
+                      "accounting_finance",
+                      "administration",
+                      "architecture_construction",
+                      "arts_media_entertainment",
+                      "business_development",
+                      "cleaning_facilities",
+                      "consulting",
+                      "customer_service_support",
+                      "data_analytics",
+                      "design",
+                      "education_training",
+                      "engineering",
+                      "entertainment_travel",
+                      "event_management",
+                      "finance",
+                      "healthcare",
+                      "hospitality_tourism",
+                      "hr_recruitment",
+                      "installation_maintenance_repair",
+                      "it_support",
+                      "legal",
+                      "logistics_supply_chain",
+                      "management_executive",
+                      "marketing",
+                      "non_profit",
+                      "operations",
+                      "other",
+                      "personal_care_services",
+                      "pharmaceutical_life_sciences",
+                      "product_management",
+                      "project_management",
+                      "public_relations",
+                      "real_estate",
+                      "retail",
+                      "sales",
+                      "science_technology",
+                      "software_development",
+                      "social_services",
+                      "sports_fitness_recreation",
+                      "translation_localization",
+                      "warehouse"
+                    ]
                   },
                   "work_schedule": {
                     "type": [
@@ -2362,13 +2525,46 @@
                     "type": [
                       "string"
                     ],
-                    "description": "Employment type of the job (full-time, part-time, contract, etc.)"
+                    "description": "Employment type of the job (permanent, contract, minijob, etc.)",
+                    "enum": [
+                      "contract",
+                      "freelance",
+                      "intern",
+                      "temporary",
+                      "permanent",
+                      "volunteer",
+                      "apprenticeship",
+                      "working_student",
+                      "minijob",
+                      "other"
+                    ]
+                  },
+                  "work_schedule": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Work schedule type for the position (full-time, part-time, flexible)",
+                    "enum": [
+                      "full_time",
+                      "part_time",
+                      "flexible"
+                    ]
                   },
                   "senority": {
                     "type": [
                       "string"
                     ],
-                    "description": "Required or expected seniority level"
+                    "description": "Required or expected seniority level",
+                    "enum": [
+                      "unexperienced",
+                      "junior",
+                      "mid_level",
+                      "senior",
+                      "lead",
+                      "manager",
+                      "director",
+                      "executive"
+                    ]
                   },
                   "education": {
                     "type": [
@@ -2489,12 +2685,9 @@
                     ],
                     "description": "Phone Number of the contact person responsible for the job posting"
                   },
-                  "import_source": {
-                    "type": [
-                      "string"
-                    ],
-                    "readOnly": true,
-                    "description": "Source from which the job was created (API, etc.)"
+                  "banner_image": {
+                    "type": "string",
+                    "description": "Banner Image URL"
                   },
                   "screening_questions": {
                     "type": "array",
@@ -2503,11 +2696,13 @@
                       "properties": {
                         "id": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
                         },
                         "question": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "description": "Question of the screening question"
                         },
                         "answer_type": {
                           "enum": [
@@ -2518,11 +2713,12 @@
                             "multiselect"
                           ],
                           "type": "string",
-                          "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                          "description": "Answer type of the screening question",
                           "x-spec-enum-id": "82857413e8e5153a"
                         },
                         "required": {
-                          "type": "boolean"
+                          "type": "boolean",
+                          "description": "Whether the screening question is required"
                         },
                         "options": {
                           "type": "array",
@@ -2531,11 +2727,13 @@
                             "properties": {
                               "label": {
                                 "type": "string",
-                                "minLength": 1
+                                "minLength": 1,
+                                "description": "Label of the screening question option"
                               },
                               "value": {
                                 "type": "string",
-                                "minLength": 1
+                                "minLength": 1,
+                                "description": "Value of the screening question option, must match the value of a screening question option in the company's ATS"
                               }
                             },
                             "required": [
@@ -2554,6 +2752,53 @@
                         "required"
                       ],
                       "x-readme-ref-name": "ScreeningQuestionRequest"
+                    }
+                  },
+                  "description_sections": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "Identifier of the section"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Section type",
+                          "enum": [
+                            "introduction",
+                            "tasks",
+                            "profile",
+                            "benefits",
+                            "contact",
+                            "other"
+                          ]
+                        },
+                        "order": {
+                          "type": "integer",
+                          "description": "Display order (ascending)"
+                        },
+                        "title": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "Section title"
+                        },
+                        "content": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "Section content"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "type",
+                        "order",
+                        "title",
+                        "content"
+                      ],
+                      "x-readme-ref-name": "DescriptionSectionRequest"
                     }
                   },
                   "custom_fields": {
@@ -2632,8 +2877,8 @@
                   "remote": {
                     "enum": [
                       "remote",
-                      "on-site",
-                      "hybrid"
+                      "hybrid",
+                      "on-site"
                     ],
                     "type": [
                       "string"
@@ -2651,19 +2896,95 @@
                     "type": [
                       "string"
                     ],
-                    "description": "Category of the job, e.g. 'Sales'"
+                    "description": "Category of the job, e.g. 'sales'",
+                    "enum": [
+                      "accounting_finance",
+                      "administration",
+                      "architecture_construction",
+                      "arts_media_entertainment",
+                      "business_development",
+                      "cleaning_facilities",
+                      "consulting",
+                      "customer_service_support",
+                      "data_analytics",
+                      "design",
+                      "education_training",
+                      "engineering",
+                      "entertainment_travel",
+                      "event_management",
+                      "finance",
+                      "healthcare",
+                      "hospitality_tourism",
+                      "hr_recruitment",
+                      "installation_maintenance_repair",
+                      "it_support",
+                      "legal",
+                      "logistics_supply_chain",
+                      "management_executive",
+                      "marketing",
+                      "non_profit",
+                      "operations",
+                      "other",
+                      "personal_care_services",
+                      "pharmaceutical_life_sciences",
+                      "product_management",
+                      "project_management",
+                      "public_relations",
+                      "real_estate",
+                      "retail",
+                      "sales",
+                      "science_technology",
+                      "software_development",
+                      "social_services",
+                      "sports_fitness_recreation",
+                      "translation_localization",
+                      "warehouse"
+                    ]
                   },
                   "employment_type": {
                     "type": [
                       "string"
                     ],
-                    "description": "Employment type of the job (full-time, part-time, contract, etc.)"
+                    "description": "Employment type of the job (permanent, contract, minijob, etc.)",
+                    "enum": [
+                      "contract",
+                      "freelance",
+                      "intern",
+                      "temporary",
+                      "permanent",
+                      "volunteer",
+                      "apprenticeship",
+                      "working_student",
+                      "minijob",
+                      "other"
+                    ]
+                  },
+                  "work_schedule": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Work schedule type for the position (full-time, part-time, flexible)",
+                    "enum": [
+                      "full_time",
+                      "part_time",
+                      "flexible"
+                    ]
                   },
                   "senority": {
                     "type": [
                       "string"
                     ],
-                    "description": "Required or expected seniority level"
+                    "description": "Required or expected seniority level",
+                    "enum": [
+                      "unexperienced",
+                      "junior",
+                      "mid_level",
+                      "senior",
+                      "lead",
+                      "manager",
+                      "director",
+                      "executive"
+                    ]
                   },
                   "start_date": {
                     "type": [
@@ -2778,6 +3099,10 @@
                     ],
                     "description": "Phone Number of the contact person responsible for the job posting"
                   },
+                  "banner_image": {
+                    "type": "string",
+                    "description": "Banner Image URL"
+                  },
                   "import_source": {
                     "type": [
                       "string"
@@ -2791,11 +3116,13 @@
                       "properties": {
                         "id": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
                         },
                         "question": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "description": "Question of the screening question"
                         },
                         "answer_type": {
                           "enum": [
@@ -2806,11 +3133,12 @@
                             "multiselect"
                           ],
                           "type": "string",
-                          "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                          "description": "Answer type of the screening question",
                           "x-spec-enum-id": "82857413e8e5153a"
                         },
                         "required": {
-                          "type": "boolean"
+                          "type": "boolean",
+                          "description": "Whether the screening question is required"
                         },
                         "options": {
                           "type": "array",
@@ -2819,11 +3147,13 @@
                             "properties": {
                               "label": {
                                 "type": "string",
-                                "minLength": 1
+                                "minLength": 1,
+                                "description": "Label of the screening question option"
                               },
                               "value": {
                                 "type": "string",
-                                "minLength": 1
+                                "minLength": 1,
+                                "description": "Value of the screening question option, must match the value of a screening question option in the company's ATS"
                               }
                             },
                             "required": [
@@ -2842,6 +3172,53 @@
                         "required"
                       ],
                       "x-readme-ref-name": "ScreeningQuestionRequest"
+                    }
+                  },
+                  "description_sections": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "Identifier of the section"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Section type",
+                          "enum": [
+                            "introduction",
+                            "tasks",
+                            "profile",
+                            "benefits",
+                            "contact",
+                            "other"
+                          ]
+                        },
+                        "order": {
+                          "type": "integer",
+                          "description": "Display order (ascending)"
+                        },
+                        "title": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "Section title"
+                        },
+                        "content": {
+                          "type": "string",
+                          "minLength": 1,
+                          "description": "Section content"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "type",
+                        "order",
+                        "title",
+                        "content"
+                      ],
+                      "x-readme-ref-name": "DescriptionSectionRequest"
                     }
                   },
                   "custom_fields": {
@@ -2920,8 +3297,8 @@
                   "remote": {
                     "enum": [
                       "remote",
-                      "on-site",
-                      "hybrid"
+                      "hybrid",
+                      "on-site"
                     ],
                     "type": [
                       "string"
@@ -2939,19 +3316,95 @@
                     "type": [
                       "string"
                     ],
-                    "description": "Category of the job, e.g. 'Sales'"
+                    "description": "Category of the job, e.g. 'sales'",
+                    "enum": [
+                      "accounting_finance",
+                      "administration",
+                      "architecture_construction",
+                      "arts_media_entertainment",
+                      "business_development",
+                      "cleaning_facilities",
+                      "consulting",
+                      "customer_service_support",
+                      "data_analytics",
+                      "design",
+                      "education_training",
+                      "engineering",
+                      "entertainment_travel",
+                      "event_management",
+                      "finance",
+                      "healthcare",
+                      "hospitality_tourism",
+                      "hr_recruitment",
+                      "installation_maintenance_repair",
+                      "it_support",
+                      "legal",
+                      "logistics_supply_chain",
+                      "management_executive",
+                      "marketing",
+                      "non_profit",
+                      "operations",
+                      "other",
+                      "personal_care_services",
+                      "pharmaceutical_life_sciences",
+                      "product_management",
+                      "project_management",
+                      "public_relations",
+                      "real_estate",
+                      "retail",
+                      "sales",
+                      "science_technology",
+                      "software_development",
+                      "social_services",
+                      "sports_fitness_recreation",
+                      "translation_localization",
+                      "warehouse"
+                    ]
                   },
                   "employment_type": {
                     "type": [
                       "string"
                     ],
-                    "description": "Employment type of the job (full-time, part-time, contract, etc.)"
+                    "description": "Employment type of the job (permanent, contract, minijob, etc.)",
+                    "enum": [
+                      "contract",
+                      "freelance",
+                      "intern",
+                      "temporary",
+                      "permanent",
+                      "volunteer",
+                      "apprenticeship",
+                      "working_student",
+                      "minijob",
+                      "other"
+                    ]
+                  },
+                  "work_schedule": {
+                    "type": [
+                      "string"
+                    ],
+                    "description": "Work schedule type for the position (full-time, part-time, flexible)",
+                    "enum": [
+                      "full_time",
+                      "part_time",
+                      "flexible"
+                    ]
                   },
                   "senority": {
                     "type": [
                       "string"
                     ],
-                    "description": "Required or expected seniority level"
+                    "description": "Required or expected seniority level",
+                    "enum": [
+                      "unexperienced",
+                      "junior",
+                      "mid_level",
+                      "senior",
+                      "lead",
+                      "manager",
+                      "director",
+                      "executive"
+                    ]
                   },
                   "start_date": {
                     "type": [
@@ -3066,6 +3519,10 @@
                     ],
                     "description": "Phone Number of the contact person responsible for the job posting"
                   },
+                  "banner_image": {
+                    "type": "string",
+                    "description": "Banner Image URL"
+                  },
                   "import_source": {
                     "type": [
                       "string"
@@ -3079,11 +3536,13 @@
                       "properties": {
                         "id": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
                         },
                         "question": {
                           "type": "string",
-                          "minLength": 1
+                          "minLength": 1,
+                          "description": "Question of the screening question"
                         },
                         "answer_type": {
                           "enum": [
@@ -3094,7 +3553,7 @@
                             "multiselect"
                           ],
                           "type": "string",
-                          "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                          "description": "Answer type of the screening question",
                           "x-spec-enum-id": "82857413e8e5153a"
                         },
                         "required": {
@@ -3107,11 +3566,11 @@
                             "properties": {
                               "label": {
                                 "type": "string",
-                                "minLength": 1
+                                "description": "Label of the screening question option"
                               },
                               "value": {
                                 "type": "string",
-                                "minLength": 1
+                                "description": "Value of the screening question option, must match the value of a screening question option in the company's ATS"
                               }
                             },
                             "required": [
@@ -3130,6 +3589,50 @@
                         "required"
                       ],
                       "x-readme-ref-name": "ScreeningQuestionRequest"
+                    }
+                  },
+                  "description_sections": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "Stable identifier of the section"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Section type",
+                          "enum": [
+                            "introduction",
+                            "tasks",
+                            "profile",
+                            "benefits",
+                            "contact",
+                            "other"
+                          ]
+                        },
+                        "order": {
+                          "type": "integer",
+                          "description": "Display order (ascending)"
+                        },
+                        "title": {
+                          "type": "string",
+                          "description": "Section title"
+                        },
+                        "content": {
+                          "type": "string",
+                          "description": "Section content"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "type",
+                        "order",
+                        "title",
+                        "content"
+                      ],
+                      "x-readme-ref-name": "DescriptionSectionRequest"
                     }
                   },
                   "custom_fields": {
@@ -3156,7 +3659,7 @@
         },
         "security": [
           {
-            "jwtAuth": []
+            "bearerAuth": []
           }
         ],
         "responses": {
@@ -3168,7 +3671,7 @@
                   "properties": {
                     "id": {
                       "type": "integer",
-                      "readOnly": true
+                      "description": "Kini ID of the job"
                     },
                     "external_id": {
                       "type": [
@@ -3222,8 +3725,8 @@
                     "remote": {
                       "enum": [
                         "remote",
-                        "on-site",
-                        "hybrid"
+                        "hybrid",
+                        "on-site"
                       ],
                       "type": [
                         "string"
@@ -3241,19 +3744,95 @@
                       "type": [
                         "string"
                       ],
-                      "description": "Category of the job, e.g. 'Sales'"
+                      "description": "Category of the job, e.g. 'sales'",
+                      "enum": [
+                        "accounting_finance",
+                        "administration",
+                        "architecture_construction",
+                        "arts_media_entertainment",
+                        "business_development",
+                        "cleaning_facilities",
+                        "consulting",
+                        "customer_service_support",
+                        "data_analytics",
+                        "design",
+                        "education_training",
+                        "engineering",
+                        "entertainment_travel",
+                        "event_management",
+                        "finance",
+                        "healthcare",
+                        "hospitality_tourism",
+                        "hr_recruitment",
+                        "installation_maintenance_repair",
+                        "it_support",
+                        "legal",
+                        "logistics_supply_chain",
+                        "management_executive",
+                        "marketing",
+                        "non_profit",
+                        "operations",
+                        "other",
+                        "personal_care_services",
+                        "pharmaceutical_life_sciences",
+                        "product_management",
+                        "project_management",
+                        "public_relations",
+                        "real_estate",
+                        "retail",
+                        "sales",
+                        "science_technology",
+                        "software_development",
+                        "social_services",
+                        "sports_fitness_recreation",
+                        "translation_localization",
+                        "warehouse"
+                      ]
                     },
                     "employment_type": {
                       "type": [
                         "string"
                       ],
-                      "description": "Employment type of the job (full-time, part-time, contract, etc.)"
+                      "description": "Employment type of the job (permanent, contract, minijob, etc.)",
+                      "enum": [
+                        "contract",
+                        "freelance",
+                        "intern",
+                        "temporary",
+                        "permanent",
+                        "volunteer",
+                        "apprenticeship",
+                        "working_student",
+                        "minijob",
+                        "other"
+                      ]
+                    },
+                    "work_schedule": {
+                      "type": [
+                        "string"
+                      ],
+                      "description": "Work schedule type for the position (full-time, part-time, flexible)",
+                      "enum": [
+                        "full_time",
+                        "part_time",
+                        "flexible"
+                      ]
                     },
                     "senority": {
                       "type": [
                         "string"
                       ],
-                      "description": "Required or expected seniority level"
+                      "description": "Required or expected seniority level",
+                      "enum": [
+                        "unexperienced",
+                        "junior",
+                        "mid_level",
+                        "senior",
+                        "lead",
+                        "manager",
+                        "director",
+                        "executive"
+                      ]
                     },
                     "start_date": {
                       "type": [
@@ -3368,6 +3947,10 @@
                       ],
                       "description": "Phone Number of the contact person responsible for the job posting"
                     },
+                    "banner_image": {
+                      "type": "string",
+                      "description": "Banner Image URL"
+                    },
                     "import_source": {
                       "type": [
                         "string"
@@ -3380,10 +3963,12 @@
                         "type": "object",
                         "properties": {
                           "id": {
-                            "type": "string"
+                            "type": "string",
+                            "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
                           },
                           "question": {
-                            "type": "string"
+                            "type": "string",
+                            "description": "Question of the screening question"
                           },
                           "answer_type": {
                             "enum": [
@@ -3394,11 +3979,12 @@
                               "multiselect"
                             ],
                             "type": "string",
-                            "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                            "description": "Answer type of the screening question",
                             "x-spec-enum-id": "82857413e8e5153a"
                           },
                           "required": {
-                            "type": "boolean"
+                            "type": "boolean",
+                            "description": "Whether the screening question is required"
                           },
                           "options": {
                             "type": "array",
@@ -3406,10 +3992,12 @@
                               "type": "object",
                               "properties": {
                                 "label": {
-                                  "type": "string"
+                                  "type": "string",
+                                  "description": "Label of the screening question option"
                                 },
                                 "value": {
-                                  "type": "string"
+                                  "type": "string",
+                                  "description": "Value of the screening question option, must match the value of a screening question option in the company's ATS"
                                 }
                               },
                               "required": [
@@ -3430,13 +4018,6 @@
                         "x-readme-ref-name": "ScreeningQuestion"
                       }
                     },
-                    "banner_image": {
-                      "type": [
-                        "string"
-                      ],
-                      "format": "uri",
-                      "description": "URL of the banner image displayed with the job posting"
-                    },
                     "description_sections": {
                       "type": "array",
                       "description": "Structured sections of the job description",
@@ -3444,20 +4025,32 @@
                         "type": "object",
                         "properties": {
                           "id": {
-                            "type": "string"
+                            "type": "string",
+                            "description": "Identifier of the section"
                           },
                           "type": {
                             "type": "string",
-                            "description": "Type of the description section (introduction, tasks, profile, benefits, contact, other)"
+                            "description": "Section type",
+                            "enum": [
+                              "introduction",
+                              "tasks",
+                              "profile",
+                              "benefits",
+                              "contact",
+                              "other"
+                            ]
                           },
                           "order": {
-                            "type": "integer"
+                            "type": "integer",
+                            "description": "Display order (ascending)"
                           },
                           "title": {
-                            "type": "string"
+                            "type": "string",
+                            "description": "Section title"
                           },
                           "content": {
-                            "type": "string"
+                            "type": "string",
+                            "description": "Section content"
                           }
                         },
                         "required": [
@@ -3466,7 +4059,8 @@
                           "order",
                           "title",
                           "content"
-                        ]
+                        ],
+                        "x-readme-ref-name": "DescriptionSection"
                       }
                     },
                     "custom_fields": {
@@ -3508,6 +4102,15 @@
             },
             "description": "ID of the Job",
             "required": true
+          },
+          {
+            "in": "header",
+            "name": "Company-Id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "ID of the Company"
           }
         ],
         "tags": [
@@ -3515,7 +4118,7 @@
         ],
         "security": [
           {
-            "jwtAuth": []
+            "bearerAuth": []
           }
         ],
         "responses": {
@@ -3527,18 +4130,14 @@
                   "properties": {
                     "id": {
                       "type": "integer",
-                      "readOnly": true
+                      "description": "Kini ID of the job"
                     },
                     "external_id": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Job's ID in external ATS systems, used for integrations"
                     },
                     "company": {
-                      "type": [
-                        "integer"
-                      ],
+                      "type": "number",
                       "description": "Kini ID of the company offering the job"
                     },
                     "title": {
@@ -3547,23 +4146,15 @@
                       "maxLength": 255
                     },
                     "description": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Detailed description of the job's responsibilities and requirements"
                     },
                     "posting_url": {
-                      "type": [
-                        "string"
-                      ],
-                      "format": "uri",
+                      "type": "string",
                       "description": "URL of the job posted on the company's career page"
                     },
                     "application_url": {
-                      "type": [
-                        "string"
-                      ],
-                      "format": "uri",
+                      "type": "string",
                       "description": "URL through which applicants can apply on the company's career page"
                     },
                     "status": {
@@ -3572,165 +4163,192 @@
                         "deleted",
                         "archived"
                       ],
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "x-spec-enum-id": "ead97c7bc7363dd0",
                       "description": "Posting status of the job (active, deleted, archived)\n\n* `active` - Job posting is open and accepting applications\n* `deleted` - Job posting has been deleted and is not accepting applications\n* `archived` - Job posting is archived and not accepting applications"
                     },
                     "remote": {
                       "enum": [
                         "remote",
-                        "on-site",
-                        "hybrid"
+                        "hybrid",
+                        "on-site"
                       ],
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "x-spec-enum-id": "48718b3ae514d1f4",
                       "description": "Work mode of the job (remote, hybrid, on-site)\n\n* `remote` - Fully remote, work from anywhere\n* `on-site` - Fully onsite, work from the company's physical location\n* `hybrid` - Flexible combination of onsite and remote work"
                     },
                     "language": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Language of the job posting"
                     },
                     "category": {
-                      "type": [
-                        "string"
-                      ],
-                      "description": "Category of the job, e.g. 'Sales'"
+                      "type": "string",
+                      "description": "Category of the job, e.g. 'sales'",
+                      "enum": [
+                        "accounting_finance",
+                        "administration",
+                        "architecture_construction",
+                        "arts_media_entertainment",
+                        "business_development",
+                        "cleaning_facilities",
+                        "consulting",
+                        "customer_service_support",
+                        "data_analytics",
+                        "design",
+                        "education_training",
+                        "engineering",
+                        "entertainment_travel",
+                        "event_management",
+                        "finance",
+                        "healthcare",
+                        "hospitality_tourism",
+                        "hr_recruitment",
+                        "installation_maintenance_repair",
+                        "it_support",
+                        "legal",
+                        "logistics_supply_chain",
+                        "management_executive",
+                        "marketing",
+                        "non_profit",
+                        "operations",
+                        "other",
+                        "personal_care_services",
+                        "pharmaceutical_life_sciences",
+                        "product_management",
+                        "project_management",
+                        "public_relations",
+                        "real_estate",
+                        "retail",
+                        "sales",
+                        "science_technology",
+                        "software_development",
+                        "social_services",
+                        "sports_fitness_recreation",
+                        "translation_localization",
+                        "warehouse"
+                      ]
                     },
                     "employment_type": {
-                      "type": [
-                        "string"
-                      ],
-                      "description": "Employment type of the job (full-time, part-time, contract, etc.)"
+                      "type": "string",
+                      "description": "Employment type of the job (permanent, contract, minijob, etc.)",
+                      "enum": [
+                        "contract",
+                        "freelance",
+                        "intern",
+                        "temporary",
+                        "permanent",
+                        "volunteer",
+                        "apprenticeship",
+                        "working_student",
+                        "minijob",
+                        "other"
+                      ]
+                    },
+                    "work_schedule": {
+                      "type": "string",
+                      "description": "Work schedule type for the position (full-time, part-time, flexible)",
+                      "enum": [
+                        "full_time",
+                        "part_time",
+                        "flexible"
+                      ]
                     },
                     "senority": {
-                      "type": [
-                        "string"
-                      ],
-                      "description": "Required or expected seniority level"
+                      "type": "string",
+                      "description": "Required or expected seniority level",
+                      "enum": [
+                        "unexperienced",
+                        "junior",
+                        "mid_level",
+                        "senior",
+                        "lead",
+                        "manager",
+                        "director",
+                        "executive"
+                      ]
                     },
                     "start_date": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Required or expected start date"
                     },
                     "contract_limitation": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Contractual limitations or terms associated with the job"
                     },
                     "location_name": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Full-text location of where the job is based"
                     },
                     "street": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Street of the job's location"
                     },
                     "city": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "City of the job's location"
                     },
                     "country": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Country of the job's location"
                     },
                     "postcode": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Postal code of the job's location"
                     },
                     "longitude": {
-                      "type": [
-                        "string"
-                      ],
-                      "format": "decimal",
+                      "type": "number",
                       "pattern": "^-?\\d{0,3}(?:\\.\\d{0,6})?$",
-                      "description": "Longitude coordinate of the job's location"
+                      "description": "Longitude coordinate of the job's location",
+                      "format": "float"
                     },
                     "latitude": {
-                      "type": [
-                        "string"
-                      ],
-                      "format": "decimal",
+                      "type": "number",
+                      "format": "float",
                       "pattern": "^-?\\d{0,3}(?:\\.\\d{0,6})?$",
                       "description": "Latitude coordinate of the job's location"
                     },
                     "salary": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "General description of the salary package"
                     },
                     "salary_from": {
-                      "type": [
-                        "integer"
-                      ],
+                      "type": "number",
                       "description": "Starting salary range"
                     },
                     "salary_to": {
-                      "type": [
-                        "integer"
-                      ],
+                      "type": "number",
                       "description": "Maximum salary range"
                     },
                     "salary_currency": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Currency of the stated salary"
                     },
                     "salary_frequency": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Payout frequency of the stated salary (annual, monthly, etc.)"
                     },
                     "contact_name": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Name of the contact person responsible for the job posting"
                     },
                     "contact_email": {
-                      "type": [
-                        "string"
-                      ],
-                      "format": "email",
+                      "type": "string",
                       "description": "E-Mail Address of the contact person responsible for the job posting"
                     },
                     "contact_title": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Work title of the contact person responsible for the job posting"
                     },
                     "contact_phone": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Phone Number of the contact person responsible for the job posting"
                     },
+                    "banner_image": {
+                      "type": "string",
+                      "description": "Banner Image URL"
+                    },
                     "import_source": {
-                      "type": [
-                        "string"
-                      ],
+                      "type": "string",
                       "description": "Source from which the job was created (API, etc.)"
                     },
                     "screening_questions": {
@@ -3739,10 +4357,12 @@
                         "type": "object",
                         "properties": {
                           "id": {
-                            "type": "string"
+                            "type": "string",
+                            "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
                           },
                           "question": {
-                            "type": "string"
+                            "type": "string",
+                            "description": "Question of the screening question"
                           },
                           "answer_type": {
                             "enum": [
@@ -3753,11 +4373,12 @@
                               "multiselect"
                             ],
                             "type": "string",
-                            "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                            "description": "Answer type of the screening question",
                             "x-spec-enum-id": "82857413e8e5153a"
                           },
                           "required": {
-                            "type": "boolean"
+                            "type": "boolean",
+                            "description": "Whether the screening question is required"
                           },
                           "options": {
                             "type": "array",
@@ -3765,10 +4386,12 @@
                               "type": "object",
                               "properties": {
                                 "label": {
-                                  "type": "string"
+                                  "type": "string",
+                                  "description": "Label of the screening question option"
                                 },
                                 "value": {
-                                  "type": "string"
+                                  "type": "string",
+                                  "description": "Value of the screening question option, must match the value of a screening question option in the company's ATS"
                                 }
                               },
                               "required": [
@@ -3787,6 +4410,52 @@
                           "required"
                         ],
                         "x-readme-ref-name": "ScreeningQuestion"
+                      }
+                    },
+                    "description_sections": {
+                      "type": "array",
+                      "nullable": true,
+                      "description": "Structured sections of the job description",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "Stable identifier of the section"
+                          },
+                          "type": {
+                            "type": "string",
+                            "description": "Section type",
+                            "enum": [
+                              "introduction",
+                              "tasks",
+                              "profile",
+                              "benefits",
+                              "contact",
+                              "other"
+                            ]
+                          },
+                          "order": {
+                            "type": "integer",
+                            "description": "Display order (ascending)"
+                          },
+                          "title": {
+                            "type": "string",
+                            "description": "Section title"
+                          },
+                          "content": {
+                            "type": "string",
+                            "description": "Section content"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "type",
+                          "order",
+                          "title",
+                          "content"
+                        ],
+                        "x-readme-ref-name": "DescriptionSection"
                       }
                     },
                     "custom_fields": {
@@ -3868,205 +4537,8 @@
         }
       }
     },
-    "/token/": {
-      "post": {
-        "operationId": "token_create",
-        "description": "Get an access and refresh JWT pair using a set of valid user credentials.",
-        "summary": "Get Token Pair",
-        "tags": [
-          "Authentication"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "username": {
-                    "type": "string",
-                    "writeOnly": true,
-                    "minLength": 1
-                  },
-                  "password": {
-                    "type": "string",
-                    "writeOnly": true,
-                    "minLength": 1
-                  }
-                },
-                "required": [
-                  "password",
-                  "username"
-                ],
-                "x-readme-ref-name": "TokenObtainPairRequest"
-              }
-            },
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "username": {
-                    "type": "string",
-                    "writeOnly": true,
-                    "minLength": 1
-                  },
-                  "password": {
-                    "type": "string",
-                    "writeOnly": true,
-                    "minLength": 1
-                  }
-                },
-                "required": [
-                  "password",
-                  "username"
-                ],
-                "x-readme-ref-name": "TokenObtainPairRequest"
-              }
-            },
-            "multipart/form-data": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "username": {
-                    "type": "string",
-                    "writeOnly": true,
-                    "minLength": 1
-                  },
-                  "password": {
-                    "type": "string",
-                    "writeOnly": true,
-                    "minLength": 1
-                  }
-                },
-                "required": [
-                  "password",
-                  "username"
-                ],
-                "x-readme-ref-name": "TokenObtainPairRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "access": {
-                      "type": "string",
-                      "readOnly": true
-                    },
-                    "refresh": {
-                      "type": "string",
-                      "readOnly": true
-                    }
-                  },
-                  "required": [
-                    "access",
-                    "refresh"
-                  ],
-                  "x-readme-ref-name": "TokenObtainPair"
-                }
-              }
-            },
-            "description": ""
-          }
-        }
-      }
-    },
-    "/token/refresh/": {
-      "post": {
-        "operationId": "token_refresh_create",
-        "description": "Get an access type JWT using a valid refresh type JWT.",
-        "summary": "Get Refresh Token",
-        "tags": [
-          "Authentication"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "refresh": {
-                    "type": "string",
-                    "writeOnly": true,
-                    "minLength": 1
-                  }
-                },
-                "required": [
-                  "refresh"
-                ],
-                "x-readme-ref-name": "TokenRefreshRequest"
-              }
-            },
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "refresh": {
-                    "type": "string",
-                    "writeOnly": true,
-                    "minLength": 1
-                  }
-                },
-                "required": [
-                  "refresh"
-                ],
-                "x-readme-ref-name": "TokenRefreshRequest"
-              }
-            },
-            "multipart/form-data": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "refresh": {
-                    "type": "string",
-                    "writeOnly": true,
-                    "minLength": 1
-                  }
-                },
-                "required": [
-                  "refresh"
-                ],
-                "x-readme-ref-name": "TokenRefreshRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "access": {
-                      "type": "string",
-                      "readOnly": true,
-                      "description": "New access token"
-                    },
-                    "refresh": {
-                      "type": "string",
-                      "readOnly": true,
-                      "description": "New refresh token"
-                    }
-                  },
-                  "required": [
-                    "access"
-                  ],
-                  "x-readme-ref-name": "TokenRefresh"
-                }
-              }
-            },
-            "description": ""
-          }
-        }
-      }
-    },
+    "/token/": {},
+    "/token/refresh/": {},
     "/companies/": {
       "get": {
         "operationId": "companies_list",
@@ -4077,7 +4549,7 @@
         ],
         "security": [
           {
-            "jwtAuth": []
+            "bearerAuth": []
           }
         ],
         "responses": {
@@ -4093,10 +4565,6 @@
                         "type": "integer",
                         "readOnly": true,
                         "description": "Unique Kini ID of the company"
-                      },
-                      "slug": {
-                        "type": "string",
-                        "description": "The company's slug, used for logging purposes only"
                       },
                       "name": {
                         "type": "string",
@@ -4192,7 +4660,67 @@
           }
         }
       }
-    }
+    },
+    "/clickout/": {
+      "post": {
+        "operationId": "clickout_create",
+        "tags": [
+          "Shop"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "summary": "Create a clickout link to access the shop",
+        "description": "Creates a new clickout link to access the shop",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "external_job_id",
+                  "email"
+                ],
+                "properties": {
+                  "external_job_id": {
+                    "type": "integer",
+                    "description": "External Job ID of the job to promote"
+                  },
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "description": "Email address of the user"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Clickout link created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "format": "uri",
+                      "description": "The clickout URL for accessing the shop"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jobs/-1": {}
   },
   "components": {
     "schemas": {
@@ -4201,7 +4729,7 @@
         "properties": {
           "id": {
             "type": "integer",
-            "readOnly": true
+            "description": "Kini ID of the application"
           },
           "job": {
             "type": [
@@ -4362,10 +4890,12 @@
               "type": "object",
               "properties": {
                 "id": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
                 },
                 "question": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "Question of the screening question"
                 },
                 "answer_type": {
                   "enum": [
@@ -4376,10 +4906,13 @@
                     "multiselect"
                   ],
                   "type": "string",
-                  "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                  "description": "Answer type of the screening question",
                   "x-spec-enum-id": "82857413e8e5153a"
                 },
-                "answer": {}
+                "answer": {
+                  "type": "object",
+                  "description": "Answer of the screening question"
+                }
               },
               "required": [
                 "answer",
@@ -4424,15 +4957,10 @@
                   "type": "string",
                   "description": "* `application/msword` - Doc\n* `application/vnd.openxmlformats-officedocument.wordprocessingml.document` - Docx\n* `image/jpeg` - Jpeg\n* `application/vnd.oasis.opendocument.text` - Odt\n* `application/pdf` - Pdf\n* `text/plain` - Plain Text\n* `image/png` - Png\n* `application/rtf` - Rtf\n* `application/octet-stream` - Other",
                   "x-spec-enum-id": "2456dc91a64f0b5f"
-                },
-                "gs_path": {
-                  "type": "string",
-                  "readOnly": true
                 }
               },
               "required": [
                 "content_type",
-                "gs_path",
                 "name",
                 "type"
               ],
@@ -4652,11 +5180,13 @@
               "properties": {
                 "id": {
                   "type": "string",
-                  "minLength": 1
+                  "minLength": 1,
+                  "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
                 },
                 "question": {
                   "type": "string",
-                  "minLength": 1
+                  "minLength": 1,
+                  "description": "Question of the screening question"
                 },
                 "answer_type": {
                   "enum": [
@@ -4667,10 +5197,13 @@
                     "multiselect"
                   ],
                   "type": "string",
-                  "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                  "description": "Answer type of the screening question",
                   "x-spec-enum-id": "82857413e8e5153a"
                 },
-                "answer": {}
+                "answer": {
+                  "type": "object",
+                  "description": "Answer of the screening question"
+                }
               },
               "required": [
                 "answer",
@@ -4786,12 +5319,10 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "minLength": 1
+            "type": "string"
           },
           "question": {
-            "type": "string",
-            "minLength": 1
+            "type": "string"
           },
           "answer_type": {
             "enum": [
@@ -4847,15 +5378,10 @@
             "type": "string",
             "description": "* `application/msword` - Doc\n* `application/vnd.openxmlformats-officedocument.wordprocessingml.document` - Docx\n* `image/jpeg` - Jpeg\n* `application/vnd.oasis.opendocument.text` - Odt\n* `application/pdf` - Pdf\n* `text/plain` - Plain Text\n* `image/png` - Png\n* `application/rtf` - Rtf\n* `application/octet-stream` - Other",
             "x-spec-enum-id": "2456dc91a64f0b5f"
-          },
-          "gs_path": {
-            "type": "string",
-            "readOnly": true
           }
         },
         "required": [
           "content_type",
-          "gs_path",
           "name",
           "type"
         ],
@@ -5104,7 +5630,7 @@
         "properties": {
           "id": {
             "type": "integer",
-            "readOnly": true
+            "description": "Kini ID of the job"
           },
           "external_id": {
             "type": [
@@ -5158,8 +5684,8 @@
           "remote": {
             "enum": [
               "remote",
-              "on-site",
-              "hybrid"
+              "hybrid",
+              "on-site"
             ],
             "type": [
               "string"
@@ -5177,19 +5703,95 @@
             "type": [
               "string"
             ],
-            "description": "Category of the job, e.g. 'Sales'"
+            "description": "Category of the job, e.g. 'sales'",
+            "enum": [
+              "accounting_finance",
+              "administration",
+              "architecture_construction",
+              "arts_media_entertainment",
+              "business_development",
+              "cleaning_facilities",
+              "consulting",
+              "customer_service_support",
+              "data_analytics",
+              "design",
+              "education_training",
+              "engineering",
+              "entertainment_travel",
+              "event_management",
+              "finance",
+              "healthcare",
+              "hospitality_tourism",
+              "hr_recruitment",
+              "installation_maintenance_repair",
+              "it_support",
+              "legal",
+              "logistics_supply_chain",
+              "management_executive",
+              "marketing",
+              "non_profit",
+              "operations",
+              "other",
+              "personal_care_services",
+              "pharmaceutical_life_sciences",
+              "product_management",
+              "project_management",
+              "public_relations",
+              "real_estate",
+              "retail",
+              "sales",
+              "science_technology",
+              "software_development",
+              "social_services",
+              "sports_fitness_recreation",
+              "translation_localization",
+              "warehouse"
+            ]
           },
           "employment_type": {
             "type": [
               "string"
             ],
-            "description": "Employment type of the job (full-time, part-time, contract, etc.)"
+            "description": "Employment type of the job (permanent, contract, minijob, etc.)",
+            "enum": [
+              "contract",
+              "freelance",
+              "intern",
+              "temporary",
+              "permanent",
+              "volunteer",
+              "apprenticeship",
+              "working_student",
+              "minijob",
+              "other"
+            ]
+          },
+          "work_schedule": {
+            "type": [
+              "string"
+            ],
+            "description": "Work schedule type for the position (full-time, part-time, flexible)",
+            "enum": [
+              "full_time",
+              "part_time",
+              "flexible"
+            ]
           },
           "senority": {
             "type": [
               "string"
             ],
-            "description": "Required or expected seniority level"
+            "description": "Required or expected seniority level",
+            "enum": [
+              "unexperienced",
+              "junior",
+              "mid_level",
+              "senior",
+              "lead",
+              "manager",
+              "director",
+              "executive"
+            ]
           },
           "start_date": {
             "type": [
@@ -5304,6 +5906,10 @@
             ],
             "description": "Phone Number of the contact person responsible for the job posting"
           },
+          "banner_image": {
+            "type": "string",
+            "description": "Banner Image URL"
+          },
           "import_source": {
             "type": [
               "string"
@@ -5316,10 +5922,12 @@
               "type": "object",
               "properties": {
                 "id": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
                 },
                 "question": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "Question of the screening question"
                 },
                 "answer_type": {
                   "enum": [
@@ -5330,11 +5938,12 @@
                     "multiselect"
                   ],
                   "type": "string",
-                  "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                  "description": "Answer type of the screening question",
                   "x-spec-enum-id": "82857413e8e5153a"
                 },
                 "required": {
-                  "type": "boolean"
+                  "type": "boolean",
+                  "description": "Whether the screening question is required"
                 },
                 "options": {
                   "type": "array",
@@ -5342,10 +5951,12 @@
                     "type": "object",
                     "properties": {
                       "label": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Label of the screening question option"
                       },
                       "value": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Value of the screening question option, must match the value of a screening question option in the company's ATS"
                       }
                     },
                     "required": [
@@ -5377,6 +5988,52 @@
               "employer_logo": "https://example.com/logo.png"
             },
             "maxProperties": 10
+          },
+          "description_sections": {
+            "type": "array",
+            "nullable": true,
+            "description": "Structured sections of the job description",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Stable identifier of the section"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "Section type",
+                  "enum": [
+                    "introduction",
+                    "tasks",
+                    "profile",
+                    "benefits",
+                    "contact",
+                    "other"
+                  ]
+                },
+                "order": {
+                  "type": "integer",
+                  "description": "Display order (ascending)"
+                },
+                "title": {
+                  "type": "string",
+                  "description": "Section title"
+                },
+                "content": {
+                  "type": "string",
+                  "description": "Section content"
+                }
+              },
+              "required": [
+                "id",
+                "type",
+                "order",
+                "title",
+                "content"
+              ],
+              "x-readme-ref-name": "DescriptionSection"
+            }
           }
         },
         "required": [
@@ -5439,8 +6096,8 @@
           "remote": {
             "enum": [
               "remote",
-              "on-site",
-              "hybrid"
+              "hybrid",
+              "on-site"
             ],
             "type": [
               "string"
@@ -5458,19 +6115,95 @@
             "type": [
               "string"
             ],
-            "description": "Category of the job, e.g. 'Sales'"
+            "description": "Category of the job, e.g. 'sales'",
+            "enum": [
+              "accounting_finance",
+              "administration",
+              "architecture_construction",
+              "arts_media_entertainment",
+              "business_development",
+              "cleaning_facilities",
+              "consulting",
+              "customer_service_support",
+              "data_analytics",
+              "design",
+              "education_training",
+              "engineering",
+              "entertainment_travel",
+              "event_management",
+              "finance",
+              "healthcare",
+              "hospitality_tourism",
+              "hr_recruitment",
+              "installation_maintenance_repair",
+              "it_support",
+              "legal",
+              "logistics_supply_chain",
+              "management_executive",
+              "marketing",
+              "non_profit",
+              "operations",
+              "other",
+              "personal_care_services",
+              "pharmaceutical_life_sciences",
+              "product_management",
+              "project_management",
+              "public_relations",
+              "real_estate",
+              "retail",
+              "sales",
+              "science_technology",
+              "software_development",
+              "social_services",
+              "sports_fitness_recreation",
+              "translation_localization",
+              "warehouse"
+            ]
           },
           "employment_type": {
             "type": [
               "string"
             ],
-            "description": "Employment type of the job (full-time, part-time, contract, etc.)"
+            "description": "Employment type of the job (permanent, contract, minijob, etc.)",
+            "enum": [
+              "contract",
+              "freelance",
+              "intern",
+              "temporary",
+              "permanent",
+              "volunteer",
+              "apprenticeship",
+              "working_student",
+              "minijob",
+              "other"
+            ]
+          },
+          "work_schedule": {
+            "type": [
+              "string"
+            ],
+            "description": "Work schedule type for the position (full-time, part-time, flexible)",
+            "enum": [
+              "full_time",
+              "part_time",
+              "flexible"
+            ]
           },
           "senority": {
             "type": [
               "string"
             ],
-            "description": "Required or expected seniority level"
+            "description": "Required or expected seniority level",
+            "enum": [
+              "unexperienced",
+              "junior",
+              "mid_level",
+              "senior",
+              "lead",
+              "manager",
+              "director",
+              "executive"
+            ]
           },
           "start_date": {
             "type": [
@@ -5585,6 +6318,10 @@
             ],
             "description": "Phone Number of the contact person responsible for the job posting"
           },
+          "banner_image": {
+            "type": "string",
+            "description": "Banner Image URL"
+          },
           "import_source": {
             "type": [
               "string"
@@ -5598,11 +6335,12 @@
               "properties": {
                 "id": {
                   "type": "string",
-                  "minLength": 1
+                  "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
                 },
                 "question": {
                   "type": "string",
-                  "minLength": 1
+                  "minLength": 1,
+                  "description": "Question of the screening question"
                 },
                 "answer_type": {
                   "enum": [
@@ -5613,11 +6351,12 @@
                     "multiselect"
                   ],
                   "type": "string",
-                  "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                  "description": "Answer type of the screening question",
                   "x-spec-enum-id": "82857413e8e5153a"
                 },
                 "required": {
-                  "type": "boolean"
+                  "type": "boolean",
+                  "description": "Whether the screening question is required"
                 },
                 "options": {
                   "type": "array",
@@ -5626,11 +6365,11 @@
                     "properties": {
                       "label": {
                         "type": "string",
-                        "minLength": 1
+                        "description": "Label of the screening question option"
                       },
                       "value": {
                         "type": "string",
-                        "minLength": 1
+                        "description": "Value of the screening question option, must match the value of a screening question option in the company's ATS"
                       }
                     },
                     "required": [
@@ -5649,6 +6388,53 @@
                 "required"
               ],
               "x-readme-ref-name": "ScreeningQuestionRequest"
+            }
+          },
+          "description_sections": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "Stable identifier of the section"
+                },
+                "type": {
+                  "type": "string",
+                  "description": "Section type",
+                  "enum": [
+                    "introduction",
+                    "tasks",
+                    "profile",
+                    "benefits",
+                    "contact",
+                    "other"
+                  ]
+                },
+                "order": {
+                  "type": "integer",
+                  "description": "Display order (ascending)"
+                },
+                "title": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "Section title"
+                },
+                "content": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "Section content"
+                }
+              },
+              "required": [
+                "id",
+                "type",
+                "order",
+                "title",
+                "content"
+              ],
+              "x-readme-ref-name": "DescriptionSectionRequest"
             }
           },
           "custom_fields": {
@@ -5727,28 +6513,32 @@
         "properties": {
           "count": {
             "type": "integer",
-            "example": 123
+            "example": 123,
+            "description": "Total number of records available across all pages"
           },
           "next": {
             "type": "string",
             "nullable": true,
             "format": "uri",
-            "example": "http://api.example.org/accounts/?page=4"
+            "example": "http://api.example.org/accounts/?page=4",
+            "description": "URL to the next page of results"
           },
           "previous": {
             "type": "string",
             "nullable": true,
             "format": "uri",
-            "example": "http://api.example.org/accounts/?page=2"
+            "example": "http://api.example.org/accounts/?page=2",
+            "description": "URL to the previous page of results"
           },
           "results": {
             "type": "array",
+            "description": "List of applications",
             "items": {
               "type": "object",
               "properties": {
                 "id": {
                   "type": "integer",
-                  "readOnly": true
+                  "description": "Kini ID of the application"
                 },
                 "job": {
                   "type": [
@@ -5909,10 +6699,12 @@
                     "type": "object",
                     "properties": {
                       "id": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
                       },
                       "question": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Question of the screening question"
                       },
                       "answer_type": {
                         "enum": [
@@ -5923,10 +6715,13 @@
                           "multiselect"
                         ],
                         "type": "string",
-                        "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                        "description": "Answer type of the screening question",
                         "x-spec-enum-id": "82857413e8e5153a"
                       },
-                      "answer": {}
+                      "answer": {
+                        "type": "string",
+                        "description": "Answer of the screening question. The expected data type for the 'answer' field depends on the 'answer_type':\n  * 'text', 'textarea', 'select': expects a `str`.\n  * 'boolean': expects a `bool`.\n  * 'multiselect': expects an `array of strings`."
+                      }
                     },
                     "required": [
                       "answer",
@@ -5971,15 +6766,10 @@
                         "type": "string",
                         "description": "* `application/msword` - Doc\n* `application/vnd.openxmlformats-officedocument.wordprocessingml.document` - Docx\n* `image/jpeg` - Jpeg\n* `application/vnd.oasis.opendocument.text` - Odt\n* `application/pdf` - Pdf\n* `text/plain` - Plain Text\n* `image/png` - Png\n* `application/rtf` - Rtf\n* `application/octet-stream` - Other",
                         "x-spec-enum-id": "2456dc91a64f0b5f"
-                      },
-                      "gs_path": {
-                        "type": "string",
-                        "readOnly": true
                       }
                     },
                     "required": [
                       "content_type",
-                      "gs_path",
                       "name",
                       "type"
                     ],
@@ -6042,28 +6832,32 @@
         "properties": {
           "count": {
             "type": "integer",
-            "example": 123
+            "example": 123,
+            "description": "Total number of records available across all pages"
           },
           "next": {
             "type": "string",
             "nullable": true,
             "format": "uri",
-            "example": "http://api.example.org/accounts/?page=4"
+            "example": "http://api.example.org/accounts/?page=4",
+            "description": "URL to the next page of results"
           },
           "previous": {
             "type": "string",
             "nullable": true,
             "format": "uri",
-            "example": "http://api.example.org/accounts/?page=2"
+            "example": "http://api.example.org/accounts/?page=2",
+            "description": "URL to the previous page of results"
           },
           "results": {
             "type": "array",
+            "description": "List of jobs",
             "items": {
               "type": "object",
               "properties": {
                 "id": {
                   "type": "integer",
-                  "readOnly": true
+                  "description": "Kini ID of the job"
                 },
                 "external_id": {
                   "type": [
@@ -6117,8 +6911,8 @@
                 "remote": {
                   "enum": [
                     "remote",
-                    "on-site",
-                    "hybrid"
+                    "hybrid",
+                    "on-site"
                   ],
                   "type": [
                     "string"
@@ -6136,19 +6930,95 @@
                   "type": [
                     "string"
                   ],
-                  "description": "Category of the job, e.g. 'Sales'"
+                  "description": "Category of the job, e.g. 'sales'",
+                  "enum": [
+                    "accounting_finance",
+                    "administration",
+                    "architecture_construction",
+                    "arts_media_entertainment",
+                    "business_development",
+                    "cleaning_facilities",
+                    "consulting",
+                    "customer_service_support",
+                    "data_analytics",
+                    "design",
+                    "education_training",
+                    "engineering",
+                    "entertainment_travel",
+                    "event_management",
+                    "finance",
+                    "healthcare",
+                    "hospitality_tourism",
+                    "hr_recruitment",
+                    "installation_maintenance_repair",
+                    "it_support",
+                    "legal",
+                    "logistics_supply_chain",
+                    "management_executive",
+                    "marketing",
+                    "non_profit",
+                    "operations",
+                    "other",
+                    "personal_care_services",
+                    "pharmaceutical_life_sciences",
+                    "product_management",
+                    "project_management",
+                    "public_relations",
+                    "real_estate",
+                    "retail",
+                    "sales",
+                    "science_technology",
+                    "software_development",
+                    "social_services",
+                    "sports_fitness_recreation",
+                    "translation_localization",
+                    "warehouse"
+                  ]
                 },
                 "employment_type": {
                   "type": [
                     "string"
                   ],
-                  "description": "Employment type of the job (full-time, part-time, contract, etc.)"
+                  "description": "Employment type of the job (permanent, contract, minijob, etc.)",
+                  "enum": [
+                    "contract",
+                    "freelance",
+                    "intern",
+                    "temporary",
+                    "permanent",
+                    "volunteer",
+                    "apprenticeship",
+                    "working_student",
+                    "minijob",
+                    "other"
+                  ]
+                },
+                "work_schedule": {
+                  "type": [
+                    "string"
+                  ],
+                  "description": "Work schedule type for the position (full-time, part-time, flexible)",
+                  "enum": [
+                    "full_time",
+                    "part_time",
+                    "flexible"
+                  ]
                 },
                 "senority": {
                   "type": [
                     "string"
                   ],
-                  "description": "Required or expected seniority level"
+                  "description": "Required or expected seniority level",
+                  "enum": [
+                    "unexperienced",
+                    "junior",
+                    "mid_level",
+                    "senior",
+                    "lead",
+                    "manager",
+                    "director",
+                    "executive"
+                  ]
                 },
                 "start_date": {
                   "type": [
@@ -6263,6 +7133,10 @@
                   ],
                   "description": "Phone Number of the contact person responsible for the job posting"
                 },
+                "banner_image": {
+                  "type": "string",
+                  "description": "Banner Image URL"
+                },
                 "import_source": {
                   "type": [
                     "string"
@@ -6275,10 +7149,12 @@
                     "type": "object",
                     "properties": {
                       "id": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "ID of the screening question, must match the ID of a screening question in the company's ATS"
                       },
                       "question": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Question of the screening question"
                       },
                       "answer_type": {
                         "enum": [
@@ -6289,11 +7165,12 @@
                           "multiselect"
                         ],
                         "type": "string",
-                        "description": "* `boolean` - boolean\n* `text` - text\n* `textarea` - textarea\n* `select` - select\n* `multiselect` - multiselect",
+                        "description": "Answer type of the screening question",
                         "x-spec-enum-id": "82857413e8e5153a"
                       },
                       "required": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "description": "Whether the screening question is required"
                       },
                       "options": {
                         "type": "array",
@@ -6301,10 +7178,12 @@
                           "type": "object",
                           "properties": {
                             "label": {
-                              "type": "string"
+                              "type": "string",
+                              "description": "Label of the screening question option"
                             },
                             "value": {
-                              "type": "string"
+                              "type": "string",
+                              "description": "Value of the screening question option, must match the value of a screening question option in the company's ATS"
                             }
                           },
                           "required": [
@@ -6438,12 +7317,10 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "minLength": 1
+            "type": "string"
           },
           "question": {
-            "type": "string",
-            "minLength": 1
+            "type": "string"
           },
           "answer_type": {
             "enum": [
@@ -6569,10 +7446,6 @@
             "type": "integer",
             "readOnly": true
           },
-          "slug": {
-            "type": "string",
-            "description": "The company's slug, used for logging purposes only"
-          },
           "name": {
             "type": "string",
             "description": "The company's name"
@@ -6669,12 +7542,7 @@
         "properties": {
           "id": {
             "type": "integer",
-            "readOnly": true,
             "description": "Unique Kini ID of the company"
-          },
-          "slug": {
-            "type": "string",
-            "description": "The company's slug, used for logging purposes only"
           },
           "name": {
             "type": "string",
@@ -6765,10 +7633,10 @@
       }
     },
     "securitySchemes": {
-      "jwtAuth": {
+      "bearerAuth": {
         "type": "http",
         "scheme": "bearer",
-        "bearerFormat": "JWT"
+        "description": "Bearer API Key Authentication. Include your API key in the Authorization header."
       }
     }
   },

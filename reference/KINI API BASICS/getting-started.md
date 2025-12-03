@@ -14,11 +14,10 @@ next:
 ---
 ## Step 1: Authenticate
 
-To interact with the Kini API, you need to authenticate using **JWT (JSON Web Token)**. Follow the steps in the [Authentication Guide](./authentication) to:
+To interact with the Kini API, you need to authenticate using an **Bearer API Token**. Follow the steps in the [Authentication Guide](./authentication) to:
 
-1. Obtain an access token using your username and password.
-2. Include the token in the `Authorization` header for all API requests.
-3. Refresh the token as needed to maintain access.
+1. Obtain an API Key in the [Kini Partner App](https://app.getkini.com/).
+2. Include the key in the Authorization header for all API requests.
 
 ***
 
