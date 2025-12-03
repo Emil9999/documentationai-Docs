@@ -338,11 +338,6 @@
                             ],
                             "description": "External posting channel from which the application was received"
                           },
-                          "import_source": {
-                            "type": "string",
-                            "readOnly": true,
-                            "description": "Source from which the application was created (API, etc.)"
-                          },
                           "sync_status": {
                             "enum": [
                               "SUCCESS",
@@ -367,7 +362,6 @@
                           "candidate",
                           "failure_error",
                           "id",
-                          "import_source",
                           "sync_status"
                         ],
                         "x-readme-ref-name": "Application"
@@ -1488,11 +1482,6 @@
                       ],
                       "description": "External posting channel from which the application was received"
                     },
-                    "import_source": {
-                      "type": "string",
-                      "readOnly": true,
-                      "description": "Source from which the application was created (API, etc.)"
-                    },
                     "sync_status": {
                       "enum": [
                         "SUCCESS",
@@ -1517,7 +1506,6 @@
                     "candidate",
                     "failure_error",
                     "id",
-                    "import_source",
                     "sync_status"
                   ],
                   "x-readme-ref-name": "Application"
@@ -1815,11 +1803,6 @@
                       ],
                       "description": "External posting channel from which the application was received"
                     },
-                    "import_source": {
-                      "type": "string",
-                      "readOnly": true,
-                      "description": "Source from which the application was created (API, etc.)"
-                    },
                     "sync_status": {
                       "enum": [
                         "SUCCESS",
@@ -1844,7 +1827,6 @@
                     "candidate",
                     "failure_error",
                     "id",
-                    "import_source",
                     "sync_status"
                   ],
                   "x-readme-ref-name": "Application"
@@ -2231,12 +2213,6 @@
                             "type": "string",
                             "description": "Banner Image URL"
                           },
-                          "import_source": {
-                            "type": [
-                              "string"
-                            ],
-                            "description": "Source from which the job was created (API, etc.)"
-                          },
                           "screening_questions": {
                             "type": "array",
                             "items": {
@@ -2359,11 +2335,6 @@
                         ],
                         "x-readme-ref-name": "Job"
                       }
-                    },
-                    "apply_webhooks": {
-                      "type": "object",
-                      "properties": {},
-                      "description": "Supported webhooks for candidateSync (based on enabled features)"
                     }
                   },
                   "x-readme-ref-name": "PaginatedJobList"
@@ -3103,12 +3074,6 @@
                     "type": "string",
                     "description": "Banner Image URL"
                   },
-                  "import_source": {
-                    "type": [
-                      "string"
-                    ],
-                    "description": "Source from which the job was created (API, etc.)"
-                  },
                   "screening_questions": {
                     "type": "array",
                     "items": {
@@ -3522,12 +3487,6 @@
                   "banner_image": {
                     "type": "string",
                     "description": "Banner Image URL"
-                  },
-                  "import_source": {
-                    "type": [
-                      "string"
-                    ],
-                    "description": "Source from which the job was created (API, etc.)"
                   },
                   "screening_questions": {
                     "type": "array",
@@ -3951,12 +3910,6 @@
                       "type": "string",
                       "description": "Banner Image URL"
                     },
-                    "import_source": {
-                      "type": [
-                        "string"
-                      ],
-                      "description": "Source from which the job was created (API, etc.)"
-                    },
                     "screening_questions": {
                       "type": "array",
                       "items": {
@@ -4346,10 +4299,6 @@
                     "banner_image": {
                       "type": "string",
                       "description": "Banner Image URL"
-                    },
-                    "import_source": {
-                      "type": "string",
-                      "description": "Source from which the job was created (API, etc.)"
                     },
                     "screening_questions": {
                       "type": "array",
@@ -4980,11 +4929,6 @@
             ],
             "description": "External posting channel from which the application was received"
           },
-          "import_source": {
-            "type": "string",
-            "readOnly": true,
-            "description": "Source from which the application was created (API, etc.)"
-          },
           "sync_status": {
             "enum": [
               "SUCCESS",
@@ -5009,7 +4953,6 @@
           "candidate",
           "failure_error",
           "id",
-          "import_source",
           "sync_status"
         ],
         "x-readme-ref-name": "Application"
@@ -5910,12 +5853,6 @@
             "type": "string",
             "description": "Banner Image URL"
           },
-          "import_source": {
-            "type": [
-              "string"
-            ],
-            "description": "Source from which the job was created (API, etc.)"
-          },
           "screening_questions": {
             "type": "array",
             "items": {
@@ -6321,12 +6258,6 @@
           "banner_image": {
             "type": "string",
             "description": "Banner Image URL"
-          },
-          "import_source": {
-            "type": [
-              "string"
-            ],
-            "description": "Source from which the job was created (API, etc.)"
           },
           "screening_questions": {
             "type": "array",
@@ -6789,11 +6720,6 @@
                   ],
                   "description": "External posting channel from which the application was received"
                 },
-                "import_source": {
-                  "type": "string",
-                  "readOnly": true,
-                  "description": "Source from which the application was created (API, etc.)"
-                },
                 "sync_status": {
                   "enum": [
                     "SUCCESS",
@@ -6818,7 +6744,6 @@
                 "candidate",
                 "failure_error",
                 "id",
-                "import_source",
                 "sync_status"
               ],
               "x-readme-ref-name": "Application"
@@ -7136,12 +7061,6 @@
                 "banner_image": {
                   "type": "string",
                   "description": "Banner Image URL"
-                },
-                "import_source": {
-                  "type": [
-                    "string"
-                  ],
-                  "description": "Source from which the job was created (API, etc.)"
                 },
                 "screening_questions": {
                   "type": "array",
