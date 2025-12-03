@@ -28,8 +28,7 @@ The following parameters can be used to filter results across different endpoint
 | `remote`                 | Filters jobs by remote work type. Possible values: `remote`, `hybrid`, `on-site`       | Exact match                 | `/jobs?remote=remote`                     |
 | `language`               | Filters jobs by the required language                                                  | Exact match                 | `/jobs?language=en`                       |
 | `city`                   | Filters jobs by city                                                                   | Contains (case-insensitive) | `/jobs?city=Berlin`                       |
-| `country`                | Filters jobs by country                                                                | Exact match                 | `/jobs?country=DE`                        |
-| `import_source`          | Filters jobs by the source of their import                                             | Exact match                 | `/jobs?import_source=API`                 |
+| `country`                | Filters jobs by country                                                                | Exact match                 | `/jobs?country=DE`                        |               |
 | `created_at`             | Filters jobs by their creation date                                                    | Greater than or equal       | `/jobs?created_at=2024-01-01`             |
 | `updated_at`             | Filters jobs by their last update date                                                 | Greater than or equal       | `/jobs?updated_at=2024-01-01`             |
 | `last_content_update_at` | Filters jobs by their last content update date                                         | Greater than or equal       | `/jobs?last_content_update_at=2024-01-01` |
@@ -47,7 +46,6 @@ The following parameters can be used to filter results across different endpoint
 | `agency`                 | Filters by the agency ID                                                                                    | Exact match           | `/applications?agency=12`                            |
 | `channel`                | Filters by the application channel                                                                          | Exact match           | `/applications?channel=LinkedIn`                     |
 | `job`                    | Filters by the related job ID                                                                               | Exact match           | `/applications?job=1234`                             |
-| `import_source`          | Filters by the source of the application                                                                    | Exact match           | '/applications?import\_source=API'                   |
 | `sync_status`            | Filters by the synchronization status. Possible values: `SUCCESS`, `EXPECTED_FAILURE`, `FAILURE`, `NOTSENT` | Exact match           | `/applications?sync_status=SUCCESS`                  |
 | `applied_at`             | Filters applications by application date                                                                    | Greater than or equal | `/applications?applied_at=2024-01-01`                |
 | `created_at`             | Filters applications by their creation date                                                                 | Greater than or equal | `/applications?created_at=2024-01-01`                |
