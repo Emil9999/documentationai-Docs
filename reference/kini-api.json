@@ -4511,14 +4511,14 @@
         ],
         "security": [
           {
-            "jwtAuth": []
+            "bearerAuth": []
           }
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/paths/~1jobs/post/requestBody/content/application~1json/schema"
+                "$ref": "#/paths/~1jobs~1/post/requestBody/content/application~1json/schema"
               }
             }
           }
