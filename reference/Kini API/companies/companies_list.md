@@ -15,4 +15,4 @@ metadata:
 next:
   description: ''
 ---
-To optimize your queries, use the filtering options in conjunction with pagination. For more details on how to use filters effectively, see the [Filtering](./filtering) section.
+To optimize your queries, use the filtering options in conjunction with pagination. For more details on how to use filters effectively, see the [Filtering](./filtering#) section.
