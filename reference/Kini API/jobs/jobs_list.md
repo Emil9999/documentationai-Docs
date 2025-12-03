@@ -26,6 +26,6 @@ Filtering is powered by the Jobs filter set. Common filters include:
 
 - `status` (defaults to only returning active jobs when omitted).
 - Location filters such as `city` and `country`.
-- `remote`, `import_source`, `external_id`, and timestamp filters such as `created_at`.
+- `remote`, `external_id`, and timestamp filters such as `created_at`.
 
-For more information on how to combine filters with pagination, see the [Filtering](../filtering.md) section.
+For more information on how to combine filters with pagination, see the [Filtering](./filtering.md) section.
