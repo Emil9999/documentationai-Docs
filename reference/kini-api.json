@@ -174,6 +174,27 @@
                                 "x-spec-enum-id": "43015059ee486444",
                                 "description": "Applicant's Gender\n\n* `MALE` - Male\n* `FEMALE` - Female\n* `DIVERSE` - Diverse\n* `NOT_SPECIFIED` - Not Specified"
                               },
+                              "birthdate": {
+                                "type": [
+                                  "string"
+                                ],
+                                "format": "date",
+                                "description": "Applicant's birthdate"
+                              },
+                              "language": {
+                                "type": [
+                                  "string"
+                                ],
+                                "minLength": 2,
+                                "maxLength": 2,
+                                "description": "Applicant's preferred language as an ISO 639-1 code (e.g. 'en', 'de')"
+                              },
+                              "nationality": {
+                                "type": [
+                                  "string"
+                                ],
+                                "description": "Applicant's nationality"
+                              },
                               "phone": {
                                 "type": [
                                   "string"
@@ -1970,7 +1991,7 @@
                               "string"
                             ],
                             "x-spec-enum-id": "ead97c7bc7363dd0",
-                            "description": "Posting status of the job (active, deleted, archived)\n\n* `active` - Job posting is open and accepting applications\n* `deleted` - Job posting has been deleted and is not accepting applications\n* `archived` - Job posting is archived and not accepting applications"
+                            "description": "Posting status of the job (active, deleted, archived)"
                           },
                           "remote": {
                             "enum": [
@@ -1982,13 +2003,15 @@
                               "string"
                             ],
                             "x-spec-enum-id": "48718b3ae514d1f4",
-                            "description": "Work mode of the job (remote, hybrid, on-site)\n\n* `remote` - Fully remote, work from anywhere\n* `on-site` - Fully onsite, work from the company's physical location\n* `hybrid` - Flexible combination of onsite and remote work"
+                            "description": "Work mode of the job (remote, hybrid, on-site)"
                           },
                           "language": {
                             "type": [
                               "string"
                             ],
-                            "description": "Language of the job posting"
+                            "minLength": 2,
+                            "maxLength": 2,
+                            "description": "Language of the job posting as an ISO 639-1 code (e.g. 'en', 'de')"
                           },
                           "category": {
                             "type": [
@@ -2417,7 +2440,7 @@
                       "string"
                     ],
                     "x-spec-enum-id": "ead97c7bc7363dd0",
-                    "description": "Posting status of the job (active, deleted, archived)\n\n* `active` - Job posting is open and accepting applications\n* `deleted` - Job posting has been deleted and is not accepting applications\n* `archived` - Job posting is archived and not accepting applications"
+                    "description": "Posting status of the job (active, deleted, archived)"
                   },
                   "remote": {
                     "enum": [
@@ -2429,13 +2452,15 @@
                       "string"
                     ],
                     "x-spec-enum-id": "48718b3ae514d1f4",
-                    "description": "Work mode of the job (remote, hybrid, on-site)\n\n* `remote` - Fully remote, work from anywhere\n* `on-site` - Fully onsite, work from the company's physical location\n* `hybrid` - Flexible combination of onsite and remote work"
+                    "description": "Work mode of the job (remote, hybrid, on-site)"
                   },
                   "language": {
                     "type": [
                       "string"
                     ],
-                    "description": "Language of the job posting"
+                    "minLength": 2,
+                    "maxLength": 2,
+                    "description": "Language of the job posting as an ISO 639-1 code (e.g. 'en', 'de')"
                   },
                   "category": {
                     "type": [
@@ -2843,7 +2868,7 @@
                       "string"
                     ],
                     "x-spec-enum-id": "ead97c7bc7363dd0",
-                    "description": "Posting status of the job (active, deleted, archived)\n\n* `active` - Job posting is open and accepting applications\n* `deleted` - Job posting has been deleted and is not accepting applications\n* `archived` - Job posting is archived and not accepting applications"
+                    "description": "Posting status of the job (active, deleted, archived)"
                   },
                   "remote": {
                     "enum": [
@@ -2855,13 +2880,15 @@
                       "string"
                     ],
                     "x-spec-enum-id": "48718b3ae514d1f4",
-                    "description": "Work mode of the job (remote, hybrid, on-site)\n\n* `remote` - Fully remote, work from anywhere\n* `on-site` - Fully onsite, work from the company's physical location\n* `hybrid` - Flexible combination of onsite and remote work"
+                    "description": "Work mode of the job (remote, hybrid, on-site)"
                   },
                   "language": {
                     "type": [
                       "string"
                     ],
-                    "description": "Language of the job posting"
+                    "minLength": 2,
+                    "maxLength": 2,
+                    "description": "Language of the job posting as an ISO 639-1 code (e.g. 'en', 'de')"
                   },
                   "category": {
                     "type": [
@@ -3257,7 +3284,7 @@
                       "string"
                     ],
                     "x-spec-enum-id": "ead97c7bc7363dd0",
-                    "description": "Posting status of the job (active, deleted, archived)\n\n* `active` - Job posting is open and accepting applications\n* `deleted` - Job posting has been deleted and is not accepting applications\n* `archived` - Job posting is archived and not accepting applications"
+                    "description": "Posting status of the job (active, deleted, archived)"
                   },
                   "remote": {
                     "enum": [
@@ -3269,7 +3296,7 @@
                       "string"
                     ],
                     "x-spec-enum-id": "48718b3ae514d1f4",
-                    "description": "Work mode of the job (remote, hybrid, on-site)\n\n* `remote` - Fully remote, work from anywhere\n* `on-site` - Fully onsite, work from the company's physical location\n* `hybrid` - Flexible combination of onsite and remote work"
+                    "description": "Work mode of the job (remote, hybrid, on-site)"
                   },
                   "language": {
                     "type": [
@@ -3679,7 +3706,7 @@
                         "string"
                       ],
                       "x-spec-enum-id": "ead97c7bc7363dd0",
-                      "description": "Posting status of the job (active, deleted, archived)\n\n* `active` - Job posting is open and accepting applications\n* `deleted` - Job posting has been deleted and is not accepting applications\n* `archived` - Job posting is archived and not accepting applications"
+                      "description": "Posting status of the job (active, deleted, archived)"
                     },
                     "remote": {
                       "enum": [
@@ -3691,13 +3718,15 @@
                         "string"
                       ],
                       "x-spec-enum-id": "48718b3ae514d1f4",
-                      "description": "Work mode of the job (remote, hybrid, on-site)\n\n* `remote` - Fully remote, work from anywhere\n* `on-site` - Fully onsite, work from the company's physical location\n* `hybrid` - Flexible combination of onsite and remote work"
+                      "description": "Work mode of the job (remote, hybrid, on-site)"
                     },
                     "language": {
                       "type": [
                         "string"
                       ],
-                      "description": "Language of the job posting"
+                      "minLength": 2,
+                      "maxLength": 2,
+                      "description": "Language of the job posting as an ISO 639-1 code (e.g. 'en', 'de')"
                     },
                     "category": {
                       "type": [
@@ -4118,7 +4147,7 @@
                       ],
                       "type": "string",
                       "x-spec-enum-id": "ead97c7bc7363dd0",
-                      "description": "Posting status of the job (active, deleted, archived)\n\n* `active` - Job posting is open and accepting applications\n* `deleted` - Job posting has been deleted and is not accepting applications\n* `archived` - Job posting is archived and not accepting applications"
+                      "description": "Posting status of the job (active, deleted, archived)"
                     },
                     "remote": {
                       "enum": [
@@ -4128,7 +4157,7 @@
                       ],
                       "type": "string",
                       "x-spec-enum-id": "48718b3ae514d1f4",
-                      "description": "Work mode of the job (remote, hybrid, on-site)\n\n* `remote` - Fully remote, work from anywhere\n* `on-site` - Fully onsite, work from the company's physical location\n* `hybrid` - Flexible combination of onsite and remote work"
+                      "description": "Work mode of the job (remote, hybrid, on-site)"
                     },
                     "language": {
                       "type": "string",
@@ -5417,6 +5446,27 @@
             "x-spec-enum-id": "43015059ee486444",
             "description": "Applicant's Gender\n\n* `MALE` - Male\n* `FEMALE` - Female\n* `DIVERSE` - Diverse\n* `NOT_SPECIFIED` - Not Specified"
           },
+          "birthdate": {
+            "type": [
+              "string"
+            ],
+            "format": "date",
+            "description": "Applicant's birthdate"
+          },
+          "language": {
+            "type": [
+              "string"
+            ],
+            "minLength": 2,
+            "maxLength": 2,
+            "description": "Applicant's preferred language as an ISO 639-1 code (e.g. 'en', 'de')"
+          },
+          "nationality": {
+            "type": [
+              "string"
+            ],
+            "description": "Applicant's nationality"
+          },
           "phone": {
             "type": [
               "string"
@@ -5622,7 +5672,7 @@
               "string"
             ],
             "x-spec-enum-id": "ead97c7bc7363dd0",
-            "description": "Posting status of the job (active, deleted, archived)\n\n* `active` - Job posting is open and accepting applications\n* `deleted` - Job posting has been deleted and is not accepting applications\n* `archived` - Job posting is archived and not accepting applications"
+            "description": "Posting status of the job (active, deleted, archived)"
           },
           "remote": {
             "enum": [
@@ -5634,7 +5684,7 @@
               "string"
             ],
             "x-spec-enum-id": "48718b3ae514d1f4",
-            "description": "Work mode of the job (remote, hybrid, on-site)\n\n* `remote` - Fully remote, work from anywhere\n* `on-site` - Fully onsite, work from the company's physical location\n* `hybrid` - Flexible combination of onsite and remote work"
+            "description": "Work mode of the job (remote, hybrid, on-site)"
           },
           "language": {
             "type": [
@@ -6028,7 +6078,7 @@
               "string"
             ],
             "x-spec-enum-id": "ead97c7bc7363dd0",
-            "description": "Posting status of the job (active, deleted, archived)\n\n* `active` - Job posting is open and accepting applications\n* `deleted` - Job posting has been deleted and is not accepting applications\n* `archived` - Job posting is archived and not accepting applications"
+            "description": "Posting status of the job (active, deleted, archived)"
           },
           "remote": {
             "enum": [
@@ -6040,7 +6090,7 @@
               "string"
             ],
             "x-spec-enum-id": "48718b3ae514d1f4",
-            "description": "Work mode of the job (remote, hybrid, on-site)\n\n* `remote` - Fully remote, work from anywhere\n* `on-site` - Fully onsite, work from the company's physical location\n* `hybrid` - Flexible combination of onsite and remote work"
+            "description": "Work mode of the job (remote, hybrid, on-site)"
           },
           "language": {
             "type": [
@@ -6831,7 +6881,7 @@
                     "string"
                   ],
                   "x-spec-enum-id": "ead97c7bc7363dd0",
-                  "description": "Posting status of the job (active, deleted, archived)\n\n* `active` - Job posting is open and accepting applications\n* `deleted` - Job posting has been deleted and is not accepting applications\n* `archived` - Job posting is archived and not accepting applications"
+                  "description": "Posting status of the job (active, deleted, archived)"
                 },
                 "remote": {
                   "enum": [
@@ -6843,7 +6893,7 @@
                     "string"
                   ],
                   "x-spec-enum-id": "48718b3ae514d1f4",
-                  "description": "Work mode of the job (remote, hybrid, on-site)\n\n* `remote` - Fully remote, work from anywhere\n* `on-site` - Fully onsite, work from the company's physical location\n* `hybrid` - Flexible combination of onsite and remote work"
+                  "description": "Work mode of the job (remote, hybrid, on-site)"
                 },
                 "language": {
                   "type": [
