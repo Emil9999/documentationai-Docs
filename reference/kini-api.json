@@ -2812,7 +2812,8 @@
                   }
                 },
                 "required": [
-                  "id"
+                  "id",
+                  "title"
                 ],
                 "x-readme-ref-name": "JobRequest"
               }
@@ -3228,7 +3229,8 @@
                   }
                 },
                 "required": [
-                  "id"
+                  "id",
+                  "title"
                 ],
                 "x-readme-ref-name": "JobRequest"
               }
@@ -3636,7 +3638,8 @@
                   }
                 },
                 "required": [
-                  "id"
+                  "id",
+                  "title"
                 ],
                 "x-readme-ref-name": "JobRequest"
               }
@@ -6024,7 +6027,8 @@
           }
         },
         "required": [
-          "id"
+          "id",
+          "title"
         ],
         "x-readme-ref-name": "Job"
       },
