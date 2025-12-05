@@ -315,7 +315,7 @@
                                     "other"
                                   ],
                                   "type": "string",
-                                  "description": "* `cv` - CV\n* `cover-letter` - Cover Letter\n* `photo` - Photo\n* `other` - Other Attachments",
+                                  "description": "Attachment type. Possible values: `cv` (CV), `cover-letter` (Cover Letter), `photo` (Photo), `other` (Other Attachments).",
                                   "x-spec-enum-id": "ad69ece1ebc7fa6f"
                                 },
                                 "name": {
@@ -334,7 +334,7 @@
                                     "application/octet-stream"
                                   ],
                                   "type": "string",
-                                  "description": "* `application/msword` - Doc\n* `application/vnd.openxmlformats-officedocument.wordprocessingml.document` - Docx\n* `image/jpeg` - Jpeg\n* `application/vnd.oasis.opendocument.text` - Odt\n* `application/pdf` - Pdf\n* `text/plain` - Plain Text\n* `image/png` - Png\n* `application/rtf` - Rtf\n* `application/octet-stream` - Other",
+                                  "description": "MIME type of the attachment. Enum: application/msword (Doc), application/vnd.openxmlformats-officedocument.wordprocessingml.document (Docx), image/jpeg (Jpeg), application/vnd.oasis.opendocument.text (Odt), application/pdf (Pdf), text/plain (Plain Text), image/png (Png), application/rtf (Rtf), application/octet-stream (Other).",
                                   "x-spec-enum-id": "2456dc91a64f0b5f"
                                 }
                               },
@@ -369,7 +369,7 @@
                             "type": "string",
                             "x-spec-enum-id": "be2689a2a5226a4f",
                             "readOnly": true,
-                            "description": "Indicates the current state of the application synchronization to the company's ATS\n\n* `SUCCESS` - Sync Successful\n* `EXPECTED_FAILURE` - Sync Failed Expectedly, No Action Needed\n* `FAILURE` - Sync Failed\n* `NOTSENT` - Sync Not Triggered"
+                            "description": "Indicates the current state of the application synchronization to the company's ATS. Enum: SUCCESS (Sync Successful), EXPECTED_FAILURE (Sync Failed Expectedly, No Action Needed), FAILURE (Sync Failed), NOTSENT (Sync Not Triggered)."
                           },
                           "failure_error": {
                             "type": [
@@ -631,7 +631,7 @@
                             "other"
                           ],
                           "type": "string",
-                          "description": "* `cv` - CV\n* `cover-letter` - Cover Letter\n* `photo` - Photo\n* `other` - Other Attachments",
+                          "description": "Type of attachment. Enum: cv (CV), cover-letter (Cover Letter), photo (Photo), other (Other Attachments).",
                           "x-spec-enum-id": "ad69ece1ebc7fa6f"
                         },
                         "name": {
@@ -651,7 +651,7 @@
                             "application/octet-stream"
                           ],
                           "type": "string",
-                          "description": "* `application/msword` - Doc\n* `application/vnd.openxmlformats-officedocument.wordprocessingml.document` - Docx\n* `image/jpeg` - Jpeg\n* `application/vnd.oasis.opendocument.text` - Odt\n* `application/pdf` - Pdf\n* `text/plain` - Plain Text\n* `image/png` - Png\n* `application/rtf` - Rtf\n* `application/octet-stream` - Other",
+                          "description": "MIME type of the attachment. Enum: application/msword (Doc), application/vnd.openxmlformats-officedocument.wordprocessingml.document (Docx), image/jpeg (Jpeg), application/vnd.oasis.opendocument.text (Odt), application/pdf (Pdf), text/plain (Plain Text), image/png (Png), application/rtf (Rtf), application/octet-stream (Other).",
                           "x-spec-enum-id": "2456dc91a64f0b5f"
                         },
                         "data": {
@@ -903,7 +903,7 @@
                             "other"
                           ],
                           "type": "string",
-                          "description": "* `cv` - CV\n* `cover-letter` - Cover Letter\n* `photo` - Photo\n* `other` - Other Attachments",
+                          "description": "Type of attachment. Enum: cv (CV), cover-letter (Cover Letter), photo (Photo), other (Other Attachments).",
                           "x-spec-enum-id": "ad69ece1ebc7fa6f"
                         },
                         "name": {
@@ -923,7 +923,7 @@
                             "application/octet-stream"
                           ],
                           "type": "string",
-                          "description": "* `application/msword` - Doc\n* `application/vnd.openxmlformats-officedocument.wordprocessingml.document` - Docx\n* `image/jpeg` - Jpeg\n* `application/vnd.oasis.opendocument.text` - Odt\n* `application/pdf` - Pdf\n* `text/plain` - Plain Text\n* `image/png` - Png\n* `application/rtf` - Rtf\n* `application/octet-stream` - Other",
+                          "description": "MIME type of the attachment. Enum: application/msword (Doc), application/vnd.openxmlformats-officedocument.wordprocessingml.document (Docx), image/jpeg (Jpeg), application/vnd.oasis.opendocument.text (Odt), application/pdf (Pdf), text/plain (Plain Text), image/png (Png), application/rtf (Rtf), application/octet-stream (Other).",
                           "x-spec-enum-id": "2456dc91a64f0b5f"
                         },
                         "data": {
@@ -1175,7 +1175,7 @@
                             "other"
                           ],
                           "type": "string",
-                          "description": "* `cv` - CV\n* `cover-letter` - Cover Letter\n* `photo` - Photo\n* `other` - Other Attachments",
+                          "description": "Type of attachment. Enum: cv (CV), cover-letter (Cover Letter), photo (Photo), other (Other Attachments).",
                           "x-spec-enum-id": "ad69ece1ebc7fa6f"
                         },
                         "name": {
@@ -1195,7 +1195,7 @@
                             "application/octet-stream"
                           ],
                           "type": "string",
-                          "description": "* `application/msword` - Doc\n* `application/vnd.openxmlformats-officedocument.wordprocessingml.document` - Docx\n* `image/jpeg` - Jpeg\n* `application/vnd.oasis.opendocument.text` - Odt\n* `application/pdf` - Pdf\n* `text/plain` - Plain Text\n* `image/png` - Png\n* `application/rtf` - Rtf\n* `application/octet-stream` - Other",
+                          "description": "MIME type of the attachment. Enum: application/msword (Doc), application/vnd.openxmlformats-officedocument.wordprocessingml.document (Docx), image/jpeg (Jpeg), application/vnd.oasis.opendocument.text (Odt), application/pdf (Pdf), text/plain (Plain Text), image/png (Png), application/rtf (Rtf), application/octet-stream (Other).",
                           "x-spec-enum-id": "2456dc91a64f0b5f"
                         },
                         "data": {
@@ -1459,7 +1459,7 @@
                               "other"
                             ],
                             "type": "string",
-                            "description": "* `cv` - CV\n* `cover-letter` - Cover Letter\n* `photo` - Photo\n* `other` - Other Attachments",
+                            "description": "Type of attachment. Enum: cv (CV), cover-letter (Cover Letter), photo (Photo), other (Other Attachments).",
                             "x-spec-enum-id": "ad69ece1ebc7fa6f"
                           },
                           "name": {
@@ -1478,7 +1478,7 @@
                               "application/octet-stream"
                             ],
                             "type": "string",
-                            "description": "* `application/msword` - Doc\n* `application/vnd.openxmlformats-officedocument.wordprocessingml.document` - Docx\n* `image/jpeg` - Jpeg\n* `application/vnd.oasis.opendocument.text` - Odt\n* `application/pdf` - Pdf\n* `text/plain` - Plain Text\n* `image/png` - Png\n* `application/rtf` - Rtf\n* `application/octet-stream` - Other",
+                            "description": "MIME type of the attachment. Enum: application/msword (Doc), application/vnd.openxmlformats-officedocument.wordprocessingml.document (Docx), image/jpeg (Jpeg), application/vnd.oasis.opendocument.text (Odt), application/pdf (Pdf), text/plain (Plain Text), image/png (Png), application/rtf (Rtf), application/octet-stream (Other).",
                             "x-spec-enum-id": "2456dc91a64f0b5f"
                           }
                         },
@@ -1513,7 +1513,7 @@
                       "type": "string",
                       "x-spec-enum-id": "be2689a2a5226a4f",
                       "readOnly": true,
-                      "description": "Indicates the current state of the application synchronization to the company's ATS\n\n* `SUCCESS` - Sync Successful\n* `EXPECTED_FAILURE` - Sync Failed Expectedly, No Action Needed\n* `FAILURE` - Sync Failed\n* `NOTSENT` - Sync Not Triggered"
+                      "description": "Indicates the current state of the application synchronization to the company's ATS. Enum: SUCCESS (Sync Successful), EXPECTED_FAILURE (Sync Failed Expectedly, No Action Needed), FAILURE (Sync Failed), NOTSENT (Sync Not Triggered)."
                     },
                     "failure_error": {
                       "type": [
@@ -1780,7 +1780,7 @@
                               "other"
                             ],
                             "type": "string",
-                            "description": "* `cv` - CV\n* `cover-letter` - Cover Letter\n* `photo` - Photo\n* `other` - Other Attachments",
+                            "description": "Type of attachment. Enum: cv (CV), cover-letter (Cover Letter), photo (Photo), other (Other Attachments).",
                             "x-spec-enum-id": "ad69ece1ebc7fa6f"
                           },
                           "name": {
@@ -1799,7 +1799,7 @@
                               "application/octet-stream"
                             ],
                             "type": "string",
-                            "description": "* `application/msword` - Doc\n* `application/vnd.openxmlformats-officedocument.wordprocessingml.document` - Docx\n* `image/jpeg` - Jpeg\n* `application/vnd.oasis.opendocument.text` - Odt\n* `application/pdf` - Pdf\n* `text/plain` - Plain Text\n* `image/png` - Png\n* `application/rtf` - Rtf\n* `application/octet-stream` - Other",
+                            "description": "MIME type of the attachment. Enum: application/msword (Doc), application/vnd.openxmlformats-officedocument.wordprocessingml.document (Docx), image/jpeg (Jpeg), application/vnd.oasis.opendocument.text (Odt), application/pdf (Pdf), text/plain (Plain Text), image/png (Png), application/rtf (Rtf), application/octet-stream (Other).",
                             "x-spec-enum-id": "2456dc91a64f0b5f"
                           }
                         },
@@ -1834,7 +1834,7 @@
                       "type": "string",
                       "x-spec-enum-id": "be2689a2a5226a4f",
                       "readOnly": true,
-                      "description": "Indicates the current state of the application synchronization to the company's ATS\n\n* `SUCCESS` - Sync Successful\n* `EXPECTED_FAILURE` - Sync Failed Expectedly, No Action Needed\n* `FAILURE` - Sync Failed\n* `NOTSENT` - Sync Not Triggered"
+                      "description": "Indicates the current state of the application synchronization to the company's ATS. Enum: SUCCESS (Sync Successful), EXPECTED_FAILURE (Sync Failed Expectedly, No Action Needed), FAILURE (Sync Failed), NOTSENT (Sync Not Triggered)."
                     },
                     "failure_error": {
                       "type": [
@@ -4917,7 +4917,7 @@
                     "other"
                   ],
                   "type": "string",
-                  "description": "* `cv` - CV\n* `cover-letter` - Cover Letter\n* `photo` - Photo\n* `other` - Other Attachments",
+                  "description": "Type of attachment. Enum: cv (CV), cover-letter (Cover Letter), photo (Photo), other (Other Attachments).",
                   "x-spec-enum-id": "ad69ece1ebc7fa6f"
                 },
                 "name": {
@@ -4936,7 +4936,7 @@
                     "application/octet-stream"
                   ],
                   "type": "string",
-                  "description": "* `application/msword` - Doc\n* `application/vnd.openxmlformats-officedocument.wordprocessingml.document` - Docx\n* `image/jpeg` - Jpeg\n* `application/vnd.oasis.opendocument.text` - Odt\n* `application/pdf` - Pdf\n* `text/plain` - Plain Text\n* `image/png` - Png\n* `application/rtf` - Rtf\n* `application/octet-stream` - Other",
+                  "description": "MIME type of the attachment. Enum: application/msword (Doc), application/vnd.openxmlformats-officedocument.wordprocessingml.document (Docx), image/jpeg (Jpeg), application/vnd.oasis.opendocument.text (Odt), application/pdf (Pdf), text/plain (Plain Text), image/png (Png), application/rtf (Rtf), application/octet-stream (Other).",
                   "x-spec-enum-id": "2456dc91a64f0b5f"
                 }
               },
@@ -4971,7 +4971,7 @@
             "type": "string",
             "x-spec-enum-id": "be2689a2a5226a4f",
             "readOnly": true,
-            "description": "Indicates the current state of the application synchronization to the company's ATS\n\n* `SUCCESS` - Sync Successful\n* `EXPECTED_FAILURE` - Sync Failed Expectedly, No Action Needed\n* `FAILURE` - Sync Failed\n* `NOTSENT` - Sync Not Triggered"
+            "description": "Indicates the current state of the application synchronization to the company's ATS. Enum: SUCCESS (Sync Successful), EXPECTED_FAILURE (Sync Failed Expectedly, No Action Needed), FAILURE (Sync Failed), NOTSENT (Sync Not Triggered)."
           },
           "failure_error": {
             "type": [
@@ -5202,7 +5202,7 @@
                     "other"
                   ],
                   "type": "string",
-                  "description": "* `cv` - CV\n* `cover-letter` - Cover Letter\n* `photo` - Photo\n* `other` - Other Attachments",
+                  "description": "Type of attachment. Enum: cv (CV), cover-letter (Cover Letter), photo (Photo), other (Other Attachments).",
                   "x-spec-enum-id": "ad69ece1ebc7fa6f"
                 },
                 "name": {
@@ -5222,7 +5222,7 @@
                     "application/octet-stream"
                   ],
                   "type": "string",
-                  "description": "* `application/msword` - Doc\n* `application/vnd.openxmlformats-officedocument.wordprocessingml.document` - Docx\n* `image/jpeg` - Jpeg\n* `application/vnd.oasis.opendocument.text` - Odt\n* `application/pdf` - Pdf\n* `text/plain` - Plain Text\n* `image/png` - Png\n* `application/rtf` - Rtf\n* `application/octet-stream` - Other",
+                  "description": "MIME type of the attachment. Enum: application/msword (Doc), application/vnd.openxmlformats-officedocument.wordprocessingml.document (Docx), image/jpeg (Jpeg), application/vnd.oasis.opendocument.text (Odt), application/pdf (Pdf), text/plain (Plain Text), image/png (Png), application/rtf (Rtf), application/octet-stream (Other).",
                   "x-spec-enum-id": "2456dc91a64f0b5f"
                 },
                 "data": {
@@ -5332,7 +5332,7 @@
               "other"
             ],
             "type": "string",
-            "description": "* `cv` - CV\n* `cover-letter` - Cover Letter\n* `photo` - Photo\n* `other` - Other Attachments",
+            "description": "Type of attachment. Enum: cv (CV), cover-letter (Cover Letter), photo (Photo), other (Other Attachments).",
             "x-spec-enum-id": "ad69ece1ebc7fa6f"
           },
           "name": {
@@ -5351,7 +5351,7 @@
               "application/octet-stream"
             ],
             "type": "string",
-            "description": "* `application/msword` - Doc\n* `application/vnd.openxmlformats-officedocument.wordprocessingml.document` - Docx\n* `image/jpeg` - Jpeg\n* `application/vnd.oasis.opendocument.text` - Odt\n* `application/pdf` - Pdf\n* `text/plain` - Plain Text\n* `image/png` - Png\n* `application/rtf` - Rtf\n* `application/octet-stream` - Other",
+            "description": "MIME type of the attachment. Enum: application/msword (Doc), application/vnd.openxmlformats-officedocument.wordprocessingml.document (Docx), image/jpeg (Jpeg), application/vnd.oasis.opendocument.text (Odt), application/pdf (Pdf), text/plain (Plain Text), image/png (Png), application/rtf (Rtf), application/octet-stream (Other).",
             "x-spec-enum-id": "2456dc91a64f0b5f"
           }
         },
@@ -5373,7 +5373,7 @@
               "other"
             ],
             "type": "string",
-            "description": "* `cv` - CV\n* `cover-letter` - Cover Letter\n* `photo` - Photo\n* `other` - Other Attachments",
+            "description": "Type of attachment. Enum: cv (CV), cover-letter (Cover Letter), photo (Photo), other (Other Attachments).",
             "x-spec-enum-id": "ad69ece1ebc7fa6f"
           },
           "name": {
@@ -5393,7 +5393,7 @@
               "application/octet-stream"
             ],
             "type": "string",
-            "description": "* `application/msword` - Doc\n* `application/vnd.openxmlformats-officedocument.wordprocessingml.document` - Docx\n* `image/jpeg` - Jpeg\n* `application/vnd.oasis.opendocument.text` - Odt\n* `application/pdf` - Pdf\n* `text/plain` - Plain Text\n* `image/png` - Png\n* `application/rtf` - Rtf\n* `application/octet-stream` - Other",
+            "description": "MIME type of the attachment. Enum: application/msword (Doc), application/vnd.openxmlformats-officedocument.wordprocessingml.document (Docx), image/jpeg (Jpeg), application/vnd.oasis.opendocument.text (Odt), application/pdf (Pdf), text/plain (Plain Text), image/png (Png), application/rtf (Rtf), application/octet-stream (Other).",
             "x-spec-enum-id": "2456dc91a64f0b5f"
           },
           "data": {
@@ -6730,7 +6730,7 @@
                           "other"
                         ],
                         "type": "string",
-                        "description": "* `cv` - CV\n* `cover-letter` - Cover Letter\n* `photo` - Photo\n* `other` - Other Attachments",
+                        "description": "Type of attachment. Enum: cv (CV), cover-letter (Cover Letter), photo (Photo), other (Other Attachments).",
                         "x-spec-enum-id": "ad69ece1ebc7fa6f"
                       },
                       "name": {
@@ -6749,7 +6749,7 @@
                           "application/octet-stream"
                         ],
                         "type": "string",
-                        "description": "* `application/msword` - Doc\n* `application/vnd.openxmlformats-officedocument.wordprocessingml.document` - Docx\n* `image/jpeg` - Jpeg\n* `application/vnd.oasis.opendocument.text` - Odt\n* `application/pdf` - Pdf\n* `text/plain` - Plain Text\n* `image/png` - Png\n* `application/rtf` - Rtf\n* `application/octet-stream` - Other",
+                        "description": "MIME type of the attachment. Enum: application/msword (Doc), application/vnd.openxmlformats-officedocument.wordprocessingml.document (Docx), image/jpeg (Jpeg), application/vnd.oasis.opendocument.text (Odt), application/pdf (Pdf), text/plain (Plain Text), image/png (Png), application/rtf (Rtf), application/octet-stream (Other).",
                         "x-spec-enum-id": "2456dc91a64f0b5f"
                       }
                     },
@@ -6784,7 +6784,7 @@
                   "type": "string",
                   "x-spec-enum-id": "be2689a2a5226a4f",
                   "readOnly": true,
-                  "description": "Indicates the current state of the application synchronization to the company's ATS\n\n* `SUCCESS` - Sync Successful\n* `EXPECTED_FAILURE` - Sync Failed Expectedly, No Action Needed\n* `FAILURE` - Sync Failed\n* `NOTSENT` - Sync Not Triggered"
+                  "description": "Indicates the current state of the application synchronization to the company's ATS. Enum: SUCCESS (Sync Successful), EXPECTED_FAILURE (Sync Failed Expectedly, No Action Needed), FAILURE (Sync Failed), NOTSENT (Sync Not Triggered)."
                 },
                 "failure_error": {
                   "type": [
