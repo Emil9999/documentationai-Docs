@@ -509,6 +509,27 @@
                         "x-spec-enum-id": "43015059ee486444",
                         "description": "Applicant's gender. Enum: MALE (Male), FEMALE (Female), DIVERSE (Diverse), NOT_SPECIFIED (Not Specified)."
                       },
+                      "birthdate": {
+                        "type": [
+                          "string"
+                        ],
+                        "format": "date",
+                        "description": "Applicant's birthdate"
+                      },
+                      "language": {
+                        "type": [
+                          "string"
+                        ],
+                        "minLength": 2,
+                        "maxLength": 2,
+                        "description": "Applicant's preferred language as an ISO 639-1 code (e.g. 'en', 'de')"
+                      },
+                      "nationality": {
+                        "type": [
+                          "string"
+                        ],
+                        "description": "Applicant's nationality"
+                      },
                       "phone": {
                         "type": [
                           "string"
