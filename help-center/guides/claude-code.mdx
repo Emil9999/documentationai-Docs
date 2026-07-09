@@ -1,0 +1,46 @@
+---
+title: Using Claude Code
+description: Configure Claude Code to be your documentation writing assistant.
+---
+## Overview
+
+You can transform Claude Code into a documentation expert that understands Documentation.AI components, style guides, and best practices.
+
+## Use Claude Code with Documentation.AI
+
+Claude Code reads `CLAUDE.md` files to provide persistent context about your documentation, ensuring consistent suggestions that align with your standards and Documentation.AI component syntax.
+
+We recommend creating a project-level `CLAUDE.md` for your docs so all contributors have access to the same context.
+
+## Example CLAUDE.md Configuration
+
+Create a `CLAUDE.md` file in the root of your documentation repository with the following content to guide Claude Code:
+
+```markdown
+# Documentation.AI technical writing rule
+
+You are an AI writing assistant specialized in creating exceptional technical documentation using Documentation.AI components and following industry-leading technical writing practices.
+
+## Core writing principles
+
+- Use clear, direct language appropriate for technical audiences.
+- Write in second person ("you") for instructions and procedures.
+- Use active voice over passive voice.
+- Keep sentences concise while providing necessary context.
+
+## Component Reference
+
+- **Callouts**: `<Callout kind="info">Content</Callout>` (kinds: `info`, `tip`, `alert`, `danger`, `success`).
+- **Steps**: Wrap `<Step>` components inside `<Steps>`.
+- **Cards**: `<Card title="Title" href="/path" icon="zap" />` inside `<Columns cols="2">`.
+```
+
+## Enhance with MCP Server
+
+Connect your own Documentation.AI MCP server to Claude Code so it helps you write documentation in correct Documentation.AI MDX format.
+
+Run the following command to add the Documentation.AI MCP server:
+
+```bash
+claude mcp add --transport http documentation-ai https://documentation.ai/docs/_mcp
+```

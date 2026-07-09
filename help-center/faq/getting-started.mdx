@@ -1,0 +1,31 @@
+---
+title: General FAQs
+description: Frequently asked questions about the Backend API.
+---
+## General Questions
+
+<ExpandableGroup>
+  <Expandable title="How do I run database migrations locally?" default-open="false">
+    By default, the local environment uses SQLite. You can run migrations using the standard Django management command:
+    ```bash
+    python manage.py migrate
+    ```
+  </Expandable>
+
+  <Expandable title="What is the difference between a Job and a Job Booking?" default-open="false">
+    - A **Job** is the core job posting containing the title, description, requirements, and location.
+    - A **Job Booking** represents the publication of that Job on a specific **Talent Channel** (e.g., StepStone, Indeed). A single Job can have multiple Job Bookings.
+  </Expandable>
+
+  <Expandable title="How do I connect to the development PostgreSQL database?" default-open="false">
+    1. Install the Cloud SQL Proxy:
+       ```bash
+       brew install cloud-sql-proxy
+       ```
+    2. Set `ENVIRONMENT=localdev` in your `.env` file.
+    3. Start the proxy:
+       ```bash
+       cloud-sql-proxy qonexon-production:europe-west3:dev-postgres
+       ```
+  </Expandable>
+</ExpandableGroup>

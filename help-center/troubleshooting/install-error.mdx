@@ -1,0 +1,37 @@
+---
+title: Common Errors
+description: Troubleshooting common issues and errors in the Backend API.
+---
+## Webhook Signature Failures
+
+<ExpandableGroup>
+  <Expandable title="Why am I getting a 403 Invalid Signature error on Indeed webhooks?" default-open="false">
+    This error occurs when the HMAC-SHA1 signature in the `X-Indeed-Signature` header does not match the calculated signature.
+    
+    **How to fix:**
+    1. Verify that the partner's `indeed_secret` is correctly configured in Google Cloud Secret Manager.
+    2. Ensure the webhook payload is not being modified or reformatted before signature verification.
+    3. Check that the signature is calculated using the raw request body bytes.
+  </Expandable>
+
+  <Expandable title="Why am I getting a 401 Unauthorized error on StepStone webhooks?" default-open="false">
+    StepStone webhooks require partner company access.
+    
+    **How to fix:**
+    1. Ensure the `apiKey` or `Authorization` header is present and valid.
+    2. Verify that the company ID in the URL path matches the company associated with the partner.
+  </Expandable>
+</ExpandableGroup>
+
+## Database Connection Issues
+
+<ExpandableGroup>
+  <Expandable title="Why is the local server failing to connect to PostgreSQL?" default-open="false">
+    If you have set `ENVIRONMENT=localdev` but the server cannot connect to the database, the Cloud SQL Proxy is likely not running or misconfigured.
+    
+    **How to fix:**
+    1. Ensure `cloud-sql-proxy` is installed and running.
+    2. Verify the connection string: `qonexon-production:europe-west3:dev-postgres`.
+    3. Check your local network/firewall settings to ensure outbound connections on port 5432 are allowed.
+  </Expandable>
+</ExpandableGroup>

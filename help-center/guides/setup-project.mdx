@@ -1,0 +1,33 @@
+---
+title: Setup a New Company
+description: Step-by-step guide to setting up a new company and composing details.
+---
+## Overview
+
+Setting up a new company in the Backend API involves creating the company record, configuring its features, and composing its details.
+
+## Step-by-Step Guide
+
+<Steps>
+  <Step title="Create the Company Record" icon="plus" titleType="p">
+    Send a POST request to `/api/companies/` to create a new company:
+    ```bash
+    curl -X POST http://127.0.0.1:8000/api/companies/ \
+      -H "Authorization: Bearer YOUR_TOKEN" \
+      -H "Content-Type: application/json" \
+      -d '{"name": "Acme Corp"}'
+    ```
+  </Step>
+
+  <Step title="Configure Company Features" icon="settings" titleType="p">
+    Enable specific features or integrations for the company by updating its feature flags. This can be done via the Django Admin panel or the internal company features endpoints.
+  </Step>
+
+  <Step title="Compose Company Details" icon="wand" titleType="p">
+    Trigger the company compose service to automatically generate or aggregate company details:
+    ```bash
+    curl -X POST http://127.0.0.1:8000/api/companies/COMPANY_ID/compose/ \
+      -H "Authorization: Bearer YOUR_TOKEN"
+    ```
+  </Step>
+</Steps>
