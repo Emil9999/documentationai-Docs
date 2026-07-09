@@ -1,6 +1,6 @@
 ---
 title: Core Concepts
-description: Understand the key entities and domain model of the Backend API.
+description: Understand the key entities, domain model, and webhook integrations of the Backend API.
 ---
 ## Domain Model Overview
 
@@ -24,28 +24,89 @@ The Backend API manages the relationship between employers (Companies), their jo
 
 ### Companies
 A **Company** represents an employer or client on the platform. It holds billing details, feature configurations, and active integrations.
+- **Key Fields**:
+  - `id` (Integer): Unique identifier.
+  - `name` (String): Name of the company.
+  - `is_active` (Boolean): Whether the company is active.
+  - `auth_company_id` (String): PropelAuth organization ID.
+  - `fallback_job` (ForeignKey): Default job to map applications to when no specific job is matched.
 - **Endpoints**: `/api/companies/`
-- **Key Features**: Company synchronization, deactivation, and custom feature flags.
 
 ### Jobs
 A **Job** is a specific job posting created by a company. It contains the job title, description, requirements, location, and optional screening questions.
+- **Key Fields**:
+  - `id` (Integer): Unique identifier.
+  - `title` (String): Job title.
+  - `description` (String): Rich text job description.
+  - `location` (String): Job location.
+  - `company` (ForeignKey): The company that owns this job.
+  - `screening_questions` (JSON): Custom questions for candidates.
 - **Endpoints**: `/api/jobs/`
-- **Key Features**: Public vs. private job listings, filtering options, and custom screening questions.
 
 ### Talent Channels
-A **Talent Channel** is an external job board or platform where jobs can be published (e.g., StepStone, Indeed, Kleinanzeigen).
+A **Talent Channel** is an external job board or platform where jobs can be published (e.g., StepStone, Indeed, Kleinanzeigen, Perspective, Facebook).
+- **Key Fields**:
+  - `id` (Integer): Unique identifier.
+  - `name` (String): Display name of the channel.
+  - `slug` (String): Unique URL-friendly identifier (e.g., `indeed`, `stepstone`, `perspective`).
 - **Endpoints**: `/api/talent_channels/`
 
 ### Job Bookings
 A **Job Booking** represents the publication of a specific Job on a specific Talent Channel. It tracks the status of the posting, publication dates, and external identifiers.
+- **Key Fields**:
+  - `id` (Integer): Unique identifier.
+  - `job` (ForeignKey): The job being published.
+  - `talent_channel` (ForeignKey): The target channel.
+  - `status` (String): Publication status (e.g., `active`, `paused`, `completed`).
+  - `external_job_id` (String): Identifier used by the external channel.
 - **Endpoints**: `/api/job_bookings/`
-- **Key Features**: Unpublishing, filtering, and channel-specific configurations.
 
 ### Campaigns
 A **Campaign** groups multiple Job Bookings together for promotional purposes. This allows companies to manage budgets, track performance, and freeze/unfreeze bookings within a campaign.
+- **Key Fields**:
+  - `id` (Integer): Unique identifier.
+  - `name` (String): Campaign name.
+  - `company` (ForeignKey): The company running the campaign.
+  - `is_active` (Boolean): Whether the campaign is currently running.
 - **Endpoints**: `/api/campaigns/`
 
 ### Applications
 An **Application** represents a candidate's submission for a job posting. It contains candidate details, resumes, answers to screening questions, and tracking status.
+- **Key Fields**:
+  - `id` (Integer): Unique identifier.
+  - `job` (ForeignKey): The job applied for.
+  - `candidate_name` (String): Full name of the candidate.
+  - `candidate_email` (String): Email address of the candidate.
+  - `candidate_phone` (String): Phone number of the candidate.
+  - `status` (String): Application status (e.g., `new`, `reviewed`, `hired`, `rejected`).
+  - `screening_questions` (JSON): Candidate's answers to screening questions.
+  - `attachments` (JSON): List of uploaded files (e.g., CV, cover letter).
 - **Endpoints**: `/api/applications/`
-- **Key Features**: Public application submission, status updates, and external ATS synchronization.
+
+### Magic Links
+A **Magic Link** is a short-lived, token-based authentication link that grants passwordless access to specific company or application resources.
+- **Key Fields**:
+  - `token` (String): Unique secure token.
+  - `company` (ForeignKey): The company associated with this link.
+  - `expires_at` (DateTime): Expiration timestamp.
+  - `is_used` (Boolean): Whether the link has already been used.
+- **Endpoints**: `/api/magic/<token>/`
+
+---
+
+## Webhook Integrations
+
+The Backend API features specialized webhook handlers to ingest candidate applications directly from external platforms.
+
+### Indeed Apply Webhook
+- **Endpoint**: `/api/webhooks/indeed/<job_id>/` or `/api/webhooks/indeed/<partner_id>/<company_id>/`
+- **Behavior**: Parses Indeed's standard JSON payload, extracts candidate contact info, base64-encoded resume attachments, and screening question answers, then creates a local `Application` record.
+
+### StepStone Apply Webhook
+- **Endpoint**: `/api/webhooks/stepstone/<company_id>/apply/`
+- **Behavior**: Receives applications from StepStone. It parses the `EffectiveUrl` (ATS URL) to extract the `external_job_id` (e.g., Personio job ID) and the `OriginalUrl` to extract the `agency_job_id` (e.g., Relaxx PID).
+- **Inquiry Endpoint**: `/api/webhooks/stepstone/<company_id>/inquiry/` is used by StepStone to verify if a job is still active.
+
+### Perspective Webhook
+- **Endpoint**: `/api/webhooks/perspective/<company_id>/`
+- **Behavior**: Receives lead data from Perspective funnels. It extracts the `external_job_id` from the bracketed text in the result page title (e.g., `[job_id]`) or from `utm_term`. If neither is present, it falls back to the company's `fallback_job`.

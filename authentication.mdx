@@ -1,30 +1,71 @@
 ---
-title: Authentication
-description: How to authenticate requests to the Backend API.
+title: Authentication & Security
+description: How to authenticate requests and secure webhooks in the Backend API.
 ---
 ## Authentication Methods
 
 The Backend API supports multiple authentication methods depending on the client and the endpoint being accessed.
 
-### 1. Session Authentication
-For web-based clients and internal users, the API uses standard Django session authentication.
-- **Header**: `Cookie: sessionid=<session_id>`
-- **Usage**: Primarily used by the internal admin panel and frontend dashboard.
+### 1. PropelAuth Integration
+For user-facing and programmatic access, the API integrates with **PropelAuth** to validate access tokens and organization API keys.
 
-### 2. Token / API Key Authentication
-For programmatic access and external integrations, requests must include an API token.
-- **Header**: `Authorization: Token <your_api_token>`
-- **Usage**: Used by external services and background workers.
+#### Access Tokens (Bearer Auth)
+Web clients and frontend applications authenticate users by passing a PropelAuth access token in the `Authorization` header:
+```http
+Authorization: Bearer <propelauth_access_token>
+```
+The API validates the token, fetches the user's metadata, and initiates a session as either a **Partner** or a **Company** based on their organization membership.
+
+#### Organization API Keys
+For programmatic access, external services can use organization-specific API keys:
+```http
+Authorization: Bearer <org_api_key>
+```
+
+### 2. Special API Keys
+The API supports special, non-organization API keys for internal and frontend services. These are validated via PropelAuth metadata:
+
+- **Internal Access**: Grants full access to internal endpoints (prefixed with `/api/internal/`).
+  - **Metadata Flag**: `has_internal_access`
+- **Frontend Access**: Grants access to frontend-specific utility endpoints.
+  - **Metadata Flag**: `has_frontend_access`
 
 ### 3. Magic Links
 For passwordless, secure access to specific company or application resources, the API generates short-lived, token-based **Magic Links**.
 - **Endpoint**: `/api/magic/<token>/`
-- **Usage**: Allows candidates or company representatives to access specific pages without a full user account.
+- **Validation**:
+  - The token must exist and not be expired (`expires_at > now`).
+  - The token must not have been used yet (`is_used = False`).
+  - If a company ID is requested, it must match the company associated with the magic link.
 
-## Public Endpoints
+---
 
-Certain endpoints are public and do not require authentication. These are prefixed with `/api/public/` and are used by public-facing job boards and application forms.
+## Webhook Security & Signature Verification
 
-- **Public Jobs**: `/api/public/jobs/`
-- **Public Companies**: `/api/public/companies/`
-- **Public Application Submission**: `/api/public/applications/`
+To prevent unauthorized requests, all webhook endpoints enforce strict signature verification using HMAC algorithms.
+
+### Indeed Webhook Security
+Indeed webhooks use HMAC-SHA1 signature verification.
+- **Header**: `X-Indeed-Signature`
+- **Verification**: The signature is calculated by hashing the raw request body with the partner's `indeed_secret` (stored in Google Cloud Secret Manager) using SHA1, then base64-encoding the result.
+- **Comparison**: The calculated signature is compared against the `X-Indeed-Signature` header using `hmac.compare_digest` to prevent timing attacks.
+
+### Monster Webhook Security
+Monster webhooks use HMAC-SHA1 signature verification.
+- **Headers**: `AwMApiKey` and `AwMHash`
+- **Verification**: The API key is verified against the stored `PROD_MONSTER_CREDS` API key. The hash is calculated by hashing the raw request body with the stored secret using SHA1, then base64-encoding the result.
+- **Comparison**: The calculated hash is compared against the `AwMHash` header.
+
+### Facebook Webhook Security
+Facebook webhooks support both subscription verification (GET) and signature verification (POST).
+
+#### Subscription Verification (GET)
+When subscribing the webhook, Facebook sends a GET request with verification parameters:
+- **Query Parameters**: `hub.mode` and `hub.verify_token`
+- **Verification**: `hub.mode` must be `subscribe` and `hub.verify_token` must match the configured `webhook_verify_token`.
+
+#### Event Notification (POST)
+When sending lead events, Facebook sends a POST request with an HMAC-SHA256 signature:
+- **Header**: `X-Hub-Signature-256` (prefixed with `sha256=`)
+- **Verification**: The signature is calculated by hashing the raw request body with the Facebook `app_secret` using SHA256.
+- **Comparison**: The calculated signature is compared against the header using `hmac.compare_digest`.
