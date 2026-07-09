@@ -1,58 +1,79 @@
 ---
 title: Quickstart
-description: Minimal steps to customize this sample starter kit.
+description: Learn how to set up and run the Backend API locally.
 ---
-## Overview
+## System Requirements
 
-<Callout kind="alert" collapsed="false">
-  This site ships with placeholder content. Use this quickstart to replace it with your real product docs.
-</Callout>
+Before you begin, ensure you have the following installed on your local machine:
 
-## 1. Update a page
+- **Git**
+- **Python 3.11**
+- **PostgreSQL 15**
+- **Google Cloud CLI**
+
+## Local Setup
+
+Follow these steps to get the service running locally:
 
 <Steps>
-  <Step title="Edit introduction" icon="edit" title-type="p">
-    Replace the sample introduction with a concise overview of your product and the key actions you want new users to take first.
+  <Step title="Clone the Repository" icon="git-branch">
+    Clone the `backend-api` repository to your local machine.
   </Step>
 
-  <Step title="Preview your change" icon="monitor" title-type="p">
-    Use your dashboard board editor to confirm the updated introduction looks and reads as expected.
+  <Step title="Setup Virtual Environment" icon="terminal">
+    Create a Python virtual environment and install the required dependencies:
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate
+    pip install -r requirements.txt
+    ```
+  </Step>
+
+  <Step title="Install Pre-commit Hooks" icon="shield-check">
+    Install pre-commit and configure it with git hooks:
+    ```bash
+    pip install pre-commit
+    pre-commit install
+    ```
+  </Step>
+
+  <Step title="Authenticate with Google Cloud" icon="key">
+    Authenticate with the Google Cloud CLI to access cloud resources:
+    ```bash
+    gcloud auth application-default login
+    ```
+  </Step>
+
+  <Step title="Run Database Migrations" icon="database">
+    Run the migrations to set up your local SQLite database:
+    ```bash
+    python manage.py migrate
+    ```
+  </Step>
+
+  <Step title="Start the Local Server" icon="play">
+    Start the Django development server:
+    ```bash
+    python manage.py runserver
+    ```
+    The API will be available at `http://127.0.0.1:8000/`.
+    You can access the interactive API documentation at `http://127.0.0.1:8000/docs/`.
   </Step>
 </Steps>
 
-## 2. Add a new page
+## Connecting to the Dev Database (Optional)
 
-<Steps>
-  <Step title="Add a page" icon="file-text" title-type="p">
-    Create a new `page` by clicking on the + button from the left navigation bar of dashboard. If you are using git, create the .mdx file and add to navigation bar using documentation.json
-  </Step>
-</Steps>
+If you need to connect to the development PostgreSQL database locally, you can use the Cloud SQL Proxy:
 
-## Example onboarding flow (replace with yours)
-
-1. Sign up for an account and verify your email.
-
-2. Create your first workspace, project, or environment.
-
-3. Add one integration or data source to connect your existing tools.
-
-4. Complete a guided action (for example, run your first job or publish your first resource).
-
-5. Invite a teammate and assign a basic role or permission.
-
-## 3. Connect API Reference (optional)
-
-If you have an API, replace `openapi.yaml` with your real OpenAPI file. If you do not need an API reference, remove that tab either from dashboard or  `documentation.json`.
-
-## Next steps
-
-<Columns cols="2">
-  <Card title="Core Concepts" href="/concepts" icon="layers" horizontal="false">
-    Keep the mental model simple and easy to scan.
-  </Card>
-
-  <Card title="Authentication" href="/authentication" icon="lock" horizontal="false">
-    Add your real auth flows and security notes.
-  </Card>
-</Columns>
-
+1. Install the proxy:
+   ```bash
+   brew install cloud-sql-proxy
+   ```
+2. Update your `.env` file:
+   ```env
+   ENVIRONMENT=localdev
+   ```
+3. Run the proxy:
+   ```bash
+   cloud-sql-proxy qonexon-production:europe-west3:dev-postgres
+   ```

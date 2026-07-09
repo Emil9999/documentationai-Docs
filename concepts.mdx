@@ -1,54 +1,51 @@
 ---
 title: Core Concepts
-description: The basic building blocks of this starter kit.
+description: Understand the key entities and domain model of the Backend API.
 ---
+## Domain Model Overview
 
-## Overview
+The Backend API manages the relationship between employers (Companies), their job postings (Jobs), where those jobs are published (Talent Channels & Job Bookings), and the candidates who apply (Applications).
 
-<Callout kind="alert">
-This page is an example. Replace every concept with the real terms your product uses.
-</Callout>
-
-## The building blocks
-
-<Columns cols={2}>
-  <Card title="Pages" icon="file-text">
-    Every page is an `.mdx` file. Content lives in the repo and is safe to edit.
-  </Card>
-  <Card title="Navigation" icon="list">
-    Sidebar structure comes from `documentation.json`.
-  </Card>
-  <Card title="Components" icon="layout-grid">
-    Reusable blocks like Callouts, Steps, Tabs, and Cards keep pages consistent.
-  </Card>
-  <Card title="API Reference" icon="code">
-    If you use it, the API tab reads from `openapi.yaml`.
-  </Card>
-</Columns>
-
-## Navigation shape (sample)
-
-```json
-{
-  "tab": "Documentation",
-  "groups": [
-    {
-      "group": "Getting Started",
-      "pages": [
-        { "title": "Introduction", "path": "introduction" }
-      ]
-    }
-  ]
-}
+```
+[Company] ─── (has) ───► [Job]
+   │                       │
+   │                    (booked as)
+   │                       │
+   ▼                       ▼
+[Campaign] ◄── (groups) ── [Job Booking] ───► [Talent Channel]
+                               │
+                           (receives)
+                               │
+                               ▼
+                          [Application]
 ```
 
-## How to adapt this page
+## Core Entities
 
-<Steps>
-  <Step title="Replace the terms" icon="edit">
-    Swap "Pages" and "Components" for your real domain language.
-  </Step>
-  <Step title="Add your concepts" icon="plus">
-    Create a section for the ideas your users must learn first.
-  </Step>
-</Steps>
+### Companies
+A **Company** represents an employer or client on the platform. It holds billing details, feature configurations, and active integrations.
+- **Endpoints**: `/api/companies/`
+- **Key Features**: Company synchronization, deactivation, and custom feature flags.
+
+### Jobs
+A **Job** is a specific job posting created by a company. It contains the job title, description, requirements, location, and optional screening questions.
+- **Endpoints**: `/api/jobs/`
+- **Key Features**: Public vs. private job listings, filtering options, and custom screening questions.
+
+### Talent Channels
+A **Talent Channel** is an external job board or platform where jobs can be published (e.g., StepStone, Indeed, Kleinanzeigen).
+- **Endpoints**: `/api/talent_channels/`
+
+### Job Bookings
+A **Job Booking** represents the publication of a specific Job on a specific Talent Channel. It tracks the status of the posting, publication dates, and external identifiers.
+- **Endpoints**: `/api/job_bookings/`
+- **Key Features**: Unpublishing, filtering, and channel-specific configurations.
+
+### Campaigns
+A **Campaign** groups multiple Job Bookings together for promotional purposes. This allows companies to manage budgets, track performance, and freeze/unfreeze bookings within a campaign.
+- **Endpoints**: `/api/campaigns/`
+
+### Applications
+An **Application** represents a candidate's submission for a job posting. It contains candidate details, resumes, answers to screening questions, and tracking status.
+- **Endpoints**: `/api/applications/`
+- **Key Features**: Public application submission, status updates, and external ATS synchronization.

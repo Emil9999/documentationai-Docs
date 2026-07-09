@@ -1,57 +1,30 @@
 ---
-title: Authentication (Sample)
-description: Sample guidance for authentication and OpenAPI usage.
+title: Authentication
+description: How to authenticate requests to the Backend API.
 ---
+## Authentication Methods
 
-## Overview
+The Backend API supports multiple authentication methods depending on the client and the endpoint being accessed.
 
-This is sample content. Replace tokens, URLs, headers, and flows with your real authentication requirements.
+### 1. Session Authentication
+For web-based clients and internal users, the API uses standard Django session authentication.
+- **Header**: `Cookie: sessionid=<session_id>`
+- **Usage**: Primarily used by the internal admin panel and frontend dashboard.
 
-<Callout kind="info">
+### 2. Token / API Key Authentication
+For programmatic access and external integrations, requests must include an API token.
+- **Header**: `Authorization: Token <your_api_token>`
+- **Usage**: Used by external services and background workers.
 
-This site ships with placeholder content for authentication. Update this page and `openapi.yaml` to match your real API before sharing with users.
+### 3. Magic Links
+For passwordless, secure access to specific company or application resources, the API generates short-lived, token-based **Magic Links**.
+- **Endpoint**: `/api/magic/<token>/`
+- **Usage**: Allows candidates or company representatives to access specific pages without a full user account.
 
-</Callout>
+## Public Endpoints
 
-This API uses OpenAPI to describe endpoints, parameters, and responses. The reference is generated from `openapi.yaml`, so keep that file up to date as your API evolves.
+Certain endpoints are public and do not require authentication. These are prefixed with `/api/public/` and are used by public-facing job boards and application forms.
 
-## Authentication
-
-Use a bearer token in the `Authorization` header for authenticated requests. Replace the base URL and token with values for your own API.
-
-```bash
-curl https://api.example.com/v1/example \
-  -H "Authorization: Bearer YOUR_TOKEN"
-```
-
-<ParamField header="Authorization" param-type="string" required="true">
-  `Bearer YOUR_TOKEN`
-</ParamField>
-
-## Keep OpenAPI in sync
-
-Define your authentication and base settings in `openapi.yaml` so the API Reference stays accurate and consistent.
-
-At a minimum, you should:
-
-- Define one or more security schemes that describe how clients authenticate (for example, bearer token, API key in a header, or other scheme).
-- Reference those security schemes on operations that require authentication so they are clearly marked as secured.
-- Set the correct base URL and any required global headers (for example, versioning or tenant headers) so example requests are copy-pasteable.
-
-When your real authentication flow changes (for example, new header names, token formats, or additional requirements), update `openapi.yaml`. The generated API Reference will then reflect your current auth model without needing to edit each endpoint page by hand.
-
-## Using the API reference
-
-Use the API Reference to explore endpoints, required parameters, and example responses. When you change authentication headers or base URLs, update `openapi.yaml` so the generated reference matches what your clients should use.
-
-## Common mistakes
-
-<Expandable title="Why am I getting a 401?" default-open="false">
-
-Verify that:
-
-- The token is valid and not expired.
-- The token is sent in the `Authorization` header.
-- The header value includes the `Bearer` prefix and a space before the token.
-
-</Expandable>
+- **Public Jobs**: `/api/public/jobs/`
+- **Public Companies**: `/api/public/companies/`
+- **Public Application Submission**: `/api/public/applications/`
