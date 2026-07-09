@@ -97,10 +97,6 @@
               {
                 "title": "Setup a New Company",
                 "path": "help-center/guides/setup-project"
-              },
-              {
-                "title": "Using Claude Code",
-                "path": "help-center/guides/claude-code"
               }
             ]
           }
