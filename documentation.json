@@ -1,8 +1,9 @@
 {
-  "tabs": [
-    {
-      "tab": "Guides",
-      "groups": [
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Guides",
+        "groups": [
         {
           "group": "Overview",
           "pages": [
@@ -81,4 +82,5 @@
       ]
     }
   ]
+  }
 }
