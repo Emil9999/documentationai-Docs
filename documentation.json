@@ -1,4 +1,6 @@
 {
+  "name": "Kini API Docs",
+  "initialRoute": "kini-api-basics/getting-started",
   "navigation": {
     "tabs": [
       {
