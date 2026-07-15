@@ -2,8 +2,16 @@
   "name": "Kini",
   "initialRoute": "hello",
   "navigation": {
-    "pages": [
-      { "title": "Hello", "path": "hello" }
+    "versions": [
+      {
+        "version": "1.0",
+        "pages": [
+          {
+            "title": "Hello",
+            "path": "hello"
+          }
+        ]
+      }
     ]
   }
 }
