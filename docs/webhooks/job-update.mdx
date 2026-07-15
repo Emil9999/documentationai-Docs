@@ -1,0 +1,50 @@
+---
+title: "Job Update Webhook"
+description: "Payload schema and behavior for the Job Update webhook, fired on job create, update, and archive events."
+---
+
+## Overview
+
+The Job Update webhook is triggered when a job event occurs in the connected ATS. It is the canonical way to keep your system synchronized with the source of truth.
+
+## Event Types
+
+The webhook fires for three event types, distinguished by the `event` field in the payload:
+
+| Event | Triggered when |
+|---|---|
+| `job.created` | A new job is created in the ATS. |
+| `job.updated` | Any field on an existing job is modified (title, description, location, etc.). |
+| `job.archived` | A job is removed from the ATS. |
+
+## Payload
+
+```json
+{
+  "event": "job.updated",
+  "company_id": 1,
+  "job_id": 12345,
+  "external_id": "EU-42",
+  "occurred_at": "2026-07-15T10:32:18Z"
+}
+```
+
+| Field | Type | Description |
+|---|---|---|
+| `event` | string | One of `job.created`, `job.updated`, `job.archived`. |
+| `company_id` | integer | The Kini company ID the job belongs to. |
+| `job_id` | integer | The Kini internal job ID. |
+| `external_id` | string | The job's ID in the connected ATS. |
+| `occurred_at` | string | ISO 8601 timestamp of when the event happened in the ATS. |
+
+## Delivery & Retries
+
+Webhook deliveries are made over HTTPS POST with a JSON body. We retry failed deliveries with exponential backoff for up to 24 hours. Your endpoint must return a `2xx` status code within 10 seconds to be considered successful.
+
+## Authentication
+
+Every delivery includes a `Kini-Signature` header containing an HMAC-SHA256 signature of the body, computed with the signing secret configured for your company. Verify it on your side before processing.
+
+## Setup
+
+Configure your endpoint URL in the [Kini Partner App](https://app.getkini.com/) under **Webhooks → Job Updates**. Contact [support@getkini.com](mailto:support@getkini.com) if you need help.

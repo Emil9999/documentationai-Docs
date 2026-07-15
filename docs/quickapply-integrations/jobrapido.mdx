@@ -1,6 +1,39 @@
 ---
-title: "Jobrapido"
-description: "Jobrapido integration guide"
+title: "Jobrapido Apply"
+description: "Forward Jobrapido applications to your ATS via the Kini QuickApply webhook URL."
 ---
 
-This page is auto-populated from the OpenAPI specification (`kini-api.json`) once imported via the Documentation.AI dashboard.
+## Overview
+
+Jobrapido apply flows can be connected to your ATS through the Kini QuickApply integration. Applications submitted via Jobrapido are forwarded in real time.
+
+## Webhook URL
+
+Configure the apply URL on your Jobrapido job posting to point at the following endpoint:
+
+```
+https://api.getkini.com/webhooks/jobrapido/{kini_agency_id}/{kini_company_id}/{external_job_id}
+```
+
+- **Agency ID**: provided by the Kini team.
+- **Company ID**: the Kini company the application should be forwarded to.
+- **External Job ID**: the job's ID in the ATS.
+
+Example: `https://api.getkini.com/webhooks/jobrapido/12/345/xyz-67890`
+
+## XML Job Feed
+
+When generating the XML job feed for Jobrapido, set the apply URL on each `<job>` element to the webhook URL above. Jobrapido will then POST application data to the webhook on every submission.
+
+```xml
+<job>
+  <id>12345</id>
+  <title>Software Engineer</title>
+  <location>Berlin, Germany</location>
+  <apply-url>https://api.kini.com/webhooks/jobrapido/12/345/12345</apply-url>
+</job>
+```
+
+## Need Help?
+
+If you need assistance with the Jobrapido integration, contact us at [support@getkini.com](mailto:support@getkini.com).

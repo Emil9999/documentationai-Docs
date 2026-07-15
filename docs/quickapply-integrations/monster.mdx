@@ -1,6 +1,39 @@
 ---
-title: "Monster"
-description: "Monster integration guide"
+title: "Monster Apply"
+description: "Forward Monster applications to your ATS via the Kini QuickApply webhook URL."
 ---
 
-This page is auto-populated from the OpenAPI specification (`kini-api.json`) once imported via the Documentation.AI dashboard.
+## Overview
+
+Monster apply flows can be connected to your ATS through the Kini QuickApply integration. Candidate applications submitted through Monster are forwarded in real time.
+
+## Webhook URL
+
+Set the apply URL on your Monster job posting to point at the following endpoint:
+
+```
+https://api.getkini.com/webhooks/monster/{kini_agency_id}/{kini_company_id}/{external_job_id}
+```
+
+- **Agency ID**: provided by the Kini team.
+- **Company ID**: the Kini company the application should be forwarded to.
+- **External Job ID**: the job's ID in the ATS.
+
+Example: `https://api.getkini.com/webhooks/monster/12/345/xyz-67890`
+
+## XML Job Feed
+
+When generating the XML job feed for Monster, set the apply URL on each `<job>` element to the webhook URL above. Monster will POST application data to the webhook on every submission.
+
+```xml
+<job>
+  <id>12345</id>
+  <title>Software Engineer</title>
+  <location>Berlin, Germany</location>
+  <apply-url>https://api.kini.com/webhooks/monster/12/345/12345</apply-url>
+</job>
+```
+
+## Need Help?
+
+If you need assistance with the Monster integration, contact us at [support@getkini.com](mailto:support@getkini.com).

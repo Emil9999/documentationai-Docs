@@ -1,6 +1,41 @@
 ---
 title: "Heyflow"
-description: "Heyflow integration guide"
+description: "Connect Heyflow lead-gen funnels to your ATS via the Kini QuickApply webhook URL."
 ---
 
-This page is auto-populated from the OpenAPI specification (`kini-api.json`) once imported via the Documentation.AI dashboard.
+## Overview
+
+Heyflow lead-generation funnels can be connected to your ATS through the Kini QuickApply integration. Candidate submissions in Heyflow are forwarded to your ATS in real time via a webhook.
+
+## Webhook URL
+
+In your Heyflow flow, go to the **Integrations** step and add a webhook action with the following URL:
+
+```
+https://api.getkini.com/webhooks/heyflow/{kini_agency_id}/{kini_company_id}/{external_job_id}
+```
+
+- **Agency ID**: your unique identifier, provided by the Kini team.
+- **Company ID**: the company in Kini that the application should be forwarded to.
+- **External Job ID**: the job's ID in the ATS.
+
+Example: `https://api.getkini.com/webhooks/heyflow/12/345/xyz-67890`
+
+## Mapping Fields
+
+Heyflow's built-in form fields are automatically mapped to candidate fields in your ATS:
+
+| Heyflow field | Candidate field |
+|---|---|
+| `first_name` | First name |
+| `last_name` | Last name |
+| `email` | Email |
+| `phone` | Phone |
+| `city` | City |
+| `country` | Country |
+
+Custom fields in Heyflow are forwarded as candidate properties and stored as comments on the application in the ATS.
+
+## Need Help?
+
+If you need assistance with the Heyflow integration, contact us at [support@getkini.com](mailto:support@getkini.com).

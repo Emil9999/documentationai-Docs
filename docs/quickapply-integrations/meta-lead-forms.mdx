@@ -1,6 +1,41 @@
 ---
 title: "Meta Lead Forms"
-description: "Meta Lead Forms integration guide"
+description: "Forward Meta (Facebook) Lead Ads submissions to your ATS via the Kini QuickApply webhook URL."
 ---
 
-This page is auto-populated from the OpenAPI specification (`kini-api.json`) once imported via the Documentation.AI dashboard.
+## Overview
+
+Meta Lead Ads (Facebook Lead Forms) can be connected to your ATS through the Kini QuickApply integration. Lead form submissions are forwarded to your ATS in real time via a webhook.
+
+## Webhook URL
+
+In your Meta Lead Form setup, add the following URL as the **Webhook URL** for the campaign:
+
+```
+https://api.getkini.com/webhooks/meta/{kini_agency_id}/{kini_company_id}/{external_job_id}
+```
+
+- **Agency ID**: provided by the Kini team.
+- **Company ID**: the Kini company the lead should be forwarded to.
+- **External Job ID**: the job's ID in the ATS that the lead should be associated with.
+
+Example: `https://api.getkini.com/webhooks/meta/12/345/xyz-67890`
+
+## Field Mapping
+
+Meta Lead Form questions are mapped to candidate fields by question label:
+
+| Meta Lead Form question | Candidate field |
+|---|---|
+| First name | First name |
+| Last name | Last name |
+| Email | Email |
+| Phone number | Phone |
+
+## CRM Hand-off
+
+If you have a CRM configured in Meta that receives the lead before forwarding to Kini, point that CRM's webhook destination at the URL above and ensure it forwards the lead payload as JSON to the same URL.
+
+## Need Help?
+
+If you need assistance with the Meta Lead Forms integration, contact us at [support@getkini.com](mailto:support@getkini.com).

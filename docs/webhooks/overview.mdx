@@ -1,0 +1,34 @@
+---
+title: "Webhooks Overview"
+description: "Overview of the webhooks Kini offers for real-time updates on application and job events."
+---
+
+## How Webhooks Work
+
+Our platform supports webhooks to help you integrate seamlessly and keep your systems updated in real-time. This page lists the webhooks we offer, what events they cover, and how to enable them.
+
+## Available Webhooks
+
+### [Application Sync Status Update](/webhooks/application-sync-status-update)
+
+Triggered when an application has been synchronized to the company's ATS. Useful for tracking the real-time status of candidate applications. Payload includes the application's `status` (SUCCESS, FAILURE, EXPECTED_FAILURE, NOTSENT) and a `failure_error` field for diagnostics.
+
+### [Job Updates](/webhooks/job-update)
+
+Triggered when a job event occurs in the ATS. Three event types are emitted:
+
+#### Job Created or Updated
+
+Triggered when a new job is created or an existing job is modified. This includes changes to job titles, descriptions, or any other fields.
+
+#### Job Archived
+
+Triggered when a job is removed from the ATS. Use this to keep your system in sync by removing outdated job entries.
+
+### [Job Booking Status Update](/webhooks/job-booking-status-update)
+
+Triggered when the status of a job booking changes. Payload includes `booking_status` values such as `booked`, `processing`, `published`, `unpublished`, and `expired`, plus a `transaction_id` for tracing.
+
+## Enabling Webhooks
+
+Webhook URLs are configured per company in the [Kini Partner App](https://app.getkini.com/). For each webhook, you provide an HTTPS endpoint on your side and select which events to receive. See the individual webhook pages for payload details, header requirements, and authentication.

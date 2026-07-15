@@ -28,7 +28,9 @@
           {
             "group": "Webhooks",
             "pages": [
+              { "title": "Webhooks Overview", "path": "docs/webhooks/overview" },
               { "title": "Application Sync Status Update", "path": "docs/webhooks/application-sync-status-update" },
+              { "title": "Job Update Webhook", "path": "docs/webhooks/job-update" },
               { "title": "Job Booking Status Update", "path": "docs/webhooks/job-booking-status-update" }
             ]
           },
