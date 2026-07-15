@@ -1,6 +1,6 @@
 {
   "name": "Kini",
-  "initialRoute": "hello",
+  "initialRoute": "docs/hello",
   "navigation": {
     "versions": [
       {
@@ -8,7 +8,7 @@
         "pages": [
           {
             "title": "Hello",
-            "path": "hello"
+            "path": "docs/hello"
           }
         ]
       }
