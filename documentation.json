@@ -1,88 +1,9 @@
 {
-  "name": "Kini API Docs",
-  "initialRoute": "kini-api-basics/getting-started",
+  "name": "Kini",
+  "initialRoute": "hello",
   "navigation": {
-    "tabs": [
-      {
-        "tab": "Guides",
-        "groups": [
-        {
-          "group": "Overview",
-          "pages": [
-            { "title": "Supported Fields Overview", "path": "overview-supported-fields" },
-            { "title": "Integration Logos", "path": "abc" }
-          ]
-        },
-        {
-          "group": "Kini API Basics",
-          "pages": [
-            { "title": "Getting Started", "path": "kini-api-basics/getting-started" },
-            { "title": "Authentication", "path": "kini-api-basics/authentication" },
-            { "title": "Pagination", "path": "kini-api-basics/pagination" },
-            { "title": "Error Handling", "path": "kini-api-basics/error-handling" },
-            { "title": "Filtering", "path": "kini-api-basics/filtering" },
-            { "title": "Rate Limits", "path": "kini-api-basics/rate-limits" },
-            { "title": "Overview: ATS Supported Fields", "path": "kini-api-basics/overview-ats-supported-fields" }
-          ]
-        },
-        {
-          "group": "Webhooks",
-          "pages": [
-            { "title": "Application Sync Status Update", "path": "webhooks/application-sync-status-update" },
-            { "title": "Job Booking Status Update", "path": "webhooks/job-booking-status-update" }
-          ]
-        },
-        {
-          "group": "QuickApply Integrations",
-          "pages": [
-            { "title": "Overview", "path": "quickapply-integrations/index" },
-            { "title": "Indeed", "path": "quickapply-integrations/indeed" },
-            { "title": "Jobrapido", "path": "quickapply-integrations/jobrapido" },
-            { "title": "Meta Lead Forms", "path": "quickapply-integrations/meta-lead-forms" },
-            { "title": "Monster", "path": "quickapply-integrations/monster" },
-            { "title": "Perspective", "path": "quickapply-integrations/perspective" }
-          ]
-        }
-      ]
-    },
-    {
-      "tab": "API Reference",
-      "groups": [
-        {
-          "group": "Applications",
-          "pages": [
-            { "title": "Overview", "path": "api/applications/index" },
-            { "title": "Create Application", "path": "api/applications/create" },
-            { "title": "List Applications", "path": "api/applications/list" },
-            { "title": "Retrieve Application", "path": "api/applications/retrieve" }
-          ]
-        },
-        {
-          "group": "Jobs",
-          "pages": [
-            { "title": "Overview", "path": "api/jobs/index" },
-            { "title": "Create Job", "path": "api/jobs/create" },
-            { "title": "List Jobs", "path": "api/jobs/list" },
-            { "title": "Partial Update Job", "path": "api/jobs/partial-update" },
-            { "title": "Retrieve Job", "path": "api/jobs/retrieve" }
-          ]
-        },
-        {
-          "group": "Companies",
-          "pages": [
-            { "title": "Overview", "path": "api/companies/index" },
-            { "title": "List Companies", "path": "api/companies/list" }
-          ]
-        },
-        {
-          "group": "Shop",
-          "pages": [
-            { "title": "Overview", "path": "api/shop/index" },
-            { "title": "Clickout", "path": "api/shop/clickout" }
-          ]
-        }
-      ]
-    }
-  ]
+    "pages": [
+      { "title": "Hello", "path": "hello" }
+    ]
   }
 }
