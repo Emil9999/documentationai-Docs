@@ -1,0 +1,44 @@
+---
+title: "Changelog"
+description: "Release notes and version history for the Kini API."
+---
+
+<Update label="2025-07-15" description="Documentation migrated to Documentation.AI" tags={["Documentation"]}>
+  ### New docs platform
+
+  - Migrated all docs from ReadMe.io to Documentation.AI
+  - New OpenAPI-powered API Reference with try-it and schema definitions
+  - Webhook event pages now include payload schemas and signature verification
+  - QuickApply partner integration pages (Heyflow, Jobrapido, Meta Lead Forms, Monster) added
+  - Full search, AI assistant, and dark mode support
+</Update>
+
+<Update label="2025-01-15" description="v1.0 - Breaking change for pagination" tags={["Breaking Change"]}>
+  ### Pagination now required
+
+  - `GET /jobs` and `GET /candidates` now require `pagination=true` query parameter to receive full result sets
+  - Without `pagination=true`, results are capped at the first 25 records
+  - Update your integration to explicitly opt in to paginated responses
+
+  <Callout kind="alert">
+    Existing integrations that relied on implicit full-result behavior will silently truncate results. Verify your pagination handling.
+  </Callout>
+</Update>
+
+<Update label="2024-12-01" description="v0.9 - New partner integrations">
+  ### QuickApply partners
+
+  - Added Perspective integration
+  - Added Meta Lead Forms integration
+  - Added Jobrapido integration
+  - Added Monster integration
+  - Added Heyflow integration
+</Update>
+
+<Update label="2024-09-15" description="v0.8 - Authentication upgrade" tags={["Authentication"]}>
+  ### Bearer API Key authentication
+
+  - New Bearer API Key authentication recommended over legacy JWT
+  - Legacy JWT method continues to work but is being phased out
+  - API keys can be generated and revoked from the [Kini Partner App](https://app.getkini.com/)
+</Update>

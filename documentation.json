@@ -1,6 +1,6 @@
 {
   "name": "Kini API Docs",
-  "initialRoute": "docs/kini-api-basics/getting-started",
+  "initialRoute": "docs/index",
   "navigation": {
     "tabs": [
       {
@@ -25,9 +25,16 @@
             "icon": "book-text",
             "expandable": true,
             "pages": [
-              { "title": "Supported Fields Overview", "path": "docs/overview-supported-fields" },
-              { "title": "ATS Supported Fields", "path": "docs/kini-api-basics/overview-ats-supported-fields" },
-              { "title": "Integration Logos", "path": "docs/abc" }
+              { "title": "ATS Supported Fields", "path": "docs/kini-api-basics/overview-ats-supported-fields" }
+            ]
+          },
+          {
+            "group": "Resources",
+            "icon": "folder-open",
+            "expandable": true,
+            "pages": [
+              { "title": "Changelog", "path": "docs/changelog" },
+              { "title": "Roadmap", "path": "docs/roadmap" }
             ]
           }
         ]
