@@ -5,40 +5,45 @@
     "tabs": [
       {
         "tab": "Guides",
+        "icon": "book-open",
         "groups": [
           {
-            "group": "Overview",
+            "group": "Getting Started",
+            "icon": "rocket",
+            "expandable": true,
             "pages": [
-              { "title": "Supported Fields Overview", "path": "docs/overview-supported-fields" },
-              { "title": "Integration Logos", "path": "docs/abc" }
-            ]
-          },
-          {
-            "group": "Kini API Basics",
-            "pages": [
-              { "title": "Getting Started", "path": "docs/kini-api-basics/getting-started" },
+              { "title": "Introduction", "path": "docs/kini-api-basics/getting-started" },
               { "title": "Authentication", "path": "docs/kini-api-basics/authentication" },
               { "title": "Pagination", "path": "docs/kini-api-basics/pagination" },
-              { "title": "Error Handling", "path": "docs/kini-api-basics/error-handling" },
               { "title": "Filtering", "path": "docs/kini-api-basics/filtering" },
-              { "title": "Rate Limits", "path": "docs/kini-api-basics/rate-limits" },
-              { "title": "Overview: ATS Supported Fields", "path": "docs/kini-api-basics/overview-ats-supported-fields" }
+              { "title": "Error Handling", "path": "docs/kini-api-basics/error-handling" },
+              { "title": "Rate Limits", "path": "docs/kini-api-basics/rate-limits" }
             ]
           },
           {
-            "group": "Webhooks",
+            "group": "Reference",
+            "icon": "book-text",
+            "expandable": true,
             "pages": [
-              { "title": "Webhooks Overview", "path": "docs/webhooks/overview" },
-              { "title": "Application Sync Status Update", "path": "docs/webhooks/application-sync-status-update" },
-              { "title": "Job Update Webhook", "path": "docs/webhooks/job-update" },
-              { "title": "Job Booking Status Update", "path": "docs/webhooks/job-booking-status-update" }
+              { "title": "Supported Fields Overview", "path": "docs/overview-supported-fields" },
+              { "title": "ATS Supported Fields", "path": "docs/kini-api-basics/overview-ats-supported-fields" },
+              { "title": "Integration Logos", "path": "docs/abc" }
             ]
-          },
+          }
+        ]
+      },
+      {
+        "tab": "Integrations",
+        "icon": "plug",
+        "groups": [
           {
-            "group": "QuickApply Integrations",
+            "group": "QuickApply",
+            "icon": "zap",
+            "expandable": true,
             "pages": [
               { "title": "Overview", "path": "docs/quickapply-integrations/index" },
               { "title": "Indeed", "path": "docs/quickapply-integrations/indeed" },
+              { "title": "Heyflow", "path": "docs/quickapply-integrations/heyflow" },
               { "title": "Jobrapido", "path": "docs/quickapply-integrations/jobrapido" },
               { "title": "Meta Lead Forms", "path": "docs/quickapply-integrations/meta-lead-forms" },
               { "title": "Monster", "path": "docs/quickapply-integrations/monster" },
@@ -48,10 +53,35 @@
         ]
       },
       {
+        "tab": "Webhooks",
+        "icon": "webhook",
+        "groups": [
+          {
+            "group": "Overview",
+            "icon": "info",
+            "pages": [
+              { "title": "Webhooks Overview", "path": "docs/webhooks/overview" }
+            ]
+          },
+          {
+            "group": "Events",
+            "icon": "activity",
+            "expandable": true,
+            "pages": [
+              { "title": "Application Sync Status Update", "path": "docs/webhooks/application-sync-status-update" },
+              { "title": "Job Update Webhook", "path": "docs/webhooks/job-update" },
+              { "title": "Job Booking Status Update", "path": "docs/webhooks/job-booking-status-update" }
+            ]
+          }
+        ]
+      },
+      {
         "tab": "API Reference",
+        "icon": "code",
         "groups": [
           {
             "group": "Applications",
+            "icon": "file-user",
             "openapi": "docs/api/kini-api.json",
             "pages": [
               { "title": "Overview", "path": "docs/api/applications/index" }
@@ -59,6 +89,7 @@
           },
           {
             "group": "Jobs",
+            "icon": "briefcase",
             "openapi": "docs/api/kini-api.json",
             "pages": [
               { "title": "Overview", "path": "docs/api/jobs/index" }
@@ -66,6 +97,7 @@
           },
           {
             "group": "Companies",
+            "icon": "building",
             "openapi": "docs/api/kini-api.json",
             "pages": [
               { "title": "Overview", "path": "docs/api/companies/index" }
@@ -73,6 +105,7 @@
           },
           {
             "group": "Shop",
+            "icon": "shopping-cart",
             "openapi": "docs/api/kini-api.json",
             "pages": [
               { "title": "Overview", "path": "docs/api/shop/index" }
