@@ -9,89 +9,38 @@
           {
             "group": "Overview",
             "pages": [
-              {
-                "title": "Supported Fields Overview",
-                "path": "docs/overview-supported-fields"
-              },
-              {
-                "title": "Integration Logos",
-                "path": "docs/abc"
-              }
+              { "title": "Supported Fields Overview", "path": "docs/overview-supported-fields" },
+              { "title": "Integration Logos", "path": "docs/abc" }
             ]
           },
           {
             "group": "Kini API Basics",
             "pages": [
-              {
-                "title": "Getting Started",
-                "path": "docs/kini-api-basics/getting-started"
-              },
-              {
-                "title": "Authentication",
-                "path": "docs/kini-api-basics/authentication"
-              },
-              {
-                "title": "Pagination",
-                "path": "docs/kini-api-basics/pagination"
-              },
-              {
-                "title": "Error Handling",
-                "path": "docs/kini-api-basics/error-handling"
-              },
-              {
-                "title": "Filtering",
-                "path": "docs/kini-api-basics/filtering"
-              },
-              {
-                "title": "Rate Limits",
-                "path": "docs/kini-api-basics/rate-limits"
-              },
-              {
-                "title": "Overview: ATS Supported Fields",
-                "path": "docs/kini-api-basics/overview-ats-supported-fields"
-              }
+              { "title": "Getting Started", "path": "docs/kini-api-basics/getting-started" },
+              { "title": "Authentication", "path": "docs/kini-api-basics/authentication" },
+              { "title": "Pagination", "path": "docs/kini-api-basics/pagination" },
+              { "title": "Error Handling", "path": "docs/kini-api-basics/error-handling" },
+              { "title": "Filtering", "path": "docs/kini-api-basics/filtering" },
+              { "title": "Rate Limits", "path": "docs/kini-api-basics/rate-limits" },
+              { "title": "Overview: ATS Supported Fields", "path": "docs/kini-api-basics/overview-ats-supported-fields" }
             ]
           },
           {
             "group": "Webhooks",
             "pages": [
-              {
-                "title": "Application Sync Status Update",
-                "path": "docs/webhooks/application-sync-status-update"
-              },
-              {
-                "title": "Job Booking Status Update",
-                "path": "docs/webhooks/job-booking-status-update"
-              }
+              { "title": "Application Sync Status Update", "path": "docs/webhooks/application-sync-status-update" },
+              { "title": "Job Booking Status Update", "path": "docs/webhooks/job-booking-status-update" }
             ]
           },
           {
             "group": "QuickApply Integrations",
             "pages": [
-              {
-                "title": "Overview",
-                "path": "docs/quickapply-integrations/index"
-              },
-              {
-                "title": "Indeed",
-                "path": "docs/quickapply-integrations/indeed"
-              },
-              {
-                "title": "Jobrapido",
-                "path": "docs/quickapply-integrations/jobrapido"
-              },
-              {
-                "title": "Meta Lead Forms",
-                "path": "docs/quickapply-integrations/meta-lead-forms"
-              },
-              {
-                "title": "Monster",
-                "path": "docs/quickapply-integrations/monster"
-              },
-              {
-                "title": "Perspective",
-                "path": "docs/quickapply-integrations/perspective"
-              }
+              { "title": "Overview", "path": "docs/quickapply-integrations/index" },
+              { "title": "Indeed", "path": "docs/quickapply-integrations/indeed" },
+              { "title": "Jobrapido", "path": "docs/quickapply-integrations/jobrapido" },
+              { "title": "Meta Lead Forms", "path": "docs/quickapply-integrations/meta-lead-forms" },
+              { "title": "Monster", "path": "docs/quickapply-integrations/monster" },
+              { "title": "Perspective", "path": "docs/quickapply-integrations/perspective" }
             ]
           }
         ]
@@ -101,74 +50,30 @@
         "groups": [
           {
             "group": "Applications",
+            "openapi": "docs/api/kini-api.json",
             "pages": [
-              {
-                "title": "Overview",
-                "path": "docs/api/applications/index"
-              },
-              {
-                "title": "Create Application",
-                "path": "docs/api/applications/create"
-              },
-              {
-                "title": "List Applications",
-                "path": "docs/api/applications/list"
-              },
-              {
-                "title": "Retrieve Application",
-                "path": "docs/api/applications/retrieve"
-              }
+              { "title": "Overview", "path": "docs/api/applications/index" }
             ]
           },
           {
             "group": "Jobs",
+            "openapi": "docs/api/kini-api.json",
             "pages": [
-              {
-                "title": "Overview",
-                "path": "docs/api/jobs/index"
-              },
-              {
-                "title": "Create Job",
-                "path": "docs/api/jobs/create"
-              },
-              {
-                "title": "List Jobs",
-                "path": "docs/api/jobs/list"
-              },
-              {
-                "title": "Partial Update Job",
-                "path": "docs/api/jobs/partial-update"
-              },
-              {
-                "title": "Retrieve Job",
-                "path": "docs/api/jobs/retrieve"
-              }
+              { "title": "Overview", "path": "docs/api/jobs/index" }
             ]
           },
           {
             "group": "Companies",
+            "openapi": "docs/api/kini-api.json",
             "pages": [
-              {
-                "title": "Overview",
-                "path": "docs/api/companies/index"
-              },
-              {
-                "title": "List Companies",
-                "path": "docs/api/companies/list"
-              }
+              { "title": "Overview", "path": "docs/api/companies/index" }
             ]
           },
           {
             "group": "Shop",
+            "openapi": "docs/api/kini-api.json",
             "pages": [
-              {
-                "title": "Overview",
-                "path": "docs/api/shop/index"
-              },
-              {
-                "title": "Clickout",
-                "path": "docs/api/shop/clickout"
-              }
+              { "title": "Overview", "path": "docs/api/shop/index" }
             ]
           }
         ]
