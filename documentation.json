@@ -12,6 +12,7 @@
             "icon": "rocket",
             "expandable": true,
             "pages": [
+              { "title": "Home", "path": "docs/home" },
               { "title": "Introduction", "path": "docs/kini-api-basics/getting-started" },
               { "title": "Authentication", "path": "docs/kini-api-basics/authentication" },
               { "title": "Pagination", "path": "docs/kini-api-basics/pagination" },
