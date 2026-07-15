@@ -1,6 +1,6 @@
 {
   "name": "Kini API Docs",
-  "initialRoute": "docs/index",
+  "initialRoute": "docs/home",
   "navigation": {
     "tabs": [
       {
