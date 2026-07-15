@@ -83,6 +83,14 @@
             "group": "Applications",
             "icon": "file-user",
             "openapi": "docs/api/kini-api.json",
+            "hidden-apis": [
+              "GET /jobs",
+              "POST /jobs",
+              "GET /jobs/{id}",
+              "PATCH /jobs/{id}",
+              "GET /companies/",
+              "POST /clickout/"
+            ],
             "pages": [
               { "title": "Overview", "path": "docs/api/applications/index" }
             ]
@@ -91,6 +99,13 @@
             "group": "Jobs",
             "icon": "briefcase",
             "openapi": "docs/api/kini-api.json",
+            "hidden-apis": [
+              "GET /applications/",
+              "POST /applications/",
+              "GET /applications/{id}",
+              "GET /companies/",
+              "POST /clickout/"
+            ],
             "pages": [
               { "title": "Overview", "path": "docs/api/jobs/index" }
             ]
@@ -99,6 +114,16 @@
             "group": "Companies",
             "icon": "building",
             "openapi": "docs/api/kini-api.json",
+            "hidden-apis": [
+              "GET /applications/",
+              "POST /applications/",
+              "GET /applications/{id}",
+              "GET /jobs",
+              "POST /jobs",
+              "GET /jobs/{id}",
+              "PATCH /jobs/{id}",
+              "POST /clickout/"
+            ],
             "pages": [
               { "title": "Overview", "path": "docs/api/companies/index" }
             ]
@@ -107,6 +132,16 @@
             "group": "Shop",
             "icon": "shopping-cart",
             "openapi": "docs/api/kini-api.json",
+            "hidden-apis": [
+              "GET /applications/",
+              "POST /applications/",
+              "GET /applications/{id}",
+              "GET /jobs",
+              "POST /jobs",
+              "GET /jobs/{id}",
+              "PATCH /jobs/{id}",
+              "GET /companies/"
+            ],
             "pages": [
               { "title": "Overview", "path": "docs/api/shop/index" }
             ]
