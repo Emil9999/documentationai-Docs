@@ -12,13 +12,34 @@
             "icon": "rocket",
             "expandable": true,
             "pages": [
-              { "title": "Home", "path": "docs/home" },
-              { "title": "Introduction", "path": "docs/kini-api-basics/getting-started" },
-              { "title": "Authentication", "path": "docs/kini-api-basics/authentication" },
-              { "title": "Pagination", "path": "docs/kini-api-basics/pagination" },
-              { "title": "Filtering", "path": "docs/kini-api-basics/filtering" },
-              { "title": "Error Handling", "path": "docs/kini-api-basics/error-handling" },
-              { "title": "Rate Limits", "path": "docs/kini-api-basics/rate-limits" }
+              {
+                "title": "Home",
+                "path": "docs/home"
+              },
+              {
+                "title": "Introduction",
+                "path": "docs/kini-api-basics/getting-started"
+              },
+              {
+                "title": "Authentication",
+                "path": "docs/kini-api-basics/authentication"
+              },
+              {
+                "title": "Pagination",
+                "path": "docs/kini-api-basics/pagination"
+              },
+              {
+                "title": "Filtering",
+                "path": "docs/kini-api-basics/filtering"
+              },
+              {
+                "title": "Error Handling",
+                "path": "docs/kini-api-basics/error-handling"
+              },
+              {
+                "title": "Rate Limits",
+                "path": "docs/kini-api-basics/rate-limits"
+              }
             ]
           },
           {
@@ -26,7 +47,10 @@
             "icon": "book-text",
             "expandable": true,
             "pages": [
-              { "title": "ATS Supported Fields", "path": "docs/kini-api-basics/overview-ats-supported-fields" }
+              {
+                "title": "ATS Supported Fields",
+                "path": "docs/kini-api-basics/overview-ats-supported-fields"
+              }
             ]
           },
           {
@@ -34,8 +58,14 @@
             "icon": "folder-open",
             "expandable": true,
             "pages": [
-              { "title": "Changelog", "path": "docs/changelog" },
-              { "title": "Roadmap", "path": "docs/roadmap" }
+              {
+                "title": "Changelog",
+                "path": "docs/changelog"
+              },
+              {
+                "title": "Roadmap",
+                "path": "docs/roadmap"
+              }
             ]
           }
         ]
@@ -49,13 +79,34 @@
             "icon": "zap",
             "expandable": true,
             "pages": [
-              { "title": "Overview", "path": "docs/quickapply-integrations/index" },
-              { "title": "Indeed", "path": "docs/quickapply-integrations/indeed" },
-              { "title": "Heyflow", "path": "docs/quickapply-integrations/heyflow" },
-              { "title": "Jobrapido", "path": "docs/quickapply-integrations/jobrapido" },
-              { "title": "Meta Lead Forms", "path": "docs/quickapply-integrations/meta-lead-forms" },
-              { "title": "Monster", "path": "docs/quickapply-integrations/monster" },
-              { "title": "Perspective", "path": "docs/quickapply-integrations/perspective" }
+              {
+                "title": "Overview",
+                "path": "docs/quickapply-integrations/index"
+              },
+              {
+                "title": "Indeed",
+                "path": "docs/quickapply-integrations/indeed"
+              },
+              {
+                "title": "Heyflow",
+                "path": "docs/quickapply-integrations/heyflow"
+              },
+              {
+                "title": "Jobrapido",
+                "path": "docs/quickapply-integrations/jobrapido"
+              },
+              {
+                "title": "Meta Lead Forms",
+                "path": "docs/quickapply-integrations/meta-lead-forms"
+              },
+              {
+                "title": "Monster",
+                "path": "docs/quickapply-integrations/monster"
+              },
+              {
+                "title": "Perspective",
+                "path": "docs/quickapply-integrations/perspective"
+              }
             ]
           }
         ]
@@ -68,7 +119,10 @@
             "group": "Overview",
             "icon": "info",
             "pages": [
-              { "title": "Webhooks Overview", "path": "docs/webhooks/overview" }
+              {
+                "title": "Webhooks Overview",
+                "path": "docs/webhooks/overview"
+              }
             ]
           },
           {
@@ -76,9 +130,18 @@
             "icon": "activity",
             "expandable": true,
             "pages": [
-              { "title": "Application Sync Status Update", "path": "docs/webhooks/application-sync-status-update" },
-              { "title": "Job Update Webhook", "path": "docs/webhooks/job-update" },
-              { "title": "Job Booking Status Update", "path": "docs/webhooks/job-booking-status-update" }
+              {
+                "title": "Application Sync Status Update",
+                "path": "docs/webhooks/application-sync-status-update"
+              },
+              {
+                "title": "Job Update Webhook",
+                "path": "docs/webhooks/job-update"
+              },
+              {
+                "title": "Job Booking Status Update",
+                "path": "docs/webhooks/job-booking-status-update"
+              }
             ]
           }
         ]
@@ -100,7 +163,10 @@
               "POST /clickout/"
             ],
             "pages": [
-              { "title": "Overview", "path": "docs/api/applications/index" }
+              {
+                "title": "Overview",
+                "path": "docs/api/applications/index"
+              }
             ]
           },
           {
@@ -115,7 +181,10 @@
               "POST /clickout/"
             ],
             "pages": [
-              { "title": "Overview", "path": "docs/api/jobs/index" }
+              {
+                "title": "Overview",
+                "path": "docs/api/jobs/index"
+              }
             ]
           },
           {
@@ -133,7 +202,10 @@
               "POST /clickout/"
             ],
             "pages": [
-              { "title": "Overview", "path": "docs/api/companies/index" }
+              {
+                "title": "Overview",
+                "path": "docs/api/companies/index"
+              }
             ]
           },
           {
@@ -151,11 +223,30 @@
               "GET /companies/"
             ],
             "pages": [
-              { "title": "Overview", "path": "docs/api/shop/index" }
+              {
+                "title": "Overview",
+                "path": "docs/api/shop/index"
+              }
             ]
           }
         ]
       }
     ]
+  },
+  "template": "classic",
+  "logo-dark": "https://blob-cdn.documentation.ai/org-ce47bc0f-86c2-4992-9efd-8eeb0e322e4f/doc-4c5771b8-fdb2-42f2-aada-6d808d87a416/1784117156955-tsoiue3mh07-3b940f2f62981e3282de46c50d07fca9598ec099b7cd41fcb23c20034057dfe9-kini-new.png?fm=auto&auto=compress%2Cformat",
+  "logo-light": "https://blob-cdn.documentation.ai/org-ce47bc0f-86c2-4992-9efd-8eeb0e322e4f/doc-4c5771b8-fdb2-42f2-aada-6d808d87a416/1784117156955-tsoiue3mh07-3b940f2f62981e3282de46c50d07fca9598ec099b7cd41fcb23c20034057dfe9-kini-new.png?fm=auto&auto=compress%2Cformat",
+  "favicon": "https://blob-cdn.documentation.ai/org-ce47bc0f-86c2-4992-9efd-8eeb0e322e4f/doc-4c5771b8-fdb2-42f2-aada-6d808d87a416/1784118692338-g9g10oomlrb-503180c9e3735fcc952f8918f84e6e39342538391cd4a661fbc11941e2cf9e3a-KINI_LinkedIn_Profle_Image.png?fm=auto&auto=compress%2Cformat",
+  "colors": {
+    "light": {
+      "brand": "#FD5A2A",
+      "heading": "#1a1a1a",
+      "text": "#374151"
+    },
+    "dark": {
+      "brand": "#FD5A2A",
+      "heading": "#f2f2f2",
+      "text": "#c1c1c1"
+    }
   }
 }
