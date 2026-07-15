@@ -1,6 +1,31 @@
 ---
 title: "Shop"
-description: ""
+description: "Generate clickout links that route users from channel campaigns to a customer's shop."
 ---
 
-This page is auto-populated from the OpenAPI specification (`kini-api.json`) once imported via the Documentation.AI dashboard.
+The Shop endpoint exposes a single operation for creating clickout links — short-lived URLs that carry attribution and routing context from a campaign or channel into a customer's online shop.
+
+All requests require authentication. Company-scoped requests need the `Company-Id` header — see [Authentication](/docs/kini-api-basics/authentication).
+
+## What's in this section
+
+<Columns cols="2">
+  <Card title="Create Clickout" icon="link" href="/docs/api/shop/create-clickout">
+    Generate a clickout link pointing to the company's shop with the campaign context embedded.
+  </Card>
+</Columns>
+
+## Common use cases
+
+- Turn a campaign or channel impression into a tracked click leading into a customer's shop.
+- Carry metadata such as source, channel, or campaign ID through to the destination.
+- Power partner integrations that need a single, signed URL rather than the raw shop address.
+
+## Before you start
+
+- Confirm the target company and the destination campaign or offer before generating a link.
+- Treat clickout URLs as opaque tokens — pass them through unchanged instead of parsing or re-encoding them.
+
+<Callout kind="info">
+  Clickout links are scoped to a company and expire. Always generate a fresh link per user request rather than caching one for reuse.
+</Callout>

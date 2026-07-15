@@ -1,6 +1,31 @@
 ---
 title: "Companies"
-description: ""
+description: "Look up the companies accessible with your API credentials."
 ---
 
-This page is auto-populated from the OpenAPI specification (`kini-api.json`) once imported via the Documentation.AI dashboard.
+The Companies endpoint lets you list the companies your API key has access to. Use it to populate account pickers, validate company IDs before building scoped requests, or reconcile company records between your system and Kini.
+
+All requests require authentication — see [Authentication](/docs/kini-api-basics/authentication).
+
+## What's in this section
+
+<Columns cols="2">
+  <Card title="List Companies" icon="list" href="/docs/api/companies/list-companies">
+    Retrieve the companies your API key can access, paginated.
+  </Card>
+</Columns>
+
+## Common use cases
+
+- Validate a `Company-Id` before making scoped requests to Jobs or Applications.
+- Build an onboarding flow that lists available companies for a new integration customer.
+- Reconcile your account records against the canonical company list in Kini.
+
+## Before you start
+
+- The result set is limited to companies your API key has been granted access to. If a company is missing, confirm with your administrator.
+- Store the returned company IDs — most other endpoints require a `Company-Id` header.
+
+<Callout kind="tip">
+  Combine this endpoint with [Filtering](/docs/kini-api-basics/filtering) to narrow results by name or external reference when the list is long.
+</Callout>

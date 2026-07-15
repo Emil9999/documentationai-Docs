@@ -1,6 +1,41 @@
 ---
 title: "Jobs"
-description: ""
+description: "List, create, retrieve, and update job postings managed through the Kini API."
 ---
 
-This page is auto-populated from the OpenAPI specification (`kini-api.json`) once imported via the Documentation.AI dashboard.
+The Jobs endpoints expose job postings stored in the Kini platform. Use them to sync job data with your own systems, create new jobs programmatically, or keep job details up to date after they're published.
+
+All requests require authentication. Company-scoped requests need the `Company-Id` header — see [Authentication](/docs/kini-api-basics/authentication).
+
+## What's in this section
+
+<Columns cols="2">
+  <Card title="List Jobs" icon="list" href="/docs/api/jobs/list-jobs">
+    Retrieve jobs for a company, with pagination and filtering.
+  </Card>
+  <Card title="Create Job" icon="plus" href="/docs/api/jobs/create-job">
+    Publish a new job posting to the Kini platform.
+  </Card>
+  <Card title="Get Job" icon="file-search" href="/docs/api/jobs/get-job">
+    Fetch a single job by its Kini ID, including full description and metadata.
+  </Card>
+  <Card title="Update Job" icon="pencil" href="/docs/api/jobs/update-job">
+    Patch an existing job to update fields such as status, description, or location.
+  </Card>
+</Columns>
+
+## Common use cases
+
+- Import jobs from a customer's ATS so they can be distributed via QuiqApply or partner channels.
+- Keep job descriptions and locations in sync between your system of record and Kini.
+- Track which jobs are receiving applications via the Applications endpoints.
+
+## Before you start
+
+- Confirm whether your integration is scoped to a single company or many — this affects which `Company-Id` you send.
+- For updates, use the `external_job_id` when available to avoid fragile ID mappings.
+- Subscribe to the [Job Update Webhook](/docs/webhooks/job-update) if you need to react to changes pushed from outside your system.
+
+<Callout kind="info">
+  Applications submitted against these jobs are managed through the [Applications endpoints](/docs/api/applications/index) and the [Application Sync Status Update webhook](/docs/webhooks/application-sync-status-update).
+</Callout>

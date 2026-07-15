@@ -1,6 +1,38 @@
 ---
 title: "Applications"
-description: ""
+description: "Submit, list, and retrieve job applications received through the Kini API."
 ---
 
-This page is auto-populated from the OpenAPI specification (`kini-api.json`) once imported via the Documentation.AI dashboard.
+The Applications endpoints let your systems read and create job applications received through the Kini platform. Use them to push applications submitted outside of a partner job board into a customer's ATS, and to look up existing applications by ID.
+
+All requests require authentication and the target company's `Company-Id` header. See [Authentication](/docs/kini-api-basics/authentication) for setup and [Rate Limits](/docs/kini-api-basics/rate-limits) for request budgets.
+
+## What's in this section
+
+<Columns cols="3">
+  <Card title="List Applications" icon="list" href="/docs/api/applications/list-applications">
+    Retrieve applications for a company with paginated results.
+  </Card>
+  <Card title="Create Application" icon="plus" href="/docs/api/applications/create-application">
+    Submit a new application from your channel or form into a company's ATS.
+  </Card>
+  <Card title="Get Application" icon="file-search" href="/docs/api/applications/get-application">
+    Fetch a single application by its Kini ID, including candidate and attachments.
+  </Card>
+</Columns>
+
+## Common use cases
+
+- Forward applications from forms, agencies, or partner job boards into a customer's ATS.
+- Build recruiter or operator dashboards backed by application data.
+- Inspect sync state and resolve failed syncs to the ATS.
+
+## Before you start
+
+- Confirm the target company ID and that your API key has access to it.
+- Decide whether you'll address the job by Kini `job` ID or by `external_job_id` — one is required.
+- Prepare candidate data with at least `email` and `first_name`; see [Filtering](/docs/kini-api-basics/filtering) for query options on list endpoints.
+
+<Callout kind="tip">
+  New to the API? Start with [Introduction](/docs/kini-api-basics/getting-started) and [Pagination](/docs/kini-api-basics/pagination) so list responses make sense before you integrate.
+</Callout>
