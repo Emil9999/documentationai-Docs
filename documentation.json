@@ -52,21 +52,6 @@
                 "path": "docs/kini-api-basics/overview-ats-supported-fields"
               }
             ]
-          },
-          {
-            "group": "Resources",
-            "icon": "folder-open",
-            "expandable": true,
-            "pages": [
-              {
-                "title": "Changelog",
-                "path": "docs/changelog"
-              },
-              {
-                "title": "Roadmap",
-                "path": "docs/roadmap"
-              }
-            ]
           }
         ]
       },
@@ -86,22 +71,6 @@
               {
                 "title": "Indeed",
                 "path": "docs/quickapply-integrations/indeed"
-              },
-              {
-                "title": "Heyflow",
-                "path": "docs/quickapply-integrations/heyflow"
-              },
-              {
-                "title": "Jobrapido",
-                "path": "docs/quickapply-integrations/jobrapido"
-              },
-              {
-                "title": "Meta Lead Forms",
-                "path": "docs/quickapply-integrations/meta-lead-forms"
-              },
-              {
-                "title": "Monster",
-                "path": "docs/quickapply-integrations/monster"
               },
               {
                 "title": "Perspective",
