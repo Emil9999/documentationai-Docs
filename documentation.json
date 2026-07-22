@@ -52,20 +52,6 @@
                 "path": "docs/kini-api-basics/overview-ats-supported-fields"
               }
             ]
-          },
-          {
-            "group": "Release",
-            "icon": "history",
-            "pages": [
-              {
-                "title": "Changelog",
-                "path": "docs/changelog"
-              },
-              {
-                "title": "Roadmap",
-                "path": "docs/roadmap"
-              }
-            ]
           }
         ]
       },
