@@ -6,7 +6,7 @@ description: "Efficient data retrieval often requires filtering the dataset to m
 <Callout icon="✨" theme="default">
   ### Supported Endpoints
 
-  Filtering is supported for the **GET /jobs**, **GET /candidates**, and **GET /applications** endpoints. Ensure you use the correct parameters to avoid unnecessary data processing.
+  Filtering is supported for the **GET /jobs** and **GET /applications** endpoints. Ensure you use the correct parameters to avoid unnecessary data processing.
 </Callout>
 
 ## Filtering Parameters
@@ -32,7 +32,7 @@ The following parameters can be used to filter results across different endpoint
 
 | Parameter                | Description                                                                                                 | Filter Type           | Example Usage                                        |
 | :----------------------- | :---------------------------------------------------------------------------------------------------------- | :-------------------- | :--------------------------------------------------- |
-| `email`                  | Filters applications by applicant email                                                                     | Exact match           | `/applications?partner_job_id=applicant@example.com` |
+| `email`                  | Filters applications by applicant email                                                                     | Exact match           | `/applications?email=applicant@example.com`          |
 | `partner_application_id` | Filters by the partner's application ID                                                                     | Exact match           | `/applications?partner_job_id=8262`                  |
 | `partner_job_id`         | Filters by the partner's job ID                                                                             | Exact match           | `/applications?partner_job_id=123_4`                 |
 | `partner_company_id`     | Filters by the partner's company ID                                                                         | Exact match           | `/applications?partner=acme-inc`                     |
@@ -52,7 +52,7 @@ The following parameters can be used to filter results across different endpoint
 | :---------------------- | :--------------------------------------------------------------------- | :-------------------------- | :-------------------------------------- |
 | `name`                  | Filters companies by their name                                        | Contains (case-insensitive) | `/companies?name=Acme`                  |
 | `ats`                   | Filters companies by their applicant tracking system (ATS)             | Exact match                 | `/companies?ats=personio`               |
-| `partner_company_id`    | Filters companies by their parter's internal reference (if provided)   | Exact match                 | `/companies?partner_company_id=123`     |
+| `partner_company_id`    | Filters companies by their partner's internal reference (if provided)   | Exact match                 | `/companies?partner_company_id=123`     |
 | `candidate_sync_active` | Filters companies by candidate synchronization status (`true`/`false`) | Exact match                 | `/companies?candidate_sync_active=true` |
 | `job_sync_active`       | Filters companies by job synchronization status (`true`/`false`)       | Exact match                 | `/companies?job_sync_active=false`      |
 
@@ -69,10 +69,10 @@ The following parameters can be used to filter results across different endpoint
    ```
    GET /jobs?status=active&location=Berlin
    ```
-2. **Filter Candidates by Creation Date**\
-   Retrieve candidates created after January 1, 2024:
+2. **Filter Applications by Creation Date**\
+   Retrieve applications created after January 1, 2024:
    ```text
-   GET /candidates?created_at=2024-01-01
+   GET /applications?created_at=2024-01-01
    ```
 
 ## Response Format

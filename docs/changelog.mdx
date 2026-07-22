@@ -16,7 +16,7 @@ description: "Release notes and version history for the Kini API."
 <Update label="2025-01-15" description="v1.0 - Breaking change for pagination" tags={["Breaking Change"]}>
   ### Pagination now required
 
-  - `GET /jobs` and `GET /candidates` now require `pagination=true` query parameter to receive full result sets
+  - `GET /jobs` and `GET /applications` now require `pagination=true` query parameter to receive full result sets
   - Without `pagination=true`, results are capped at the first 25 records
   - Update your integration to explicitly opt in to paginated responses
 

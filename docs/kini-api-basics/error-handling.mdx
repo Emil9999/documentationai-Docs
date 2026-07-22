@@ -9,7 +9,7 @@ description: "The Kini API is designed to provide clear and actionable error mes
 
 | Status Code | Error Message | Resolution                                                                                                            |
 | ----------- | ------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `401`       | Unauthorized  | Ensure the `Authorization` header contains a valid token. Use `/token/refresh/` or `/token/`if the token has expired. |
+| `401`       | Unauthorized  | Ensure the `Authorization` header contains a valid token. Rotate the API key in the [Kini Partner App](https://app.getkini.com/) if it has expired or been revoked. |
 | `403`       | Forbidden     | Verify the user's permissions for the requested endpoint.                                                             |
 
 <br />
@@ -80,7 +80,7 @@ All error responses from the Kini API follow a standard format for consistency a
 3. **Validate Requests:**\
    Ensure all required fields are included and conform to the API schema before making a request.
 4. **Handle Token Expiry:**\
-   Monitor for 401 Unauthorized responses and use the **/token/refresh/** endpoint to obtain a new access token.
+   Monitor for 401 Unauthorized responses and rotate the API key from the [Kini Partner App](https://app.getkini.com/).
 5. **Monitor API Limits:**\
    Keep track of your API usage to avoid rate limiting errors (429 Too Many Requests).
 

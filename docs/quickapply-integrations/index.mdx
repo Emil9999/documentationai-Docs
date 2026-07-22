@@ -3,7 +3,7 @@ title: "QuickApply Integrations"
 description: "Overview of QuickApply API integrations with job boards"
 ---
 
-Our QuickApply API enables seamless integration with various job boards, including Indeed, Monster, and Stepstone, allowing candidate applications to be received from these platforms and forwarded directly to the end customer's ATS (Applicant Tracking System). This documentation outlines how the webhook URLs are structured and how XML job feeds must be adjusted by agencies or partners to include the webhook links, ensuring that the candidate application flow is correctly triggered.
+Our QuickApply API enables seamless integration with various job boards, allowing candidate applications to be received from these platforms and forwarded directly to the end customer's ATS (Applicant Tracking System). This documentation outlines how the webhook URLs are structured and how XML job feeds must be adjusted by agencies or partners to include the webhook links, ensuring that the candidate application flow is correctly triggered.
 
 <br />
 
@@ -17,7 +17,18 @@ Each job board requires a unique webhook URL that must be included in the XML jo
 
 ### 📥 How Webhook URLs Are Generated
 
-The webhook URLs follow a consistent structure across all job boards
+The webhook URL for every partner follows this pattern:
+
+```
+https://api.getkini.com/webhooks/{partner}/{kini_agency_id}/{kini_company_id}/{external_job_id}
+```
+
+- **partner**: the integration slug (`indeed`, `monster`, `jobrapido`, `heyflow`, `meta`, `perspective`).
+- **kini_agency_id**: the agency ID provided by the Kini team.
+- **kini_company_id**: the Kini company the application should be forwarded to.
+- **external_job_id**: the job's ID in the connected ATS.
+
+See each partner page for the exact URL, an example, and any partner-specific fields.
 
 <br />
 
@@ -45,7 +56,7 @@ Here's how to adjust the XML feed:
   <id>12345</id>
   <title>Software Engineer</title>
   <location>Berlin, Germany</location>
-  <apply-url>https://api.kini.com/webhooks/applications/indeed/12345/abc123</apply-url>
+  <apply-url>https://api.getkini.com/webhooks/applications/indeed/12345/abc123</apply-url>
 </job>
 ```
 
