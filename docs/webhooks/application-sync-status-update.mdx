@@ -46,15 +46,7 @@ The `status` field can have the following values:
 
 ### Authentication
 
-Authentication is handled via an API key sent in the request header.
-
-**Example Header**
-
-```text cURL
-Authorization: Bearer <API_KEY>
-```
-
-The API key will be provided to you separately. Ensure that your webhook endpoint is secure and accessible only by authorized requests.
+Every delivery includes a `Kini-Signature` header containing an HMAC-SHA256 signature of the body, computed with the signing secret configured for your company. Verify it on your side before processing. Contact [support@getkini.com](mailto:support@getkini.com) if you need to obtain or rotate your signing secret.
 
 <br />
 

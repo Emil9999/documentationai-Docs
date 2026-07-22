@@ -7,26 +7,13 @@ The Jobs endpoints expose job postings stored in the Kini platform. Use them to 
 
 All requests require authentication. Company-scoped requests need the `Company-Id` header — see [Authentication](/docs/kini-api-basics/authentication).
 
-## What's in this section
+## Endpoints
 
-<Columns cols="2">
-  <Card title="List Jobs" icon="list" href="/docs/api/jobs/list-jobs">
-    Retrieve jobs for a company, with pagination and filtering.
-  </Card>
-  <Card title="Create Job" icon="plus" href="/docs/api/jobs/create-job">
-    Publish a new job posting to the Kini platform.
-  </Card>
-  <Card title="Get Job" icon="file-search" href="/docs/api/jobs/get-job">
-    Fetch a single job by its Kini ID, including full description and metadata.
-  </Card>
-  <Card title="Update Job" icon="pencil" href="/docs/api/jobs/update-job">
-    Patch an existing job to update fields such as status, description, or location.
-  </Card>
-</Columns>
+The full request/response schema for each endpoint is rendered below from the OpenAPI spec.
 
 ## Common use cases
 
-- Import jobs from a customer's ATS so they can be distributed via QuiqApply or partner channels.
+- Import jobs from a customer's ATS so they can be distributed via QuickApply or partner channels.
 - Keep job descriptions and locations in sync between your system of record and Kini.
 - Track which jobs are receiving applications via the Applications endpoints.
 
