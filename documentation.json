@@ -41,17 +41,6 @@
                 "path": "docs/kini-api-basics/rate-limits"
               }
             ]
-          },
-          {
-            "group": "Reference",
-            "icon": "book-text",
-            "expandable": true,
-            "pages": [
-              {
-                "title": "ATS Supported Fields",
-                "path": "docs/kini-api-basics/overview-ats-supported-fields"
-              }
-            ]
           }
         ]
       },
