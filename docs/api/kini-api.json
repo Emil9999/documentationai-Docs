@@ -4661,6 +4661,960 @@
             "description": ""
           }
         }
+      },
+      "post": {
+        "operationId": "companies_create",
+        "description": "Create a new Company under a partner and an ATS integration. The authenticated partner becomes the owning partner of the resulting record.",
+        "summary": "Create Company",
+        "tags": [
+          "Companies"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "name",
+                  "ats"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Display name of the company"
+                  },
+                  "ats": {
+                    "type": "string",
+                    "description": "Slug of the ATS integration this company will be linked to (for example `bullhorn` or `workday`).",
+                    "example": "bullhorn"
+                  },
+                  "partner_company_id": {
+                    "type": "string",
+                    "nullable": true,
+                    "description": "External identifier of the company in the partner's system"
+                  },
+                  "website": {
+                    "type": "string",
+                    "format": "uri",
+                    "nullable": true,
+                    "description": "Company website URL"
+                  },
+                  "logo": {
+                    "type": "string",
+                    "format": "uri",
+                    "nullable": true,
+                    "description": "URL of the company logo"
+                  },
+                  "primary_color": {
+                    "type": "string",
+                    "nullable": true,
+                    "description": "Hex color used to brand the company's job board"
+                  },
+                  "street": {
+                    "type": "string",
+                    "nullable": true,
+                    "description": "Street address of the company"
+                  },
+                  "city": {
+                    "type": "string",
+                    "nullable": true,
+                    "description": "City of the company"
+                  },
+                  "country": {
+                    "type": "string",
+                    "nullable": true,
+                    "description": "Country of the company"
+                  },
+                  "postcode": {
+                    "type": "string",
+                    "nullable": true,
+                    "description": "Postal code of the company"
+                  },
+                  "contact_name": {
+                    "type": "string",
+                    "nullable": true,
+                    "description": "Full name of the main point of contact"
+                  },
+                  "contact_email": {
+                    "type": "string",
+                    "format": "email",
+                    "nullable": true,
+                    "description": "Email address of the main point of contact"
+                  },
+                  "contact_phone": {
+                    "type": "string",
+                    "nullable": true,
+                    "description": "Phone number of the main point of contact"
+                  },
+                  "fallback_job": {
+                    "type": "integer",
+                    "nullable": true,
+                    "description": "Kini ID of the job used as a fallback when the ATS export fails"
+                  }
+                },
+                "x-readme-ref-name": "CompanyWrite"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "readOnly": true,
+                      "description": "Unique Kini ID of the company"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Display name of the company"
+                    },
+                    "slug": {
+                      "type": "string",
+                      "readOnly": true,
+                      "description": "URL-friendly slug of the company"
+                    },
+                    "ats": {
+                      "type": "string",
+                      "enum": [
+                        "bullhorn",
+                        "eploy",
+                        "greenhouse",
+                        "harvest",
+                        "heyrecruit",
+                        "jobylon",
+                        "oracle-taleo",
+                        "recruitee",
+                        "smartrecruiters",
+                        "teamtailor",
+                        "umantis",
+                        "workable",
+                        "workday",
+                        "zvoove"
+                      ],
+                      "description": "Slug of the ATS integration the company is linked to"
+                    },
+                    "ats_name": {
+                      "type": "string",
+                      "readOnly": true,
+                      "description": "Human-readable name of the linked ATS"
+                    },
+                    "partner": {
+                      "type": "integer",
+                      "nullable": true,
+                      "description": "Kini ID of the owning partner"
+                    },
+                    "partner_company_id": {
+                      "type": "string",
+                      "nullable": true,
+                      "description": "External identifier of the company in the partner's system"
+                    },
+                    "website": {
+                      "type": "string",
+                      "format": "uri",
+                      "nullable": true,
+                      "description": "Company website URL"
+                    },
+                    "logo": {
+                      "type": "string",
+                      "format": "uri",
+                      "nullable": true,
+                      "description": "URL of the company logo"
+                    },
+                    "primary_color": {
+                      "type": "string",
+                      "nullable": true,
+                      "description": "Hex color used to brand the company's job board"
+                    },
+                    "street": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "city": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "country": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "postcode": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "job_sync_active": {
+                      "type": "boolean",
+                      "readOnly": true,
+                      "description": "Whether the company's job synchronization is activated"
+                    },
+                    "candidate_sync_active": {
+                      "type": "boolean",
+                      "readOnly": true,
+                      "description": "Whether the company's candidate synchronization is activated"
+                    },
+                    "contact_name": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "contact_email": {
+                      "type": "string",
+                      "format": "email",
+                      "nullable": true
+                    },
+                    "contact_phone": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "jobs_last_synced_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "nullable": true,
+                      "readOnly": true,
+                      "description": "Timestamp of the last successful job sync"
+                    },
+                    "fallback_job": {
+                      "type": "integer",
+                      "nullable": true,
+                      "description": "Kini ID of the job used as a fallback when the ATS export fails"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "invited",
+                        "requested",
+                        "active",
+                        "failing",
+                        "deactivated",
+                        "deleted"
+                      ],
+                      "readOnly": true,
+                      "description": "Lifecycle status of the company"
+                    },
+                    "is_test": {
+                      "type": "boolean",
+                      "readOnly": true,
+                      "description": "Whether the company is marked as a test record"
+                    },
+                    "magic_link": {
+                      "type": "string",
+                      "format": "uri",
+                      "nullable": true,
+                      "readOnly": true,
+                      "description": "URL of the active magic link for the company, if any"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "readOnly": true,
+                      "description": "Timestamp of when the company was first created"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "readOnly": true,
+                      "description": "Timestamp of when the company was last updated"
+                    }
+                  },
+                  "x-readme-ref-name": "CompanyRead"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      }
+    },
+    "/companies/{id}/": {
+      "get": {
+        "operationId": "companies_retrieve",
+        "description": "Retrieve a specific Company identified by its unique ID.",
+        "summary": "Get Single Company",
+        "tags": [
+          "Companies"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Unique Kini ID of the company"
+          },
+          {
+            "in": "header",
+            "name": "Company-Id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Kini ID of the company the key is associated with"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "readOnly": true,
+                      "description": "Unique Kini ID of the company"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Display name of the company"
+                    },
+                    "slug": {
+                      "type": "string",
+                      "readOnly": true,
+                      "description": "URL-friendly slug of the company"
+                    },
+                    "ats": {
+                      "type": "string",
+                      "enum": [
+                        "bullhorn",
+                        "eploy",
+                        "greenhouse",
+                        "harvest",
+                        "heyrecruit",
+                        "jobylon",
+                        "oracle-taleo",
+                        "recruitee",
+                        "smartrecruiters",
+                        "teamtailor",
+                        "umantis",
+                        "workable",
+                        "workday",
+                        "zvoove"
+                      ],
+                      "description": "Slug of the ATS integration the company is linked to"
+                    },
+                    "ats_name": {
+                      "type": "string",
+                      "readOnly": true,
+                      "description": "Human-readable name of the linked ATS"
+                    },
+                    "partner": {
+                      "type": "integer",
+                      "nullable": true,
+                      "description": "Kini ID of the owning partner"
+                    },
+                    "partner_company_id": {
+                      "type": "string",
+                      "nullable": true,
+                      "description": "External identifier of the company in the partner's system"
+                    },
+                    "website": {
+                      "type": "string",
+                      "format": "uri",
+                      "nullable": true,
+                      "description": "Company website URL"
+                    },
+                    "logo": {
+                      "type": "string",
+                      "format": "uri",
+                      "nullable": true,
+                      "description": "URL of the company logo"
+                    },
+                    "primary_color": {
+                      "type": "string",
+                      "nullable": true,
+                      "description": "Hex color used to brand the company's job board"
+                    },
+                    "street": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "city": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "country": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "postcode": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "job_sync_active": {
+                      "type": "boolean",
+                      "readOnly": true,
+                      "description": "Whether the company's job synchronization is activated"
+                    },
+                    "candidate_sync_active": {
+                      "type": "boolean",
+                      "readOnly": true,
+                      "description": "Whether the company's candidate synchronization is activated"
+                    },
+                    "contact_name": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "contact_email": {
+                      "type": "string",
+                      "format": "email",
+                      "nullable": true
+                    },
+                    "contact_phone": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "jobs_last_synced_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "nullable": true,
+                      "readOnly": true,
+                      "description": "Timestamp of the last successful job sync"
+                    },
+                    "fallback_job": {
+                      "type": "integer",
+                      "nullable": true,
+                      "description": "Kini ID of the job used as a fallback when the ATS export fails"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "invited",
+                        "requested",
+                        "active",
+                        "failing",
+                        "deactivated",
+                        "deleted"
+                      ],
+                      "readOnly": true,
+                      "description": "Lifecycle status of the company"
+                    },
+                    "is_test": {
+                      "type": "boolean",
+                      "readOnly": true,
+                      "description": "Whether the company is marked as a test record"
+                    },
+                    "magic_link": {
+                      "type": "string",
+                      "format": "uri",
+                      "nullable": true,
+                      "readOnly": true,
+                      "description": "URL of the active magic link for the company, if any"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "readOnly": true,
+                      "description": "Timestamp of when the company was first created"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "readOnly": true,
+                      "description": "Timestamp of when the company was last updated"
+                    }
+                  },
+                  "x-readme-ref-name": "CompanyRead"
+                }
+              }
+            },
+            "description": ""
+          },
+          "404": {
+            "description": "Company not found"
+          }
+        }
+      },
+      "patch": {
+        "operationId": "companies_partial_update",
+        "description": "Update a specific Company partially by its unique ID. Only the fields included in the request body are modified.",
+        "summary": "Update Company",
+        "tags": [
+          "Companies"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Unique Kini ID of the company"
+          },
+          {
+            "in": "header",
+            "name": "Company-Id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Kini ID of the company the key is associated with"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Display name of the company"
+                  },
+                  "ats": {
+                    "type": "string",
+                    "description": "Slug of the ATS integration this company is linked to (for example `bullhorn` or `workday`).",
+                    "example": "bullhorn"
+                  },
+                  "partner_company_id": {
+                    "type": "string",
+                    "nullable": true,
+                    "description": "External identifier of the company in the partner's system"
+                  },
+                  "website": {
+                    "type": "string",
+                    "format": "uri",
+                    "nullable": true,
+                    "description": "Company website URL"
+                  },
+                  "logo": {
+                    "type": "string",
+                    "format": "uri",
+                    "nullable": true,
+                    "description": "URL of the company logo"
+                  },
+                  "primary_color": {
+                    "type": "string",
+                    "nullable": true,
+                    "description": "Hex color used to brand the company's job board"
+                  },
+                  "street": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "city": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "country": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "postcode": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "contact_name": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "contact_email": {
+                    "type": "string",
+                    "format": "email",
+                    "nullable": true
+                  },
+                  "contact_phone": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "fallback_job": {
+                    "type": "integer",
+                    "nullable": true,
+                    "description": "Kini ID of the job used as a fallback when the ATS export fails"
+                  }
+                },
+                "x-readme-ref-name": "CompanyWrite"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "readOnly": true,
+                      "description": "Unique Kini ID of the company"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Display name of the company"
+                    },
+                    "slug": {
+                      "type": "string",
+                      "readOnly": true,
+                      "description": "URL-friendly slug of the company"
+                    },
+                    "ats": {
+                      "type": "string",
+                      "enum": [
+                        "bullhorn",
+                        "eploy",
+                        "greenhouse",
+                        "harvest",
+                        "heyrecruit",
+                        "jobylon",
+                        "oracle-taleo",
+                        "recruitee",
+                        "smartrecruiters",
+                        "teamtailor",
+                        "umantis",
+                        "workable",
+                        "workday",
+                        "zvoove"
+                      ],
+                      "description": "Slug of the ATS integration the company is linked to"
+                    },
+                    "ats_name": {
+                      "type": "string",
+                      "readOnly": true,
+                      "description": "Human-readable name of the linked ATS"
+                    },
+                    "partner": {
+                      "type": "integer",
+                      "nullable": true,
+                      "description": "Kini ID of the owning partner"
+                    },
+                    "partner_company_id": {
+                      "type": "string",
+                      "nullable": true,
+                      "description": "External identifier of the company in the partner's system"
+                    },
+                    "website": {
+                      "type": "string",
+                      "format": "uri",
+                      "nullable": true,
+                      "description": "Company website URL"
+                    },
+                    "logo": {
+                      "type": "string",
+                      "format": "uri",
+                      "nullable": true,
+                      "description": "URL of the company logo"
+                    },
+                    "primary_color": {
+                      "type": "string",
+                      "nullable": true,
+                      "description": "Hex color used to brand the company's job board"
+                    },
+                    "street": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "city": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "country": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "postcode": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "job_sync_active": {
+                      "type": "boolean",
+                      "readOnly": true,
+                      "description": "Whether the company's job synchronization is activated"
+                    },
+                    "candidate_sync_active": {
+                      "type": "boolean",
+                      "readOnly": true,
+                      "description": "Whether the company's candidate synchronization is activated"
+                    },
+                    "contact_name": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "contact_email": {
+                      "type": "string",
+                      "format": "email",
+                      "nullable": true
+                    },
+                    "contact_phone": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "jobs_last_synced_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "nullable": true,
+                      "readOnly": true,
+                      "description": "Timestamp of the last successful job sync"
+                    },
+                    "fallback_job": {
+                      "type": "integer",
+                      "nullable": true,
+                      "description": "Kini ID of the job used as a fallback when the ATS export fails"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "invited",
+                        "requested",
+                        "active",
+                        "failing",
+                        "deactivated",
+                        "deleted"
+                      ],
+                      "readOnly": true,
+                      "description": "Lifecycle status of the company"
+                    },
+                    "is_test": {
+                      "type": "boolean",
+                      "readOnly": true,
+                      "description": "Whether the company is marked as a test record"
+                    },
+                    "magic_link": {
+                      "type": "string",
+                      "format": "uri",
+                      "nullable": true,
+                      "readOnly": true,
+                      "description": "URL of the active magic link for the company, if any"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "readOnly": true,
+                      "description": "Timestamp of when the company was first created"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "readOnly": true,
+                      "description": "Timestamp of when the company was last updated"
+                    }
+                  },
+                  "x-readme-ref-name": "CompanyRead"
+                }
+              }
+            },
+            "description": ""
+          },
+          "404": {
+            "description": "Company not found"
+          }
+        }
+      }
+    },
+    "/companies/{id}/magic/": {
+      "post": {
+        "operationId": "companies_magic_link_create",
+        "description": "Create or retrieve an active magic link for the Company. If an active link already exists, its URL is returned with status `200`. Otherwise a new link is created and returned with status `201`.",
+        "summary": "Create Magic Link",
+        "tags": [
+          "Companies"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Unique Kini ID of the company"
+          },
+          {
+            "in": "header",
+            "name": "Company-Id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Kini ID of the company the key is associated with"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "format": "uri",
+                      "description": "URL of the existing active magic link"
+                    }
+                  },
+                  "x-readme-ref-name": "MagicLinkRead"
+                }
+              }
+            },
+            "description": ""
+          },
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "format": "uri",
+                      "description": "URL of the newly created magic link"
+                    }
+                  },
+                  "x-readme-ref-name": "MagicLinkRead"
+                }
+              }
+            },
+            "description": ""
+          },
+          "404": {
+            "description": "Company not found"
+          }
+        }
+      }
+    },
+    "/companies/{id}/sync/jobs/": {
+      "post": {
+        "operationId": "companies_sync_jobs_create",
+        "description": "Trigger a manual job synchronization from the ATS for the given Company. Throttled to one request per minute per company.",
+        "summary": "Trigger Job Sync",
+        "tags": [
+          "Companies"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Unique Kini ID of the company"
+          },
+          {
+            "in": "header",
+            "name": "Company-Id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Kini ID of the company the key is associated with"
+          }
+        ],
+        "responses": {
+          "202": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "detail": {
+                      "type": "string",
+                      "description": "Result of the sync request",
+                      "example": "success"
+                    }
+                  }
+                }
+              }
+            },
+            "description": ""
+          },
+          "404": {
+            "description": "Sync could not be triggered for the company"
+          },
+          "429": {
+            "description": "Sync already requested in the last minute"
+          }
+        }
+      }
+    },
+    "/companies/{id}/deactivate/": {
+      "patch": {
+        "operationId": "companies_deactivate",
+        "description": "Mark the Company as deactivated and notify internal channels. The record is retained but excluded from active listings.",
+        "summary": "Deactivate Company",
+        "tags": [
+          "Companies"
+        ],
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Unique Kini ID of the company"
+          },
+          {
+            "in": "header",
+            "name": "Company-Id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Kini ID of the company the key is associated with"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "detail": {
+                      "type": "string",
+                      "description": "Result of the deactivation request",
+                      "example": "success"
+                    }
+                  }
+                }
+              }
+            },
+            "description": ""
+          },
+          "404": {
+            "description": "Company not found"
+          }
+        }
       }
     },
     "/clickout/": {
@@ -5023,10 +5977,7 @@
           }
         },
         "required": [
-          "candidate",
-          "failure_error",
-          "id",
-          "sync_status"
+          "candidate"
         ],
         "x-readme-ref-name": "Application"
       },

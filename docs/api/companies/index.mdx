@@ -1,23 +1,37 @@
 ---
 title: Companies
-description: Look up the companies accessible with your API credentials.
+description: Look up, manage, and synchronize the companies accessible with your API credentials.
 ---
-The Companies endpoint lets you list the companies your API key has access to. Use it to populate account pickers, validate company IDs before building scoped requests, or reconcile company records between your system and Kini.
+The Companies endpoints let you list, create, update, and synchronize the companies your API key has access to. Use them to populate account pickers, validate company IDs before building scoped requests, trigger an out-of-band job sync from the ATS, or reconcile company records between your system and Kini.
 
 All requests require authentication — see [Authentication](/docs/kini-api-basics/authentication).
+
+## Available endpoints
+
+- `GET /companies/` — list companies accessible to your API key.
+- `POST /companies/` — create a new company under a partner and an ATS integration.
+- `GET /companies/{id}/` — retrieve a single company by its Kini ID.
+- `PATCH /companies/{id}/` — update a company's profile fields.
+- `POST /companies/{id}/magic/` — create or retrieve an active magic link for the company.
+- `POST /companies/{id}/sync/jobs/` — trigger a manual job sync from the linked ATS.
+- `PATCH /companies/{id}/deactivate/` — mark the company as deactivated.
 
 ## Common use cases
 
 - Validate a `Company-Id` before making scoped requests to Jobs or Applications.
 - Build an onboarding flow that lists available companies for a new integration customer.
+- Sync job listings from the ATS on demand after a configuration change.
+- Share a magic link with a company admin so they can sign in without a password.
 - Reconcile your account records against the canonical company list in Kini.
 
 ## Before you start
 
 - The result set is limited to companies your API key has been granted access to. If a company is missing, confirm with your administrator.
 - Store the returned company IDs — most other endpoints require a `Company-Id` header.
+- `POST /companies/{id}/sync/jobs/` is throttled to one request per minute per company.
+- `PATCH /companies/{id}/deactivate/` is irreversible from the API — reactivate from the Kini admin if needed.
 
 <Callout kind="tip" collapsed="false">
-  Combine this endpoint with [Filtering](/docs/kini-api-basics/filtering) to narrow results by name or external reference when the list is long.
+  Combine the list endpoint with [Filtering](/docs/kini-api-basics/filtering) to narrow results by name, ATS, or external reference when the list is long.
 </Callout>
 
