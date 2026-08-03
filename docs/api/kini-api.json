@@ -5977,10 +5977,7 @@
           }
         },
         "required": [
-          "candidate",
-          "failure_error",
-          "id",
-          "sync_status"
+          "candidate"
         ],
         "x-readme-ref-name": "Application"
       },
