@@ -129,6 +129,12 @@
               "GET /jobs/{id}",
               "PATCH /jobs/{id}",
               "GET /companies/",
+              "POST /companies/",
+              "GET /companies/{id}/",
+              "PATCH /companies/{id}/",
+              "POST /companies/{id}/magic/",
+              "POST /companies/{id}/sync/jobs/",
+              "PATCH /companies/{id}/deactivate/",
               "POST /clickout/"
             ],
             "pages": [
@@ -147,6 +153,12 @@
               "POST /applications/",
               "GET /applications/{id}",
               "GET /companies/",
+              "POST /companies/",
+              "GET /companies/{id}/",
+              "PATCH /companies/{id}/",
+              "POST /companies/{id}/magic/",
+              "POST /companies/{id}/sync/jobs/",
+              "PATCH /companies/{id}/deactivate/",
               "POST /clickout/"
             ],
             "pages": [
@@ -189,7 +201,13 @@
               "POST /jobs",
               "GET /jobs/{id}",
               "PATCH /jobs/{id}",
-              "GET /companies/"
+              "GET /companies/",
+              "POST /companies/",
+              "GET /companies/{id}/",
+              "PATCH /companies/{id}/",
+              "POST /companies/{id}/magic/",
+              "POST /companies/{id}/sync/jobs/",
+              "PATCH /companies/{id}/deactivate/"
             ],
             "pages": [
               {
