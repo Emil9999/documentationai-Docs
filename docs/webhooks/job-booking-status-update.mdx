@@ -1,8 +1,10 @@
 ---
-title: "Job Booking Status Update"
-description: "The Status Webhook allows you to receive real-time updates on job booking statuses. Whenever a job booking is booked or published, a Webhook Payload will be sent to a URL you define."
+title: Job Booking Status Update
+description: >-
+  The Status Webhook allows you to receive real-time updates on job booking
+  statuses. Whenever a job booking is booked or published, a Webhook Payload
+  will be sent to a URL you define.
 ---
-
 ### Webhook Payload
 
 The following payload will be sent to your configured webhook URL:
@@ -41,19 +43,11 @@ The following payload will be sent to your configured webhook URL:
 
 The `booking_status` field can have the following values:
 
-* **BOOKED**: The job booking was successfully created in the database.
-* **PROCESSING**: The job booking has been reviewed and is queued to be posted online.
-* **PUBLISHED**: The job booking is now online on the job board. The `booking_url` field will be filled.
-* **UNPUBLISHED**: The job booking was prematurely taken down by the customer.
-* **EXPIRED**: The duration for which the job booking was online has ended. The booking has been removed from the job board.
-
-<br />
-
-### Authentication
-
-Every delivery includes a `Kini-Signature` header containing an HMAC-SHA256 signature of the body, computed with the signing secret configured for your company. Verify it on your side before processing. Contact [support@getkini.com](mailto:support@getkini.com) if you need to obtain or rotate your signing secret.
-
-<br />
+- **BOOKED**: The job booking was successfully created in the database.
+- **PROCESSING**: The job booking has been reviewed and is queued to be posted online.
+- **PUBLISHED**: The job booking is now online on the job board. The `booking_url` field will be filled.
+- **UNPUBLISHED**: The job booking was prematurely taken down by the customer.
+- **EXPIRED**: The duration for which the job booking was online has ended. The booking has been removed from the job board.
 
 ### Setting Up Your Webhook URL
 
@@ -69,5 +63,6 @@ https://your-domain.com/kini-status
 
 ### Notes
 
-* Ensure your webhook URL supports HTTPS for secure communication.
-* Webhook calls may be retried periodically if no successful response (HTTP 2xx) is received.
+- Ensure your webhook URL supports HTTPS for secure communication.
+- Webhook calls may be retried periodically if no successful response (HTTP 2xx) is received.
+

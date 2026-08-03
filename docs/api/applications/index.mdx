@@ -1,15 +1,10 @@
 ---
-title: "Applications"
-description: "Submit, list, and retrieve job applications received through the Kini API."
+title: Applications
+description: 'Submit, list, and retrieve job applications received through the Kini API.'
 ---
-
 The Applications endpoints let your systems read and create job applications received through the Kini platform. Use them to push applications submitted outside of a partner job board into a customer's ATS, and to look up existing applications by ID.
 
 All requests require authentication and the target company's `Company-Id` header. See [Authentication](/docs/kini-api-basics/authentication) for setup and [Rate Limits](/docs/kini-api-basics/rate-limits) for request budgets.
-
-## Endpoints
-
-The full request/response schema for each endpoint is rendered below from the OpenAPI spec.
 
 ## Common use cases
 
@@ -23,6 +18,7 @@ The full request/response schema for each endpoint is rendered below from the Op
 - Decide whether you'll address the job by Kini `job` ID or by `external_job_id` — one is required.
 - Prepare candidate data with at least `email` and `first_name`; see [Filtering](/docs/kini-api-basics/filtering) for query options on list endpoints.
 
-<Callout kind="tip">
+<Callout kind="tip" collapsed="false">
   New to the API? Start with [Introduction](/docs/kini-api-basics/getting-started) and [Pagination](/docs/kini-api-basics/pagination) so list responses make sense before you integrate.
 </Callout>
+

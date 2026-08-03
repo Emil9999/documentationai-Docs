@@ -1,8 +1,7 @@
 ---
-title: "QuickApply Integrations"
-description: "Overview of QuickApply API integrations with job boards"
+title: QuickApply Integrations
+description: Overview of QuickApply API integrations with job boards
 ---
-
 Our QuickApply API enables seamless integration with various job boards, allowing candidate applications to be received from these platforms and forwarded directly to the end customer's ATS (Applicant Tracking System). This documentation outlines how the webhook URLs are structured and how XML job feeds must be adjusted by agencies or partners to include the webhook links, ensuring that the candidate application flow is correctly triggered.
 
 <br />
@@ -19,22 +18,22 @@ Each job board requires a unique webhook URL that must be included in the XML jo
 
 The webhook URL for every partner follows this pattern:
 
-```
-https://api.getkini.com/webhooks/{partner}/{kini_agency_id}/{kini_company_id}/{external_job_id}
+```typescript
+https://api.getkini.com/webhooks/{talent_channel}/{kini_partner_id}/{kini_company_id}/{external_job_id}
 ```
 
-- **partner**: the integration slug (`indeed`, `monster`, `jobrapido`, `heyflow`, `meta`, `perspective`).
-- **kini_agency_id**: the agency ID provided by the Kini team.
-- **kini_company_id**: the Kini company the application should be forwarded to.
-- **external_job_id**: the job's ID in the connected ATS.
+- talent\_channel: the integration slug (`indeed`, `monster`, `jobrapido`, `heyflow`, `meta`, `perspective`).
+- kini\_partner\_id: the partner ID provided by the Kini team.
+- **kini\_company\_id**: the Kini company the application should be forwarded to.
+- **external\_job\_id**: the job's ID in the connected ATS.
 
-See each partner page for the exact URL, an example, and any partner-specific fields.
+See each partner page for the exact URL, an example, and any talent channel-specific fields.
 
 <br />
 
 ### 📝 How to Update XML Job Feeds
 
-To ensure that candidate applications are correctly routed to the customer's ATS via our webhooks, agencies or partners must update their XML job feeds to include the webhook URLs.
+To ensure that candidate applications are correctly routed to the customer's ATS via our webhooks partners must update their XML job feeds to include the webhook URLs.
 
 Here's how to adjust the XML feed:
 
@@ -64,9 +63,9 @@ Here's how to adjust the XML feed:
 
 ### 📌 Important Notes
 
-* Ensure that the webhook URLs are correctly formatted in the XML feed to avoid broken application flows.
-* Always test the updated XML feed before going live to ensure that the candidate application data is correctly routed to our webhook.
-* Make sure to insert a valid external\_job\_id
+- Ensure that the webhook URLs are correctly formatted in the XML feed to avoid broken application flows.
+- Always test the updated XML feed before going live to ensure that the candidate application data is correctly routed to our webhook.
+- Make sure to insert a valid external\_job\_id
 
 <br />
 

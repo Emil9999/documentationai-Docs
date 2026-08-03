@@ -1,22 +1,25 @@
 ---
-title: "Application Sync Status Update"
-description: "The Status Webhook allows you to receive real-time updates on application statuses. Whenever an application's status changes, a Webhook Payload will be sent to a URL you define."
+title: Application Sync Status Update
+description: >-
+  The Status Webhook allows you to receive real-time updates on application
+  statuses. Whenever an application's status changes, a Webhook Payload will be
+  sent to a URL you define.
 ---
-
 ### Webhook Payload
 
 The following payload will be sent to your configured webhook URL:
 
 ```json
 {
-	"company_id": 123,
-	"partner_id": 10,
-	"application_id": 45213,
-	"partner_company_id":"1019261",
-	"partner_application_id": "123",
-	"external_job_id": "1604531",
-	"status": "SUCCESS",
-	"failure_error": null
+  "company_id": 123,
+  "partner_id": 10,
+  "application_id": 452123,
+  "job_id": 12388996,                 
+  "partner_company_id": "1019123",
+  "partner_application_id": "123",
+  "external_job_id": "1604123",
+  "status": "SUCCESS",
+  "failure_error": null
 }
 ```
 
@@ -37,10 +40,10 @@ The following payload will be sent to your configured webhook URL:
 
 The `status` field can have the following values:
 
-* **SUCCESS**: The application was synchronized successfully.
-* **FAILURE**: An error occurred during synchronization. Failure details are provided in the field `failure_error`.
-* **NOTSENT**: Synchronization hasn't been set to the ATS or is still in progress.
-* **EXPECTED_FAILURE**: Synchronization failed due to an expected error, such as `DuplicateApplicationError`, `JobNotPublishedError`
+- **SUCCESS**: The application was synchronized successfully.
+- **FAILURE**: An error occurred during synchronization. Failure details are provided in the field `failure_error`.
+- **NOTSENT**: Synchronization hasn't been set to the ATS or is still in progress.
+- **EXPECTED\_FAILURE**: Synchronization failed due to an expected error, such as `DuplicateApplicationError`, `JobNotPublishedError`
 
 <br />
 
@@ -64,6 +67,7 @@ https://your-domain.com/kini-status
 
 ### Notes
 
-* Ensure your webhook URL supports HTTPS for secure communication.
-* Implement robust handling for the webhook payload, especially for the `failure_error` field.
-* Webhook calls may be retried periodically if no successful response (HTTP 2xx) is received.
+- Ensure your webhook URL supports HTTPS for secure communication.
+- Implement robust handling for the webhook payload, especially for the `failure_error` field.
+- Webhook calls may be retried periodically if no successful response (HTTP 2xx) is received.
+

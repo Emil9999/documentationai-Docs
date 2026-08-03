@@ -1,15 +1,10 @@
 ---
-title: "Companies"
-description: "Look up the companies accessible with your API credentials."
+title: Companies
+description: Look up the companies accessible with your API credentials.
 ---
-
 The Companies endpoint lets you list the companies your API key has access to. Use it to populate account pickers, validate company IDs before building scoped requests, or reconcile company records between your system and Kini.
 
 All requests require authentication — see [Authentication](/docs/kini-api-basics/authentication).
-
-## Endpoints
-
-The full request/response schema is rendered below from the OpenAPI spec.
 
 ## Common use cases
 
@@ -22,6 +17,7 @@ The full request/response schema is rendered below from the OpenAPI spec.
 - The result set is limited to companies your API key has been granted access to. If a company is missing, confirm with your administrator.
 - Store the returned company IDs — most other endpoints require a `Company-Id` header.
 
-<Callout kind="tip">
+<Callout kind="tip" collapsed="false">
   Combine this endpoint with [Filtering](/docs/kini-api-basics/filtering) to narrow results by name or external reference when the list is long.
 </Callout>
+

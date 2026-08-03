@@ -1,8 +1,9 @@
 ---
-title: "Authentication"
-description: "The Kini API uses Bearer API Key authentication to ensure secure and simplified access to all API resources."
+title: Authentication
+description: >-
+  The Kini API uses Bearer API Key authentication to ensure secure and
+  simplified access to all API resources.
 ---
-
 ## Bearer API Key Authentication (Recommended)
 
 This method simplifies authentication and provides more flexible security options.
@@ -12,21 +13,21 @@ To authenticate with the Kini API:
 1. Obtain an **API Key** in the [Kini Partner App](https://app.getkini.com/).
 2. Include the key in the `Authorization` header for all API requests.
 
-***
+---
 
 ### 1. Obtaining an API Key
 
 API Keys can be created and managed through the Kini Partner App. When generating a key, you can:
 
-* Select your preferred expiration time based on your security requirements
-* Generate multiple keys for different applications or environments
-* Revoke keys that are no longer needed
+- Select your preferred expiration time based on your security requirements
+- Generate multiple keys for different applications or environments
+- Revoke keys that are no longer needed
 
 ### 2. Using the API Key
 
 Include your API key in the Authorization header of all API requests:
 
-```
+```typescript
 Authorization: Bearer <your_access_token>
 ```
 
@@ -38,7 +39,7 @@ curl --location 'https://api.getkini.com/jobs' \
   --header 'Authorization: Bearer YOUR_API_KEY'
 ```
 
-***
+---
 
 ## Best Practices
 

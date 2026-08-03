@@ -1,16 +1,17 @@
 ---
-title: "Error Handling"
-description: "The Kini API is designed to provide clear and actionable error messages to help you diagnose and resolve issues quickly."
+title: Error Handling
+description: >-
+  The Kini API is designed to provide clear and actionable error messages to
+  help you diagnose and resolve issues quickly.
 ---
-
 ## Common Error Codes
 
 ### 1. Authentication Errors
 
-| Status Code | Error Message | Resolution                                                                                                            |
-| ----------- | ------------- | --------------------------------------------------------------------------------------------------------------------- |
+| Status Code | Error Message | Resolution                                                                                                                                                          |
+| ----------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `401`       | Unauthorized  | Ensure the `Authorization` header contains a valid token. Rotate the API key in the [Kini Partner App](https://app.getkini.com/) if it has expired or been revoked. |
-| `403`       | Forbidden     | Verify the user's permissions for the requested endpoint.                                                             |
+| `403`       | Forbidden     | Verify the user's permissions for the requested endpoint.                                                                                                           |
 
 <br />
 
@@ -38,7 +39,7 @@ description: "The Kini API is designed to provide clear and actionable error mes
 | `500`       | Internal Server Error | Unexpected error occurred on the server.      | Retry the request after a short delay. If the issue persists, please contact support. |
 | `503`       | Service Unavailable   | The server is temporarily overloaded or down. | Wait and retry after a few minutes. If the issue persists, please contact support.    |
 
-***
+---
 
 ## Error Response Format
 
@@ -48,16 +49,9 @@ All error responses from the Kini API follow a standard format for consistency a
 
 ```json
 {
-  "error": {
-    "code": 400,
-    "message": "Invalid Input",
-    "details": [
-      {
-        "field": "job_title",
-        "issue": "This field is required."
-      }
+    "title": [
+        "This field is required."
     ]
-  }
 }
 ```
 
@@ -69,7 +63,7 @@ All error responses from the Kini API follow a standard format for consistency a
 | `message` | Short description of the error.                                        |
 | `details` | Additional information about specific fields or issues, if applicable. |
 
-***
+---
 
 ## Best Practices for Error Handling
 
@@ -84,7 +78,7 @@ All error responses from the Kini API follow a standard format for consistency a
 5. **Monitor API Limits:**\
    Keep track of your API usage to avoid rate limiting errors (429 Too Many Requests).
 
-***
+---
 
 ## Contact Support
 
