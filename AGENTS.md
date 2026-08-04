@@ -4,24 +4,32 @@ Notes for AI agents and humans working on this Documentation.AI project. Capture
 
 ## Source layout
 
+Tab-aligned folders at the root, plus a few top-level pages that need clean single-segment URLs:
+
 ```
-docs/
-  <section>/
-    <page>.mdx
-  api/
-    kini-api.json   # OpenAPI 3.0 spec, imported by documentation.json
+home.mdx            # landing page → /home (do not use root index.mdx)
+guides/             # Guides tab
+  roadmap.mdx       # hidden for now → /guides/roadmap
+  changelog.mdx     # hidden for now → /guides/changelog
+integrations/       # Integrations tab
+  quickapply/
+webhooks/           # Webhooks tab
+api/                # API Reference tab
+  kini-api.json     # OpenAPI 3.0 spec
 documentation.json  # nav, theme, OpenAPI bindings, root config
 ```
+
+When unhiding roadmap/changelog, add them as their own groups under the Guides tab — not under Getting Started. Nested `*/index.mdx` works for section overviews (e.g. `integrations/quickapply/index`); DA does not strip `/index` from the URL.
 
 ## documentation.json contract (the gotchas)
 
 These all caused 404s or build failures during the migration. Treat as load-bearing:
 
-1. **Paths include the `docs/` prefix.** A file at `docs/kini-api-basics/authentication.mdx` has path `docs/kini-api-basics/authentication`. Paths are relative to the repo root, not the `docs/` directory.
+1. **Paths match the file tree from the repo root.** A file at `guides/authentication.mdx` has path `guides/authentication`. Paths are relative to the repo root (where `documentation.json` lives).
 
 2. **`initialRoute` must point at a path that exists in `navigation.tabs[].groups[].pages[]`.** Otherwise DA returns "This page is not in the navigation. Visitors will see a 404." Add the page to nav before referencing it.
 
-3. **Avoid `index` as a top-level page filename or path.** `docs/index.mdx` is treated specially and does not resolve as a normal page. Use `home.mdx` (or similar) for the landing page and reference it as `docs/home`.
+3. **Avoid `index` as a top-level page filename or path.** `index.mdx` at the repo root is treated specially and does not resolve as a normal page. Use `home.mdx` for the landing page and reference it as `home`.
 
 4. **Schema wrapper is required:** `{ "navigation": { "tabs": [...] } }`. Tabs do not live at the root.
 
@@ -34,9 +42,9 @@ These all caused 404s or build failures during the migration. Treat as load-bear
    {
      "group": "Applications",
      "icon": "file-user",
-     "openapi": "docs/api/kini-api.json",
+     "openapi": "api/kini-api.json",
      "hidden-apis": ["GET /jobs", "POST /jobs", "GET /companies/", "POST /clickout/"],
-     "pages": [{ "title": "Overview", "path": "docs/api/applications/index" }]
+     "pages": [{ "title": "Overview", "path": "api/applications/index" }]
    }
    ```
    Without `hidden-apis`, every group with the same `openapi` source renders all endpoints — duplicates everywhere.
@@ -52,6 +60,7 @@ These all caused 404s or build failures during the migration. Treat as load-bear
 - **No HTML entities in double-quoted JSX attributes.** `&#x22;` and `&quot;` decoded inside a `"..."` attribute break syntax. Use single-quoted attributes for any caption/text containing quote characters, e.g. `caption='Use "Funnel Completed", not "New Lead"'`.
 - **No external image references to old platforms.** Replace `<Image src="https://files.readme.io/..." />` with a `<Callout>` or local asset.
 - **All pages need YAML frontmatter** with `title` and `description`. H1 is auto-generated from `title`; start content at H2.
+- **Internal links are absolute from the content root:** `[Authentication](/guides/authentication)`.
 
 ## Recommended components (from DA Components playbook)
 
