@@ -5,11 +5,11 @@ Notes for AI agents and humans working on this Documentation.AI project. Capture
 ## Source layout
 
 ```
-docs/
-  <section>/
-    <page>.mdx
-  api/
-    kini-api.json   # OpenAPI 3.0 spec, imported by documentation.json
+<section>/
+  <page>.mdx
+api/
+  kini-api.json   # OpenAPI 3.0 spec, imported by documentation.json
+home.mdx          # landing page (do not name a top-level page index.mdx)
 documentation.json  # nav, theme, OpenAPI bindings, root config
 ```
 
@@ -17,11 +17,11 @@ documentation.json  # nav, theme, OpenAPI bindings, root config
 
 These all caused 404s or build failures during the migration. Treat as load-bearing:
 
-1. **Paths include the `docs/` prefix.** A file at `docs/kini-api-basics/authentication.mdx` has path `docs/kini-api-basics/authentication`. Paths are relative to the repo root, not the `docs/` directory.
+1. **Paths match the file tree from the repo root.** A file at `kini-api-basics/authentication.mdx` has path `kini-api-basics/authentication`. Paths are relative to the repo root (where `documentation.json` lives).
 
 2. **`initialRoute` must point at a path that exists in `navigation.tabs[].groups[].pages[]`.** Otherwise DA returns "This page is not in the navigation. Visitors will see a 404." Add the page to nav before referencing it.
 
-3. **Avoid `index` as a top-level page filename or path.** `docs/index.mdx` is treated specially and does not resolve as a normal page. Use `home.mdx` (or similar) for the landing page and reference it as `docs/home`.
+3. **Avoid `index` as a top-level page filename or path.** `index.mdx` at the repo root is treated specially and does not resolve as a normal page. Use `home.mdx` (or similar) for the landing page and reference it as `home`.
 
 4. **Schema wrapper is required:** `{ "navigation": { "tabs": [...] } }`. Tabs do not live at the root.
 
@@ -34,12 +34,14 @@ These all caused 404s or build failures during the migration. Treat as load-bear
    {
      "group": "Applications",
      "icon": "file-user",
-     "openapi": "docs/api/kini-api.json",
+     "openapi": "api/kini-api.json",
      "hidden-apis": ["GET /jobs", "POST /jobs", "GET /companies/", "POST /clickout/"],
-     "pages": [{ "title": "Overview", "path": "docs/api/applications/index" }]
+     "pages": [{ "title": "Overview", "path": "api/applications/index" }]
    }
    ```
    Without `hidden-apis`, every group with the same `openapi` source renders all endpoints — duplicates everywhere.
+
+8. **Legacy `/docs/...` URLs.** Content used to live under a `docs/` folder, so published URLs were `/docs/...`. Redirects in `documentation.json` map `/docs/:a`, `/docs/:a/:b`, and `/docs/:a/:b/:c` to the root-level paths.
 
 ## MDX content rules
 
@@ -52,6 +54,7 @@ These all caused 404s or build failures during the migration. Treat as load-bear
 - **No HTML entities in double-quoted JSX attributes.** `&#x22;` and `&quot;` decoded inside a `"..."` attribute break syntax. Use single-quoted attributes for any caption/text containing quote characters, e.g. `caption='Use "Funnel Completed", not "New Lead"'`.
 - **No external image references to old platforms.** Replace `<Image src="https://files.readme.io/..." />` with a `<Callout>` or local asset.
 - **All pages need YAML frontmatter** with `title` and `description`. H1 is auto-generated from `title`; start content at H2.
+- **Internal links are absolute from the content root** (no `/docs` prefix): `[Authentication](/kini-api-basics/authentication)`.
 
 ## Recommended components (from DA Components playbook)
 

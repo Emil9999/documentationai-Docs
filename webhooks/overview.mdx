@@ -10,11 +10,11 @@ Our platform supports webhooks to help you integrate seamlessly and keep your sy
 
 ## Available Webhooks
 
-### [Application Sync Status Update](/docs/webhooks/application-sync-status-update)
+### [Application Sync Status Update](/webhooks/application-sync-status-update)
 
 Triggered when an application has been synchronized to the company's ATS. Useful for tracking the real-time status of candidate applications. Payload includes the application's `status` (SUCCESS, FAILURE, EXPECTED\_FAILURE, NOTSENT) and a `failure_error` field for diagnostics.
 
-### [Job Updates](/docs/webhooks/job-update)
+### [Job Updates](/webhooks/job-update)
 
 Triggered when a job event occurs in the ATS. Three event types are emitted:
 
@@ -30,7 +30,7 @@ Triggered when a new job is created or an existing job is modified. This include
 
 Triggered when a job is removed from the ATS. Use this to keep your system in sync by removing outdated job entries.
 
-### [Job Booking Status Update](/docs/webhooks/job-booking-status-update)
+### [Job Booking Status Update](/webhooks/job-booking-status-update)
 
 Triggered when the status of a job booking changes. Payload includes `booking_status` values such as `booked`, `processing`, `published`, `unpublished`, and `expired`, plus a `transaction_id` for tracing.
 

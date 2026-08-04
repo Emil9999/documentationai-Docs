@@ -1,6 +1,6 @@
 {
   "name": "Kini API Docs",
-  "initialRoute": "docs/home",
+  "initialRoute": "home",
   "navigation": {
     "tabs": [
       {
@@ -14,31 +14,31 @@
             "pages": [
               {
                 "title": "Home",
-                "path": "docs/home"
+                "path": "home"
               },
               {
                 "title": "Introduction",
-                "path": "docs/kini-api-basics/getting-started"
+                "path": "kini-api-basics/getting-started"
               },
               {
                 "title": "Authentication",
-                "path": "docs/kini-api-basics/authentication"
+                "path": "kini-api-basics/authentication"
               },
               {
                 "title": "Pagination",
-                "path": "docs/kini-api-basics/pagination"
+                "path": "kini-api-basics/pagination"
               },
               {
                 "title": "Filtering",
-                "path": "docs/kini-api-basics/filtering"
+                "path": "kini-api-basics/filtering"
               },
               {
                 "title": "Error Handling",
-                "path": "docs/kini-api-basics/error-handling"
+                "path": "kini-api-basics/error-handling"
               },
               {
                 "title": "Rate Limits",
-                "path": "docs/kini-api-basics/rate-limits"
+                "path": "kini-api-basics/rate-limits"
               }
             ]
           }
@@ -55,15 +55,15 @@
             "pages": [
               {
                 "title": "Overview",
-                "path": "docs/quickapply-integrations/index"
+                "path": "quickapply-integrations/index"
               },
               {
                 "title": "Indeed",
-                "path": "docs/quickapply-integrations/indeed"
+                "path": "quickapply-integrations/indeed"
               },
               {
                 "title": "Perspective",
-                "path": "docs/quickapply-integrations/perspective"
+                "path": "quickapply-integrations/perspective"
               }
             ]
           }
@@ -79,7 +79,7 @@
             "pages": [
               {
                 "title": "Webhooks Overview",
-                "path": "docs/webhooks/overview"
+                "path": "webhooks/overview"
               }
             ]
           },
@@ -90,15 +90,15 @@
             "pages": [
               {
                 "title": "Application Sync Status Update",
-                "path": "docs/webhooks/application-sync-status-update"
+                "path": "webhooks/application-sync-status-update"
               },
               {
                 "title": "Job Update Webhook",
-                "path": "docs/webhooks/job-update"
+                "path": "webhooks/job-update"
               },
               {
                 "title": "Job Booking Status Update",
-                "path": "docs/webhooks/job-booking-status-update"
+                "path": "webhooks/job-booking-status-update"
               }
             ]
           }
@@ -111,7 +111,7 @@
           {
             "group": "Applications",
             "icon": "file-user",
-            "openapi": "docs/api/kini-api.json",
+            "openapi": "api/kini-api.json",
             "hidden-apis": [
               "GET /jobs",
               "POST /jobs",
@@ -129,14 +129,14 @@
             "pages": [
               {
                 "title": "Overview",
-                "path": "docs/api/applications/index"
+                "path": "api/applications/index"
               }
             ]
           },
           {
             "group": "Jobs",
             "icon": "briefcase",
-            "openapi": "docs/api/kini-api.json",
+            "openapi": "api/kini-api.json",
             "hidden-apis": [
               "GET /applications/",
               "POST /applications/",
@@ -153,14 +153,14 @@
             "pages": [
               {
                 "title": "Overview",
-                "path": "docs/api/jobs/index"
+                "path": "api/jobs/index"
               }
             ]
           },
           {
             "group": "Companies",
             "icon": "building",
-            "openapi": "docs/api/kini-api.json",
+            "openapi": "api/kini-api.json",
             "hidden-apis": [
               "GET /applications/",
               "POST /applications/",
@@ -174,14 +174,14 @@
             "pages": [
               {
                 "title": "Overview",
-                "path": "docs/api/companies/index"
+                "path": "api/companies/index"
               }
             ]
           },
           {
             "group": "Shop",
             "icon": "shopping-cart",
-            "openapi": "docs/api/kini-api.json",
+            "openapi": "api/kini-api.json",
             "hidden-apis": [
               "GET /applications/",
               "POST /applications/",
@@ -201,7 +201,7 @@
             "pages": [
               {
                 "title": "Overview",
-                "path": "docs/api/shop/index"
+                "path": "api/shop/index"
               }
             ]
           }
@@ -228,7 +228,19 @@
   "redirects": [
     {
       "source": "/reference/jobs_list",
-      "destination": "/docs/api/get-jobs"
+      "destination": "/api/get-jobs"
+    },
+    {
+      "source": "/docs/:a/:b/:c",
+      "destination": "/:a/:b/:c"
+    },
+    {
+      "source": "/docs/:a/:b",
+      "destination": "/:a/:b"
+    },
+    {
+      "source": "/docs/:a",
+      "destination": "/:a"
     }
   ]
 }
