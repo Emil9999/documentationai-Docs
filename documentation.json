@@ -224,5 +224,11 @@
       "heading": "#f2f2f2",
       "text": "#c1c1c1"
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/reference/jobs_list",
+      "destination": "/docs/api/get-jobs"
+    }
+  ]
 }
