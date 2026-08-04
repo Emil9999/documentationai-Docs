@@ -66,18 +66,6 @@
                 "path": "integrations/quickapply/indeed"
               },
               {
-                "title": "Monster",
-                "path": "integrations/quickapply/monster"
-              },
-              {
-                "title": "Jobrapido",
-                "path": "integrations/quickapply/jobrapido"
-              },
-              {
-                "title": "Heyflow",
-                "path": "integrations/quickapply/heyflow"
-              },
-              {
                 "title": "Meta Lead Forms",
                 "path": "integrations/quickapply/meta-lead-forms"
               },
