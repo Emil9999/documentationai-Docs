@@ -113,7 +113,14 @@
           {
             "group": "Payload Reference",
             "icon": "code",
-            "openapi": "docs/api/kini-webhooks.json"
+            "expandable": false,
+            "openapi": "api/kini-webhooks.json",
+            "pages": [
+              {
+                "title": "Overview",
+                "path": "api/webhooks/index"
+              }
+            ]
           }
         ]
       },
@@ -124,6 +131,7 @@
           {
             "group": "Applications",
             "icon": "file-user",
+            "expandable": false,
             "openapi": "api/kini-api.json",
             "hidden-apis": [
               "GET /jobs",
@@ -149,6 +157,7 @@
           {
             "group": "Jobs",
             "icon": "briefcase",
+            "expandable": false,
             "openapi": "api/kini-api.json",
             "hidden-apis": [
               "GET /applications/",
@@ -173,6 +182,7 @@
           {
             "group": "Companies",
             "icon": "building",
+            "expandable": false,
             "openapi": "api/kini-api.json",
             "hidden-apis": [
               "GET /applications/",
@@ -194,6 +204,7 @@
           {
             "group": "Shop",
             "icon": "shopping-cart",
+            "expandable": false,
             "openapi": "api/kini-api.json",
             "hidden-apis": [
               "GET /applications/",
