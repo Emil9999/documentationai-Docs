@@ -4,7 +4,7 @@ description: Look up, manage, and synchronize the companies accessible with your
 ---
 The Companies endpoints let you list, create, update, and synchronize the companies your API key has access to. Use them to populate account pickers, validate company IDs before building scoped requests, trigger an out-of-band job sync from the ATS, or reconcile company records between your system and Kini.
 
-All requests require authentication — see [Authentication](/kini-api-basics/authentication).
+All requests require authentication — see [Authentication](/guides/authentication).
 
 ## Available endpoints
 
@@ -32,6 +32,6 @@ All requests require authentication — see [Authentication](/kini-api-basics/au
 - `PATCH /companies/{id}/deactivate/` is irreversible from the API — reactivate from the Kini admin if needed.
 
 <Callout kind="tip" collapsed="false">
-  Combine the list endpoint with [Filtering](/kini-api-basics/filtering) to narrow results by name, ATS, or external reference when the list is long.
+  Combine the list endpoint with [Filtering](/guides/filtering) to narrow results by name, ATS, or external reference when the list is long.
 </Callout>
 

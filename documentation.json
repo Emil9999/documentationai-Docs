@@ -18,27 +18,31 @@
               },
               {
                 "title": "Introduction",
-                "path": "kini-api-basics/getting-started"
+                "path": "guides/getting-started"
               },
               {
                 "title": "Authentication",
-                "path": "kini-api-basics/authentication"
+                "path": "guides/authentication"
               },
               {
                 "title": "Pagination",
-                "path": "kini-api-basics/pagination"
+                "path": "guides/pagination"
               },
               {
                 "title": "Filtering",
-                "path": "kini-api-basics/filtering"
+                "path": "guides/filtering"
               },
               {
                 "title": "Error Handling",
-                "path": "kini-api-basics/error-handling"
+                "path": "guides/error-handling"
               },
               {
                 "title": "Rate Limits",
-                "path": "kini-api-basics/rate-limits"
+                "path": "guides/rate-limits"
+              },
+              {
+                "title": "ATS Supported Fields",
+                "path": "guides/overview-ats-supported-fields"
               }
             ]
           }
@@ -55,15 +59,31 @@
             "pages": [
               {
                 "title": "Overview",
-                "path": "quickapply-integrations/index"
+                "path": "integrations/quickapply/index"
               },
               {
                 "title": "Indeed",
-                "path": "quickapply-integrations/indeed"
+                "path": "integrations/quickapply/indeed"
+              },
+              {
+                "title": "Monster",
+                "path": "integrations/quickapply/monster"
+              },
+              {
+                "title": "Jobrapido",
+                "path": "integrations/quickapply/jobrapido"
+              },
+              {
+                "title": "Heyflow",
+                "path": "integrations/quickapply/heyflow"
+              },
+              {
+                "title": "Meta Lead Forms",
+                "path": "integrations/quickapply/meta-lead-forms"
               },
               {
                 "title": "Perspective",
-                "path": "quickapply-integrations/perspective"
+                "path": "integrations/quickapply/perspective"
               }
             ]
           }
@@ -226,21 +246,59 @@
     }
   },
   "redirects": [
-    {
-      "source": "/reference/jobs_list",
-      "destination": "/api/get-jobs"
-    },
-    {
-      "source": "/docs/:a/:b/:c",
-      "destination": "/:a/:b/:c"
-    },
-    {
-      "source": "/docs/:a/:b",
-      "destination": "/:a/:b"
-    },
-    {
-      "source": "/docs/:a",
-      "destination": "/:a"
-    }
+    { "source": "/overview-supported-fields", "destination": "/guides/overview-ats-supported-fields" },
+
+    { "source": "/reference/getting-started", "destination": "/guides/getting-started" },
+    { "source": "/reference/authentication", "destination": "/guides/authentication" },
+    { "source": "/reference/pagination", "destination": "/guides/pagination" },
+    { "source": "/reference/error-handling", "destination": "/guides/error-handling" },
+    { "source": "/reference/filtering", "destination": "/guides/filtering" },
+    { "source": "/reference/rate-limits", "destination": "/guides/rate-limits" },
+    { "source": "/reference/overview-ats-supported-fields", "destination": "/guides/overview-ats-supported-fields" },
+
+    { "source": "/reference/quickapply-integrations", "destination": "/integrations/quickapply/index" },
+    { "source": "/reference/indeed-integration", "destination": "/integrations/quickapply/indeed" },
+    { "source": "/reference/perspective", "destination": "/integrations/quickapply/perspective" },
+    { "source": "/reference/heyflow", "destination": "/integrations/quickapply/heyflow" },
+    { "source": "/reference/monster-apply", "destination": "/integrations/quickapply/monster" },
+    { "source": "/reference/jobrapido-apply", "destination": "/integrations/quickapply/jobrapido" },
+    { "source": "/reference/meta-lead-forms", "destination": "/integrations/quickapply/meta-lead-forms" },
+    { "source": "/reference/stepstone", "destination": "/integrations/quickapply/index" },
+
+    { "source": "/reference/how-it-works", "destination": "/webhooks/overview" },
+    { "source": "/reference/application-sync-status-update", "destination": "/webhooks/application-sync-status-update" },
+    { "source": "/reference/job-webhook", "destination": "/webhooks/job-update" },
+    { "source": "/reference/job-booking-status-update", "destination": "/webhooks/job-booking-status-update" },
+
+    { "source": "/reference/applications", "destination": "/api/applications/index" },
+    { "source": "/reference/applications_list", "destination": "/api/get-applications" },
+    { "source": "/reference/applications_create", "destination": "/api/post-applications" },
+    { "source": "/reference/applications_retrieve", "destination": "/api/get-applications-id" },
+
+    { "source": "/reference/jobs", "destination": "/api/jobs/index" },
+    { "source": "/reference/jobs_list", "destination": "/api/get-jobs" },
+    { "source": "/reference/jobs_create", "destination": "/api/post-jobs" },
+    { "source": "/reference/jobs_retrieve", "destination": "/api/get-jobs-id" },
+    { "source": "/reference/jobs_update", "destination": "/api/patch-jobs-id" },
+
+    { "source": "/reference/companies", "destination": "/api/companies/index" },
+    { "source": "/reference/companies_list", "destination": "/api/get-companies" },
+    { "source": "/reference/companies_create", "destination": "/api/post-companies" },
+    { "source": "/reference/companies_retrieve", "destination": "/api/get-companies-id" },
+    { "source": "/reference/companies_update", "destination": "/api/patch-companies-id" },
+    { "source": "/reference/companies_magic_create", "destination": "/api/post-companies-id-magic" },
+    { "source": "/reference/companies_job_sync", "destination": "/api/post-companies-id-sync-jobs" },
+    { "source": "/reference/companies_deactivate", "destination": "/api/patch-companies-id-deactivate" },
+
+    { "source": "/reference/shop", "destination": "/api/shop/index" },
+    { "source": "/reference/clickouts_promote_create", "destination": "/api/post-clickout" },
+    { "source": "/reference/clickouts_redirect_create", "destination": "/api/shop/index" },
+    { "source": "/reference/job_bookings_list", "destination": "/api/shop/index" },
+    { "source": "/reference/job_bookings_unpublish", "destination": "/api/shop/index" },
+    { "source": "/reference/talent_channels_list", "destination": "/api/shop/index" },
+
+    { "source": "/reference/intro-getting-started", "destination": "/guides/getting-started" },
+    { "source": "/reference/intro-authentication", "destination": "/guides/authentication" },
+    { "source": "/reference/my-requests", "destination": "/home" }
   ]
 }
