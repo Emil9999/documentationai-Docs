@@ -109,18 +109,6 @@
                 "path": "webhooks/job-booking-status-update"
               }
             ]
-          },
-          {
-            "group": "Payload Reference",
-            "icon": "code",
-            "expandable": false,
-            "openapi": "api/kini-webhooks.json",
-            "pages": [
-              {
-                "title": "Overview",
-                "path": "api/webhooks/index"
-              }
-            ]
           }
         ]
       },
