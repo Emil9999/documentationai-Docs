@@ -1,20 +1,24 @@
 ---
 title: Application Sync Status Update
 description: >-
-  The Status Webhook allows you to receive real-time updates on application
-  statuses. Whenever an application's status changes, a Webhook Payload will be
-  sent to a URL you define.
+  Sent when an application has finished synchronizing to the company's ATS.
+  Whenever an application's sync status changes, Kini POSTs a payload to the URL
+  you configure.
 ---
-### Webhook Payload
+## Overview
 
-The following payload will be sent to your configured webhook URL:
+Sent when an application has finished synchronizing to the company's ATS. Use it to track the real-time delivery status of each candidate application.
+
+## Payload
+
+The following payload is sent to your configured webhook URL:
 
 ```json
 {
   "company_id": 123,
   "partner_id": 10,
   "application_id": 452123,
-  "job_id": 12388996,                 
+  "job_id": 12388996,
   "partner_company_id": "1019123",
   "partner_application_id": "123",
   "external_job_id": "1604123",
@@ -23,51 +27,37 @@ The following payload will be sent to your configured webhook URL:
 }
 ```
 
-| Field Name               | Type   | Description                                                                                                 |
+| Field Name               | Type   | Description                                                                                                  |
 | :----------------------- | :----- | :---------------------------------------------------------------------------------------------------------- |
 | `company_id`             | int    | The unique Kini ID of the company.                                                                          |
 | `partner_id`             | int    | The unique Kini ID of the partner.                                                                          |
 | `application_id`         | int    | The unique Kini ID of the application.                                                                      |
+| `job_id`                 | int    | The unique Kini ID of the job the application was submitted for.                                            |
 | `partner_company_id`     | string | The partner-specific ID of the company, in case it was provided upon company onboarding.                    |
 | `partner_application_id` | string | The partner-specific ID of the application, in case it was provided upon application creation.              |
 | `external_job_id`        | string | The external job ID.                                                                                        |
-| `status`                 | enum   | The current synchronization status of the application (`SUCCESS`, `FAILURE`, `EXPECTED_FAILURE`, `NOTSENT`) |
+| `status`                 | enum   | The current synchronization status of the application (`SUCCESS`, `FAILURE`, `EXPECTED_FAILURE`, `NOTSENT`). |
 | `failure_error`          | string | Error details if the synchronization failed (otherwise `null`).                                             |
 
-<br />
-
-### Status Values
+## Status Values
 
 The `status` field can have the following values:
 
 - **SUCCESS**: The application was synchronized successfully.
-- **FAILURE**: An error occurred during synchronization. Failure details are provided in the field `failure_error`.
-- **NOTSENT**: Synchronization hasn't been set to the ATS or is still in progress.
-- **EXPECTED\_FAILURE**: Synchronization failed due to an expected error, such as `DuplicateApplicationError`, `JobNotPublishedError`
+- **FAILURE**: An error occurred during synchronization. Failure details are provided in the `failure_error` field.
+- **EXPECTED_FAILURE**: Synchronization failed due to an expected error, such as `DuplicateApplicationError` or `JobNotPublishedError`.
+- **NOTSENT**: Synchronization has not been sent to the ATS yet, or is still in progress.
 
-<br />
+## Delivery & Retries
 
-### Authentication
+Deliveries are sent as an HTTPS `POST` with a JSON body and a 20-second timeout. If your endpoint returns a retryable status (`429`, `500`, `502`, `503`, `504`) or the connection times out, Kini retries up to 3 times with exponential backoff (roughly 1s, 2s, then 4s). Any other non-`2xx` response is treated as a permanent failure and is not retried.
 
-Every delivery includes a `Kini-Signature` header containing an HMAC-SHA256 signature of the body, computed with the signing secret configured for your company. Verify it on your side before processing. Contact [support@getkini.com](mailto:support@getkini.com) if you need to obtain or rotate your signing secret.
+## Authentication
 
-<br />
+Kini calls *your* endpoint, so authentication is under your control: when your webhook is set up, you tell us which HTTP headers each delivery should carry — for example an `Authorization: Bearer <token>` header or a custom API-key header that your endpoint checks. Kini stores these securely and sends them with every request.
 
-### Setting Up Your Webhook URL
+Kini does **not** sign webhook payloads — there is no `Kini-Signature` header and no HMAC to verify. To confirm a request came from Kini, validate the header/token you configured. Contact [support@getkini.com](mailto:support@getkini.com) if you'd also like to allowlist our egress IPs.
 
-Please provide us with your desired Webhook URL so we can configure it in our system.
+## Setup
 
-**Example URL**
-
-```text
-https://your-domain.com/kini-status
-```
-
-<br />
-
-### Notes
-
-- Ensure your webhook URL supports HTTPS for secure communication.
-- Implement robust handling for the webhook payload, especially for the `failure_error` field.
-- Webhook calls may be retried periodically if no successful response (HTTP 2xx) is received.
-
+Webhook endpoints are configured per company in the [Kini Partner App](https://app.getkini.com/). Provide the HTTPS URL that should receive events and the headers Kini should send with each delivery. Need help? Contact [support@getkini.com](mailto:support@getkini.com).

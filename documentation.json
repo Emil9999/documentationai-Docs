@@ -119,6 +119,7 @@
           {
             "group": "Applications",
             "icon": "file-user",
+            "expandable": false,
             "openapi": "api/kini-api.json",
             "hidden-apis": [
               "GET /jobs",
@@ -144,6 +145,7 @@
           {
             "group": "Jobs",
             "icon": "briefcase",
+            "expandable": false,
             "openapi": "api/kini-api.json",
             "hidden-apis": [
               "GET /applications/",
@@ -168,6 +170,7 @@
           {
             "group": "Companies",
             "icon": "building",
+            "expandable": false,
             "openapi": "api/kini-api.json",
             "hidden-apis": [
               "GET /applications/",
@@ -189,6 +192,7 @@
           {
             "group": "Shop",
             "icon": "shopping-cart",
+            "expandable": false,
             "openapi": "api/kini-api.json",
             "hidden-apis": [
               "GET /applications/",
