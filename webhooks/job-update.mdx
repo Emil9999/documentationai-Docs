@@ -6,19 +6,15 @@ description: >-
 ---
 ## Overview
 
-The Job Update webhook is triggered when a job event occurs in the connected ATS. It is the canonical way to keep your system synchronized with the source of truth.
+Sent when a job is created, updated, or archived in the connected ATS. It is the canonical way to keep your system synchronized with the source of truth.
 
-## Event Types
-
-The webhook fires for three event types, distinguished by the `event` field in the payload:
-
-| Event      | Triggered when                                                                 |
-| ---------- | ------------------------------------------------------------------------------ |
-| `CREATED`  | A new job is created in the ATS.                                               |
-| UPDATED    | Any field on an existing job is modified (title, description, location, etc.). |
-| `ARCHIVED` | A job is removed from the ATS.                                                 |
+<Callout kind="info">
+  The machine-readable schema for this payload is also available as an OpenAPI definition in the **Payload Reference** group of this section.
+</Callout>
 
 ## Payload
+
+The following payload is sent to your configured webhook URL:
 
 ```json
 {
@@ -31,21 +27,31 @@ The webhook fires for three event types, distinguished by the `event` field in t
 ```
 
 | Field         | Type    | Description                                               |
-| ------------- | ------- | --------------------------------------------------------- |
-| `event`       | string  | One of `job.created`, `job.updated`, `job.archived`.      |
-| `company_id`  | integer | The Kini company ID the job belongs to.                   |
-| `job_id`      | integer | The Kini internal job ID.                                 |
+| :------------ | :------ | :-------------------------------------------------------- |
+| `event`       | enum    | The job event type (`CREATED`, `UPDATED`, `ARCHIVED`).    |
+| `company_id`  | int     | The Kini company ID the job belongs to.                   |
+| `job_id`      | int     | The Kini internal job ID.                                 |
 | `external_id` | string  | The job's ID in the connected ATS.                        |
 | `occurred_at` | string  | ISO 8601 timestamp of when the event happened in the ATS. |
 
+## Event Types
+
+The `event` field can have the following values:
+
+- **CREATED**: A new job was created in the ATS.
+- **UPDATED**: A field on an existing job was modified (title, description, location, etc.).
+- **ARCHIVED**: A job was removed from the ATS. Use this to keep your system in sync by removing outdated job entries.
+
 ## Delivery & Retries
 
-Webhook deliveries are made over HTTPS POST with a JSON body. We retry failed deliveries with exponential backoff for up to 24 hours. Your endpoint must return a `2xx` status code within 10 seconds to be considered successful.
+Deliveries are sent as an HTTPS `POST` with a JSON body and a 20-second timeout. If your endpoint returns a retryable status (`429`, `500`, `502`, `503`, `504`) or the connection times out, Kini retries up to 3 times with exponential backoff (roughly 1s, 2s, then 4s). Any other non-`2xx` response is treated as a permanent failure and is not retried.
 
 ## Authentication
 
-Every delivery includes a `Kini-Signature` header containing an HMAC-SHA256 signature of the body, computed with the signing secret configured for your company. Verify it on your side before processing.
+Kini calls *your* endpoint, so authentication is under your control: when your webhook is set up, you tell us which HTTP headers each delivery should carry — for example an `Authorization: Bearer <token>` header or a custom API-key header that your endpoint checks. Kini stores these securely and sends them with every request.
+
+Kini does **not** sign webhook payloads — there is no `Kini-Signature` header and no HMAC to verify. To confirm a request came from Kini, validate the header/token you configured. Contact [support@getkini.com](mailto:support@getkini.com) if you'd also like to allowlist our egress IPs.
 
 ## Setup
 
-Configure your endpoint URL in the [Kini Partner App](https://app.getkini.com/) under **Webhooks → Job Updates**. Contact [support@getkini.com](mailto:support@getkini.com) if you need help.
+Webhook endpoints are configured per company in the [Kini Partner App](https://app.getkini.com/). Provide the HTTPS URL that should receive events and the headers Kini should send with each delivery. Need help? Contact [support@getkini.com](mailto:support@getkini.com).

@@ -15,7 +15,7 @@
             "in": "header",
             "name": "Company-Id",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "Kini ID of the Company",
             "required": true
@@ -418,7 +418,7 @@
             "in": "header",
             "name": "Company-Id",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "ID of the Company",
             "required": true
@@ -1593,9 +1593,18 @@
             "in": "path",
             "name": "id",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "ID of the Application",
+            "required": true
+          },
+          {
+            "in": "header",
+            "name": "Company-Id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Kini ID of the Company",
             "required": true
           }
         ],
@@ -1926,7 +1935,7 @@
             "in": "header",
             "name": "Company-Id",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "ID of the Company",
             "required": true
@@ -2446,7 +2455,7 @@
             "in": "header",
             "name": "Company-Id",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "ID of the Company",
             "required": true
@@ -4164,7 +4173,7 @@
             "in": "path",
             "name": "id",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "ID of the Job",
             "required": true
@@ -4173,7 +4182,7 @@
             "in": "header",
             "name": "Company-Id",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "required": true,
             "description": "ID of the Company"
@@ -4571,7 +4580,7 @@
             "in": "path",
             "name": "id",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "ID of the Job",
             "required": true
@@ -4580,7 +4589,7 @@
             "in": "header",
             "name": "Company-Id",
             "schema": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "ID of the Company",
             "required": true
@@ -8781,7 +8790,7 @@
       "bearerAuth": {
         "type": "http",
         "scheme": "bearer",
-        "description": "Bearer API Key Authentication. Include your API key in the Authorization header."
+        "description": "Authenticate every request with an API key from the Kini Partner App, sent as `Authorization: Bearer <your_api_key>`."
       }
     }
   },

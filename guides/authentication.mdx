@@ -4,9 +4,9 @@ description: >-
   The Kini API uses Bearer API Key authentication to ensure secure and
   simplified access to all API resources.
 ---
-## Bearer API Key Authentication (Recommended)
+## API Key Authentication
 
-This method simplifies authentication and provides more flexible security options.
+The Kini API authenticates every request with an API key, sent as a Bearer token in the `Authorization` header.
 
 To authenticate with the Kini API:
 
@@ -28,7 +28,7 @@ API Keys can be created and managed through the Kini Partner App. When generatin
 Include your API key in the Authorization header of all API requests:
 
 ```typescript
-Authorization: Bearer <your_access_token>
+Authorization: Bearer <your_api_key>
 ```
 
 #### Example Request:
@@ -47,7 +47,3 @@ curl --location 'https://api.getkini.com/jobs' \
    Store your API key securely and never expose it in client-side code or logs.
 2. **Key Rotation:**\
    Rotate your API keys periodically to minimize security risks. Use appropriate expiration times based on your security requirements.
-
-<br />
-
-Note: The legacy JWT authentication method is being phased out. While still supported, we strongly recommend migrating to the Bearer API Key authentication for improved security and ease of use.
