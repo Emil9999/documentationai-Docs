@@ -377,6 +377,18 @@
                             ],
                             "readOnly": true,
                             "description": "Error message if the application synchronization failed"
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "readOnly": true,
+                            "description": "Timestamp of when the application was first created"
+                          },
+                          "updated_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "readOnly": true,
+                            "description": "Timestamp of when the application was last updated"
                           }
                         },
                         "required": [
@@ -1542,6 +1554,18 @@
                       ],
                       "readOnly": true,
                       "description": "Error message if the application synchronization failed"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "readOnly": true,
+                      "description": "Timestamp of when the application was first created"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "readOnly": true,
+                      "description": "Timestamp of when the application was last updated"
                     }
                   },
                   "required": [
@@ -1863,6 +1887,18 @@
                       ],
                       "readOnly": true,
                       "description": "Error message if the application synchronization failed"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "readOnly": true,
+                      "description": "Timestamp of when the application was first created"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "readOnly": true,
+                      "description": "Timestamp of when the application was last updated"
                     }
                   },
                   "required": [
@@ -2087,7 +2123,12 @@
                             "type": [
                               "string"
                             ],
-                            "description": "Work schedule for the job (full_time, part_time, flexible)"
+                            "description": "Work schedule type for the position (full-time, part-time, flexible)",
+                            "enum": [
+                              "full_time",
+                              "part_time",
+                              "flexible"
+                            ]
                           },
                           "employment_type": {
                             "type": [
@@ -2105,17 +2146,6 @@
                               "working_student",
                               "minijob",
                               "other"
-                            ]
-                          },
-                          "work_schedule": {
-                            "type": [
-                              "string"
-                            ],
-                            "description": "Work schedule type for the position (full-time, part-time, flexible)",
-                            "enum": [
-                              "full_time",
-                              "part_time",
-                              "flexible"
                             ]
                           },
                           "senority": {
@@ -2372,6 +2402,24 @@
                               "employer_logo": "https://example.com/logo.png"
                             },
                             "maxProperties": 10
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "readOnly": true,
+                            "description": "Timestamp of when the job was first created"
+                          },
+                          "updated_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "readOnly": true,
+                            "description": "Timestamp of when the job was last updated"
+                          },
+                          "last_content_update_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "readOnly": true,
+                            "description": "Timestamp of when the job content was last updated"
                           }
                         },
                         "required": [
@@ -2536,7 +2584,12 @@
                     "type": [
                       "string"
                     ],
-                    "description": "Work schedule for the job (full_time, part_time, flexible)"
+                    "description": "Work schedule type for the position (full-time, part-time, flexible)",
+                    "enum": [
+                      "full_time",
+                      "part_time",
+                      "flexible"
+                    ]
                   },
                   "employment_type": {
                     "type": [
@@ -2554,17 +2607,6 @@
                       "working_student",
                       "minijob",
                       "other"
-                    ]
-                  },
-                  "work_schedule": {
-                    "type": [
-                      "string"
-                    ],
-                    "description": "Work schedule type for the position (full-time, part-time, flexible)",
-                    "enum": [
-                      "full_time",
-                      "part_time",
-                      "flexible"
                     ]
                   },
                   "senority": {
@@ -4080,6 +4122,24 @@
                         "employer_logo": "https://example.com/logo.png"
                       },
                       "maxProperties": 10
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "readOnly": true,
+                      "description": "Timestamp of when the job was first created"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "readOnly": true,
+                      "description": "Timestamp of when the job was last updated"
+                    },
+                    "last_content_update_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "readOnly": true,
+                      "description": "Timestamp of when the job content was last updated"
                     }
                   },
                   "required": [
@@ -4471,6 +4531,24 @@
                         "employer_logo": "https://example.com/logo.png"
                       },
                       "maxProperties": 10
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "readOnly": true,
+                      "description": "Timestamp of when the job was first created"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "readOnly": true,
+                      "description": "Timestamp of when the job was last updated"
+                    },
+                    "last_content_update_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "readOnly": true,
+                      "description": "Timestamp of when the job content was last updated"
                     }
                   },
                   "required": [
@@ -5974,6 +6052,18 @@
             ],
             "readOnly": true,
             "description": "Error message if the application synchronization failed"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true,
+            "description": "Timestamp of when the application was first created"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true,
+            "description": "Timestamp of when the application was last updated"
           }
         },
         "required": [
@@ -7058,6 +7148,24 @@
               ],
               "x-readme-ref-name": "DescriptionSection"
             }
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true,
+            "description": "Timestamp of when the job was first created"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true,
+            "description": "Timestamp of when the job was last updated"
+          },
+          "last_content_update_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true,
+            "description": "Timestamp of when the job content was last updated"
           }
         },
         "required": [
@@ -7826,6 +7934,18 @@
                   ],
                   "readOnly": true,
                   "description": "Error message if the application synchronization failed"
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "readOnly": true,
+                  "description": "Timestamp of when the application was first created"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "readOnly": true,
+                  "description": "Timestamp of when the application was last updated"
                 }
               },
               "required": [
@@ -8222,6 +8342,24 @@
                     "employer_logo": "https://example.com/logo.png"
                   },
                   "maxProperties": 10
+                },
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "readOnly": true,
+                  "description": "Timestamp of when the job was first created"
+                },
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "readOnly": true,
+                  "description": "Timestamp of when the job was last updated"
+                },
+                "last_content_update_at": {
+                  "type": "string",
+                  "format": "date-time",
+                  "readOnly": true,
+                  "description": "Timestamp of when the job content was last updated"
                 }
               },
               "required": [
