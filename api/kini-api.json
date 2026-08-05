@@ -9602,7 +9602,7 @@
       "bearerAuth": {
         "type": "http",
         "scheme": "bearer",
-        "description": "Authenticate every request with an API key from the Kini Partner App, sent as `Authorization: Bearer <your_api_key>`."
+        "description": "Authenticate every request with an API key from the Kini Partner App, sent as `Authorization: Bearer {your_api_key}`."
       }
     }
   },
