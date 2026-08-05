@@ -135,28 +135,9 @@
               "POST /clickout/redirect/",
               "GET /job_bookings/",
               "PATCH /job_bookings/{id}/unpublish/",
-              "GET /talent_channels/",
-              "GET /applications/",
-              "POST /applications/",
-              "GET /applications/{id}"
+              "GET /talent_channels/"
             ],
-            "pages": [
-              {
-                "title": "List Applications",
-                "path": "api/get-applications",
-                "method": "GET"
-              },
-              {
-                "title": "Get Application",
-                "path": "api/get-applications-id",
-                "method": "GET"
-              },
-              {
-                "title": "Create Application",
-                "path": "api/post-applications",
-                "method": "POST"
-              }
-            ]
+            "pages": []
           },
           {
             "group": "Jobs",
@@ -180,34 +161,9 @@
               "POST /clickout/redirect/",
               "GET /job_bookings/",
               "PATCH /job_bookings/{id}/unpublish/",
-              "GET /talent_channels/",
-              "GET /jobs",
-              "POST /jobs",
-              "GET /jobs/{id}",
-              "PATCH /jobs/{id}"
+              "GET /talent_channels/"
             ],
-            "pages": [
-              {
-                "title": "List Jobs",
-                "path": "api/get-jobs",
-                "method": "GET"
-              },
-              {
-                "title": "Get Job",
-                "path": "api/get-jobs-id",
-                "method": "GET"
-              },
-              {
-                "title": "Create Job",
-                "path": "api/post-jobs",
-                "method": "POST"
-              },
-              {
-                "title": "Update Job",
-                "path": "api/patch-jobs-id",
-                "method": "PATCH"
-              }
-            ]
+            "pages": []
           },
           {
             "group": "Companies",
@@ -227,58 +183,9 @@
               "POST /clickout/redirect/",
               "GET /job_bookings/",
               "PATCH /job_bookings/{id}/unpublish/",
-              "GET /talent_channels/",
-              "GET /companies/",
-              "POST /companies/",
-              "GET /companies/{id}/",
-              "PATCH /companies/{id}/",
-              "POST /companies/{id}/magic/",
-              "POST /companies/{id}/sync/jobs/",
-              "PATCH /companies/{id}/deactivate/",
-              "POST /companies/{id}/compose/"
+              "GET /talent_channels/"
             ],
-            "pages": [
-              {
-                "title": "List Companies",
-                "path": "api/get-companies",
-                "method": "GET"
-              },
-              {
-                "title": "Get Single Company",
-                "path": "api/get-companies-id",
-                "method": "GET"
-              },
-              {
-                "title": "Create Company",
-                "path": "api/post-companies",
-                "method": "POST"
-              },
-              {
-                "title": "Update Company",
-                "path": "api/patch-companies-id",
-                "method": "PATCH"
-              },
-              {
-                "title": "Create Magic Link",
-                "path": "api/post-companies-id-magic",
-                "method": "POST"
-              },
-              {
-                "title": "Trigger Job Sync",
-                "path": "api/post-companies-id-sync-jobs",
-                "method": "POST"
-              },
-              {
-                "title": "Deactivate Company",
-                "path": "api/patch-companies-id-deactivate",
-                "method": "PATCH"
-              },
-              {
-                "title": "Compose Company Integration",
-                "path": "api/post-companies-id-compose",
-                "method": "POST"
-              }
-            ]
+            "pages": []
           },
           {
             "group": "Shop",
@@ -301,22 +208,9 @@
               "POST /companies/{id}/magic/",
               "POST /companies/{id}/sync/jobs/",
               "PATCH /companies/{id}/deactivate/",
-              "POST /companies/{id}/compose/",
-              "POST /clickout/promote/",
-              "POST /clickout/redirect/"
+              "POST /companies/{id}/compose/"
             ],
-            "pages": [
-              {
-                "title": "Promote Job",
-                "path": "api/post-clickout-promote",
-                "method": "POST"
-              },
-              {
-                "title": "Redirect",
-                "path": "api/post-clickout-redirect",
-                "method": "POST"
-              }
-            ]
+            "pages": []
           }
         ]
       }
@@ -505,15 +399,15 @@
     },
     {
       "source": "/reference/job_bookings_list",
-      "destination": "/api/shop/index"
+      "destination": "/api/get-job_bookings"
     },
     {
       "source": "/reference/job_bookings_unpublish",
-      "destination": "/api/shop/index"
+      "destination": "/api/patch-job_bookings-id-unpublish"
     },
     {
       "source": "/reference/talent_channels_list",
-      "destination": "/api/shop/index"
+      "destination": "/api/get-talent_channels"
     },
     {
       "source": "/reference/intro-getting-started",
