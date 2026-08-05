@@ -130,7 +130,10 @@
               "POST /companies/{id}/magic/",
               "POST /companies/{id}/sync/jobs/",
               "PATCH /companies/{id}/deactivate/",
-              "POST /clickout/"
+              "POST /clickout/",
+              "GET /applications/",
+              "POST /applications/",
+              "GET /applications/{id}"
             ],
             "pages": [
               {
@@ -167,7 +170,11 @@
               "POST /companies/{id}/magic/",
               "POST /companies/{id}/sync/jobs/",
               "PATCH /companies/{id}/deactivate/",
-              "POST /clickout/"
+              "POST /clickout/",
+              "GET /jobs",
+              "POST /jobs",
+              "GET /jobs/{id}",
+              "PATCH /jobs/{id}"
             ],
             "pages": [
               {
@@ -206,7 +213,14 @@
               "POST /jobs",
               "GET /jobs/{id}",
               "PATCH /jobs/{id}",
-              "POST /clickout/"
+              "POST /clickout/",
+              "GET /companies/",
+              "POST /companies/",
+              "GET /companies/{id}/",
+              "PATCH /companies/{id}/",
+              "POST /companies/{id}/magic/",
+              "POST /companies/{id}/sync/jobs/",
+              "PATCH /companies/{id}/deactivate/"
             ],
             "pages": [
               {
@@ -266,7 +280,8 @@
               "PATCH /companies/{id}/",
               "POST /companies/{id}/magic/",
               "POST /companies/{id}/sync/jobs/",
-              "PATCH /companies/{id}/deactivate/"
+              "PATCH /companies/{id}/deactivate/",
+              "POST /clickout/"
             ],
             "pages": [
               {
