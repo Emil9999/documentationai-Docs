@@ -39,9 +39,6 @@
             }
           }
         ],
-        "tags": [
-          "Applications"
-        ],
         "security": [
           {
             "bearerAuth": []
@@ -423,9 +420,6 @@
             "description": "ID of the Company",
             "required": true
           }
-        ],
-        "tags": [
-          "Applications"
         ],
         "requestBody": {
           "content": {
@@ -1608,9 +1602,6 @@
             "required": true
           }
         ],
-        "tags": [
-          "Applications"
-        ],
         "security": [
           {
             "bearerAuth": []
@@ -1958,9 +1949,6 @@
               "type": "integer"
             }
           }
-        ],
-        "tags": [
-          "Jobs"
         ],
         "security": [
           {
@@ -2460,9 +2448,6 @@
             "description": "ID of the Company",
             "required": true
           }
-        ],
-        "tags": [
-          "Jobs"
         ],
         "requestBody": {
           "content": {
@@ -4188,9 +4173,6 @@
             "description": "ID of the Company"
           }
         ],
-        "tags": [
-          "Jobs"
-        ],
         "security": [
           {
             "bearerAuth": []
@@ -4595,9 +4577,6 @@
             "required": true
           }
         ],
-        "tags": [
-          "Jobs"
-        ],
         "security": [
           {
             "bearerAuth": []
@@ -4633,9 +4612,6 @@
         "operationId": "companies_list",
         "description": "List companies that the authenticated user has access to through agencies or partners.",
         "summary": "List Companies",
-        "tags": [
-          "Companies"
-        ],
         "security": [
           {
             "bearerAuth": []
@@ -4753,9 +4729,6 @@
         "operationId": "companies_create",
         "description": "Create a new Company under a partner and an ATS integration. The authenticated partner becomes the owning partner of the resulting record.",
         "summary": "Create Company",
-        "tags": [
-          "Companies"
-        ],
         "security": [
           {
             "bearerAuth": []
@@ -5026,9 +4999,6 @@
         "operationId": "companies_retrieve",
         "description": "Retrieve a specific Company identified by its unique ID.",
         "summary": "Get Single Company",
-        "tags": [
-          "Companies"
-        ],
         "security": [
           {
             "bearerAuth": []
@@ -5231,9 +5201,6 @@
         "operationId": "companies_partial_update",
         "description": "Update a specific Company partially by its unique ID. Only the fields included in the request body are modified.",
         "summary": "Update Company",
-        "tags": [
-          "Companies"
-        ],
         "security": [
           {
             "bearerAuth": []
@@ -5516,9 +5483,6 @@
         "operationId": "companies_magic_link_create",
         "description": "Create or retrieve an active magic link for the Company. If an active link already exists, its URL is returned with status `200`. Otherwise a new link is created and returned with status `201`.",
         "summary": "Create Magic Link",
-        "tags": [
-          "Companies"
-        ],
         "security": [
           {
             "bearerAuth": []
@@ -5592,9 +5556,6 @@
         "operationId": "companies_sync_jobs_create",
         "description": "Trigger a manual job synchronization from the ATS for the given Company. Throttled to one request per minute per company.",
         "summary": "Trigger Job Sync",
-        "tags": [
-          "Companies"
-        ],
         "security": [
           {
             "bearerAuth": []
@@ -5652,9 +5613,6 @@
         "operationId": "companies_deactivate",
         "description": "Mark the Company as deactivated and notify internal channels. The record is retained but excluded from active listings.",
         "summary": "Deactivate Company",
-        "tags": [
-          "Companies"
-        ],
         "security": [
           {
             "bearerAuth": []
@@ -5707,9 +5665,6 @@
     "/clickout/": {
       "post": {
         "operationId": "clickout_create",
-        "tags": [
-          "Shop"
-        ],
         "security": [
           {
             "bearerAuth": []

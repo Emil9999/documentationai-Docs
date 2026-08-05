@@ -18,11 +18,11 @@ Triggered when an application has been synchronized to the company's ATS. Useful
 
 Triggered when a job event occurs in the ATS. The `event` field distinguishes three types:
 
-#### `CREATED` / `UPDATED`
+#### Job Created or Updated
 
 Triggered when a new job is created or an existing job is modified. This includes changes to job titles, descriptions, or any other fields.
 
-#### `ARCHIVED`
+#### Job Archived
 
 Triggered when a job is removed from the ATS. Use this to keep your system in sync by removing outdated job entries.
 
@@ -32,4 +32,4 @@ Triggered when the status of a job booking changes. Payload includes `booking_st
 
 ## Enabling Webhooks
 
-Webhook URLs are configured per company in the [Kini Partner App](https://app.getkini.com/). For each webhook, you provide an HTTPS endpoint on your side and select which events to receive. See the individual webhook pages for payload details, header requirements, and authentication.
+Webhooks are currently enabled through our support team. To set up a webhook endpoint, contact us at [**tech@getkini.com**](mailto:tech@getkini.com) with your partner identifier and the HTTPS endpoint(s) you'd like events delivered to. Our team will configure the webhook URL and event types for you. See the individual webhook pages for payload details, header requirements, and authentication.
