@@ -4605,8 +4605,6 @@
         }
       }
     },
-    "/token/": {},
-    "/token/refresh/": {},
     "/companies/": {
       "get": {
         "operationId": "companies_list",
@@ -5662,16 +5660,46 @@
         }
       }
     },
-    "/clickout/": {
+    "/companies/{id}/compose/": {
       "post": {
-        "operationId": "clickout_create",
+        "operationId": "companies_compose_create",
+        "summary": "Compose Company Integration",
+        "description": "Configure the Company's integration in a single call: store the integration credentials, switch on the features the partner is entitled to, and optionally update the Company's own master data.\n\nWhich keys `config` accepts depends on the integration and on the partner's entitlements — unknown keys are rejected with `400`. Ask your Kini contact for the field list of the integration you are wiring up.\n\nExisting configuration for the same company and integration is overwritten, so the call is safe to repeat.\n\nUnlike the rest of the API, this endpoint also accepts a Magic Link token instead of an API key — pass it as the `token` query parameter. That lets a company admin complete their own setup through a link, without ever being issued credentials. A Magic Link token is consumed by the call and cannot be reused.",
         "security": [
           {
             "bearerAuth": []
+          },
+          {}
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Unique Kini ID of the company"
+          },
+          {
+            "in": "query",
+            "name": "token",
+            "schema": {
+              "type": "string"
+            },
+            "required": false,
+            "description": "Magic Link token. Supply this instead of an API key to let a company admin configure their own integration. Single use."
+          },
+          {
+            "in": "header",
+            "name": "Company-Id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": false,
+            "description": "Kini ID of the company the key is associated with. Optional here — the company is already identified by the path parameter."
           }
         ],
-        "summary": "Create a clickout link to access the shop",
-        "description": "Creates a new clickout link to access the shop",
         "requestBody": {
           "required": true,
           "content": {
@@ -5679,18 +5707,34 @@
               "schema": {
                 "type": "object",
                 "required": [
-                  "external_job_id",
-                  "email"
+                  "integration"
                 ],
                 "properties": {
-                  "external_job_id": {
-                    "type": "integer",
-                    "description": "External Job ID of the job to promote"
-                  },
-                  "email": {
+                  "integration": {
                     "type": "string",
-                    "format": "email",
-                    "description": "Email address of the user"
+                    "description": "Slug of the integration to configure, e.g. `personio` or `softgarden`",
+                    "example": "personio"
+                  },
+                  "config": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Integration settings, keyed by field path. Keys under `credentials.` are written to the secret store and never returned by the API; all other keys are stored as plain configuration. Required fields differ per integration.",
+                    "example": {
+                      "credentials": {
+                        "client_id": "abc123",
+                        "client_secret": "s3cr3t"
+                      },
+                      "company_identifier": "acme-gmbh"
+                    }
+                  },
+                  "company_data": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "description": "Optional partial update of the Company itself. Accepts the same fields as [Update Company](/api/patch-companies-id).",
+                    "example": {
+                      "contact_email": "hr@acme.example",
+                      "website": "https://acme.example"
+                    }
                   }
                 }
               }
@@ -5699,7 +5743,91 @@
         },
         "responses": {
           "201": {
-            "description": "Clickout link created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "detail": {
+                      "type": "string",
+                      "example": "success",
+                      "description": "Result of the compose request"
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Integration configured"
+          },
+          "400": {
+            "description": "Unknown or missing `config` fields, or invalid `company_data`"
+          },
+          "403": {
+            "description": "No access to the company, or the Magic Link is invalid, expired, or already used"
+          },
+          "404": {
+            "description": "Company not found"
+          }
+        }
+      }
+    },
+    "/clickout/promote/": {
+      "post": {
+        "operationId": "clickout_promote_create",
+        "summary": "Create Promote Clickout Link",
+        "description": "Create a clickout link that signs the user in and drops them on the promote page of a single job, ready to book reach for it.\n\nThe job is looked up by its `external_job_id` within the company. Kini refreshes the job from the ATS first, and creates the job if it does not exist yet, so the link also works for a job your system has only just published.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Company-Id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Kini ID of the company the key is associated with"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "email",
+                  "external_job_id"
+                ],
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "description": "Email address of the user the link is issued for. A shop user is created and added to the company on first use."
+                  },
+                  "external_job_id": {
+                    "type": "string",
+                    "description": "The job's ID in your system. Must be unique within the company."
+                  },
+                  "product_type": {
+                    "enum": [
+                      "single",
+                      "campaign"
+                    ],
+                    "type": "string",
+                    "description": "Preselect a tab on the promote page. Enum: single (single job bookings), campaign (campaigns).",
+                    "example": "campaign"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
             "content": {
               "application/json": {
                 "schema": {
@@ -5708,16 +5836,745 @@
                     "data": {
                       "type": "string",
                       "format": "uri",
-                      "description": "The clickout URL for accessing the shop"
+                      "description": "Clickout URL. Signs the user in and lands them on the target page. Valid for one hour."
                     }
+                  },
+                  "x-readme-ref-name": "ClickoutRead"
+                }
+              }
+            },
+            "description": "Clickout link created"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "403": {
+            "description": "Company is not set up for the shop, or the email already belongs to another organisation"
+          },
+          "408": {
+            "description": "Refreshing the job from the ATS timed out"
+          },
+          "409": {
+            "description": "More than one job matches `external_job_id` in this company"
+          },
+          "502": {
+            "description": "Refreshing the job from the ATS failed"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "detail": {
+                      "type": "string",
+                      "example": "Failed to generate clickout link."
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Failed to generate clickout link"
+          }
+        }
+      }
+    },
+    "/clickout/redirect/": {
+      "post": {
+        "operationId": "clickout_redirect_create",
+        "summary": "Create Redirect Clickout Link",
+        "description": "Create a clickout link that signs the user in and drops them on a shop overview page — their job list or their bookings — without going through the promote flow.\n\nRequires a partner-scoped API key; company-scoped keys can only use [Create Promote Clickout Link](/api/post-clickout-promote).",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Company-Id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Kini ID of the company the key is associated with"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "email",
+                  "resource"
+                ],
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "description": "Email address of the user the link is issued for. A shop user is created and added to the company on first use."
+                  },
+                  "resource": {
+                    "enum": [
+                      "jobs",
+                      "bookings"
+                    ],
+                    "type": "string",
+                    "description": "Page to land on. Enum: jobs (the company's job list), bookings (the company's job bookings). Both are overview pages — do not send `resource_id`."
                   }
                 }
               }
             }
           }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "format": "uri",
+                      "description": "Clickout URL. Signs the user in and lands them on the target page. Valid for one hour."
+                    }
+                  },
+                  "x-readme-ref-name": "ClickoutRead"
+                }
+              }
+            },
+            "description": "Clickout link created"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "403": {
+            "description": "Company is not set up for the shop, the key is not partner-scoped, or the email already belongs to another organisation"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "detail": {
+                      "type": "string",
+                      "example": "Failed to generate clickout link."
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Failed to generate clickout link"
+          }
         }
       }
-    }
+    },
+    "/job_bookings/": {
+      "get": {
+        "operationId": "job_bookings_list",
+        "summary": "List Job Bookings",
+        "description": "List the company's job bookings — the reach that has been purchased for its jobs, one record per job and talent channel. Each record carries the job's own fields plus the booking's status, run time, price, and click statistics.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Company-Id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Kini ID of the company the key is associated with"
+          },
+          {
+            "name": "status",
+            "required": false,
+            "in": "query",
+            "description": "Filter by booking status. Repeat the parameter to match several values, e.g. `status=booked&status=processing`.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "booked",
+                  "processing",
+                  "published",
+                  "unpublished",
+                  "expired"
+                ]
+              }
+            }
+          },
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "description": "A page number within the paginated result set.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page_size",
+            "required": false,
+            "in": "query",
+            "description": "Number of results to return per page.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "search",
+            "required": false,
+            "in": "query",
+            "description": "Free-text search across the job's fields and the product name.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ordering",
+            "required": false,
+            "in": "query",
+            "description": "Sort field. Prefix with `-` to reverse. One of `status`, `purchase_price`, `booking_starts_at`, `booking_expires_at`, `created_at`, `updated_at`.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "-booking_starts_at"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "integer",
+                      "example": 123,
+                      "description": "Total number of records available across all pages"
+                    },
+                    "next": {
+                      "type": "string",
+                      "nullable": true,
+                      "format": "uri",
+                      "example": "http://api.getkini.com/resources/?page=4",
+                      "description": "URL to the next page of results"
+                    },
+                    "previous": {
+                      "type": "string",
+                      "nullable": true,
+                      "format": "uri",
+                      "example": "http://api.getkini.com/resources/?page=2",
+                      "description": "URL to the previous page of results"
+                    },
+                    "results": {
+                      "type": "array",
+                      "description": "List of job bookings",
+                      "items": {
+                        "allOf": [
+                          {
+                            "$ref": "#/paths/~1jobs~1{id}/get/responses/200/content/application~1json/schema"
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer",
+                                "description": "Kini ID of the job booking"
+                              },
+                              "job": {
+                                "type": "integer",
+                                "description": "Kini ID of the job that was booked"
+                              },
+                              "status": {
+                                "enum": [
+                                  "booked",
+                                  "processing",
+                                  "published",
+                                  "unpublished",
+                                  "expired"
+                                ],
+                                "type": "string",
+                                "readOnly": true,
+                                "description": "Status of the job booking. Enum: booked (purchased, not yet sent), processing (being published), published (live on the job board), unpublished (taken offline), expired (run time is over)."
+                              },
+                              "failure_error": {
+                                "type": [
+                                  "string"
+                                ],
+                                "readOnly": true,
+                                "description": "Error message if publishing the job booking failed"
+                              },
+                              "transaction": {
+                                "type": "string",
+                                "format": "uuid",
+                                "description": "UUID of the transaction the job booking was purchased in"
+                              },
+                              "purchase_price": {
+                                "type": "number",
+                                "description": "Billable price of the job booking at purchase time, in EUR"
+                              },
+                              "purchase_list_price": {
+                                "type": "number",
+                                "description": "List price of the job booking at purchase time, in EUR"
+                              },
+                              "booking_url": {
+                                "type": "string",
+                                "format": "uri",
+                                "description": "URL of the live job booking on the job board"
+                              },
+                              "booking_starts_at": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "Timestamp of when the job booking went live on the job board"
+                              },
+                              "booking_expires_at": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "Timestamp of when the job booking is removed from the job board"
+                              },
+                              "statistics": {
+                                "type": "object",
+                                "properties": {
+                                  "booking_clicks": {
+                                    "type": "integer",
+                                    "description": "Number of clicks on the job booking"
+                                  },
+                                  "booking_apply_clicks": {
+                                    "type": "integer",
+                                    "description": "Number of clicks on the apply button"
+                                  }
+                                }
+                              },
+                              "product": {
+                                "type": "object",
+                                "description": "Product the job was booked with",
+                                "properties": {
+                                  "id": {
+                                    "type": "integer",
+                                    "description": "Kini ID of the product"
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "Name of the product"
+                                  },
+                                  "type": {
+                                    "enum": [
+                                      "single",
+                                      "campaign"
+                                    ],
+                                    "type": "string",
+                                    "description": "Product type. Enum: single (a single job booking), campaign (a multi-channel campaign)."
+                                  },
+                                  "url": {
+                                    "type": "string",
+                                    "format": "uri",
+                                    "description": "Website URL of the product on the job board"
+                                  },
+                                  "description": {
+                                    "type": "string",
+                                    "description": "Description of the product"
+                                  },
+                                  "list_price": {
+                                    "type": "number",
+                                    "description": "List price of the product in EUR"
+                                  },
+                                  "price": {
+                                    "type": "number",
+                                    "description": "Billable price of the product in EUR"
+                                  },
+                                  "discount_percent": {
+                                    "type": "number",
+                                    "description": "Percentage difference between `list_price` and `price`"
+                                  },
+                                  "list_days": {
+                                    "type": "integer",
+                                    "description": "Number of days a job booking is visible for on the job board"
+                                  },
+                                  "regions": {
+                                    "type": "string",
+                                    "description": "Regions where the product is available, comma separated"
+                                  },
+                                  "target_audience_education": {
+                                    "type": "string",
+                                    "description": "Education levels of the target audience, comma separated"
+                                  },
+                                  "statistics": {
+                                    "type": "object",
+                                    "properties": {
+                                      "booking_expected_clicks": {
+                                        "type": "integer",
+                                        "description": "Number of clicks expected on the job booking"
+                                      },
+                                      "booking_apply_expected_clicks": {
+                                        "type": "integer",
+                                        "description": "Number of clicks expected on the apply button"
+                                      }
+                                    }
+                                  },
+                                  "rating": {
+                                    "type": "integer",
+                                    "description": "Rating of the product from 0 to 100, higher is better"
+                                  },
+                                  "updated_at": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "description": "Timestamp of when the product was last updated"
+                                  },
+                                  "talent_channel": {
+                                    "type": "object",
+                                    "properties": {
+                                      "id": {
+                                        "type": "integer",
+                                        "description": "Kini ID of the talent channel"
+                                      },
+                                      "slug": {
+                                        "type": "string",
+                                        "description": "Unique slug of the talent channel"
+                                      },
+                                      "name": {
+                                        "type": "string",
+                                        "description": "Name of the talent channel"
+                                      },
+                                      "url": {
+                                        "type": "string",
+                                        "format": "uri",
+                                        "description": "Website URL of the talent channel"
+                                      },
+                                      "catalog_url": {
+                                        "type": "string",
+                                        "format": "uri",
+                                        "description": "URL of the talent channel's product catalogue"
+                                      },
+                                      "logo": {
+                                        "type": "string",
+                                        "format": "uri",
+                                        "description": "Logo URL of the talent channel"
+                                      },
+                                      "description": {
+                                        "type": "string",
+                                        "description": "Description of the talent channel"
+                                      },
+                                      "short_description": {
+                                        "type": "string",
+                                        "description": "Short description of the talent channel"
+                                      },
+                                      "regions": {
+                                        "type": "string",
+                                        "description": "Regions where the talent channel is available, comma separated"
+                                      }
+                                    },
+                                    "x-readme-ref-name": "TalentChannel"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "x-readme-ref-name": "JobBooking"
+                      }
+                    }
+                  },
+                  "x-readme-ref-name": "PaginatedJobBookingList"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      }
+    },
+    "/job_bookings/{id}/unpublish/": {
+      "patch": {
+        "operationId": "job_bookings_unpublish",
+        "summary": "Unpublish Job Booking",
+        "description": "Take a live job booking offline before its run time is over — for instance when the position has been filled. The booking moves to status `unpublished`; the purchase is not refunded and the booking cannot be published again.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Kini ID of the job booking"
+          },
+          {
+            "in": "header",
+            "name": "Company-Id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Kini ID of the company the key is associated with"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "detail": {
+                      "type": "string",
+                      "example": "success",
+                      "description": "Result of the unpublish request"
+                    }
+                  }
+                }
+              }
+            },
+            "description": ""
+          },
+          "404": {
+            "description": "Job booking not found"
+          },
+          "429": {
+            "description": "Rate limit exceeded — this endpoint allows 120 requests per minute"
+          }
+        }
+      }
+    },
+    "/talent_channels/": {
+      "get": {
+        "operationId": "talent_channels_list",
+        "summary": "List Talent Channels",
+        "description": "List the talent channels the company can book on, each with the products available to it. Prices are the company's own — they already include any partner discount — so use this endpoint to build a shop or price comparison rather than a static catalogue.\n\nChannels with no bookable product are left out. Results are ordered by the best product rating on the channel, and products within a channel by price.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Company-Id",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "Kini ID of the company the key is associated with"
+          },
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "description": "A page number within the paginated result set.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page_size",
+            "required": false,
+            "in": "query",
+            "description": "Number of results to return per page.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "ordering",
+            "required": false,
+            "in": "query",
+            "description": "Sort field. Prefix with `-` to reverse. One of `name`, `created_at`, `updated_at`, `max_product_rating`.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "name"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "count": {
+                      "type": "integer",
+                      "example": 123,
+                      "description": "Total number of records available across all pages"
+                    },
+                    "next": {
+                      "type": "string",
+                      "nullable": true,
+                      "format": "uri",
+                      "example": "http://api.getkini.com/resources/?page=4",
+                      "description": "URL to the next page of results"
+                    },
+                    "previous": {
+                      "type": "string",
+                      "nullable": true,
+                      "format": "uri",
+                      "example": "http://api.getkini.com/resources/?page=2",
+                      "description": "URL to the previous page of results"
+                    },
+                    "results": {
+                      "type": "array",
+                      "description": "List of talent channels",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "description": "Kini ID of the talent channel"
+                          },
+                          "slug": {
+                            "type": "string",
+                            "description": "Unique slug of the talent channel"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Name of the talent channel"
+                          },
+                          "url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "Website URL of the talent channel"
+                          },
+                          "catalog_url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "URL of the talent channel's product catalogue"
+                          },
+                          "logo": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "Logo URL of the talent channel"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "Description of the talent channel"
+                          },
+                          "short_description": {
+                            "type": "string",
+                            "description": "Short description of the talent channel"
+                          },
+                          "regions": {
+                            "type": "string",
+                            "description": "Regions where the talent channel is available, comma separated"
+                          },
+                          "products": {
+                            "type": "array",
+                            "description": "Products bookable on this talent channel, cheapest first",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "integer",
+                                  "description": "Kini ID of the product"
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "description": "Name of the product"
+                                },
+                                "type": {
+                                  "enum": [
+                                    "single",
+                                    "campaign"
+                                  ],
+                                  "type": "string",
+                                  "description": "Product type. Enum: single (a single job booking), campaign (a multi-channel campaign)."
+                                },
+                                "url": {
+                                  "type": "string",
+                                  "format": "uri",
+                                  "description": "Website URL of the product on the job board"
+                                },
+                                "description": {
+                                  "type": "string",
+                                  "description": "Description of the product"
+                                },
+                                "talent_channel": {
+                                  "type": "integer",
+                                  "description": "Kini ID of the talent channel the product belongs to"
+                                },
+                                "list_price": {
+                                  "type": "number",
+                                  "description": "List price of the product in EUR"
+                                },
+                                "price": {
+                                  "type": "number",
+                                  "description": "Billable price of the product in EUR"
+                                },
+                                "discount_percent": {
+                                  "type": "number",
+                                  "description": "Percentage difference between `list_price` and `price`"
+                                },
+                                "list_days": {
+                                  "type": "integer",
+                                  "description": "Number of days a job booking is visible for on the job board"
+                                },
+                                "regions": {
+                                  "type": "string",
+                                  "description": "Regions where the product is available, comma separated"
+                                },
+                                "target_audience_education": {
+                                  "type": "string",
+                                  "description": "Education levels of the target audience, comma separated"
+                                },
+                                "statistics": {
+                                  "type": "object",
+                                  "properties": {
+                                    "booking_expected_clicks": {
+                                      "type": "integer",
+                                      "description": "Number of clicks expected on the job booking"
+                                    },
+                                    "booking_apply_expected_clicks": {
+                                      "type": "integer",
+                                      "description": "Number of clicks expected on the apply button"
+                                    }
+                                  }
+                                },
+                                "rating": {
+                                  "type": "integer",
+                                  "description": "Rating of the product from 0 to 100, higher is better"
+                                },
+                                "updated_at": {
+                                  "type": "string",
+                                  "format": "date-time",
+                                  "description": "Timestamp of when the product was last updated"
+                                }
+                              },
+                              "x-readme-ref-name": "Product"
+                            }
+                          },
+                          "total_products": {
+                            "type": "integer",
+                            "description": "Total number of products available on this talent channel"
+                          }
+                        },
+                        "x-readme-ref-name": "TalentChannelWithProducts"
+                      }
+                    }
+                  },
+                  "x-readme-ref-name": "PaginatedTalentChannelList"
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      }
+    },
+    "/token/": {},
+    "/token/refresh/": {}
   },
   "components": {
     "schemas": {

@@ -133,6 +133,9 @@
               "POST /companies/{id}/compose/",
               "POST /clickout/promote/",
               "POST /clickout/redirect/",
+              "GET /job_bookings/",
+              "PATCH /job_bookings/{id}/unpublish/",
+              "GET /talent_channels/",
               "GET /applications/",
               "POST /applications/",
               "GET /applications/{id}"
@@ -175,6 +178,9 @@
               "POST /companies/{id}/compose/",
               "POST /clickout/promote/",
               "POST /clickout/redirect/",
+              "GET /job_bookings/",
+              "PATCH /job_bookings/{id}/unpublish/",
+              "GET /talent_channels/",
               "GET /jobs",
               "POST /jobs",
               "GET /jobs/{id}",
@@ -219,6 +225,9 @@
               "PATCH /jobs/{id}",
               "POST /clickout/promote/",
               "POST /clickout/redirect/",
+              "GET /job_bookings/",
+              "PATCH /job_bookings/{id}/unpublish/",
+              "GET /talent_channels/",
               "GET /companies/",
               "POST /companies/",
               "GET /companies/{id}/",
@@ -477,6 +486,10 @@
     {
       "source": "/reference/companies_deactivate",
       "destination": "/api/patch-companies-id-deactivate"
+    },
+    {
+      "source": "/reference/companies_compose",
+      "destination": "/api/post-companies-id-compose"
     },
     {
       "source": "/reference/shop",

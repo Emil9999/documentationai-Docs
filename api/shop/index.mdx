@@ -1,29 +1,35 @@
 ---
 title: Shop
 description: >-
-  Generate clickout links that route users from channel campaigns to a
-  customer's shop.
+  Browse bookable talent channels, hand users into the shop with a clickout
+  link, and manage the job bookings that come out of it.
 ---
-The Shop endpoints generate clickout links — short-lived URLs that carry attribution and routing context from a campaign or channel into a customer's online shop.
-
-- `POST /clickout/promote/` — generates a link that promotes a specific job in the shop. If the job isn't yet known to Kini, its data is refreshed/imported first.
-- `POST /clickout/redirect/` — generates a link that redirects straight to a resource in the shop (jobs or bookings), skipping the promote flow. Requires a Partner-scoped API key.
+The Shop endpoints cover the reach side of Kini: what a company can book, how you get its users into the shop, and what happens to a booking once it is live.
 
 All requests require authentication. Company-scoped requests need the `Company-Id` header — see [Authentication](/guides/authentication).
 
+## Available endpoints
+
+- `POST /clickout/promote/` — create a clickout link that signs the user in on the promote page of a single job. The job is refreshed from the ATS first, and created if Kini does not know it yet.
+- `POST /clickout/redirect/` — create a clickout link straight to the company's job list or bookings, skipping the promote flow. Requires a partner-scoped API key.
+- `GET /talent_channels/` — list the talent channels the company can book on, with the products and prices available to it.
+- `GET /job_bookings/` — list the company's job bookings, filterable by `status`, including run time, price, and click statistics.
+- `PATCH /job_bookings/{id}/unpublish/` — take a live job booking offline before its run time is over.
+
 ## Common use cases
 
-- Turn a campaign or channel impression into a tracked click that promotes a job in a customer's shop.
-- Carry metadata such as source, channel, or campaign ID through to the destination.
-- Power partner integrations that need a single, signed URL rather than the raw shop address.
-- Link a user directly to an existing job or booking in the shop without going through the promote flow.
+- Turn a job in your own UI into a tracked click that lands the recruiter on Kini's promote page for exactly that job.
+- Show a company its bookable channels and its own prices without rebuilding the catalogue on your side.
+- Report on booked reach — spend, run time, and clicks — inside your product.
+- Pull a booking off the job board as soon as the position is filled.
 
 ## Before you start
 
-- Confirm the target company and the destination campaign or offer before generating a link.
-- Treat clickout URLs as opaque tokens — pass them through unchanged instead of parsing or re-encoding them.
-- `POST /clickout/redirect/` requires a Partner-scoped API key; company-scoped keys can only use `POST /clickout/promote/`.
+- Clickout links are scoped to a company, single-purpose, and valid for one hour. Generate a fresh one per user request instead of caching one for reuse.
+- Prices returned by `GET /talent_channels/` are the company's own and already include any partner discount — do not treat them as a public price list.
+- Unpublishing is not a refund and cannot be undone; the booking cannot be published again afterwards.
+- The company must be set up for the shop before any of these calls succeed. Use [Compose Company Integration](/api/post-companies-id-compose) to complete that setup.
 
 <Callout kind="info" collapsed="false">
-  Clickout links are scoped to a company and expire. Always generate a fresh link per user request rather than caching one for reuse.
+  A clickout creates the shop user on first use and adds them to the company. If the email address already belongs to a different organisation, the call fails with `403` rather than moving the user.
 </Callout>
