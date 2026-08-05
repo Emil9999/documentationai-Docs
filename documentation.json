@@ -236,7 +236,7 @@
   "redirects": [
     {
       "source": "/overview-supported-fields",
-      "destination": "/guides/overview-ats-supported-fields"
+      "destination": "/guides/getting-started"
     },
     {
       "source": "/reference/getting-started",
@@ -264,7 +264,7 @@
     },
     {
       "source": "/reference/overview-ats-supported-fields",
-      "destination": "/guides/overview-ats-supported-fields"
+      "destination": "/guides/getting-started"
     },
     {
       "source": "/reference/quickapply-integrations",
@@ -280,15 +280,15 @@
     },
     {
       "source": "/reference/heyflow",
-      "destination": "/integrations/quickapply/heyflow"
+      "destination": "/integrations/quickapply/index"
     },
     {
       "source": "/reference/monster-apply",
-      "destination": "/integrations/quickapply/monster"
+      "destination": "/integrations/quickapply/index"
     },
     {
       "source": "/reference/jobrapido-apply",
-      "destination": "/integrations/quickapply/jobrapido"
+      "destination": "/integrations/quickapply/index"
     },
     {
       "source": "/reference/meta-lead-forms",

@@ -3,7 +3,7 @@ title: "Filtering"
 description: "Efficient data retrieval often requires filtering the dataset to match specific criteria. The Kini API supports filtering across multiple endpoints."
 ---
 
-<Callout icon="✨" theme="default">
+<Callout kind="info">
   ### Supported Endpoints
 
 Filtering is supported for the **GET /jobs** and **GET /applications** endpoints. Ensure you use the correct parameters to avoid unnecessary data processing.
@@ -17,29 +17,28 @@ The following parameters can be used to filter results across different endpoint
 ### **GET /jobs**
 
 | Parameter                | Description                                                                            | Filter Type                 | Example Usage                             |
-| :----------------------- | :------------------------------------------------------------------------------------- | :-------------------------- | :---------------------------------------- | --- |
+| :----------------------- | :--------------------------------------------------------------------------------------| :--------------------------- | :----------------------------------------- |
 | `external_id`            | Filters jobs by their unique external identifier                                       | Exact match                 | `/jobs?external_id=12345`                 |
 | `title`                  | Filters jobs by their title                                                            | Contains (case-insensitive) | `/jobs?title=developer`                   |
 | `status`                 | Filters jobs by their current status. Possible values: `active`, `deleted`, `archived` | Exact match                 | `/jobs?status=active`                     |
 | `remote`                 | Filters jobs by remote work type. Possible values: `remote`, `hybrid`, `on-site`       | Exact match                 | `/jobs?remote=remote`                     |
 | `language`               | Filters jobs by the required language                                                  | Exact match                 | `/jobs?language=en`                       |
 | `city`                   | Filters jobs by city                                                                   | Contains (case-insensitive) | `/jobs?city=Berlin`                       |
-| `country`                | Filters jobs by country                                                                | Exact match                 | `/jobs?country=DE`                        |     |
+| `country`                | Filters jobs by country                                                                | Exact match                 | `/jobs?country=DE`                        |
 | `created_at`             | Filters jobs by their creation date                                                    | Greater than or equal       | `/jobs?created_at=2024-01-01`             |
 | `updated_at`             | Filters jobs by their last update date                                                 | Greater than or equal       | `/jobs?updated_at=2024-01-01`             |
 | `last_content_update_at` | Filters jobs by their last content update date                                         | Greater than or equal       | `/jobs?last_content_update_at=2024-01-01` |
 
 ### **GET /applications**
 
-| Parameter                | Description                                                                                                 | Filter Type           | Example Usage                               |
-| :----------------------- | :---------------------------------------------------------------------------------------------------------- | :-------------------- | :------------------------------------------ |
+| Parameter                | Description                                                                                                  | Filter Type           | Example Usage                               |
+| :----------------------- | :------------------------------------------------------------------------------------------------------------| :--------------------- | :------------------------------------------ |
 | `email`                  | Filters applications by applicant email                                                                     | Exact match           | `/applications?email=applicant@example.com` |
-| `partner_application_id` | Filters by the partner's application ID                                                                     | Exact match           | `/applications?partner_job_id=8262`         |
+| `partner_application_id` | Filters by the partner's application ID                                                                     | Exact match           | `/applications?partner_application_id=8262` |
 | `partner_job_id`         | Filters by the partner's job ID                                                                             | Exact match           | `/applications?partner_job_id=123_4`        |
-| `partner_company_id`     | Filters by the partner's company ID                                                                         | Exact match           | `/applications?partner=acme-inc`            |
+| `partner_company_id`     | Filters by the partner's company ID                                                                         | Exact match           | `/applications?partner_company_id=acme-inc` |
 | `partner`                | Filters by the partner ID                                                                                   | Exact match           | `/applications?partner=4`                   |
 | `agency_job_id`          | Filters by the agency's job ID                                                                              | Exact match           | `/applications?agency_job_id=1234`          |
-| `agency`                 | Filters by the agency ID                                                                                    | Exact match           | `/applications?agency=12`                   |
 | `channel`                | Filters by the application channel                                                                          | Exact match           | `/applications?channel=LinkedIn`            |
 | `job`                    | Filters by the related job ID                                                                               | Exact match           | `/applications?job=1234`                    |
 | `sync_status`            | Filters by the synchronization status. Possible values: `SUCCESS`, `EXPECTED_FAILURE`, `FAILURE`, `NOTSENT` | Exact match           | `/applications?sync_status=SUCCESS`         |
@@ -50,7 +49,7 @@ The following parameters can be used to filter results across different endpoint
 ### **GET /companies**
 
 | Parameter               | Description                                                            | Filter Type                 | Example Usage                           |
-| :---------------------- | :--------------------------------------------------------------------- | :-------------------------- | :-------------------------------------- |
+| :---------------------- | :--------------------------------------------------------------------- | :--------------------------- | :--------------------------------------- |
 | `name`                  | Filters companies by their name                                        | Contains (case-insensitive) | `/companies?name=Acme`                  |
 | `ats`                   | Filters companies by their applicant tracking system (ATS)             | Exact match                 | `/companies?ats=personio`               |
 | `partner_company_id`    | Filters companies by their partner's internal reference (if provided)  | Exact match                 | `/companies?partner_company_id=123`     |
@@ -65,10 +64,10 @@ The following parameters can be used to filter results across different endpoint
 
 ## Example Requests
 
-1. **Filter Jobs by Status and Location**\
+1. **Filter Jobs by Status and City**\
    Retrieve all active jobs located in Berlin:
    ```
-   GET /jobs?status=active&location=Berlin
+   GET /jobs?status=active&city=Berlin
    ```
 2. **Filter Applications by Creation Date**\
    Retrieve applications created after January 1, 2024:
@@ -110,7 +109,7 @@ Filtered requests return the same response format as paginated requests, with me
    Example:
 
    ```text
-   GET /jobs?status=active&location=Berlin&page=1&limit=20
+   GET /jobs?status=active&city=Berlin&page=1&limit=20
    ```
 
 2. **Validate Filter Parameters**\

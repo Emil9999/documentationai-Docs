@@ -23,7 +23,7 @@ The following payload is sent to your configured webhook URL:
 ```
 
 | Field         | Type    | Description                                               |
-| :------------ | :------ | :-------------------------------------------------------- |
+| :------------ | :------ | :----------------------------------------------------------|
 | `event`       | enum    | The job event type (`CREATED`, `UPDATED`, `ARCHIVED`).    |
 | `company_id`  | int     | The Kini company ID the job belongs to.                   |
 | `job_id`      | int     | The Kini internal job ID.                                 |
@@ -46,8 +46,8 @@ Deliveries are sent as an HTTPS `POST` with a JSON body and a 20-second timeout.
 
 Kini calls *your* endpoint, so authentication is under your control: when your webhook is set up, you tell us which HTTP headers each delivery should carry — for example an `Authorization: Bearer <token>` header or a custom API-key header that your endpoint checks. Kini stores these securely and sends them with every request.
 
-Kini does **not** sign webhook payloads — there is no `Kini-Signature` header and no HMAC to verify. To confirm a request came from Kini, validate the header/token you configured. Contact [support@getkini.com](mailto:support@getkini.com) if you'd also like to allowlist our egress IPs.
+Kini does **not** sign webhook payloads — there is no `Kini-Signature` header and no HMAC to verify. To confirm a request came from Kini, validate the header/token you configured. Contact [tech@getkini.com](mailto:tech@getkini.com) if you'd also like to allowlist our egress IPs.
 
 ## Setup
 
-Webhook endpoints are configured per company in the [Kini Partner App](https://app.getkini.com/). Provide the HTTPS URL that should receive events and the headers Kini should send with each delivery. Need help? Contact [support@getkini.com](mailto:support@getkini.com).
+Webhook endpoints are configured per company in the [Kini Partner App](https://app.getkini.com/). Provide the HTTPS URL that should receive events and the headers Kini should send with each delivery. Need help? Contact [tech@getkini.com](mailto:tech@getkini.com).
