@@ -132,7 +132,23 @@
               "PATCH /companies/{id}/deactivate/",
               "POST /clickout/"
             ],
-            "pages": []
+            "pages": [
+              {
+                "title": "List Applications",
+                "path": "api/get-applications",
+                "method": "GET"
+              },
+              {
+                "title": "Get Application",
+                "path": "api/get-applications-id",
+                "method": "GET"
+              },
+              {
+                "title": "Create Application",
+                "path": "api/post-applications",
+                "method": "POST"
+              }
+            ]
           },
           {
             "group": "Jobs",
@@ -153,7 +169,28 @@
               "PATCH /companies/{id}/deactivate/",
               "POST /clickout/"
             ],
-            "pages": []
+            "pages": [
+              {
+                "title": "List Jobs",
+                "path": "api/get-jobs",
+                "method": "GET"
+              },
+              {
+                "title": "Get Job",
+                "path": "api/get-jobs-id",
+                "method": "GET"
+              },
+              {
+                "title": "Create Job",
+                "path": "api/post-jobs",
+                "method": "POST"
+              },
+              {
+                "title": "Update Job",
+                "path": "api/patch-jobs-id",
+                "method": "PATCH"
+              }
+            ]
           },
           {
             "group": "Companies",
@@ -171,7 +208,43 @@
               "PATCH /jobs/{id}",
               "POST /clickout/"
             ],
-            "pages": []
+            "pages": [
+              {
+                "title": "List Companies",
+                "path": "api/get-companies",
+                "method": "GET"
+              },
+              {
+                "title": "Get Single Company",
+                "path": "api/get-companies-id",
+                "method": "GET"
+              },
+              {
+                "title": "Create Company",
+                "path": "api/post-companies",
+                "method": "POST"
+              },
+              {
+                "title": "Update Company",
+                "path": "api/patch-companies-id",
+                "method": "PATCH"
+              },
+              {
+                "title": "Create Magic Link",
+                "path": "api/post-companies-id-magic",
+                "method": "POST"
+              },
+              {
+                "title": "Trigger Job Sync",
+                "path": "api/post-companies-id-sync-jobs",
+                "method": "POST"
+              },
+              {
+                "title": "Deactivate Company",
+                "path": "api/patch-companies-id-deactivate",
+                "method": "PATCH"
+              }
+            ]
           },
           {
             "group": "Shop",
@@ -195,7 +268,13 @@
               "POST /companies/{id}/sync/jobs/",
               "PATCH /companies/{id}/deactivate/"
             ],
-            "pages": []
+            "pages": [
+              {
+                "title": "Create a clickout link to access the shop",
+                "path": "api/post-clickout",
+                "method": "POST"
+              }
+            ]
           }
         ]
       }
