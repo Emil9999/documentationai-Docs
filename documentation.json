@@ -117,6 +117,7 @@
             "icon": "file-user",
             "expandable": true,
             "openapi": "api/kini-api.json",
+            "path": "api/applications/index",
             "hidden-apis": [
               "GET /jobs",
               "POST /jobs",
@@ -131,18 +132,14 @@
               "PATCH /companies/{id}/deactivate/",
               "POST /clickout/"
             ],
-            "pages": [
-              {
-                "title": "Overview",
-                "path": "api/applications/index"
-              }
-            ]
+            "pages": []
           },
           {
             "group": "Jobs",
             "icon": "briefcase",
             "expandable": true,
             "openapi": "api/kini-api.json",
+            "path": "api/jobs/index",
             "hidden-apis": [
               "GET /applications/",
               "POST /applications/",
@@ -156,18 +153,14 @@
               "PATCH /companies/{id}/deactivate/",
               "POST /clickout/"
             ],
-            "pages": [
-              {
-                "title": "Overview",
-                "path": "api/jobs/index"
-              }
-            ]
+            "pages": []
           },
           {
             "group": "Companies",
             "icon": "building",
             "expandable": true,
             "openapi": "api/kini-api.json",
+            "path": "api/companies/index",
             "hidden-apis": [
               "GET /applications/",
               "POST /applications/",
@@ -178,18 +171,14 @@
               "PATCH /jobs/{id}",
               "POST /clickout/"
             ],
-            "pages": [
-              {
-                "title": "Overview",
-                "path": "api/companies/index"
-              }
-            ]
+            "pages": []
           },
           {
             "group": "Shop",
             "icon": "shopping-cart",
             "expandable": true,
             "openapi": "api/kini-api.json",
+            "path": "api/shop/index",
             "hidden-apis": [
               "GET /applications/",
               "POST /applications/",
@@ -206,12 +195,7 @@
               "POST /companies/{id}/sync/jobs/",
               "PATCH /companies/{id}/deactivate/"
             ],
-            "pages": [
-              {
-                "title": "Overview",
-                "path": "api/shop/index"
-              }
-            ]
+            "pages": []
           }
         ]
       }
