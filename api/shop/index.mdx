@@ -4,22 +4,26 @@ description: >-
   Generate clickout links that route users from channel campaigns to a
   customer's shop.
 ---
-The Shop endpoint exposes a single operation for creating clickout links — short-lived URLs that carry attribution and routing context from a campaign or channel into a customer's online shop.
+The Shop endpoints generate clickout links — short-lived URLs that carry attribution and routing context from a campaign or channel into a customer's online shop.
+
+- `POST /clickout/promote/` — generates a link that promotes a specific job in the shop. If the job isn't yet known to Kini, its data is refreshed/imported first.
+- `POST /clickout/redirect/` — generates a link that redirects straight to a resource in the shop (jobs or bookings), skipping the promote flow. Requires a Partner-scoped API key.
 
 All requests require authentication. Company-scoped requests need the `Company-Id` header — see [Authentication](/guides/authentication).
 
 ## Common use cases
 
-- Turn a campaign or channel impression into a tracked click leading into a customer's shop.
+- Turn a campaign or channel impression into a tracked click that promotes a job in a customer's shop.
 - Carry metadata such as source, channel, or campaign ID through to the destination.
 - Power partner integrations that need a single, signed URL rather than the raw shop address.
+- Link a user directly to an existing job or booking in the shop without going through the promote flow.
 
 ## Before you start
 
 - Confirm the target company and the destination campaign or offer before generating a link.
 - Treat clickout URLs as opaque tokens — pass them through unchanged instead of parsing or re-encoding them.
+- `POST /clickout/redirect/` requires a Partner-scoped API key; company-scoped keys can only use `POST /clickout/promote/`.
 
 <Callout kind="info" collapsed="false">
   Clickout links are scoped to a company and expire. Always generate a fresh link per user request rather than caching one for reuse.
 </Callout>
-

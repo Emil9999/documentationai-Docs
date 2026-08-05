@@ -130,7 +130,9 @@
               "POST /companies/{id}/magic/",
               "POST /companies/{id}/sync/jobs/",
               "PATCH /companies/{id}/deactivate/",
-              "POST /clickout/",
+              "POST /companies/{id}/compose/",
+              "POST /clickout/promote/",
+              "POST /clickout/redirect/",
               "GET /applications/",
               "POST /applications/",
               "GET /applications/{id}"
@@ -170,7 +172,9 @@
               "POST /companies/{id}/magic/",
               "POST /companies/{id}/sync/jobs/",
               "PATCH /companies/{id}/deactivate/",
-              "POST /clickout/",
+              "POST /companies/{id}/compose/",
+              "POST /clickout/promote/",
+              "POST /clickout/redirect/",
               "GET /jobs",
               "POST /jobs",
               "GET /jobs/{id}",
@@ -213,14 +217,16 @@
               "POST /jobs",
               "GET /jobs/{id}",
               "PATCH /jobs/{id}",
-              "POST /clickout/",
+              "POST /clickout/promote/",
+              "POST /clickout/redirect/",
               "GET /companies/",
               "POST /companies/",
               "GET /companies/{id}/",
               "PATCH /companies/{id}/",
               "POST /companies/{id}/magic/",
               "POST /companies/{id}/sync/jobs/",
-              "PATCH /companies/{id}/deactivate/"
+              "PATCH /companies/{id}/deactivate/",
+              "POST /companies/{id}/compose/"
             ],
             "pages": [
               {
@@ -257,6 +263,11 @@
                 "title": "Deactivate Company",
                 "path": "api/patch-companies-id-deactivate",
                 "method": "PATCH"
+              },
+              {
+                "title": "Compose Company Integration",
+                "path": "api/post-companies-id-compose",
+                "method": "POST"
               }
             ]
           },
@@ -281,12 +292,19 @@
               "POST /companies/{id}/magic/",
               "POST /companies/{id}/sync/jobs/",
               "PATCH /companies/{id}/deactivate/",
-              "POST /clickout/"
+              "POST /companies/{id}/compose/",
+              "POST /clickout/promote/",
+              "POST /clickout/redirect/"
             ],
             "pages": [
               {
-                "title": "Create a clickout link to access the shop",
-                "path": "api/post-clickout",
+                "title": "Promote Job",
+                "path": "api/post-clickout-promote",
+                "method": "POST"
+              },
+              {
+                "title": "Redirect",
+                "path": "api/post-clickout-redirect",
                 "method": "POST"
               }
             ]
@@ -466,11 +484,11 @@
     },
     {
       "source": "/reference/clickouts_promote_create",
-      "destination": "/api/post-clickout"
+      "destination": "/api/post-clickout-promote"
     },
     {
       "source": "/reference/clickouts_redirect_create",
-      "destination": "/api/shop/index"
+      "destination": "/api/post-clickout-redirect"
     },
     {
       "source": "/reference/job_bookings_list",
