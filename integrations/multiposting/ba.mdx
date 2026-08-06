@@ -3,7 +3,7 @@ title: Bundesagentur für Arbeit (BA)
 description: Post jobs to the BA Jobbörse via Kini — onboarding requirements for end customers and required job fields for partners
 ---
 
-Kini publishes jobs to the [Jobbörse of the Bundesagentur für Arbeit](https://www.arbeitsagentur.de/jobsuche/) through the official **HR-BA-XML** interface. Postings are created as job bookings through the Kini Shop: Kini builds the HR-BA-XML payload from the job data, uploads it to the BA using the end customer's client certificate, and tracks the posting status until it goes live.
+Kini publishes jobs to the [Jobbörse of the Bundesagentur für Arbeit](https://www.arbeitsagentur.de/jobsuche/) through the BA's official interface. Postings are booked through the Kini Shop; Kini takes care of the transfer to the BA and keeps the posting status up to date until the job is live.
 
 Candidates who find the job on the Jobbörse apply via the job's **application link** — the application itself happens on the customer's own career or application page, not inside the Jobbörse.
 
@@ -12,17 +12,14 @@ Candidates who find the job on the Jobbörse apply via the job's **application l
 ## How It Works
 
 <Steps>
-  <Step title="Booking" icon="shopping-cart">
+  <Step title="Book" icon="shopping-cart">
     A BA posting is booked through the Kini Shop. The booking starts in status `BOOKED`.
   </Step>
-  <Step title="Export" icon="file-code">
-    Kini maps the job to HR-BA-XML and uploads it to the BA using the customer's client certificate. The booking moves to `PROCESSING`.
+  <Step title="Transfer" icon="send">
+    Kini transfers the posting to the BA and the booking moves to `PROCESSING`. The BA reviews every submission before it goes live, which can take a little while.
   </Step>
-  <Step title="Validation" icon="shield-check">
-    The BA validates the submission asynchronously against its schema and business rules. Validation results arrive with a delay.
-  </Step>
-  <Step title="Reconciliation" icon="refresh-cw">
-    Kini checks the BA's posting reports daily. Live postings move to `PUBLISHED` and receive their public Jobbörse URL; rejected postings move to `PUBLISH_FAILED` with the BA's error message in `failure_error`.
+  <Step title="Live" icon="circle-check">
+    Once the posting is live on the Jobbörse, the booking moves to `PUBLISHED` and carries the public Jobbörse URL. If the BA rejects the posting, the booking moves to `PUBLISH_FAILED` with the reason in `failure_error`.
   </Step>
 </Steps>
 
@@ -32,49 +29,47 @@ Published postings are reachable at:
 https://www.arbeitsagentur.de/jobsuche/jobdetail/{posting_reference}
 ```
 
-Status changes are pushed via the [Job Booking Status Update](/webhooks/job-booking-status-update) webhook.
-
-Changes after publication are transmitted the same way: content updates to a published booking are sent to the BA as an update, and unpublishing a booking removes the posting from the Jobbörse.
+Status changes are pushed via the [Job Booking Status Update](/webhooks/job-booking-status-update) webhook. Later changes work the same way: content updates to a published booking are transferred to the BA, and unpublishing a booking removes the posting from the Jobbörse.
 
 <Callout kind="info">
-  Because the BA validates asynchronously and reports are processed daily, a booking can stay in `PROCESSING` until the next reconciliation run. This is normal and not an error.
+  The BA processes submissions with a delay, so a booking can stay in `PROCESSING` for a few hours up to a day. This is normal and not an error.
 </Callout>
 
 <br />
 
 ## For End Customers: What You Need to Set Up
 
-Posting to the BA runs under the end customer's own identity. Before Kini can publish, the customer needs to request the following from the Bundesagentur für Arbeit and hand it over to Kini.
+Postings appear on the Jobbörse under your own company identity. Before Kini can publish for you, you need the following from the Bundesagentur für Arbeit.
 
 ### 1. Jobbörse employer account
 
-The company needs an employer account in the BA Jobbörse. This account provides the **HiringOrgId** — the BA customer number under which postings appear as belonging to the employer.
+Your company needs an employer account in the BA Jobbörse. This account provides your **BA customer number** (HiringOrgId) — the number under which your postings appear.
 
-Companies with multiple branches (for example staffing agencies) usually have **one BA customer number per branch**. The HiringOrgId identifies the branch that posts the job, not the work location — so for multi-branch setups, collect all branch customer numbers and hand them over to Kini, and select the posting branch per booking.
+Companies with multiple branches (for example staffing agencies) usually have **one BA customer number per branch**. The customer number identifies the branch that posts the job, not the work location — so collect the customer numbers of all branches that will post jobs.
 
-### 2. Approval as a data supplier (HR-BA-XML)
+### 2. Approval as a data supplier
 
-To submit postings automatically, the customer must be approved by the BA for automated job transfer via HR-BA-XML. As part of this approval the BA issues:
+To let Kini submit postings automatically, your company must be approved by the BA for automated job transfer. As part of this approval the BA issues:
 
-| Credential             | Purpose                                                                    |
-| :--------------------- | :------------------------------------------------------------------------- |
-| **Partner ID**         | Identifies the data supplier; used for the upload endpoint and file names. |
-| **Allianzpartner number** | Part of every posting reference Kini generates.                         |
-| **Client certificate** | A `.p12` certificate (with password) used to authenticate every upload.    |
+| Credential                | Purpose                                                      |
+| :------------------------ | :------------------------------------------------------------ |
+| **Partner ID**            | Identifies your company as a data supplier towards the BA.   |
+| **Allianzpartner number** | Issued together with the Partner ID; needed to reference your postings. |
+| **Client certificate**    | A `.p12` certificate file (with password) that authorizes the transfer. |
 
 ### 3. Hand-over to Kini
 
 Once issued, provide the following to your Kini contact:
 
 - Partner ID and Allianzpartner number
-- HiringOrgId — one default, or one per branch if postings should appear under different branches
+- Your BA customer number(s) — one default, or one per branch if postings should appear under different branches
 - The client certificate (`.p12`) and its password — please share these through a secure channel, never by plain email
 - A default contact person (name, salutation, position) shown on postings when a job has no contact of its own
-- Whether postings involve **private placement** (private Arbeitsvermittlung) or **labour leasing** (Arbeitnehmerüberlassung) — these are mutually exclusive and required by the BA
+- Whether your postings involve **private placement** (private Arbeitsvermittlung) or **labour leasing** (Arbeitnehmerüberlassung) — these are mutually exclusive and required by the BA
 
 ### 4. Company-wide defaults
 
-The BA renders a set of employer-level attributes on every posting. Kini configures these as defaults per company — clarify them with your Kini contact during onboarding:
+The BA shows a set of employer-level attributes on every posting. Kini configures these as defaults for your company — clarify them with your Kini contact during onboarding:
 
 | Setting                       | Meaning                                                                 |
 | :---------------------------- | :----------------------------------------------------------------------- |
@@ -85,14 +80,14 @@ The BA renders a set of employer-level attributes on every posting. Kini configu
 | Pay scale / collective agreement | Whether the company is bound to a pay scale, and which collective agreement applies. |
 
 <Callout kind="warning">
-  BA client certificates expire. When the BA issues a renewed certificate, send it to Kini before the old one expires — uploads stop working the moment the certificate is invalid.
+  BA client certificates expire. When the BA issues a renewed certificate, send it to Kini before the old one expires — postings stop going out the moment the certificate is invalid.
 </Callout>
 
 <br />
 
 ## For Partners: Required Job Fields
 
-The BA is strict about which data a posting must contain. Jobs missing required fields are skipped or rejected during validation. Make sure the following fields are filled when [syncing jobs](/guides/job-sync) that will be posted to the BA.
+The BA is strict about which data a posting must contain. Make sure the following fields are filled when [syncing jobs](/guides/job-sync) that will be posted to the BA.
 
 <Callout kind="info">
   Jobs with incomplete BA data cannot be published. When a job is booked in the [Kini App](https://app.getkini.com/), the booking form asks for any missing BA-specific fields (for example the occupation code or the branch) before the booking is created. Jobs synced via the API should carry the fields below from the start, so bookings go out without manual completion in the app.
@@ -102,18 +97,18 @@ The BA is strict about which data a posting must contain. Jobs missing required 
 
 | Field             | Requirement  | Notes                                                                                          |
 | :---------------- | :----------- | :--------------------------------------------------------------------------------------------- |
-| `title`           | **Required** | Truncated to 100 characters.                                                                    |
-| `description`     | **Required** | Plain text or `description_sections`; the BA requires **30 to 10,000 characters** after conversion. |
-| `application_url` | **Required** | The BA posting links candidates to this URL to apply. Without it the posting cannot be built.   |
-| `work_schedule`   | **Required** | `full_time`, `part_time` or `flexible` — mapped to the BA working plan.                         |
-| `employment_type` | **Required** | Mapped to the BA offer type (e.g. `apprenticeship`, `intern`, `freelance`, `minijob`).          |
+| `title`           | **Required** | Shown as the posting title; truncated to 100 characters.                                        |
+| `description`     | **Required** | Plain text or `description_sections`; the BA requires **30 to 10,000 characters**.             |
+| `application_url` | **Required** | The BA posting links candidates to this URL to apply.                                           |
+| `work_schedule`   | **Required** | `full_time`, `part_time` or `flexible`.                                                         |
+| `employment_type` | **Required** | Determines the BA offer type (e.g. `apprenticeship`, `intern`, `freelance`, `minijob`).         |
 | `country`         | **Required** | ISO country code, e.g. `DE`.                                                                    |
-| `postcode`        | **Required** | Also used to derive the BA region (Bundesland).                                                 |
+| `postcode`        | **Required** | Also determines the region (Bundesland) shown on the posting.                                   |
 | `city`            | Recommended  | Shown as the posting's municipality.                                                            |
 | `street`          | Recommended  | Shown as part of the job location.                                                              |
-| `contact_name`    | Recommended  | Contact shown on the posting. Falls back to the default contact configured during onboarding — if neither exists, the export fails. |
-| `salary_from` / `salary_to` | Optional | Exported when `salary_frequency` is yearly or hourly.                                 |
-| `salary_frequency` | Optional    | Needed for salary export: yearly → annual salary profile, hourly → hourly wage profile.         |
+| `contact_name`    | Recommended  | Contact shown on the posting. Falls back to the default contact configured during onboarding — if neither exists, the posting cannot be published. |
+| `salary_from` / `salary_to` | Optional | Shown when `salary_frequency` is yearly or hourly.                                    |
+| `salary_frequency` | Optional    | Needed for salary display: yearly → annual salary, hourly → hourly wage.                        |
 | `remote`          | Optional     | `remote` and `hybrid` mark the posting as home-office possible.                                 |
 | `senority`        | Optional     | `unexperienced` marks the posting as suitable without professional experience.                  |
 | `start_date`      | Optional     | Defaults to the publication date if omitted.                                                    |
@@ -124,10 +119,10 @@ These fields are passed in the job's `custom_fields` object:
 
 | Custom field        | Requirement  | Notes                                                                                        |
 | :------------------ | :----------- | :-------------------------------------------------------------------------------------------- |
-| `ba_title_code`     | **Required** | The **BA occupation code** (DKZ ID) from the BA's official occupation catalogue — note this is *not* a KldB code. Bookings without it are not exported. |
-| `ba_hiring_org_id`  | Optional     | Posts under a specific HiringOrgId (BA customer number), overriding the company default.       |
-| `branch`            | Optional     | Branch name; resolved to the branch's HiringOrgId configured during onboarding. The HiringOrgId identifies the **branch that posts the job**, not the work location — for multi-branch companies it must be chosen explicitly and is never derived from the job's postcode. |
-| `state`             | Optional     | Bundesland; used as a fallback for the BA region when the postcode cannot be resolved.        |
+| `ba_title_code`     | **Required** | The **BA occupation code** (DKZ ID) from the BA's official occupation catalogue — note this is *not* a KldB code. Postings cannot be published without it. |
+| `ba_hiring_org_id`  | Optional     | Posts under a specific BA customer number, overriding the company default.                     |
+| `branch`            | Optional     | Branch name; resolved to the branch's BA customer number configured during onboarding. The customer number identifies the **branch that posts the job**, not the work location — for multi-branch companies it must be chosen explicitly and is never derived from the job's postcode. |
+| `state`             | Optional     | Bundesland; used as a fallback for the posting's region when the postcode cannot be resolved. |
 | `ba_number_to_fill` | Optional     | Number of open positions for this posting (default: 1).                                       |
 | `private_placement` | Optional     | Overrides the company default for private placement.                                          |
 | `labour_leasing`    | Optional     | Overrides the company default for labour leasing. Mutually exclusive with `private_placement`. |
@@ -138,9 +133,9 @@ These fields are passed in the job's `custom_fields` object:
 
 <br />
 
-## Validation Errors
+## When a Posting Is Rejected
 
-The BA validates every submission against the HR-BA-XML schema and its business rules. When a posting is rejected, the booking moves to `PUBLISH_FAILED` and the BA's error codes and messages are stored in the booking's `failure_error` field, for example:
+The BA checks every posting before it goes live. When a posting is rejected, the booking moves to `PUBLISH_FAILED` and the BA's reason is stored in the booking's `failure_error` field, for example:
 
 ```text
 FLR_JCValid_044: JobContactWebSite missing for KindOfApplication 6
@@ -152,6 +147,5 @@ Typical causes:
 - Missing **application URL**
 - **Description too short** (the BA requires at least 30 characters)
 - Missing or unresolvable **postcode / location** data
-- A posting with the same reference already exists (this one is handled automatically and does not fail the booking)
 
 Fix the job data and rebook, or contact [tech@getkini.com](mailto:tech@getkini.com) if the error message is unclear.
