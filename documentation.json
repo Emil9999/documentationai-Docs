@@ -41,6 +41,36 @@
                 "path": "guides/rate-limits"
               }
             ]
+          },
+          {
+            "group": "Job Sync",
+            "icon": "briefcase",
+            "expandable": true,
+            "pages": [
+              {
+                "title": "Job Sync",
+                "path": "guides/job-sync"
+              }
+            ]
+          },
+          {
+            "group": "Candidate Sync",
+            "icon": "file-user",
+            "expandable": true,
+            "pages": [
+              {
+                "title": "Application Flow",
+                "path": "guides/application-flow"
+              },
+              {
+                "title": "Duplicate Applications",
+                "path": "guides/duplicate-applications"
+              },
+              {
+                "title": "Data Retention & Anonymization",
+                "path": "guides/data-retention"
+              }
+            ]
           }
         ]
       },

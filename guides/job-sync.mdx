@@ -1,0 +1,64 @@
+---
+title: "Job Sync"
+description: "How jobs get into Kini — pushed through the API, pulled from the company's ATS, or crawled from the company's career page — and how to keep them up to date."
+---
+
+## How Jobs Reach Kini
+
+Jobs enter the platform in one of three ways:
+
+| Source                  | How it works                                                                                       |
+| :---------------------- | :--------------------------------------------------------------------------------------------------|
+| **API push**            | The partner creates and updates jobs via [POST /jobs](/api/jobs/index) and PATCH /jobs/\{id\}.     |
+| **Managed ATS sync**    | Kini pulls jobs directly from the company's connected ATS on a regular schedule.                   |
+| **Career page crawling**| Kini crawls the company's career page and imports the published jobs automatically.               |
+
+Regardless of the source, jobs look the same in the API: the `import_source` field tells you where a job came from (for example `crawler` for crawled jobs), and all jobs trigger the same [Job Updates](/webhooks/job-update) webhook events.
+
+---
+
+## Pushing Jobs via the API
+
+### Creating jobs
+
+Create jobs with [POST /jobs](/api/jobs/index). Always include your `external_id` — it identifies the job in your system, and applications can reference it via `external_job_id` (see [Application Flow](/guides/application-flow)).
+
+<Callout kind="warning">
+  **POST /jobs** is not an upsert: every request creates a new job. To check whether a job already exists, query it first:
+
+```text
+GET /jobs?external_id=YOUR-JOB-ID
+```
+
+</Callout>
+
+### Updating jobs
+
+Update existing jobs with **PATCH /jobs/\{id\}**, using the Kini job ID from the create response or from a `GET /jobs?external_id=…` lookup. Changes to `screening_questions` also refresh the job's `application_form_fields`.
+
+### Job statuses
+
+| Status     | Meaning                                                        |
+| :--------- | :--------------------------------------------------------------|
+| `active`   | The job is live and can receive applications.                  |
+| `archived` | The job is no longer available at its source.                  |
+| `deleted`  | The job was deleted.                                           |
+
+---
+
+## Career Page Crawling
+
+For companies without an ATS connection or API integration, Kini can import jobs by crawling the company's career page:
+
+- Kini sets up a crawler for the company's career page and runs it on a regular schedule.
+- Published jobs are imported and kept up to date automatically; jobs that disappear from the career page are archived.
+- Crawled jobs carry `import_source: "crawler"` and behave like any other job — same fields, same webhooks, same application flow.
+
+Crawling is configured by Kini per company. If you work with a company whose jobs should be imported this way, contact [tech@getkini.com](mailto:tech@getkini.com).
+
+---
+
+## Keeping Jobs in Sync
+
+- **Push**: subscribe to the [Job Updates](/webhooks/job-update) webhook. The `event` field distinguishes `CREATED`, `UPDATED` (re-fetch the job and refresh cached questions), and `ARCHIVED` (remove the job from your system).
+- **Pull**: poll [GET /jobs](/api/jobs/index) and use the `last_content_update_at` filter to fetch only jobs whose content changed since your last sync — see [Filtering](/guides/filtering).

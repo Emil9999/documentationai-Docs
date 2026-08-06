@@ -36,7 +36,7 @@ The following payload is sent to your configured webhook URL:
 | `partner_company_id`     | string | The partner-specific ID of the company, in case it was provided upon company onboarding.                    |
 | `partner_application_id` | string | The partner-specific ID of the application, in case it was provided upon application creation.              |
 | `external_job_id`        | string | The external job ID.                                                                                        |
-| `status`                 | enum   | The current synchronization status of the application (`SUCCESS`, `FAILURE`, `EXPECTED_FAILURE`, `NOTSENT`). |
+| `status`                 | enum   | The current synchronization status of the application (`SUCCESS`, `SUCCESS_FALLBACK`, `FAILURE`, `EXPECTED_FAILURE`, `NOTSENT`). |
 | `failure_error`          | string | Error details if the synchronization failed (otherwise `null`).                                             |
 
 ## Status Values
@@ -44,8 +44,9 @@ The following payload is sent to your configured webhook URL:
 The `status` field can have the following values:
 
 - **SUCCESS**: The application was synchronized successfully.
+- **SUCCESS_FALLBACK**: The application could not be delivered to its original job and was synchronized to the company's configured fallback job instead.
 - **FAILURE**: An error occurred during synchronization. Failure details are provided in the `failure_error` field.
-- **EXPECTED_FAILURE**: Synchronization failed due to an expected error, such as `DuplicateApplicationError` or `JobNotPublishedError`.
+- **EXPECTED_FAILURE**: Synchronization failed due to an expected error, such as `DuplicateApplicationError` (the candidate already exists in the ATS) or `JobNotPublishedError`. No action is needed — see [Duplicate Applications](/guides/duplicate-applications).
 - **NOTSENT**: Synchronization has not been sent to the ATS yet, or is still in progress.
 
 ## Delivery & Retries

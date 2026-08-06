@@ -472,7 +472,7 @@
                             "type": "string",
                             "x-spec-enum-id": "be2689a2a5226a4f",
                             "readOnly": true,
-                            "description": "Indicates the current state of the application synchronization to the company's ATS. Enum: SUCCESS (Sync Successful), EXPECTED_FAILURE (Sync Failed Expectedly, No Action Needed), FAILURE (Sync Failed), NOTSENT (Sync Not Triggered).",
+                            "description": "Indicates the current state of the application synchronization to the company's ATS. Enum: SUCCESS (Sync Successful), SUCCESS_FALLBACK (Delivered to the Company's Fallback Job), EXPECTED_FAILURE (Sync Failed Expectedly, e.g. Duplicate Candidate — No Action Needed, see `failure_error`), FAILURE (Sync Failed), NOTSENT (Sync Not Triggered).",
                             "example": "SUCCESS"
                           },
                           "email_sync_status": {
@@ -507,7 +507,7 @@
                               "string"
                             ],
                             "readOnly": true,
-                            "description": "Error message if the application synchronization failed",
+                            "description": "Error type if the application synchronization failed, e.g. `DuplicateApplicationError` (candidate already exists in the ATS) or `JobNotPublishedError`",
                             "example": null
                           },
                           "created_at": {
@@ -881,7 +881,7 @@
                         "type"
                       ]
                     },
-                    "description": "List of attachments provided by the applicant"
+                    "description": "List of attachments provided by the applicant. The total request body must stay below 27.5 MB — with Base64 overhead this allows roughly 20 MB of raw attachment files per application."
                   }
                 },
                 "required": [
@@ -2257,7 +2257,7 @@
                       "type": "string",
                       "x-spec-enum-id": "be2689a2a5226a4f",
                       "readOnly": true,
-                      "description": "Indicates the current state of the application synchronization to the company's ATS. Enum: SUCCESS (Sync Successful), EXPECTED_FAILURE (Sync Failed Expectedly, No Action Needed), FAILURE (Sync Failed), NOTSENT (Sync Not Triggered).",
+                      "description": "Indicates the current state of the application synchronization to the company's ATS. Enum: SUCCESS (Sync Successful), SUCCESS_FALLBACK (Delivered to the Company's Fallback Job), EXPECTED_FAILURE (Sync Failed Expectedly, e.g. Duplicate Candidate — No Action Needed, see `failure_error`), FAILURE (Sync Failed), NOTSENT (Sync Not Triggered).",
                       "example": "SUCCESS"
                     },
                     "email_sync_status": {
@@ -2292,7 +2292,7 @@
                         "string"
                       ],
                       "readOnly": true,
-                      "description": "Error message if the application synchronization failed",
+                      "description": "Error type if the application synchronization failed, e.g. `DuplicateApplicationError` (candidate already exists in the ATS) or `JobNotPublishedError`",
                       "example": null
                     },
                     "created_at": {
@@ -3562,7 +3562,6 @@
                   }
                 },
                 "required": [
-                  "id",
                   "title"
                 ]
               }
@@ -9304,7 +9303,7 @@
             "type": "string",
             "x-spec-enum-id": "be2689a2a5226a4f",
             "readOnly": true,
-            "description": "Indicates the current state of the application synchronization to the company's ATS. Enum: SUCCESS (Sync Successful), EXPECTED_FAILURE (Sync Failed Expectedly, No Action Needed), FAILURE (Sync Failed), NOTSENT (Sync Not Triggered).",
+            "description": "Indicates the current state of the application synchronization to the company's ATS. Enum: SUCCESS (Sync Successful), SUCCESS_FALLBACK (Delivered to the Company's Fallback Job), EXPECTED_FAILURE (Sync Failed Expectedly, e.g. Duplicate Candidate — No Action Needed, see `failure_error`), FAILURE (Sync Failed), NOTSENT (Sync Not Triggered).",
             "example": "SUCCESS"
           },
           "failure_error": {
@@ -9312,7 +9311,7 @@
               "string"
             ],
             "readOnly": true,
-            "description": "Error message if the application synchronization failed",
+            "description": "Error type if the application synchronization failed, e.g. `DuplicateApplicationError` (candidate already exists in the ATS) or `JobNotPublishedError`",
             "example": null
           },
           "created_at": {
@@ -11361,7 +11360,7 @@
                   "type": "string",
                   "x-spec-enum-id": "be2689a2a5226a4f",
                   "readOnly": true,
-                  "description": "Indicates the current state of the application synchronization to the company's ATS. Enum: SUCCESS (Sync Successful), EXPECTED_FAILURE (Sync Failed Expectedly, No Action Needed), FAILURE (Sync Failed), NOTSENT (Sync Not Triggered).",
+                  "description": "Indicates the current state of the application synchronization to the company's ATS. Enum: SUCCESS (Sync Successful), SUCCESS_FALLBACK (Delivered to the Company's Fallback Job), EXPECTED_FAILURE (Sync Failed Expectedly, e.g. Duplicate Candidate — No Action Needed, see `failure_error`), FAILURE (Sync Failed), NOTSENT (Sync Not Triggered).",
                   "example": "SUCCESS"
                 },
                 "failure_error": {
@@ -11369,7 +11368,7 @@
                     "string"
                   ],
                   "readOnly": true,
-                  "description": "Error message if the application synchronization failed",
+                  "description": "Error type if the application synchronization failed, e.g. `DuplicateApplicationError` (candidate already exists in the ATS) or `JobNotPublishedError`",
                   "example": null
                 },
                 "created_at": {

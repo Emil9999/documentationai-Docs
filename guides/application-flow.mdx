@@ -1,0 +1,75 @@
+---
+title: "Application Flow"
+description: "The end-to-end flow for submitting candidates through the Kini API: fetch jobs and their application questions, collect answers in your application form, submit the application, and track its delivery to the company's ATS."
+---
+
+## Overview
+
+A typical integration submits candidates in four steps:
+
+1. **Fetch jobs** — including their application form fields and screening questions.
+2. **Collect the application** — display the questions in your own application flow.
+3. **Submit the application** — including answers and attachments.
+4. **Track delivery** — via webhook or by polling the sync status.
+
+All requests require the `Authorization` and `Company-Id` headers described in the [Authentication](/guides/authentication) guide.
+
+---
+
+## Step 1: Fetch Jobs and Their Questions
+
+Retrieve the jobs of a connected company via [GET /jobs](/api/jobs/index). Two fields on the job describe what the application form must collect:
+
+| Field                     | Description                                                                                              |
+| :------------------------ | :-------------------------------------------------------------------------------------------------------- |
+| `application_form_fields` | The fields of the company's application form, in display order — including `type`, `required`, and `options` for select-style fields. |
+| `screening_questions`     | Job-specific screening questions, each with an `id`, the question text, and an `answer_type`.            |
+
+Supported screening question answer types are `boolean`, `text`, `textarea`, `select`, and `multiselect`.
+
+<Callout kind="info">
+  Application questions can change after a job is published. Kini communicates changes through the [Job Updates](/webhooks/job-update) webhook — a `job updated` event means you should re-fetch the job and refresh your cached form fields and questions.
+</Callout>
+
+## Step 2: Collect the Application
+
+Render the form fields and screening questions in your application flow. Respect the `required` flags and, for `select`/`multiselect` questions, restrict answers to the provided `options`.
+
+## Step 3: Submit the Application
+
+Create the application via [POST /applications](/api/applications/index). The key parts of the payload:
+
+| Payload part             | Notes                                                                                                                      |
+| :----------------------- | :-------------------------------------------------------------------------------------------------------------------------- |
+| `candidate`              | Required. At minimum `email` and `first_name`.                                                                             |
+| `job` or `external_job_id` | One of the two is required to link the application to a job.                                                             |
+| `screening_questions`    | The candidate's answers. Each entry must reference the question `id` from the job and match the question's `answer_type`. |
+| `attachments`            | CVs, cover letters, photos. Files are sent inline as Base64-encoded `data` with a `name`, `type`, and `content_type`.     |
+| `partner_application_id` | Your own ID for the application — include it so both sides can reference the same record. See [Duplicate Applications](/guides/duplicate-applications). |
+
+See the [API Reference](/api/applications/index) for a complete request example with all supported fields.
+
+<Callout kind="warning">
+  ### Attachment Size Limit
+
+The total request body must stay below **27.5 MB**. Base64 encoding adds roughly 37% overhead, so plan for about **20 MB of raw attachment files** per application. Larger requests are rejected with a `400` error — if a candidate uploads more, compress the files or drop the least important attachment.
+
+</Callout>
+
+## Step 4: Track Delivery
+
+Kini forwards the application to the company's ATS asynchronously. Two ways to follow along:
+
+- **Push**: subscribe to the [Application Sync Status Update](/webhooks/application-sync-status-update) webhook to be notified when the application reaches the ATS (or fails to).
+- **Pull**: poll [GET /applications](/api/applications/index) and read the `sync_status` field (`SUCCESS`, `SUCCESS_FALLBACK`, `FAILURE`, `EXPECTED_FAILURE`, `NOTSENT`). You can filter by `sync_status` — see [Filtering](/guides/filtering).
+
+Once synced, the `external_id` field carries the application's ID in the company's ATS.
+
+---
+
+## Related Guides
+
+- [Duplicate Applications](/guides/duplicate-applications) — how to submit idempotently and avoid duplicate records.
+- [Data Retention & Anonymization](/guides/data-retention) — how long candidate data stays available.
+- [Error Handling](/guides/error-handling) — validation errors and retry recommendations.
+- [Rate Limits](/guides/rate-limits) — request budgets per connected company.
