@@ -187,6 +187,38 @@
               "POST /clickout/redirect/",
               "GET /job_bookings/",
               "PATCH /job_bookings/{id}/unpublish/",
+              "GET /talent_channels/",
+              "GET /integrations/",
+              "GET /integrations/{integration}/fields/"
+            ],
+            "pages": []
+          },
+          {
+            "group": "Integrations",
+            "icon": "plug",
+            "expandable": true,
+            "openapi": "api/kini-api.json",
+            "path": "api/integrations/index",
+            "hidden-apis": [
+              "GET /applications/",
+              "POST /applications/",
+              "GET /applications/{id}",
+              "GET /jobs",
+              "POST /jobs",
+              "GET /jobs/{id}",
+              "PATCH /jobs/{id}",
+              "GET /companies/",
+              "POST /companies/",
+              "GET /companies/{id}/",
+              "PATCH /companies/{id}/",
+              "POST /companies/{id}/magic/",
+              "POST /companies/{id}/sync/jobs/",
+              "PATCH /companies/{id}/deactivate/",
+              "POST /companies/{id}/compose/",
+              "POST /clickout/promote/",
+              "POST /clickout/redirect/",
+              "GET /job_bookings/",
+              "PATCH /job_bookings/{id}/unpublish/",
               "GET /talent_channels/"
             ],
             "pages": []

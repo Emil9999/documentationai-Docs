@@ -14,10 +14,10 @@ All requests require authentication — see [Authentication](/guides/authenticat
 - `PATCH /companies/{id}/` — update a company's profile fields.
 - `POST /companies/{id}/magic/` — create or retrieve an active magic link for the company.
 - `POST /companies/{id}/sync/jobs/` — trigger a manual job sync from the linked ATS.
-- `PATCH /companies/{id}/deactivate/` — mark the company as deactivated.
 - `POST /companies/{id}/compose/` — configure or update an integration (credentials, feature settings) for the company, optionally updating the company's own fields in the same request.
-- `GET /integrations/` — list the ATS integrations Kini offers, with the slugs you pass as `ats` and `integration`.
-- `GET /integrations/{integration}/fields/` — list the configuration fields a single integration needs, so you can build the setup form without hard-coding each ATS.
+- `PATCH /companies/{id}/deactivate/` — mark the company as deactivated.
+
+The slugs you pass as `ats` and `integration`, and the fields `compose` expects, come from the [Integrations](/api/integrations/index) endpoints.
 
 ## Common use cases
 
@@ -26,7 +26,6 @@ All requests require authentication — see [Authentication](/guides/authenticat
 - Sync job listings from the ATS on demand after a configuration change.
 - Share a magic link with a company admin so they can sign in without a password.
 - Let a company admin configure their own integration through a magic link, without issuing them an API key.
-- Render an integration setup form from `GET /integrations/{integration}/fields/` and post the answers back to `POST /companies/{id}/compose/`, instead of maintaining one form per ATS.
 - Reconcile your account records against the canonical company list in Kini.
 
 ## Before you start
@@ -35,8 +34,7 @@ All requests require authentication — see [Authentication](/guides/authenticat
 - Store the returned company IDs — most other endpoints require a `Company-Id` header.
 - `POST /companies/{id}/sync/jobs/` is throttled to one request per minute per company.
 - `PATCH /companies/{id}/deactivate/` is irreversible from the API — reactivate from the Kini admin if needed.
-- `POST /companies/{id}/compose/` accepts either a Bearer API key or a valid Magic Link token — no API key is required when a Magic Link `token` is supplied. The same applies to the two `/integrations/` endpoints, except that reading them does not consume the link.
-- Which fields `GET /integrations/{integration}/fields/` returns depends on the partner's entitlements, so do not cache one field list and reuse it across partners.
+- `POST /companies/{id}/compose/` accepts either a Bearer API key or a valid Magic Link token — no API key is required when a Magic Link `token` is supplied.
 
 <Callout kind="tip" collapsed="false">
   Combine the list endpoint with [Filtering](/guides/filtering) to narrow results by name, ATS, or external reference when the list is long.

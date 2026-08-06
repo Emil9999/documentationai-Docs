@@ -1,0 +1,50 @@
+---
+title: Integrations
+description: >-
+  Discover the ATS integrations Kini supports and the configuration fields each
+  one needs, so you can build a setup flow that works for every ATS.
+---
+The Integrations endpoints describe what Kini can connect to and what each connection needs. Read them before creating a company or configuring its integration — together they let you drive the whole setup from your own UI without hard-coding a single ATS.
+
+All requests require authentication. These two endpoints accept either a partner-scoped API key or a Magic Link token — see [Authentication](/guides/authentication).
+
+## Available endpoints
+
+- `GET /integrations/` — list the ATS integrations Kini offers, each with the slug you pass as `ats` when creating a company and as `integration` when configuring one.
+- `GET /integrations/{integration}/fields/` — list the configuration fields a single integration needs, including where each value belongs in the `config` object.
+
+## The setup flow
+
+<Steps>
+  <Step title="List the integrations" icon="list">
+    Call `GET /integrations/` and let the user pick one. Keep its `slug`.
+  </Step>
+  <Step title="Create or look up the company" icon="building">
+    Pass the slug as `ats` in [Create Company](/api/post-companies), or reuse an existing company.
+  </Step>
+  <Step title="Build the form" icon="table-properties">
+    Call `GET /integrations/{integration}/fields/` and render one input per field, ordered by `order`. Skip everything where `is_visible` is `false` — those are filled from their defaults and are not for the customer to see.
+  </Step>
+  <Step title="Submit the answers" icon="check">
+    Send the values to [Compose Company Integration](/api/post-companies-id-compose) as `config`, keyed by each field's `config_path`.
+  </Step>
+</Steps>
+
+## Common use cases
+
+- Offer a single "connect your ATS" flow that covers every integration, instead of one hand-built form per system.
+- Show a customer the walkthrough for generating their own credentials, using `help_article_url`.
+- Filter the choices you present by `job_sync_supported` and `candidate_sync_supported`.
+- Let a company admin complete their own setup through a Magic Link, without ever being issued an API key.
+
+## Before you start
+
+- Neither endpoint is paginated — both return a plain array.
+- Only publicly offered integrations are returned, ordered by name.
+- The field list depends on the partner's entitlements, so two partners can see different forms for the same integration. Do not cache one field list and reuse it across partners.
+- An unknown integration slug returns an empty array, not a `404`.
+- Reading these endpoints with a Magic Link token does not consume the link — only [Compose Company Integration](/api/post-companies-id-compose) does.
+
+<Callout kind="info">
+  `config_path` values are dotted paths such as `credentials.api_key`. You may send them flat or nested — `{"credentials.api_key": "…"}` and `{"credentials": {"api_key": "…"}}` are equivalent. Paths that end in a dot, such as `channel_mapping.`, expect a nested object. Anything under `credentials.` is written to the secret store and never returned by the API.
+</Callout>
