@@ -67,7 +67,7 @@ Each paginated response includes metadata to help you navigate through the datas
 
 1. **Set a Reasonable Limit:**\
    Use the limit parameter to control the number of records per request and avoid using the maximum limit unless necessary to reduce response size and improve performance.
-2. **Use&#x20;****`next`****&#x20;and&#x20;****`previous`****&#x20;URLs**\
+2. **Use `next` and `previous` URLs**\
    Rely on the next and previous fields from the response for seamless navigation between pages.
 3. **Handle Empty Pages Gracefully**\
    Check if the results array is empty to identify when there are no more records to process.
@@ -84,4 +84,3 @@ Iterate through all pages to retrieve the complete dataset:
 
 1. Start with the first page (`page=1`).
 2. Use the `next` field to request subsequent pages until `next` is `null`.
-

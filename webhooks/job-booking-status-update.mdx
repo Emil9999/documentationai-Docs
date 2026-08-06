@@ -29,7 +29,7 @@ The following payload is sent to your configured webhook URL:
 ```
 
 | Field Name             | Type   | Description                                                                                                                    |
-| :--------------------- | :----- | :---------------------------------------------------------------------------------------------------------------------------- |
+| :---------------------- | :----- | :-------------------------------------------------------------------------------------------------------------------------------- |
 | `company_id`           | int    | The unique Kini ID of the company.                                                                                            |
 | `company_name`         | string | The name of the company.                                                                                                      |
 | `partner_company_id`   | string | The partner-specific ID of the company, in case it was provided upon company onboarding.                                      |
@@ -48,7 +48,7 @@ The `booking_status` field can have the following values:
 - **BOOKED**: The job booking was successfully created in the database.
 - **PROCESSING**: The job booking has been reviewed and is queued to be posted online.
 - **PUBLISHED**: The job booking is now online on the job board. The `booking_url` field will be filled.
-- **PUBLISH_FAILED**: The job booking could not be published on the job board. Contact [support@getkini.com](mailto:support@getkini.com) for details.
+- **PUBLISH_FAILED**: The job booking could not be published on the job board. Contact [tech@getkini.com](mailto:tech@getkini.com) for details.
 - **UNPUBLISHED**: The job booking was prematurely taken down by the customer.
 - **EXPIRED**: The duration for which the job booking was online has ended. The booking has been removed from the job board.
 
@@ -58,10 +58,8 @@ Deliveries are sent as an HTTPS `POST` with a JSON body and a 20-second timeout.
 
 ## Authentication
 
-Kini calls *your* endpoint, so authentication is under your control: when your webhook is set up, you tell us which HTTP headers each delivery should carry — for example an `Authorization: Bearer <token>` header or a custom API-key header that your endpoint checks. Kini stores these securely and sends them with every request.
-
-Kini does **not** sign webhook payloads — there is no `Kini-Signature` header and no HMAC to verify. To confirm a request came from Kini, validate the header/token you configured. Contact [support@getkini.com](mailto:support@getkini.com) if you'd also like to allowlist our egress IPs.
+Kini calls *your* endpoint, so authentication is under your control: when your webhook is set up, you tell us which HTTP headers each delivery should carry — for example an `Authorization: Bearer {token}` header or a custom API-key header that your endpoint checks. Kini stores these securely and sends them with every request.
 
 ## Setup
 
-Webhook endpoints are configured per company in the [Kini Partner App](https://app.getkini.com/). Provide the HTTPS URL that should receive events and the headers Kini should send with each delivery. Need help? Contact [support@getkini.com](mailto:support@getkini.com).
+Webhook endpoints are configured per company in the [Kini Partner App](https://app.getkini.com/). Provide the HTTPS URL that should receive events and the headers Kini should send with each delivery. Need help? Contact [tech@getkini.com](mailto:tech@getkini.com).

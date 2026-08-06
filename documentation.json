@@ -115,8 +115,9 @@
           {
             "group": "Applications",
             "icon": "file-user",
-            "expandable": false,
+            "expandable": true,
             "openapi": "api/kini-api.json",
+            "path": "api/applications/index",
             "hidden-apis": [
               "GET /jobs",
               "POST /jobs",
@@ -129,20 +130,23 @@
               "POST /companies/{id}/magic/",
               "POST /companies/{id}/sync/jobs/",
               "PATCH /companies/{id}/deactivate/",
-              "POST /clickout/"
+              "POST /companies/{id}/compose/",
+              "POST /clickout/promote/",
+              "POST /clickout/redirect/",
+              "GET /job_bookings/",
+              "PATCH /job_bookings/{id}/unpublish/",
+              "GET /talent_channels/",
+              "GET /integrations/",
+              "GET /integrations/{integration}/fields/"
             ],
-            "pages": [
-              {
-                "title": "Overview",
-                "path": "api/applications/index"
-              }
-            ]
+            "pages": []
           },
           {
             "group": "Jobs",
             "icon": "briefcase",
-            "expandable": false,
+            "expandable": true,
             "openapi": "api/kini-api.json",
+            "path": "api/jobs/index",
             "hidden-apis": [
               "GET /applications/",
               "POST /applications/",
@@ -154,20 +158,23 @@
               "POST /companies/{id}/magic/",
               "POST /companies/{id}/sync/jobs/",
               "PATCH /companies/{id}/deactivate/",
-              "POST /clickout/"
+              "POST /companies/{id}/compose/",
+              "POST /clickout/promote/",
+              "POST /clickout/redirect/",
+              "GET /job_bookings/",
+              "PATCH /job_bookings/{id}/unpublish/",
+              "GET /talent_channels/",
+              "GET /integrations/",
+              "GET /integrations/{integration}/fields/"
             ],
-            "pages": [
-              {
-                "title": "Overview",
-                "path": "api/jobs/index"
-              }
-            ]
+            "pages": []
           },
           {
             "group": "Companies",
             "icon": "building",
-            "expandable": false,
+            "expandable": true,
             "openapi": "api/kini-api.json",
+            "path": "api/companies/index",
             "hidden-apis": [
               "GET /applications/",
               "POST /applications/",
@@ -176,20 +183,22 @@
               "POST /jobs",
               "GET /jobs/{id}",
               "PATCH /jobs/{id}",
-              "POST /clickout/"
+              "POST /clickout/promote/",
+              "POST /clickout/redirect/",
+              "GET /job_bookings/",
+              "PATCH /job_bookings/{id}/unpublish/",
+              "GET /talent_channels/",
+              "GET /integrations/",
+              "GET /integrations/{integration}/fields/"
             ],
-            "pages": [
-              {
-                "title": "Overview",
-                "path": "api/companies/index"
-              }
-            ]
+            "pages": []
           },
           {
-            "group": "Shop",
-            "icon": "shopping-cart",
-            "expandable": false,
+            "group": "Integrations",
+            "icon": "plug",
+            "expandable": true,
             "openapi": "api/kini-api.json",
+            "path": "api/integrations/index",
             "hidden-apis": [
               "GET /applications/",
               "POST /applications/",
@@ -204,14 +213,42 @@
               "PATCH /companies/{id}/",
               "POST /companies/{id}/magic/",
               "POST /companies/{id}/sync/jobs/",
-              "PATCH /companies/{id}/deactivate/"
+              "PATCH /companies/{id}/deactivate/",
+              "POST /companies/{id}/compose/",
+              "POST /clickout/promote/",
+              "POST /clickout/redirect/",
+              "GET /job_bookings/",
+              "PATCH /job_bookings/{id}/unpublish/",
+              "GET /talent_channels/"
             ],
-            "pages": [
-              {
-                "title": "Overview",
-                "path": "api/shop/index"
-              }
-            ]
+            "pages": []
+          },
+          {
+            "group": "Shop",
+            "icon": "shopping-cart",
+            "expandable": true,
+            "openapi": "api/kini-api.json",
+            "path": "api/shop/index",
+            "hidden-apis": [
+              "GET /applications/",
+              "POST /applications/",
+              "GET /applications/{id}",
+              "GET /jobs",
+              "POST /jobs",
+              "GET /jobs/{id}",
+              "PATCH /jobs/{id}",
+              "GET /companies/",
+              "POST /companies/",
+              "GET /companies/{id}/",
+              "PATCH /companies/{id}/",
+              "POST /companies/{id}/magic/",
+              "POST /companies/{id}/sync/jobs/",
+              "PATCH /companies/{id}/deactivate/",
+              "POST /companies/{id}/compose/",
+              "GET /integrations/",
+              "GET /integrations/{integration}/fields/"
+            ],
+            "pages": []
           }
         ]
       }
@@ -236,7 +273,7 @@
   "redirects": [
     {
       "source": "/overview-supported-fields",
-      "destination": "/guides/overview-ats-supported-fields"
+      "destination": "/guides/getting-started"
     },
     {
       "source": "/reference/getting-started",
@@ -264,7 +301,7 @@
     },
     {
       "source": "/reference/overview-ats-supported-fields",
-      "destination": "/guides/overview-ats-supported-fields"
+      "destination": "/guides/getting-started"
     },
     {
       "source": "/reference/quickapply-integrations",
@@ -280,15 +317,15 @@
     },
     {
       "source": "/reference/heyflow",
-      "destination": "/integrations/quickapply/heyflow"
+      "destination": "/integrations/quickapply/index"
     },
     {
       "source": "/reference/monster-apply",
-      "destination": "/integrations/quickapply/monster"
+      "destination": "/integrations/quickapply/index"
     },
     {
       "source": "/reference/jobrapido-apply",
-      "destination": "/integrations/quickapply/jobrapido"
+      "destination": "/integrations/quickapply/index"
     },
     {
       "source": "/reference/meta-lead-forms",
@@ -383,28 +420,32 @@
       "destination": "/api/patch-companies-id-deactivate"
     },
     {
+      "source": "/reference/companies_compose",
+      "destination": "/api/post-companies-id-compose"
+    },
+    {
       "source": "/reference/shop",
       "destination": "/api/shop/index"
     },
     {
       "source": "/reference/clickouts_promote_create",
-      "destination": "/api/post-clickout"
+      "destination": "/api/post-clickout-promote"
     },
     {
       "source": "/reference/clickouts_redirect_create",
-      "destination": "/api/shop/index"
+      "destination": "/api/post-clickout-redirect"
     },
     {
       "source": "/reference/job_bookings_list",
-      "destination": "/api/shop/index"
+      "destination": "/api/get-job_bookings"
     },
     {
       "source": "/reference/job_bookings_unpublish",
-      "destination": "/api/shop/index"
+      "destination": "/api/patch-job_bookings-id-unpublish"
     },
     {
       "source": "/reference/talent_channels_list",
-      "destination": "/api/shop/index"
+      "destination": "/api/get-talent_channels"
     },
     {
       "source": "/reference/intro-getting-started",
