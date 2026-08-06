@@ -7262,12 +7262,11 @@
       "post": {
         "operationId": "companies_compose_create",
         "summary": "Compose Company Integration",
-        "description": "Configure the Company's integration in a single call: store the integration credentials, switch on the features the partner is entitled to, and optionally update the Company's own master data.\n\nWhich keys `config` accepts depends on the integration and on the partner's entitlements — unknown keys are rejected with `400`. Ask your Kini contact for the field list of the integration you are wiring up.\n\nExisting configuration for the same company and integration is overwritten, so the call is safe to repeat.\n\nUnlike the rest of the API, this endpoint also accepts a Magic Link token instead of an API key — pass it as the `token` query parameter. That lets a company admin complete their own setup through a link, without ever being issued credentials. A Magic Link token is consumed by the call and cannot be reused.",
+        "description": "Configure the Company's integration in a single call: store the integration credentials, switch on the features the partner is entitled to, and optionally update the Company's own master data.\n\nWhich keys `config` accepts depends on the integration and on the partner's entitlements — unknown keys are rejected with `400`. Use [List Integration Fields](/api/get-integrations-integration-fields) to discover the field list of the integration you are wiring up.\n\nExisting configuration for the same company and integration is overwritten, so the call is safe to repeat.",
         "security": [
           {
             "bearerAuth": []
-          },
-          {}
+          }
         ],
         "parameters": [
           {
@@ -7279,16 +7278,6 @@
             "required": true,
             "description": "Unique Kini ID of the company",
             "example": 1
-          },
-          {
-            "in": "query",
-            "name": "token",
-            "schema": {
-              "type": "string"
-            },
-            "required": false,
-            "description": "Magic Link token. Supply this instead of an API key to let a company admin configure their own integration. Single use.",
-            "example": "EXAMPLEmagiclinktoken12345x"
           },
           {
             "in": "header",
@@ -7366,7 +7355,7 @@
             "description": "Unknown or missing `config` fields, or invalid `company_data`"
           },
           "403": {
-            "description": "No access to the company, or the Magic Link is invalid, expired, or already used"
+            "description": "No access to the company"
           },
           "404": {
             "description": "Company not found"
@@ -7434,25 +7423,13 @@
       "get": {
         "operationId": "integrations_list",
         "summary": "List Integrations",
-        "description": "List the ATS integrations Kini offers. Use the `slug` of an entry as the `ats` value when creating or updating a company, and as `integration` in [Compose Company Integration](/api/post-companies-id-compose).\n\nOnly publicly offered integrations are returned, ordered by name. The response is a plain array — this endpoint is not paginated.\n\nRequires a partner-scoped API key, or a Magic Link token passed as the `token` query parameter.",
+        "description": "List the ATS integrations Kini offers. Use the `slug` of an entry as the `ats` value when creating or updating a company, and as `integration` in [Compose Company Integration](/api/post-companies-id-compose).\n\nOnly publicly offered integrations are returned, ordered by name. The response is a plain array — this endpoint is not paginated.\n\nRequires a partner-scoped API key.",
         "security": [
           {
             "bearerAuth": []
-          },
-          {}
-        ],
-        "parameters": [
-          {
-            "in": "query",
-            "name": "token",
-            "schema": {
-              "type": "string"
-            },
-            "required": false,
-            "description": "Magic Link token. Supply this instead of an API key to let a company admin see the setup form without being issued credentials. Unlike [Compose Company Integration](/api/post-companies-id-compose), reading does not consume the link.",
-            "example": "EXAMPLEmagiclinktoken12345x"
           }
         ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "List of available integrations",
@@ -7539,7 +7516,7 @@
             }
           },
           "403": {
-            "description": "The key is not partner-scoped, or the Magic Link is invalid or expired"
+            "description": "The key is not partner-scoped"
           }
         }
       }
@@ -7548,12 +7525,11 @@
       "get": {
         "operationId": "integrations_fields_list",
         "summary": "List Integration Fields",
-        "description": "List the configuration fields of a single integration — everything a company has to supply before the integration can run.\n\nUse this to build the setup form dynamically instead of hard-coding each ATS: render one input per field in `order`, send the answers back as `config` in [Compose Company Integration](/api/post-companies-id-compose) keyed by `config_path`, and skip the fields where `is_visible` is `false`.\n\nWhich fields come back depends on the partner's entitlements, so two partners can see different forms for the same integration. The response is a plain array — this endpoint is not paginated. An unknown integration slug returns an empty array rather than a `404`.\n\nRequires a partner-scoped API key, or a Magic Link token passed as the `token` query parameter.",
+        "description": "List the configuration fields of a single integration — everything a company has to supply before the integration can run.\n\nUse this to build the setup form dynamically instead of hard-coding each ATS: render one input per field in `order`, send the answers back as `config` in [Compose Company Integration](/api/post-companies-id-compose) keyed by `config_path`, and skip the fields where `is_visible` is `false`.\n\nWhich fields come back depends on the partner's entitlements, so two partners can see different forms for the same integration. The response is a plain array — this endpoint is not paginated. An unknown integration slug returns an empty array rather than a `404`.\n\nRequires a partner-scoped API key.",
         "security": [
           {
             "bearerAuth": []
-          },
-          {}
+          }
         ],
         "parameters": [
           {
@@ -7565,16 +7541,6 @@
             "required": true,
             "description": "Slug of the integration, as returned by [List Integrations](/api/get-integrations)",
             "example": "personio"
-          },
-          {
-            "in": "query",
-            "name": "token",
-            "schema": {
-              "type": "string"
-            },
-            "required": false,
-            "description": "Magic Link token. Supply this instead of an API key to let a company admin see the setup form without being issued credentials. Unlike [Compose Company Integration](/api/post-companies-id-compose), reading does not consume the link.",
-            "example": "EXAMPLEmagiclinktoken12345x"
           }
         ],
         "responses": {
@@ -7674,7 +7640,7 @@
             }
           },
           "403": {
-            "description": "The key is not partner-scoped, or the Magic Link is invalid or expired"
+            "description": "The key is not partner-scoped"
           }
         }
       }

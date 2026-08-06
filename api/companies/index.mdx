@@ -25,7 +25,7 @@ The slugs you pass as `ats` and `integration`, and the fields `compose` expects,
 - Build an onboarding flow that lists available companies for a new integration customer.
 - Sync job listings from the ATS on demand after a configuration change.
 - Share a magic link with a company admin so they can sign in without a password.
-- Let a company admin configure their own integration through a magic link, without issuing them an API key.
+- Send a company admin a magic link so they can complete their own integration setup in Kini's UI, without being issued an API key.
 - Reconcile your account records against the canonical company list in Kini.
 
 ## Before you start
@@ -34,7 +34,7 @@ The slugs you pass as `ats` and `integration`, and the fields `compose` expects,
 - Store the returned company IDs — most other endpoints require a `Company-Id` header.
 - `POST /companies/{id}/sync/jobs/` is throttled to one request per minute per company.
 - `PATCH /companies/{id}/deactivate/` is irreversible from the API — reactivate from the Kini admin if needed.
-- `POST /companies/{id}/compose/` accepts either a Bearer API key or a valid Magic Link token — no API key is required when a Magic Link `token` is supplied.
+- `POST /companies/{id}/compose/` overwrites any existing configuration for the same company and integration, so the call is safe to repeat.
 
 <Callout kind="tip" collapsed="false">
   Combine the list endpoint with [Filtering](/guides/filtering) to narrow results by name, ATS, or external reference when the list is long.
