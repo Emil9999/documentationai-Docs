@@ -1,0 +1,85 @@
+---
+title: "Data Retention & Anonymization"
+description: "Kini automatically anonymizes application data after 180 days. This page explains which fields are affected, how anonymized responses look, and how anonymization interacts with filtering."
+---
+
+<Callout kind="info">
+  ### 180-Day Retention Window
+
+Applications older than **180 days** are **anonymized**: their personal data is no longer available through the API. This supports data-minimization principles and means you should sync any candidate data you need within the retention window.
+
+</Callout>
+
+## How Anonymization Works
+
+Applications are anonymized automatically once 180 days have passed since their `created_at` date. This affects the **GET /applications** and **GET /applications/\{id\}** endpoints.
+
+For an anonymized application, personal-data fields are **removed from the response entirely** — the keys are absent, not set to `null`. Make sure your integration treats these fields as optional.
+
+## Which Fields Are Affected
+
+### Fields removed after 180 days
+
+| Field                 | Contains                                          |
+| :-------------------- | :------------------------------------------------ |
+| `candidate`           | Name, email, phone, address, and other personal data |
+| `attachments`         | CVs, cover letters, and other documents           |
+| `notes`               | Free-text notes submitted with the application    |
+| `social_links`        | Links to the candidate's social profiles          |
+| `screening_questions` | The candidate's answers to screening questions    |
+| `custom_fields`       | Custom data submitted with the application        |
+| `external_id`         | The application's ID in the company's ATS         |
+| `email_sync_status`   | Status of the application's email delivery        |
+| `import_source`       | How the application reached Kini                  |
+| `talent_channel_logo` | Logo URL of the talent channel                    |
+
+### Fields retained
+
+Everything you need for statistics and reporting stays available indefinitely:
+
+`id`, `company`, `job`, `job_title`, `job_external_id`, `talent_channel`, `talent_channel_name`, `agency_job_id`, `partner_job_id`, `partner_company_id`, `partner_application_id`, `applied_at`, `channel`, `status`, `sync_status`, `external_apply_status`, `failure_error`, `created_at`, `updated_at`
+
+## Example Response
+
+An anonymized application in a **GET /applications** response:
+
+```json
+{
+  "id": 1,
+  "company": 1,
+  "job": 123456,
+  "job_title": "Software Engineer (m/w/d)",
+  "job_external_id": "EXT-123456",
+  "talent_channel": 1,
+  "talent_channel_name": "Indeed",
+  "agency_job_id": "EXT-AGENCY-001",
+  "partner_job_id": "EXT-JOB-001",
+  "partner_company_id": "EXT-COMPANY-001",
+  "partner_application_id": "EXT-APPLICATION-001",
+  "applied_at": "2024-01-15T09:30:00Z",
+  "channel": "indeed",
+  "status": "active",
+  "sync_status": "SUCCESS",
+  "external_apply_status": null,
+  "failure_error": null,
+  "created_at": "2024-01-15T09:30:05Z",
+  "updated_at": "2024-01-16T08:00:00Z"
+}
+```
+
+Note that `candidate`, `attachments`, and the other personal-data fields are missing entirely — compare with the full response schema in the [API Reference](/api/applications/index).
+
+## Interaction with Filtering
+
+Filters that match on personal data — `email` and `custom_fields__*` — **exclude anonymized applications** from the results. A query like `GET /applications?email=applicant@example.com` only searches applications that are still within the retention window.
+
+Filters on retained fields (`job`, `talent_channel`, `partner_application_id`, `applied_at`, and so on) work across all applications, including anonymized ones. See [Filtering](/guides/filtering) for the full list of parameters.
+
+## Best Practices
+
+1. **Sync candidate data early**\
+   If you need candidate details in your own system, retrieve them well within the 180-day window. After that, they are no longer available through the API.
+2. **Treat personal-data fields as optional**\
+   Anonymized responses omit fields rather than nulling them. Parse responses defensively so missing keys do not break your integration.
+3. **Use retained fields for reporting**\
+   Counts, channel attribution, and sync statuses remain available for the full history — build long-term reporting on those fields instead of personal data.

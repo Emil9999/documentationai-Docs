@@ -1,0 +1,70 @@
+---
+title: "Duplicate Applications"
+description: "How the Kini API treats repeated submissions, and how to design your integration so retries and re-submissions do not create duplicate applications."
+---
+
+<Callout kind="warning">
+  ### Every POST Creates a New Application
+
+**POST /applications** is not idempotent: the API does not deduplicate submissions. Sending the same application twice creates two application records, and both are forwarded to the company's ATS.
+
+</Callout>
+
+## Designing for Idempotency
+
+Since the API accepts every submission as new, deduplication is the submitting side's responsibility. Two practices cover the common cases:
+
+### 1. Always send a `partner_application_id`
+
+Include your own application ID in every submission. It gives both systems a shared reference and makes duplicates detectable after the fact.
+
+### 2. Check before you retry
+
+If a **POST /applications** request fails with a network error or timeout, the application may still have been created. Before retrying, check whether it exists:
+
+```text
+GET /applications?partner_application_id=YOUR-APP-ID
+```
+
+- If the response contains the application, the original request succeeded — do not resubmit.
+- If the result is empty, it is safe to retry the POST.
+
+A clear error response (e.g. `400 Bad Request`) means no application was created — fix the payload and resubmit.
+
+## Duplicates in the Company's ATS
+
+Duplicate detection happens downstream: many ATS systems reject an application when the candidate already exists for that job. When that happens, Kini marks the application accordingly instead of treating it as an error:
+
+| Field           | Value                                                                    |
+| :-------------- | :------------------------------------------------------------------------ |
+| `sync_status`   | `EXPECTED_FAILURE`                                                       |
+| `failure_error` | `DuplicateApplicationError`                                              |
+
+An `EXPECTED_FAILURE` requires **no action on your side** — the candidate is already known to the company. You receive the status via the [Application Sync Status Update](/webhooks/application-sync-status-update) webhook or by polling `GET /applications`.
+
+<Callout kind="info">
+  `EXPECTED_FAILURE` is not exclusive to duplicates — it also covers other expected rejections, such as the job no longer being published (`JobNotPublishedError`). Always check `failure_error` to distinguish the cause.
+</Callout>
+
+## Candidates Applying Twice
+
+A candidate may genuinely apply to the same job more than once, or to several jobs of the same company. These are legitimate separate applications and are delivered to the ATS as such; most ATS systems match candidates by email address on their side.
+
+If you want to prevent re-submissions in your own flow, query existing applications first:
+
+```text
+GET /applications?email=applicant@example.com&job=1234
+```
+
+<Callout kind="info">
+  The `email` filter only matches applications that are still within the retention window — see [Data Retention & Anonymization](/guides/data-retention).
+</Callout>
+
+## Best Practices
+
+1. **Send `partner_application_id` on every submission**\
+   It is the key to reliable duplicate detection and support requests.
+2. **Retry only after checking**\
+   On timeouts and 5xx errors, verify via `GET /applications?partner_application_id=…` before resubmitting.
+3. **Do not retry validation errors blindly**\
+   A `400` response means the payload was rejected — resubmitting the same payload will fail again. See [Error Handling](/guides/error-handling).
