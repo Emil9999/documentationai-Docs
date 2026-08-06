@@ -9,7 +9,7 @@
     "/applications/": {
       "get": {
         "operationId": "applications_list",
-        "description": "Read several Application details identified by their unique Company ID.",
+        "description": "Read several Application details identified by their unique Company ID. Note: applications older than 180 days are returned anonymized — personal data (candidate, attachments, notes, social links, screening questions, custom fields) is omitted from the response.",
         "summary": "List Applications",
         "parameters": [
           {
@@ -1548,24 +1548,6 @@
                       "description": "Kini ID of the job applied for (either job or external_job_id is required)",
                       "example": 123456
                     },
-                    "job_title": {
-                      "type": [
-                        "string"
-                      ],
-                      "nullable": true,
-                      "readOnly": true,
-                      "description": "Title of the job applied for, copied from the job at read time",
-                      "example": "Software Engineer (m/w/d)"
-                    },
-                    "job_external_id": {
-                      "type": [
-                        "string"
-                      ],
-                      "nullable": true,
-                      "readOnly": true,
-                      "description": "The job's ID in the ATS, copied from the job at read time",
-                      "example": "EXT-123456"
-                    },
                     "talent_channel": {
                       "type": [
                         "integer"
@@ -1574,33 +1556,18 @@
                       "description": "Kini ID of the talent channel the application came from. Resolved from `channel` when omitted on create.",
                       "example": 1
                     },
-                    "talent_channel_name": {
-                      "type": [
-                        "string"
-                      ],
-                      "nullable": true,
-                      "readOnly": true,
-                      "description": "Name of the talent channel the application came from",
-                      "example": "Indeed"
+                    "external_job_id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "description": "The job's ID in the company's ATS, echoed back if provided on create",
+                      "example": "EXT-123456"
                     },
-                    "talent_channel_logo": {
-                      "type": [
-                        "string"
-                      ],
-                      "nullable": true,
-                      "readOnly": true,
+                    "application_url": {
+                      "type": "string",
                       "format": "uri",
-                      "description": "Logo URL of the talent channel the application came from",
-                      "example": "https://storage.googleapis.com/prod-product-logos/logos/indeedcom.com"
-                    },
-                    "external_id": {
-                      "type": [
-                        "string"
-                      ],
-                      "nullable": true,
-                      "readOnly": true,
-                      "description": "The application's ID in the company's ATS, set once Kini has synced it",
-                      "example": "PERS-APP-99213"
+                      "maxLength": 2000,
+                      "description": "URL of the job the candidate applied to, echoed back if provided on create",
+                      "example": "https://careers.example.com/jobs/123456/apply"
                     },
                     "agency_job_id": {
                       "type": [
@@ -1872,82 +1839,6 @@
                       "readOnly": true,
                       "description": "How the application reached Kini. Always `api` for applications created through this endpoint.",
                       "example": "api"
-                    },
-                    "status": {
-                      "type": [
-                        "string"
-                      ],
-                      "readOnly": true,
-                      "enum": [
-                        "active",
-                        "anonymized",
-                        "deleted"
-                      ],
-                      "description": "Lifecycle status of the application record. Enum: active, anonymized (personal data removed after 180 days), deleted.",
-                      "example": "active"
-                    },
-                    "sync_status": {
-                      "enum": [
-                        "SUCCESS",
-                        "SUCCESS_FALLBACK",
-                        "EXPECTED_FAILURE",
-                        "FAILURE",
-                        "NOTSENT"
-                      ],
-                      "type": "string",
-                      "x-spec-enum-id": "be2689a2a5226a4f",
-                      "readOnly": true,
-                      "description": "Indicates the current state of the application synchronization to the company's ATS. Enum: SUCCESS (Sync Successful), EXPECTED_FAILURE (Sync Failed Expectedly, No Action Needed), FAILURE (Sync Failed), NOTSENT (Sync Not Triggered).",
-                      "example": "SUCCESS"
-                    },
-                    "email_sync_status": {
-                      "type": [
-                        "string"
-                      ],
-                      "readOnly": true,
-                      "enum": [
-                        "SUCCESS",
-                        "FAILURE",
-                        "NOTSENT"
-                      ],
-                      "description": "State of the fallback delivery by email, used when the ATS sync is not available",
-                      "example": "NOTSENT"
-                    },
-                    "external_apply_status": {
-                      "type": [
-                        "string"
-                      ],
-                      "readOnly": true,
-                      "enum": [
-                        "NOTSENT",
-                        "CONTACTED",
-                        "REMINDED",
-                        "ENGAGED"
-                      ],
-                      "description": "Progress of the external apply follow-up with the candidate",
-                      "example": "NOTSENT"
-                    },
-                    "failure_error": {
-                      "type": [
-                        "string"
-                      ],
-                      "readOnly": true,
-                      "description": "Error message if the application synchronization failed",
-                      "example": null
-                    },
-                    "created_at": {
-                      "type": "string",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "description": "Timestamp of when the application was first created",
-                      "example": "2026-08-04T07:41:12.338291Z"
-                    },
-                    "updated_at": {
-                      "type": "string",
-                      "format": "date-time",
-                      "readOnly": true,
-                      "description": "Timestamp of when the application was last updated",
-                      "example": "2026-08-04T07:41:19.902114Z"
                     }
                   }
                 }
@@ -1961,7 +1852,7 @@
     "/applications/{id}": {
       "get": {
         "operationId": "applications_retrieve",
-        "description": "Read a specific Application detail identified by its unique ID.",
+        "description": "Read a specific Application detail identified by its unique ID. Note: applications older than 180 days are returned anonymized — personal data (candidate, attachments, notes, social links, screening questions, custom fields) is omitted from the response.",
         "summary": "Get Application",
         "parameters": [
           {
@@ -8582,15 +8473,6 @@
                             "readOnly": true,
                             "description": "Kini ID of the campaign this booking belongs to, or `null` for a single booking",
                             "example": null
-                          },
-                          "partner": {
-                            "type": [
-                              "integer"
-                            ],
-                            "nullable": true,
-                            "readOnly": true,
-                            "description": "Kini ID of the partner the booking's company belongs to",
-                            "example": 1
                           },
                           "failure_error": {
                             "type": [
