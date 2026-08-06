@@ -5,15 +5,16 @@ description: "How jobs get into Kini — pushed through the API, pulled from the
 
 ## How Jobs Reach Kini
 
-Jobs enter the platform in one of three ways:
+Jobs enter the platform in one of four ways:
 
 | Source                  | How it works                                                                                       |
 | :---------------------- | :--------------------------------------------------------------------------------------------------|
 | **API push**            | The partner creates and updates jobs via [POST /jobs](/api/jobs/index) and PATCH /jobs/\{id\}.     |
 | **Managed ATS sync**    | Kini pulls jobs directly from the company's connected ATS on a regular schedule.                   |
 | **Career page crawling**| Kini crawls the company's career page and imports the published jobs automatically.               |
+| **Manual creation**     | Users create and edit jobs by hand in the [Kini App](https://app.getkini.com/).                    |
 
-Regardless of the source, jobs look the same in the API: the `import_source` field tells you where a job came from (for example `crawler` for crawled jobs), and all jobs trigger the same [Job Updates](/webhooks/job-update) webhook events.
+Regardless of the source, jobs look the same in the API: the `import_source` field tells you where a job came from (for example `crawler` for crawled jobs or `manual` for jobs created in the app), and all jobs trigger the same [Job Updates](/webhooks/job-update) webhook events.
 
 ---
 
