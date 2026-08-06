@@ -107,10 +107,6 @@
             "expandable": true,
             "pages": [
               {
-                "title": "Overview",
-                "path": "integrations/campaigns/index"
-              },
-              {
                 "title": "Bundesagentur für Arbeit",
                 "path": "integrations/campaigns/ba"
               }
