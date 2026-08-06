@@ -6,7 +6,7 @@ description: "Efficient data retrieval often requires filtering the dataset to m
 <Callout kind="info">
   ### Supported Endpoints
 
-Filtering is supported for the **GET /jobs** and **GET /applications** endpoints. Ensure you use the correct parameters to avoid unnecessary data processing.
+Filtering is supported for the **GET /jobs**, **GET /applications**, and **GET /companies** endpoints. Ensure you use the correct parameters to avoid unnecessary data processing.
 
 </Callout>
 
@@ -48,13 +48,19 @@ The following parameters can be used to filter results across different endpoint
 
 ### **GET /companies**
 
-| Parameter               | Description                                                            | Filter Type                 | Example Usage                           |
-| :---------------------- | :--------------------------------------------------------------------- | :--------------------------- | :--------------------------------------- |
-| `name`                  | Filters companies by their name                                        | Contains (case-insensitive) | `/companies?name=Acme`                  |
-| `ats`                   | Filters companies by their applicant tracking system (ATS)             | Exact match                 | `/companies?ats=personio`               |
-| `partner_company_id`    | Filters companies by their partner's internal reference (if provided)  | Exact match                 | `/companies?partner_company_id=123`     |
-| `candidate_sync_active` | Filters companies by candidate synchronization status (`true`/`false`) | Exact match                 | `/companies?candidate_sync_active=true` |
-| `job_sync_active`       | Filters companies by job synchronization status (`true`/`false`)       | Exact match                 | `/companies?job_sync_active=false`      |
+| Parameter            | Description                                                                                                                | Filter Type                 | Example Usage                                  |
+| :------------------- | :-------------------------------------------------------------------------------------------------------------------------| :--------------------------- | :---------------------------------------------- |
+| `name`               | Filters companies by their name                                                                                            | Contains (case-insensitive) | `/companies?name=Example`                      |
+| `ats`                | Filters companies by their applicant tracking system (ATS)                                                                 | Exact match                 | `/companies?ats=personio`                      |
+| `partner_company_id` | Filters companies by their partner's internal reference (if provided)                                                      | Exact match                 | `/companies?partner_company_id=EXT-COMPANY-001` |
+| `status`             | Filters companies by lifecycle status. Possible values: `invited`, `requested`, `active`, `failing`, `deactivated`, `deleted`. Repeat the parameter to match several values | Exact match                 | `/companies?status=active&status=failing`      |
+| `search`             | Searches across `name`, the ATS slug, and `partner_company_id`                                                             | Contains (case-insensitive) | `/companies?search=Example`                    |
+
+<Callout kind="info">
+  `job_sync_active` and `candidate_sync_active` are returned in the response but cannot be
+  filtered on — they are derived from the company's entitlements rather than stored on the
+  record.
+</Callout>
 
 ### Explanation of Filter Types:
 
@@ -84,7 +90,7 @@ Filtered requests return the same response format as paginated requests, with me
 ```json
 {
   "count": 125,
-  "next": "https://api.getkini.com/jobs?status=active&page=1&limit=20",
+  "next": "https://api.getkini.com/jobs?status=active&page=2&page_size=20",
   "previous": null,
   "results": [
     {
@@ -109,7 +115,7 @@ Filtered requests return the same response format as paginated requests, with me
    Example:
 
    ```text
-   GET /jobs?status=active&city=Berlin&page=1&limit=20
+   GET /jobs?status=active&city=Berlin&page=1&page_size=20
    ```
 
 2. **Validate Filter Parameters**\
