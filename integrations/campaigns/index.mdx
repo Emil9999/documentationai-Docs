@@ -1,0 +1,40 @@
+---
+title: Campaigns
+description: Distribute jobs to job platforms via campaigns — how booking works, how to track posting status, and which platforms are supported
+---
+
+Campaigns are how jobs get distributed to job platforms through Kini. You set up a campaign in the [Kini App](https://app.getkini.com/), choose the channels it should publish to, and add jobs — Kini takes care of the transfer to each platform and keeps the posting status up to date.
+
+<br />
+
+## How Booking Works
+
+<Steps>
+  <Step title="Create a campaign" icon="flag">
+    Set up a campaign in the Kini App and select the channels it should publish to.
+  </Step>
+  <Step title="Add jobs" icon="rocket">
+    Add jobs when creating the campaign, or add individual jobs at any time via the job's **Promote** function ("Add to campaign"). If a channel needs extra information for a job, the booking form asks for it right there.
+  </Step>
+  <Step title="Track the postings" icon="activity">
+    Each job on each channel becomes a booking. It starts as `BOOKED`, moves to `PROCESSING` while the platform processes it, and ends up `PUBLISHED` with the public posting URL — or `PUBLISH_FAILED` with the reason in `failure_error`.
+  </Step>
+</Steps>
+
+Status changes are pushed via the [Job Booking Status Update](/webhooks/job-booking-status-update) webhook, and bookings can be queried through the [API](/api/shop/index).
+
+<br />
+
+## Supported Platforms
+
+Each platform has its own page covering what end customers need to set up and which job fields partners must fill:
+
+<Columns cols="2">
+  <Card title="Bundesagentur für Arbeit" icon="landmark" href="/integrations/campaigns/ba">
+    Post jobs to the BA Jobbörse — Germany's largest job board.
+  </Card>
+</Columns>
+
+<Callout kind="info">
+  More platforms are booked through the same campaign flow. If the platform you need is not listed here, contact [tech@getkini.com](mailto:tech@getkini.com) — chances are we already support it.
+</Callout>

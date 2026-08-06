@@ -102,13 +102,17 @@
             ]
           },
           {
-            "group": "Multiposting",
-            "icon": "megaphone",
+            "group": "Campaigns",
+            "icon": "flag",
             "expandable": true,
             "pages": [
               {
+                "title": "Overview",
+                "path": "integrations/campaigns/index"
+              },
+              {
                 "title": "Bundesagentur für Arbeit",
-                "path": "integrations/multiposting/ba"
+                "path": "integrations/campaigns/ba"
               }
             ]
           }
