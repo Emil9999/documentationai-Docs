@@ -21,6 +21,10 @@
                 "path": "guides/getting-started"
               },
               {
+                "title": "Agent Quickstart",
+                "path": "guides/agent-quickstart"
+              },
+              {
                 "title": "Authentication",
                 "path": "guides/authentication"
               },
