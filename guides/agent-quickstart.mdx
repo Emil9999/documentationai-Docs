@@ -2,21 +2,7 @@
 title: Agent Quickstart
 description: Connect AI assistants and MCP clients to Kini documentation.
 ---
-The Kini documentation provides a hosted [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) endpoint. Connect your AI assistant or agent to search and reference our documentation, API endpoints, webhooks, and guides directly.
-
-### Endpoint
-
-```text
-https://docs.getkini.com/_mcp
-```
-
-No authentication is required for public documentation.
-
----
-
-## Starter Prompt
-
-Copy and paste this prompt into your AI assistant (ChatGPT, Claude, Cursor, Codex) to start planning or building your integration:
+In a hurry? Copy and paste this prompt into your AI assistant (ChatGPT, Claude, Cursor, Codex) to start planning or building your integration immediately:
 
 ```markdown
 You are an expert integration assistant helping me integrate with Kini (https://api.getkini.com).
@@ -33,9 +19,23 @@ Ask me about our integration goals, existing tech stack, or ATS platform to get 
 
 ---
 
-## Connect your Client
+## Model Context Protocol (MCP) Setup
 
-Add the Kini Docs MCP server to your preferred client to let your assistant query documentation and endpoints directly:
+Kini provides a hosted Model Context Protocol (MCP) reader endpoint. Connect your AI assistant or agent to give it direct, read-only access to our documentation, API endpoints, webhooks, and guides.
+
+### MCP Endpoint
+
+```text
+https://docs.getkini.com/_mcp
+```
+
+No authentication is required for public documentation.
+
+---
+
+## Coding Agents Setup
+
+Add the Kini Docs MCP server to your preferred coding agent or client:
 
 <Tabs>
   <Tab title="Cursor" icon="sparkles">
