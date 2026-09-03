@@ -17,12 +17,12 @@
                 "path": "home"
               },
               {
-                "title": "Introduction",
-                "path": "guides/getting-started"
-              },
-              {
                 "title": "Agent Quickstart",
                 "path": "guides/agent-quickstart"
+              },
+              {
+                "title": "Introduction",
+                "path": "guides/getting-started"
               },
               {
                 "title": "Authentication",

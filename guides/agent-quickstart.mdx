@@ -1,20 +1,26 @@
 ---
 title: Agent Quickstart
-description: Connect AI coding agents to Kini API documentation via MCP and bootstrap integration development.
+description: Connect AI assistants and MCP clients to Kini documentation.
 ---
-Connect your AI coding agent (Cursor, Claude Code, Claude Desktop, Windsurf, VS Code Copilot, or custom LLM workflows) directly to Kini's live documentation and API reference.
+The Kini documentation provides a hosted [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) endpoint. Connect your AI assistant or agent to search and reference our documentation, API endpoints, webhooks, and guides directly.
 
-Kini provides a dedicated [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) reader endpoint at `https://docs.getkini.com/_mcp`. Connecting your agent gives it real-time access to endpoint schemas, authentication rules, webhook payloads, and error codes while writing code.
+### Endpoint
+
+```text
+https://docs.getkini.com/_mcp
+```
+
+No authentication is required for public documentation.
 
 ---
 
-## Step 1: Connect your Agent via MCP
+## Connect your Client
 
-Configure your coding agent or MCP client to connect to the Kini Docs MCP server.
+Add the Kini Docs MCP server to your preferred client:
 
 <Tabs>
   <Tab title="Cursor" icon="sparkles">
-    Add the Kini Docs MCP server to `.cursor/mcp.json` in your project root, or configure it globally in **Cursor Settings → Features → MCP**:
+    Add the server to `.cursor/mcp.json` in your project root, or through **Cursor Settings → Features → MCP**:
 
     ```json .cursor/mcp.json
     {
@@ -34,13 +40,13 @@ Configure your coding agent or MCP client to connect to the Kini Docs MCP server
   </Tab>
 
   <Tab title="Claude Code" icon="terminal">
-    Add the MCP server using the Claude Code CLI:
+    Add the endpoint using the Claude Code CLI:
 
     ```bash
     claude mcp add kini-docs --transport http --url https://docs.getkini.com/_mcp
     ```
 
-    Or add it directly to `.mcp.json` in your project root:
+    Or add it to `.mcp.json` in your project root:
 
     ```json .mcp.json
     {
@@ -60,7 +66,7 @@ Configure your coding agent or MCP client to connect to the Kini Docs MCP server
   </Tab>
 
   <Tab title="Claude Desktop" icon="bot">
-    Add the server configuration to your `claude_desktop_config.json`:
+    Add the server to your `claude_desktop_config.json`:
 
     ```json claude_desktop_config.json
     {
@@ -79,8 +85,8 @@ Configure your coding agent or MCP client to connect to the Kini Docs MCP server
     ```
   </Tab>
 
-  <Tab title="Windsurf & Other Clients" icon="code">
-    Add the server configuration to your MCP configuration file:
+  <Tab title="Codex & Other Clients" icon="code">
+    Add the configuration to your client's MCP settings:
 
     ```json
     {
@@ -99,104 +105,3 @@ Configure your coding agent or MCP client to connect to the Kini Docs MCP server
     ```
   </Tab>
 </Tabs>
-
-<Callout kind="info">
-  The Reader MCP Server is hosted at `https://docs.getkini.com/_mcp` and exposes the `searchDocumentation` tool. It provides read-only documentation access with no credentials required.
-</Callout>
-
----
-
-## Step 2: Add Agent Instructions
-
-Copy and paste the following prompt instructions into your project's agent rules file (`CLAUDE.md`, `.cursorrules`, `.windsurfrules`, `.copilot-instructions.md`, or your agent's system prompt).
-
-```markdown
-# Kini API Integration Context
-
-## Overview
-You are building an integration with the Kini API (https://api.getkini.com).
-Kini connects recruitment platforms, job boards, and ATS (Applicant Tracking Systems) to sync jobs, candidates, applications, and webhooks.
-
-## Core Reference
-- Base URL: `https://api.getkini.com`
-- Docs URL: `https://docs.getkini.com`
-- Reader MCP endpoint: `https://docs.getkini.com/_mcp`
-
-## Authentication & Headers
-All requests must include:
-- `Authorization: Bearer <API_KEY>` (generated in https://app.getkini.com/)
-- `Company-Id: <COMPANY_ID>` (identifies the customer company; use the partner test company ID during testing)
-- `Content-Type: application/json`
-
-## Key Endpoints
-- **Jobs API**:
-  - `GET /jobs?pagination=true` — List jobs (pass `pagination=true` for paginated sets).
-  - `POST /jobs` — Create a new job posting (not an upsert; query first to avoid duplicates).
-  - `PUT /jobs/{id}` — Update an existing job.
-  - `DELETE /jobs/{id}` — Archive a job.
-- **Applications API**:
-  - `POST /applications` — Submit candidate application to ATS.
-  - `GET /applications?pagination=true` — List candidate applications (180-day retention window).
-  - `GET /applications/{id}` — Retrieve candidate sync details.
-- **Companies API**:
-  - `GET /companies` — List accessible customer companies.
-  - `GET /companies/{id}` — Get single company details and sync status.
-- **Shop API**:
-  - `POST /clickout/` — Generate clickout tracking link.
-  - `POST /product_bookings/` — Book marketing/job channels.
-
-## Webhooks
-- `application_sync_status_update`: Sent when candidate is synced to ATS (`SUCCESS`, `FAILURE`, `EXPECTED_FAILURE`, `NOTSENT`).
-- `job_update`: Sent when a job is created, updated, or archived in the ATS.
-- `job_booking_status_update`: Sent when job booking status changes (`BOOKED`, `PUBLISHED`, `EXPIRED`, etc.).
-
-## Best Practices
-- Rate limits are 60 requests/minute per connected company.
-- Attachments on `POST /applications` must stay within 20 MB raw files (27.5 MB base64 body limit).
-- In case of `EXPECTED_FAILURE` on applications, inspect `failure_error` for details (e.g. `JobNotPublishedError` or duplicate detection).
-```
-
----
-
-## Step 3: Available Agent Tools
-
-Once connected via MCP, your agent can call the `searchDocumentation` tool to look up live documentation, schemas, and implementation guides directly.
-
-| Capability | What the agent can look up |
-| --- | --- |
-| **Endpoint schemas** | Request body formats, query parameters, path variables, and response schemas. |
-| **Authentication rules** | Bearer token formats, header requirements, and company scoping rules. |
-| **Webhook payloads** | Event names, payload structure, status enums, and failure error codes. |
-| **Integration guides** | QuickApply flows (Indeed, Meta Lead Forms, Perspective), pagination, and error handling. |
-
----
-
-## Example Prompts for your Agent
-
-Here are example prompts you can give your coding agent once connected:
-
-<Steps>
-  <Step title="Scaffold an API client" icon="code" title-type="p">
-    > "Using the Kini API documentation from MCP, generate a TypeScript client with methods to authenticate, list jobs with pagination, and create new job postings."
-  </Step>
-
-  <Step title="Implement candidate application submission" icon="file-user" title-type="p">
-    > "Write a service function that submits candidate details and a base64-encoded PDF resume to `POST /applications` on the Kini API, handling error codes and attachment limits."
-  </Step>
-
-  <Step title="Build a webhook receiver" icon="webhook" title-type="p">
-    > "Create an Express/Next.js route handler for the Kini `application_sync_status_update` webhook that parses the event status, handles `EXPECTED_FAILURE` cases, and logs failure errors."
-  </Step>
-</Steps>
-
----
-
-## Environments & Testing
-
-The Kini API operates on a single environment:
-
-```text
-https://api.getkini.com
-```
-
-When building and testing with your agent, use your assigned **test company ID** in the `Company-Id` header. Data created under your test company does not impact production customers. If you need your test company ID or API keys, check the [Kini Partner App](https://app.getkini.com/) or contact [tech@getkini.com](mailto:tech@getkini.com).
