@@ -2,9 +2,12 @@
 title: Agent Quickstart
 description: Connect AI assistants and MCP clients to Kini documentation.
 ---
-In a hurry? Copy and paste this prompt into your AI assistant (ChatGPT, Claude, Cursor, Codex) to start planning or building your integration immediately:
 
-```markdown
+<Callout kind="tip">
+**In a hurry?** Copy and paste this starter prompt into your AI assistant (ChatGPT, Claude, Cursor, Codex) to start planning or building your integration immediately:
+</Callout>
+
+```markdown Starter Prompt
 You are an expert integration assistant helping me integrate with Kini (https://api.getkini.com).
 
 Kini connects recruitment platforms, job boards, and ATS systems to sync jobs, candidates, applications, and webhooks.
@@ -21,25 +24,23 @@ Ask me about our integration goals, existing tech stack, or ATS platform to get 
 
 ## Model Context Protocol (MCP) Setup
 
-Kini provides a hosted Model Context Protocol (MCP) reader endpoint. Connect your AI assistant or agent to give it direct, read-only access to our documentation, API endpoints, webhooks, and guides.
+Kini provides a hosted [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) reader endpoint. Connect your AI assistant or agent to give it direct, read-only access to our live documentation, API schemas, webhooks, and integration guides.
 
-### MCP Endpoint
+<Callout kind="info">
+**MCP Endpoint:** `https://docs.getkini.com/_mcp`
 
-```text
-https://docs.getkini.com/_mcp
-```
-
-No authentication is required for public documentation.
+No authentication or API key is required to access public documentation.
+</Callout>
 
 ---
 
 ## Coding Agents Setup
 
-Add the Kini Docs MCP server to your preferred coding agent or client:
+Add the Kini Docs MCP server to your preferred coding agent or IDE:
 
 <Tabs>
   <Tab title="Cursor" icon="sparkles">
-    Add the server to `.cursor/mcp.json` in your project root, or through **Cursor Settings → Features → MCP**:
+    Add the server to `.cursor/mcp.json` in your project root, or configure it via **Cursor Settings → Features → MCP**:
 
     ```json .cursor/mcp.json
     {
@@ -59,7 +60,7 @@ Add the Kini Docs MCP server to your preferred coding agent or client:
   </Tab>
 
   <Tab title="Claude Code" icon="terminal">
-    Add the endpoint using the Claude Code CLI:
+    Add the endpoint directly using the Claude Code CLI:
 
     ```bash
     claude mcp add kini-docs --transport http --url https://docs.getkini.com/_mcp
@@ -105,7 +106,7 @@ Add the Kini Docs MCP server to your preferred coding agent or client:
   </Tab>
 
   <Tab title="Codex & Other Clients" icon="code">
-    Add the configuration to your client's MCP settings:
+    Add the configuration to your MCP-compatible client's settings:
 
     ```json
     {
@@ -124,3 +125,25 @@ Add the Kini Docs MCP server to your preferred coding agent or client:
     ```
   </Tab>
 </Tabs>
+
+---
+
+## Next Steps
+
+<Columns cols="2">
+  <Card title="Authentication" href="/guides/authentication" icon="key" horizontal="false">
+    Obtain a Bearer API key and configure required company headers.
+  </Card>
+
+  <Card title="Explore Endpoints" href="/api/jobs/index" icon="code" horizontal="false">
+    Browse OpenAPI specifications for Jobs, Applications, and Companies.
+  </Card>
+
+  <Card title="Webhooks" href="/webhooks/overview" icon="webhook" horizontal="false">
+    Subscribe to real-time events for application sync and job updates.
+  </Card>
+
+  <Card title="Rate Limits & Best Practices" href="/guides/rate-limits" icon="activity" horizontal="false">
+    Review rate limits, pagination requirements, and error handling.
+  </Card>
+</Columns>
